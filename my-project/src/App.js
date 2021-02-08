@@ -1,7 +1,8 @@
 import logo from "./logo.svg";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-
+import NavBar from "./components/Navbar"
+import MyCard from "./components/Card"
 import {
   Container,
   Row,
@@ -9,37 +10,17 @@ import {
   Button,
   Alert,
   Breadcrumb,
-  Card,
   Form,
+  Nav,
 } from "react-bootstrap";
 
 function App() {
   return (
-    <div className="App">
-      <div class="pos-f-t">
-        <div class="collapse" id="navbarToggleExternalContent">
-          <div class="bg-dark p-4">
-            <h4 class="text-white">Collapsed content</h4>
-            <span class="text-muted">Toggleable via the navbar brand.</span>
-          </div>
-        </div>
-        <nav class="navbar navbar-dark bg-dark">
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarToggleExternalContent"
-            aria-controls="navbarToggleExternalContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-        </nav>
-      </div>
-      <img src="https://cdn.pixabay.com/photo/2016/11/18/14/05/brick-wall-1834784_960_720.jpg" />
-    </div>
-  );
+    <>
+    <NavBar/>
+    <MyCard/>
+    </>
+  )
 }
 
 export default App;
