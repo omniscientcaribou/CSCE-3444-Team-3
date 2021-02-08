@@ -12,14 +12,14 @@ const Navbar = () => {
   <div className="collapse navbar-collapse" id="navbarSupportedContent">
     <ul className="navbar-nav ml-auto">
       <li className="nav-item active">
-        <a className="nav-link" href="#">Menu <span className="sr-only">(current)</span></a>
+        <a href="#" class="btn btn-outline-dark" role="button" aria-pressed="true">Menu</a>      
       </li>
       <li className="nav-item active">
-        <a className="nav-link" href="#">Games</a>
+        <a href="#" class="btn btn-outline-dark" role="button" aria-pressed="true">Entertainment</a>      
       </li>
       
       <li className="nav-item active">
-        <a className="nav-link" href="#">Request Assistance</a>
+        <a href="#" class="btn btn-outline-dark" role="button" aria-pressed="true">Request Assistance</a>      
       </li>
     </ul>
   </div>
