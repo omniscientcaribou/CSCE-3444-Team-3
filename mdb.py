@@ -1,5 +1,23 @@
 import pymongo
-client = pymongo.MongoClient('mongodb+srv://username:password@cluster0.xlot2.mongodb.net/<dbname>?retryWrites=true&w=majority')
+
+# I am well aware this is not a safe process to store my login information, there are other methods, and 
+# I very well may try to implement those in the future. However, for now, getting something working is 
+# of the utmost importance. pass.txt is added to my gitignore so it should never be on the repository.
+
+# If you want to emulate this log in then make a text file named 'pass.txt' (add it to your own gitignore 
+# to be safe). Then on your first line enter your username, then second line password.
+
+secret_sauce = open('pass.txt', 'r')
+credentials = []
+for element in secret_sauce:
+    credentials.append(element)
+print(credentials)
+
+username = credentials[0]
+username = username.strip()
+password = credentials[1]
+
+client = pymongo.MongoClient('mongodb+srv://' + username + ':' + password + '@cluster0.xlot2.mongodb.net/<dbname>?retryWrites=true&w=majority')
 
 # Create a Database
 collection = client.restaurauntDB.menu
