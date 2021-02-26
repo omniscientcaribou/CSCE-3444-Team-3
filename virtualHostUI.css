@@ -1,0 +1,37 @@
+div.header{
+    position: relative;
+    left: 80px;
+    font-size: 50px;
+    font-weight: 900;    
+}
+
+div.row{
+    margin: 20px;
+}
+
+div.table{
+    /* position:relative; */
+    background-color:greenyellow;
+    width: 15%;
+    padding-top: 9%;
+    border: 5px solid black;
+    float: left;
+    margin:20px;
+    text-align: Center;
+}
+
+div.timer{
+    position: relative;
+    left: 80px;
+    font-size: 50px;
+    font-weight: 900;
+}
+
+/* div#occupied{
+    background-color:red;
+} */
+
+
+/* #bold {
+    front-weight:bold;
+} */
