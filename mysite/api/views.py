@@ -14,12 +14,11 @@ from .models import Item
 @api_view(['GET'])
 def apiOverview(request):
 	api_urls = {
-		'Menu':'/menu/',
-        'Appetizers' : '/appetizers/',
-        'Desserts' : '/desserts/',
-        'Drinks' : '/drinks/',
-        'entree' : '/entrees/',
-        'sides' : '/sides/'
+		'Show Menu Items' : 'show-menu/',
+        'Get Specific Item' : 'get-item/<str:name>',
+        'Add Items' : 'add-items/',
+        'Update Items' : 'update-items/<str:name>',
+        'Delete Items' : 'delete-item<str:name>'
 		}
 
 	return Response(api_urls)
@@ -28,12 +27,7 @@ def apiOverview(request):
 
 @api_view(['GET'])
 def showMenu(request):
-    i = Item()
-    i.name = "TestInput33"
-    i.description = "TestData33"
-    i.group = "TestGrouping"
-    i.save()
-    print('Saved!')
+
     return Response('Test')
 
 
