@@ -9,4 +9,5 @@ urlpatterns = [
     path('add-items/', views.addMenuItem, name="add-item"),
     path('update-items/<str:pkey>/', views.updateMenuItem, name="update-item"),
     path('delete-item/<str:pkey>/', views.deleteMenuItem, name="delete-item"),
+    path('add-employee/', views.addEmployee, name="add-employee"),
 ]

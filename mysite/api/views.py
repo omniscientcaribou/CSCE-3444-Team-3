@@ -7,8 +7,8 @@ import environ
 from bson import json_util
 env = environ.Env()
 environ.Env.read_env()
-from . serializers import ItemSerializer
-from .models import Item
+from .models import Item, Employee
+from . serializers import ItemSerializer, EmployeeSerializer
 # Create your views here.
 
 @api_view(['GET'])
@@ -68,7 +68,14 @@ def deleteMenuItem(request, pkey):
     Item.objects.filter(name=pkey).delete()
     return Response('Item Deleted!')
 
-# def write_dummy_data():
+@api_view(['POST'])
+def addEmployee(request):
+    serializer = EmployeeSerializer(data=request.data)
+    print(f'Data -> {request.data}.')
+    if serializer.is_valid():
+        serializer.save()
+        return Response('Correct')
+    return Response('Wrong')
 
 
 
