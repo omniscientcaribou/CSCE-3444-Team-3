@@ -7,8 +7,8 @@ import environ
 from bson import json_util
 env = environ.Env()
 environ.Env.read_env()
-# from . serializers import TaskSerializer
-# from .models import Task
+from . serializers import ItemSerializer
+from .models import Item
 # Create your views here.
 
 @api_view(['GET'])
@@ -28,15 +28,38 @@ def apiOverview(request):
 
 @api_view(['GET'])
 def showMenu(request):
-    username = env('USER_N')
-    password = env('USER_P')
-    client = pymongo.MongoClient('mongodb+srv://' + username + ':' + password + env('DB_HALF'))
-    db = client["restaurant"]
-    col = db["appetizers"]
-    lst = []
-    for x in col.find():
-        x['_id'] = str(x['_id'])
-        lst.append(x)
-    print(f'List is -> {(lst)}.')
-    return Response((lst))
+    i = Item()
+    i.name = "TestInput33"
+    i.description = "TestData33"
+    i.group = "TestGrouping"
+    i.save()
+    print('Saved!')
+    return Response('Test')
 
+
+@api_view(['GET'])
+def getItems(request):
+    item = Item.objects.all()
+    serializer = ItemSerializer(item, many=True)
+    return Response(serializer.data)
+
+@api_view(['GET'])
+def getItem(request, pkey):
+    item = Item.objects.get(name=pkey)
+    serializer = ItemSerializer(item, many=False)
+    return Response(serializer.data)   
+
+@api_view(['POST'])
+def addMenuItem(request):
+    item = Item()
+    item.name = "Lasagna"
+    item.description = "It's Lasagna!"
+    item.group = "entree"
+    item.save()
+    return Response('Item Added!')
+
+
+
+
+
+    
