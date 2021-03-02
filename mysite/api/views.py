@@ -45,18 +45,37 @@ def getItems(request):
 
 @api_view(['GET'])
 def getItem(request, pkey):
+    # http://127.0.0.1:8000/api/get-item/Testinput22
     item = Item.objects.get(name=pkey)
     serializer = ItemSerializer(item, many=False)
     return Response(serializer.data)   
 
 @api_view(['POST'])
 def addMenuItem(request):
-    item = Item()
-    item.name = "Lasagna"
-    item.description = "It's Lasagna!"
-    item.group = "entree"
-    item.save()
+    serializer = ItemSerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+
     return Response('Item Added!')
+
+@api_view(['POST'])
+def updateMenuItem(request, pkey):
+    item = Item.objects.get(name=pkey)
+    serializer = ItemSerializer(instance = item, data = request.data)
+    if serializer.is_valid():
+        serializer.save()
+    return Response('Item Added!')
+
+@api_view(['DELETE'])
+def deleteMenuItem(request, pkey):
+    # item = Item.objects.get(name=pkey)
+    # item.delete()
+    Item.objects.filter(name=pkey).delete()
+    return Response('Item Deleted!')
+
+
+
+    
 
 
 
