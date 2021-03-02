@@ -47,6 +47,7 @@ def getItem(request, pkey):
 @api_view(['POST'])
 def addMenuItem(request):
     serializer = ItemSerializer(data=request.data)
+    print(f'->> {request.data}')
     if serializer.is_valid():
         serializer.save()
 
@@ -66,6 +67,9 @@ def deleteMenuItem(request, pkey):
     # item.delete()
     Item.objects.filter(name=pkey).delete()
     return Response('Item Deleted!')
+
+# def write_dummy_data():
+
 
 
 
