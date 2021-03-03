@@ -10,4 +10,7 @@ urlpatterns = [
     path('update-items/<str:pkey>/', views.updateMenuItem, name="update-item"),
     path('delete-item/<str:pkey>/', views.deleteMenuItem, name="delete-item"),
     path('add-employee/', views.addEmployee, name="add-employee"),
+    path('get-employee/<str:pkey>', views.getEmployee, name="get-employee"),
+    path('employee/', views.employee_yeet),
+    path('employee/<str:pkey>/', views.employee_yeet),
 ]

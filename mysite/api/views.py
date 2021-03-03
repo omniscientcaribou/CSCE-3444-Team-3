@@ -77,6 +77,41 @@ def addEmployee(request):
         return Response('Correct')
     return Response('Wrong')
 
+@api_view(['GET'])
+def getEmployee(request, pkey):
+    employee = Employee.objects.get(name=pkey)
+    serializer = EmployeeSerializer(employee, many=False)
+    return Response(serializer.data)
+
+@api_view(['GET', 'POST'])
+def employee_yeet(request, pkey=None):
+    if request.method == 'GET':
+        if pkey:
+            employee = Employee.objects.get(name=pkey)
+            serializer = EmployeeSerializer(employee, many=False)
+        else:
+            employee = Employee.objects.all()
+            serializer = EmployeeSerializer(employee, many=True)
+        return Response(serializer.data)
+    
+    elif request.method == 'POST':
+        if pkey:
+            return Response('Not done')
+        else:
+            name = request.POST.get("name")
+            role = request.POST.get("role")
+            emp = Employee(name, role)
+            serializer = EmployeeSerializer(data=request.data)
+            if serializer.is_valid():
+                serializer.save()
+                return Response('Employee added')
+            else:
+                return Response('Ya done goofed.')
+    return Response(f'{pkey} {request.method}')
+
+    # curl -X POST -d 'name=terry&role=saint' 127.0.0.1:8000/api/employee/
+
+
 
 
 

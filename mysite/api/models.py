@@ -1,6 +1,7 @@
 from django.db import models
 
 class Item(models.Model):
+    # id = models.TextField()
     name = models.TextField()
     description = models.TextField()
     group = models.TextField()
@@ -15,9 +16,3 @@ class Employee(models.Model):
     def __str__(self):
         return self.name
 
-
-# {
-#         "id": null,
-#         "name": "Fried Mozzarella",
-#         "role": "Fried amazing-ness"
-# }
