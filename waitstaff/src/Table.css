@@ -1,0 +1,32 @@
+.Table {
+    align-items: left;
+    float: left;
+    min-width: 20%;
+    min-height: 20%;
+    width: 15vmin;
+    height: 15vmin;
+}
+.Table-Header {
+    position: relative;
+}
+.Table-image {
+    
+    height: 50%;
+    width: 75%;
+}
+.Table-ID {
+    flex: 1;
+    position: absolute;
+
+    top: 0;
+    right: 30px;
+    width: 100%;
+ 
+}
+.Beverage-image {
+    position: absolute;
+    top: 10px;
+    left: 100px;
+    width: 10%;
+    height: 30%;
+}
