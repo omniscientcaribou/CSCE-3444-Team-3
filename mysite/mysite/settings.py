@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 # import os
 # import environ
-    env = environ.Env()
+# env = environ.Env()
 # environ.Env.read_env()
 from boto.s3.connection import S3Connection
 
