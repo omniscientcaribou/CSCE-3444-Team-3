@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 import os
 import environ
 env = environ.Env()
-# environ.Env.read_env()
+environ.Env.read_env()
 
 COMPRESS_OFFLINE = os.environ.get('COMPRESS_OFFLINE', True)
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
