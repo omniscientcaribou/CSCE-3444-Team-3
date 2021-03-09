@@ -5,14 +5,12 @@
     min-height: 20%;
     width: 15vmin;
     height: 15vmin;
-}
-.Table-Header {
     position: relative;
 }
-.Table-image {
-    
+
+.Table-image { 
     height: 50%;
-    width: 75%;
+    width: 50%;
 }
 .Table-ID {
     flex: 1;
@@ -22,11 +20,4 @@
     right: 30px;
     width: 100%;
  
-}
-.Beverage-image {
-    position: absolute;
-    top: 10px;
-    left: 100px;
-    width: 10%;
-    height: 30%;
 }
