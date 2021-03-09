@@ -1,1 +1,8 @@
-*.env
+DATABASE_URL=postgres://xwxrrjnmetkovj:091f1753e97106b3436f825b3de64046db37132e6444af9cf0a4981a003666c4@ec2-54-162-119-125.compute-1.amazonaws.com:5432/d5no3qq8nf88oj
+DB_HALF=@cluster0.xlot2.mongodb.net/<dbname>?retryWrites=true&w=majority
+DB_NAME=restauraunt
+DB_STR=mongodb+srv://<username>:<password>@cluster0.xlot2.mongodb.net/<dbname>?retryWrites=true&w=majority
+SECRET_K=y)*(i1rkn95a)t9$%27_z0)nej4a4ml%4p%@ju#_r^8zgam2=+
+USER_N=cory
+USER_P=kitty123
+authMECH=SCRAM-SHA-1
