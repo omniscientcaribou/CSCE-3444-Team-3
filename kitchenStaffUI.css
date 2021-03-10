@@ -38,7 +38,7 @@ body {
 .splide {
     background-color: dodgerblue;
     border: .2vw solid black;
-
+    border-radius: 1vw;
     height: 70vh;
     margin: .75%;
     padding: 1vw 3.5vw 0 3.5vw;
@@ -48,8 +48,16 @@ body {
     background-color: lightslategrey;
     height: 67vh;
     border: .2vw solid black;
-
+    border-radius: 1vw;
     text-align: center;
+}
+
+.splide__slide.is-active {
+    background-color: #13c59d;
+}
+
+.splide__slide:hover {
+    background-color: mediumturquoise;
 }
 
 .notes {
