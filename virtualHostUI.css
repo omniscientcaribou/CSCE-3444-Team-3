@@ -31,6 +31,10 @@ div#occupied{
     background-color:red;
 }
 
+div#table1{
+    background-color:brown;
+}
+
 
 /* #bold {
     front-weight:bold;
