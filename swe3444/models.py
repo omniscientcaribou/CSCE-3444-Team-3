@@ -11,6 +11,7 @@ class Item(models.Model):
         return self.name
 
 class Employee(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     name = models.TextField()
     role = models.TextField()
 
@@ -18,7 +19,9 @@ class Employee(models.Model):
         return self.name
 
 class Table(models.Model):
-    state = True
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    number = models.IntegerField()
+    state = models.TextField()
 
     def __str__(self):
-        return self.name
+        return str(self.number)
