@@ -4,16 +4,16 @@ import table_image from './table_image.png';
 import Beverage from './Beverage';
 import {useState} from 'react';
 
-function Table(table) {
+function Table(tableInfo) {
 
     const [tableClick, setTableClick] = useState(0);
     function TableClick(e){
-        console.log("button worked?" + table.ID);
-        if(tableClick == table.ID){
+        console.log("button worked?" + tableInfo.ID);
+        if(tableClick == tableInfo.ID){
             setTableClick(0);
         }
         else
-            setTableClick(table.ID);
+            setTableClick(tableInfo.ID);
         console.log(tableClick); 
     }
 
@@ -22,16 +22,16 @@ function Table(table) {
    // }
    // Table.ID++;
 
-   if(tableClick == table.ID){
+   if(tableClick == tableInfo.ID){
         return (
             <div className="Table">
                 <button onClick={TableClick}>
                     <img src={table_image} className="Table-image"/>
                 </button>
                 <div className="Table-ID">
-                    {table.ID} this table is clicked
+                    {tableInfo.ID} this table is clicked
                 </div>
-                <Beverage ID={table.ID} seconds={table.Seconds}/>
+                <Beverage ID={tableInfo.ID} seconds={tableInfo.Seconds}/>
             </div>           
         );
    }
@@ -42,9 +42,9 @@ function Table(table) {
                 <img src={table_image} className="Table-image"/>
             </button>
             <div className="Table-ID">
-                {table.ID}
+                {tableInfo.ID}
             </div>
-            <Beverage ID={table.ID} seconds={table.Seconds}/>
+            <Beverage ID={tableInfo.ID} seconds={tableInfo.Seconds}/>
         </div>
     );
     }

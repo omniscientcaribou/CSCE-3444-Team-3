@@ -14,13 +14,22 @@
   pointer-events: none;
 }
 
+.App-Header {
+  text-align: center;
+  min-width: 15%;
+  max-width: 40%;
+  font-size: 100px;
+  justify-content: content;
+  background-color: rgba(80, 77, 77, 0.096);
+  
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
 }
 
-.App-header {
+.SideBar{
   min-width: 30vh;
   background-color: #282c34;
   min-height: 100vh;

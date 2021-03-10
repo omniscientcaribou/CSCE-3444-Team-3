@@ -1,7 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
-import Table from './Table';
+import Home from './Home';
+import SideBar from './SideBar';
+import Pay from './Pay';
+import Order from './Order';
+import Manager from './Manager';
 import React, { useState, useEffect } from 'react';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 function App() {
   const [seconds, setSeconds] = useState(0);
@@ -12,45 +17,35 @@ function App() {
   }, []);
   console.log(seconds);
   return (
-    <div className="App">
-      <div className="Tables">
-        {/*<div style={{clear: 'both'}}>*/}
-        <Table ID="1" Seconds={seconds}/>
-        <Table ID="2" Seconds={seconds}/>
-        <Table ID="3" Seconds={seconds}/>
+    <Router>
+      <div className="App">
+        <div className="App-Header">
+          Waitstaff
+        </div>
+        <div className="ContentView">
+          <Switch>
+            <Route exact path="/">
+              <Home seconds={seconds}/>
+            </Route>
+            <Route exact path="/pay">
+              <Pay seconds={seconds}/>
+            </Route>
+            <Route exact path="/manager">
+              <Manager seconds={seconds}/>
+            </Route>
+            <Route exact path="/order">
+              <Order seconds={seconds}/>
+            </Route>
+          </Switch>
+        </div>
+        <div className="Text-Box">
 
-        <Table ID="4" Seconds={seconds}/>
-        <Table ID="5" Seconds={seconds}/>
-        <Table ID="6" Seconds={seconds}/>
-
-        <Table ID="7" Seconds={seconds}/>
-        <Table ID="8" Seconds={seconds}/>
-        <Table ID="9" Seconds={seconds}/>
-
-        <Table ID="10" Seconds={seconds}/>
-        <Table ID="11" Seconds={seconds}/>
-        <Table ID="12" Seconds={seconds}/>
-        <Table ID="13" Seconds={seconds}/>
-        <Table ID="14" Seconds={seconds}/>
-        <Table ID="15" Seconds={seconds}/>
-        <Table ID="16" Seconds={seconds}/>
+        </div>
+        <header className="SideBar">
+                <SideBar />
+        </header>
       </div>
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-
-    </div>
+    </Router>
   );
 }
 

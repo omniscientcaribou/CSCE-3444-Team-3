@@ -1,0 +1,11 @@
+.Pay-Header {
+    clear: both;
+    float: left;
+    text-align: center;
+    min-height: 15%;
+    min-width: 15%;
+    max-height: 70%;
+    max-width:70%;
+    font-size: 20vmin;
+    color: black;
+}
