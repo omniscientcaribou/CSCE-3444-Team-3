@@ -36,7 +36,7 @@ body {
 }
 
 .splide {
-    background-color: dodgerblue;
+    background-color: rgb(6, 6, 100);
     border: .2vw solid black;
     border-radius: 1vw;
     height: 70vh;
@@ -45,7 +45,7 @@ body {
 }
 
 .splide__slide {
-    background-color: lightslategrey;
+    background-color: aqua;
     height: 67vh;
     border: .2vw solid black;
     border-radius: 1vw;
@@ -53,11 +53,13 @@ body {
 }
 
 .splide__slide.is-active {
-    background-color: #13c59d;
+    background-color: #1545e4;
+    border: .2vw solid black;
 }
 
 .splide__slide:hover {
-    background-color: mediumturquoise;
+    background-color: rgb(104, 176, 243);
+    border: .2vw solid black;
 }
 
 .notes {
