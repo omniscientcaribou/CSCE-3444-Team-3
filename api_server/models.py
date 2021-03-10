@@ -6,6 +6,11 @@ class Item(models.Model):
     name = models.TextField()
     description = models.TextField()
     group = models.TextField()
+    calories = models.TextField()
+    fat = models.TextField()
+    protein = models.TextField()
+    carbs = models.TextField()
+    allergies = models.TextField()
 
     def __str__(self):
         return self.name
