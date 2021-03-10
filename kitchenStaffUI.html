@@ -3,18 +3,24 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<!-- Language tag for English in the United States -->
 <html lang="en-us">
     <head>
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="description" content="">
+        <meta name="description" content="Kitchen Staff Interface for Restaurant Project">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <!-- Title of Site -->
+        <title>Kitchen Staff</title>
         
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
         <link rel="stylesheet" href="kitchenStaffUI.css">
-        <title>Kitchen Staff</title>
+
+        <!-- Splide.JS CSS Theme -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@2.4.21/dist/css/themes/splide-skyblue.min.css">
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -23,6 +29,7 @@
         
         
         <!-- DIV boxes for Order Cards -->
+        <!--
         <div class="orders">
             <div class="card">
                 order 1
@@ -37,6 +44,23 @@
                 order 4
             </div>
         </div>
+        -->
+        <div class="splide" id="splide">
+            <div class="splide__track">
+                <div class="splide__list">
+                    <div class="splide__slide">Order 1</div>
+                    <div class="splide__slide">Order 2</div>
+                    <div class="splide__slide">Order 3</div>
+                    <div class="splide__slide">Order 4</div>
+                    <div class="splide__slide">Order 5</div>
+                    <div class="splide__slide">Order 6</div>
+                    <div class="splide__slide">Order 7</div>
+                    <div class="splide__slide">Order 8</div>
+                    <div class="splide__slide">Order 9</div>
+                </div>
+            </div>
+        </div
+
         <!-- div box for Notes -->
         <div class="notes">
             <div class="note">
@@ -60,6 +84,13 @@
         
         <!-- Scripts to load -->
         <script src="" async defer></script>
-
+        <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+        
+        <!-- Splide. JS -->
+        <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
+        
+        !-- Kitchen Staff UI JavaScript -->
+        <script src="kitchenStaffUI.js"></script>
     </body>
 </html>
