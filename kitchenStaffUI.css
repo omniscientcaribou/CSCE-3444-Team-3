@@ -1,0 +1,96 @@
+/*
+div.header {
+    position: relative;
+    left: 80px;
+    font-size: 50px;
+    font-weight: 900;
+}
+*/
+body {
+    background-color: rgb(45, 46, 48);
+}
+
+/*
+.orders {
+    background-color: dodgerblue;
+    border: .2rem solid black;
+    height: 70vh;
+    margin: .75%;
+    padding-top: 1vh;
+    padding-left: 1vh;
+    padding-right: 1vh;
+}
+*/
+
+.card {
+    display: flex;
+    position: relative;
+    float: left;
+    background-color: lightslategrey;
+    width: 22%;
+    /* width: 21.3vw; */
+    height: 67vh;
+    border: .2em solid black;
+    margin: 1% 1.5% 1% 1.5%;
+    text-align: left;
+}
+
+.splide {
+    background-color: dodgerblue;
+    border: .2vw solid black;
+    border-radius: 1vw;
+    height: 70vh;
+    margin: .75%;
+    padding: 1vw 3.5vw 0 3.5vw;
+}
+
+.splide__slide {
+    background-color: lightslategrey;
+    height: 67vh;
+    border: .2vw solid black;
+    border-radius: 1vw;
+    text-align: center;
+}
+
+.splide__slide.is-active {
+    background-color: #13c59d;
+}
+
+.splide__slide:hover {
+    background-color: mediumturquoise;
+}
+
+.notes {
+    position: relative;
+    background-color: plum;
+    border: .2vw solid black;
+    padding: .4%;
+    margin: .75%;
+}
+
+.note {
+    position: relative;
+    font-size: 2em;
+    font-weight: 900;
+    text-align: left;
+}
+
+.wait {
+    position: relative;
+    background-color: springgreen;
+    border: .2vw solid black;
+    padding: .4%;
+    margin: .75%;
+}
+
+.timer {
+    position: relative;
+    font-size: 2em;
+    font-weight: 900;
+    text-align: left;
+}
+
+.btn {
+    margin: .2% .8% .5% .8%;
+    border: .2vw solid black;
+}
