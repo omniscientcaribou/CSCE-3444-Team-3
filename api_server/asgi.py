@@ -1,5 +1,5 @@
 """
-ASGI config for swe3444 project.
+ASGI config for api_server project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'swe3444.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'api_server.settings')
 
 application = get_asgi_application()
