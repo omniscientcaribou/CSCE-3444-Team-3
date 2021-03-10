@@ -3,20 +3,63 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
-<html>
+<html lang="en-us">
     <head>
+        <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Kitchen Staff</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="kitchenStaffUI.css">
+        <title>Kitchen Staff</title>
     </head>
     <body>
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
         
+        
+        <!-- DIV boxes for Order Cards -->
+        <div class="orders">
+            <div class="card">
+                order 1
+            </div>
+            <div class="card">
+                order 2
+            </div>
+            <div class="card">
+                order 3
+            </div>
+            <div class="card">
+                order 4
+            </div>
+        </div>
+        <!-- div box for Notes -->
+        <div class="notes">
+            <div class="note">
+                Notes go here
+            </div>
+        </div>
+        
+        <!-- div box for wait time -->
+        <div class="wait">
+            <div class="timer">
+                Longes Wait Time: Table 3 --> 00:23:35
+            </div>
+        </div>
+
+        <!-- BootStrap Buttons -->
+        <div class="d-flex justify-content-between">
+            <button type="button" class="btn btn-secondary btn-lg">Call Waitstaff</button>
+            <button type="button" class="btn btn-primary btn-lg">Order READY!</button>
+            <button type="button" class="btn btn-secondary btn-lg">Call Manager</button>
+        </div>
+        
+        <!-- Scripts to load -->
         <script src="" async defer></script>
+
     </body>
 </html>
