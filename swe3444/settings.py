@@ -11,10 +11,9 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
-import os
-import environ
-env = environ.Env()
-environ.Env.read_env()
+# import environ
+# env = environ.Env()
+# environ.Env.read_env()
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -24,8 +23,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env('SECRET_K')
-
+# SECRET_KEY = env('SECRET_K')
+SECRET_KEY = '123'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -83,16 +82,16 @@ WSGI_APPLICATION = 'swe3444.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
-"default": {
-    "ENGINE": "djongo",
-    "CLIENT": {
-        "host": env('DB_STR'),
-        "username": env('USER_N'),
-        "password": env('USER_P'),
-        "name": env('DB_NAME'),
-        "authMechanism": env('authMECH'),
-        },
-    }
+# "default": {
+#     "ENGINE": "djongo",
+#     "CLIENT": {
+#         "host": env('DB_STR'),
+#         "username": env('USER_N'),
+#         "password": env('USER_P'),
+#         "name": env('DB_NAME'),
+#         "authMechanism": env('authMECH'),
+#         },
+#     }
 }
 
 # Password validation
