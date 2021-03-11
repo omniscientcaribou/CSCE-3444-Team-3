@@ -26,7 +26,12 @@ class Employee(models.Model):
 class Table(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     number = models.IntegerField()
-    state = models.TextField()
+    state = models.BooleanField()
+    refill = models.BooleanField()
+    # required_drinks = models.TextField(default='', blank=True)
+    required_drinks = models.TextField()
+    waitstaff_required = models.BooleanField()
+    manager_required = models.BooleanField()
 
     def __str__(self):
         return str(self.number)

@@ -1,6 +1,6 @@
 
-from .models import Item, Employee
-from . serializers import ItemSerializer, EmployeeSerializer
+from .models import Item, Employee, Table
+from . serializers import ItemSerializer, EmployeeSerializer, TableSerializer
 from rest_framework import viewsets
 # Create your views here.
 
@@ -12,3 +12,7 @@ class ItemViewSet(viewsets.ModelViewSet):
 class EmployeeViewSet(viewsets.ModelViewSet):
     queryset = Employee.objects.all()
     serializer_class = EmployeeSerializer
+
+class TableViewSet(viewsets.ModelViewSet):
+    queryset = Table.objects.all()
+    serializer_class = TableSerializer

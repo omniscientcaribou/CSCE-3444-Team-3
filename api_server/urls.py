@@ -21,6 +21,7 @@ from . import views
 router = routers.DefaultRouter()
 router.register(r'item', views.ItemViewSet)
 router.register(r'employee', views.EmployeeViewSet)
+router.register(r'table', views.TableViewSet)
 
 
 urlpatterns = [
