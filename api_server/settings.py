@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    # "corsheaders",
+    "corsheaders",
     "rest_framework",
     "api_server",
 ]
@@ -138,8 +138,4 @@ STATICFILES_DIRS = (
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-CORS_ALLOW_ALL_ORIGINS = True
-
-# CORS_ORIGIN_WHITELIST = (
-#     'http://localhost:8000',
-# )
+CORS_ORIGIN_ALLOW_ALL = True
