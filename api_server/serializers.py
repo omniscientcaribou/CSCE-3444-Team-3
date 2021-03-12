@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Item, Employee, Table
+from .models import Item, Employee, Table, Task, Aut
 
 class ItemSerializer(serializers.ModelSerializer):
     class Meta:
@@ -14,4 +14,14 @@ class EmployeeSerializer(serializers.ModelSerializer):
 class TableSerializer(serializers.ModelSerializer):
     class Meta:
         model = Table
+        fields = '__all__'
+
+class TaskSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Task
+        fields = '__all__'
+
+class AutSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Aut
         fields = '__all__'
