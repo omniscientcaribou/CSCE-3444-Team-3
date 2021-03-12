@@ -1,3 +1,6 @@
+body{
+    background-color: grey
+}
 div.header{
     position: relative;
     left: 80px;

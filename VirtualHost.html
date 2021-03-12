@@ -7,7 +7,11 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
     <link rel="stylesheet" href="virtualHostUI.css">
+    <script src="VirtualHost.js"></script>
+    
+    <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
 
     <title>Restaurant Name Here</title>
   </head>
@@ -63,12 +67,9 @@
             </div>       
         </div>
     </div>
+
     <button type="button" onclick="myFunction()">Set background color</button>
-    <script>
-        function myFunction(){
-            document.getElementById("table1").style.backgroundColor= "blue";
-        }
-    </script>
+    <button type="button" id="button" onclick="test()">test pinging api</button>
 
     <div class="timer">
         Approx Wait Time - 0:00
