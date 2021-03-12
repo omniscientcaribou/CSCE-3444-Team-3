@@ -14,6 +14,5 @@ class CorsMiddleware:
         # Code to be executed for each request/response after
         # the view is called.
         response["Access-Control-Allow-Origin"] = "*"
-        response["HTTP_ACCESS_CONTROL_ALLOW_ORIGIN"] = "*"
         logging.error(response)
         return response
