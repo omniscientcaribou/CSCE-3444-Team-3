@@ -1,6 +1,6 @@
 document.addEventListener( 'DOMContentLoaded', function () {
 	var ordersSlider = new Splide( '#orders-slider', {
-    type        : 'loop',
+    type        : 'slide',
     isNavigation: true,
     rewind      : true,
     trimSpace   : false,
@@ -19,4 +19,7 @@ document.addEventListener( 'DOMContentLoaded', function () {
 	} ); // do not call mount() here.
 	
 	notesSlider.sync( ordersSlider ).mount();
+
+  var dt = new Date();
+  document.getElementById("datetime").innerHTML = dt.toLocaleTimeString();
 } );

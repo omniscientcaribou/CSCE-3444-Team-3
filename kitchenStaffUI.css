@@ -96,3 +96,16 @@ body {
     margin: .2% .8% .5% .8%;
     border: .2vw solid black;
 }
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-height: 10%;
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.card-header div {
+    width: 100%;
+  }

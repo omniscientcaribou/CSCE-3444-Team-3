@@ -5,85 +5,113 @@
 <!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
 <!-- Language tag for English in the United States -->
 <html lang="en-us">
-    <head>
-        <!-- Required meta tags -->
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="description" content="Kitchen Staff Interface for Restaurant Project">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        
-        <!-- Title of Site -->
-        <title>Kitchen Staff</title>
-        
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-        <link rel="stylesheet" href="kitchenStaffUI.css">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="description"
+      content="Kitchen Staff Interface for Restaurant Project"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        <!-- Splide.JS CSS Theme -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@2.4.21/dist/css/themes/splide-skyblue.min.css">
-    </head>
-    <body>
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-        
-        <!-- DIV boxes for Order Cards -->
-        <div class="splide" id="orders-slider">
-            <div class="splide__track">
-                <div class="splide__list">
-                    <div class="splide__slide" id="order">Order 1</div>
-                    <div class="splide__slide" id="order">Order 2</div>
-                    <div class="splide__slide" id="order">Order 3</div>
-                    <div class="splide__slide" id="order">Order 4</div>
-                    <div class="splide__slide" id="order">Order 5</div>
-                    <div class="splide__slide" id="order">Order 6</div>
-                    <div class="splide__slide" id="order">Order 7</div>
-                    <div class="splide__slide" id="order">Order 8</div>
-                    <div class="splide__slide" id="order">Order 9</div>
-                </div>
-            </div>
-        </div>
+    <!-- Title of Site -->
+    <title>Kitchen Staff</title>
 
-        <!-- div box for Notes -->
-        <div class="notes" id="notes-slider">
-            <div class="splide__track">
-                <div class="splide__list">
-                    <div class="splide__slide" id="note"><p>Note 1</p></div>
-                    <div class="splide__slide" id="note"><p>Note 2</p></div>
-                    <div class="splide__slide" id="note"><p>Note 3</p></div>
-                    <div class="splide__slide" id="note"><p>Note 4</p></div>
-                    <div class="splide__slide" id="note"><p>Note 5</p></div>
-                    <div class="splide__slide" id="note"><p>Note 6</p></div>
-                    <div class="splide__slide" id="note"><p>Note 7</p></div>
-                    <div class="splide__slide" id="note"><p>Note 8</p></div>
-                    <div class="splide__slide" id="note"><p>Note 9</p></div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- div box for wait time -->
-        <div class="wait">
-            <div class="timer">
-                Longes Wait Time: Table 3 --> 00:23:35
-            </div>
-        </div>
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="kitchenStaffUI.css" />
 
-        <!-- BootStrap Buttons -->
-        <div class="d-flex justify-content-between">
-            <button type="button" class="btn btn-secondary btn-lg">Call Waitstaff</button>
-            <button type="button" class="btn btn-primary btn-lg">Order READY!</button>
-            <button type="button" class="btn btn-secondary btn-lg">Call Manager</button>
+    <!-- Splide.JS CSS Theme -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@splidejs/splide@2.4.21/dist/css/themes/splide-skyblue.min.css"
+    />
+  </head>
+  <body>
+    <!--[if lt IE 7]>
+      <p class="browsehappy">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="#">upgrade your browser</a> to improve your experience.
+      </p>
+    <![endif]-->
+
+    <!-- DIV boxes for Order Cards -->
+    <div class="splide" id="orders-slider">
+      <div class="splide__track">
+        <div class="splide__list">
+          <div class="splide__slide" id="order">
+            <div class="card-header">
+              <div class="flex-items"><span>Table 3</span></div>
+              <div class="flex-items"><span><strong>Ticket 1</strong></span></div>
+              <div class="flex-items"><span id="datetime"></span></div>
+            </div>
+          </div>
+          <div class="splide__slide" id="order">Order 2</div>
+          <div class="splide__slide" id="order">Order 3</div>
+          <div class="splide__slide" id="order">Order 4</div>
+          <div class="splide__slide" id="order">Order 5</div>
+          <div class="splide__slide" id="order">Order 6</div>
+          <div class="splide__slide" id="order">Order 7</div>
+          <div class="splide__slide" id="order">Order 8</div>
+          <div class="splide__slide" id="order">Order 9</div>
         </div>
-        
-        <!-- Scripts to load -->
-        <script src="" async defer></script>
-        <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
-        <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
-        
-        <!-- Splide. JS -->
-        <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
-        
-        !-- Kitchen Staff UI JavaScript -->
-        <script src="kitchenStaffUI.js"></script>
-    </body>
+      </div>
+    </div>
+
+    <!-- div box for Notes -->
+    <div class="notes" id="notes-slider">
+      <div class="splide__track">
+        <div class="splide__list">
+          <div class="splide__slide" id="note"><p>Note 1</p></div>
+          <div class="splide__slide" id="note"><p>Note 2</p></div>
+          <div class="splide__slide" id="note"><p>Note 3</p></div>
+          <div class="splide__slide" id="note"><p>Note 4</p></div>
+          <div class="splide__slide" id="note"><p>Note 5</p></div>
+          <div class="splide__slide" id="note"><p>Note 6</p></div>
+          <div class="splide__slide" id="note"><p>Note 7</p></div>
+          <div class="splide__slide" id="note"><p>Note 8</p></div>
+          <div class="splide__slide" id="note"><p>Note 9</p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- div box for wait time -->
+    <div class="wait">
+      <div class="timer">Longes Wait Time: Table 3 --> 00:23:35</div>
+    </div>
+
+    <!-- BootStrap Buttons -->
+    <div class="d-flex justify-content-between">
+      <button type="button" class="btn btn-secondary btn-lg">
+        Call Waitstaff
+      </button>
+      <button type="button" class="btn btn-primary btn-lg">Order READY!</button>
+      <button type="button" class="btn btn-secondary btn-lg">
+        Call Manager
+      </button>
+    </div>
+    
+
+    <!-- Scripts to load -->
+    <script src="" async defer></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@17/umd/react.production.min.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"
+    ></script>
+
+    <!-- Splide. JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
+
+    <!-- Kitchen Staff UI JavaScript -->
+    <script src="kitchenStaffUI.js"></script>
+    <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+  </body>
 </html>
