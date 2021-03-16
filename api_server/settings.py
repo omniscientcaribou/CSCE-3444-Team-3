@@ -91,14 +91,19 @@ WSGI_APPLICATION = 'api_server.wsgi.application'
 #     }
 # }
 
-DATABASES = {
-    "default": {
-        "CONN_MAX_AGE" : 500
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2', 
+#         'NAME': config('POSTGRES_DATABASE'),                     
+#         'USER': config('POSTGRES_USER'),
+#         'PASSWORD': config('POSTGRES_PASSWORD'),
+#         'HOST': config('POSTGRES_HOST'), 
+#         'PORT': config('POSTGRES_PORT'),                     
+#     }
+# }
 
-DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
-
+DATABASE_URL = config('POSTGRES_URI')
+DATABASES = {'default': dj_database_url.config(default=DATABASE_URL)}
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
 

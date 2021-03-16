@@ -1,6 +1,6 @@
 
-from .models import * #Item, Employee, Table, Task, Aut, Order
-from .serializers import * #ItemSerializer, EmployeeSerializer, TableSerializer, TaskSerializer, AutSerializer, OrderSerializer
+from .models import * #Item, Employee, Table, Task, Credential, Order
+from .serializers import * #ItemSerializer, EmployeeSerializer, TableSerializer, TaskSerializer, CredentialSerializer, OrderSerializer
 from rest_framework import viewsets
 from rest_framework import mixins
 from django.db import connection
@@ -30,9 +30,9 @@ class TaskViewSet(viewsets.ModelViewSet):
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
 
-class AutViewSet(viewsets.ModelViewSet):
-    queryset = Aut.objects.all()
-    serializer_class = AutSerializer
+class CredentialViewSet(viewsets.ModelViewSet):
+    queryset = Credential.objects.all()
+    serializer_class = CredentialSerializer
 
 class OrderViewSet(viewsets.ModelViewSet):
     queryset = Order.objects.all()

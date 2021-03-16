@@ -49,7 +49,7 @@ class Task(models.Model):
     def __str__(self):
         return(self.role)
 
-class Aut(models.Model):
+class Credential(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     # role_choice = models.TextChoices('Table', 'Waitstaff', 'Kitchen', 'Manager')
     role_choice = models.TextField()

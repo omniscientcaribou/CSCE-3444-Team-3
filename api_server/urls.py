@@ -25,7 +25,7 @@ router.register(r'item', views.ItemViewSet)
 router.register(r'employee', views.EmployeeViewSet)
 router.register(r'table', views.TableViewSet)
 router.register(r'task', views.TaskViewSet)
-router.register(r'aut', views.AutViewSet)
+router.register(r'credential', views.CredentialViewSet)
 router.register(r'order', views.OrderViewSet)
 # router.register('test_foo', views.SendOrderView, basename='test_foo')
 
@@ -34,5 +34,5 @@ router.register(r'order', views.OrderViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
-    path('test/', views.test, name='test')
+    # path('test/', views.test, name='test')
 ]
