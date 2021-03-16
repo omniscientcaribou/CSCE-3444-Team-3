@@ -18,6 +18,8 @@ from django.urls import path, include
 from rest_framework import routers
 from . import views
 
+I = views.ItemViewSet()
+
 router = routers.DefaultRouter()
 router.register(r'item', views.ItemViewSet)
 router.register(r'employee', views.EmployeeViewSet)

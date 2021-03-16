@@ -1,16 +1,23 @@
 import requests
 
-
 def make_tables():
-    url = 'http://127.0.0.1:8000/api/item/'
+
+
+    n = 5
+    s = False
+    st =  [{'Test': 5, 'Foo': False}]
+
+    url = 'http://0.0.0.0:5000/table/'
     res = requests.get(url)
     pay_load = {
-        'name' : 'TestName',
-        'description' : 'TestDescription',
-        'group' : 'testGroup'
+    'number' : 999,
+    'state' : s,
     }
     headers = {}
     res = requests.post(url, data=pay_load, headers=headers)
+    print(f'{res} --> Done!')
 
-for i in range(0, 13):
-    print(i)
+make_tables()
+
+
+
