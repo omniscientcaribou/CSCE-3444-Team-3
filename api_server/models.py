@@ -3,7 +3,7 @@ import uuid
 from django.contrib.postgres.fields import ArrayField
 from django.http import HttpResponse
 class Item(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    id = models.AutoField(primary_key=True)
     name = models.TextField()
     description = models.TextField()
     group = models.TextField()
@@ -17,7 +17,7 @@ class Item(models.Model):
         return self.name
 
 class Employee(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    id = models.AutoField(primary_key=True)
     name = models.TextField()
     role = models.TextField()
 
@@ -25,7 +25,7 @@ class Employee(models.Model):
         return self.name
 
 class Table(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    id = models.AutoField(primary_key=True)
     number = models.IntegerField()
     state = models.BooleanField()
 
@@ -33,7 +33,7 @@ class Table(models.Model):
         return self.number
 
 class Task(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    id = models.AutoField(primary_key=True)
     role = models.TextField(default='')
 
     # TABLE TASKS
@@ -50,7 +50,7 @@ class Task(models.Model):
         return(self.role)
 
 class Credential(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    id = models.AutoField(primary_key=True)
     # role_choice = models.TextChoices('Table', 'Waitstaff', 'Kitchen', 'Manager')
     role_choice = models.TextField()
     enter_password = models.TextField()
