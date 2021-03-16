@@ -2,7 +2,6 @@ from django.db import models
 import uuid
 from django.contrib.postgres.fields import ArrayField
 from django.http import HttpResponse
-
 class Item(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     name = models.TextField()
@@ -60,11 +59,18 @@ class Aut(models.Model):
     def __str__(self):
         return self.role_choice
 
-# class Order(models.Model):
-#     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-#     number = models.IntegerField()
-#     state = models.TextField()
-#     time = models.TimeField()
+class Order(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    table_number = models.IntegerField()
+    state = models.TextField()
+    # time = models.DateTimeField(auto_now=True)
+    time = models.TextField()
+    quantity = models.IntegerField()
+
+    def foo(self):
+        print('yolo')
+        return HttpResponse('Hi')
+    
 
 
 

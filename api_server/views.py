@@ -1,11 +1,17 @@
 
-from .models import Item, Employee, Table, Task, Aut
-from . serializers import ItemSerializer, EmployeeSerializer, TableSerializer, TaskSerializer, AutSerializer
+from .models import * #Item, Employee, Table, Task, Aut, Order
+from .serializers import * #ItemSerializer, EmployeeSerializer, TableSerializer, TaskSerializer, AutSerializer, OrderSerializer
 from rest_framework import viewsets
-from django.db import connections
-from django.http import HttpResponse, HttpResponseNotFound
+from rest_framework import mixins
+from django.db import connection
+from rest_framework import generics
+from django.http import HttpResponse, HttpResponseNotFound, JsonResponse
+from rest_framework.decorators import api_view
 import json
-import io
+from django.views.decorators.csrf import csrf_exempt
+from rest_framework.response import Response
+from django.db import connections
+
 # Create your views here.
 
 class ItemViewSet(viewsets.ModelViewSet):
@@ -28,18 +34,34 @@ class AutViewSet(viewsets.ModelViewSet):
     queryset = Aut.objects.all()
     serializer_class = AutSerializer
 
-# Need to add a field check to guarantee write format
-def get_order(request):
+class OrderViewSet(viewsets.ModelViewSet):
+    queryset = Order.objects.all()
+    serializer_class = OrderSerializer
+    
+class SendOrderView(mixins.CreateModelMixin, viewsets.GenericViewSet):
+    serializer_class = OrderSerializer
+
+@api_view(['GET', 'POST']) 
+def test(request):
     wrapper = connections['default']
     params = wrapper.get_connection_params()
     db_connection = wrapper.get_new_connection(params) 
 
     data = json.loads(request.body)
-    result = db_connection.orders.insert_one(data)
+    _status = data['status']
+    for item in data['items']:
+        _id = item['id']
+        _count = item['count']
+        current_order = {
+            "state" : _status,
+            "item" : _id,
+            "quantity" : _count,
+            "table_number" : 3, 
+            "time" : ""
+        }
+        result = db_connection.api_server_order.insert_one(current_order)
+
     return HttpResponse(result.inserted_id)
-
-
-
 
 
 

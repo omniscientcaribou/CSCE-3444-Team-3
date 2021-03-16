@@ -26,10 +26,13 @@ router.register(r'employee', views.EmployeeViewSet)
 router.register(r'table', views.TableViewSet)
 router.register(r'task', views.TaskViewSet)
 router.register(r'aut', views.AutViewSet)
+router.register(r'order', views.OrderViewSet)
+# router.register('test_foo', views.SendOrderView, basename='test_foo')
+
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include(router.urls)),
-    path('get_order', views.get_order),
+    path('api/', include(router.urls)),
+    path('test/', views.test, name='test')
 ]
