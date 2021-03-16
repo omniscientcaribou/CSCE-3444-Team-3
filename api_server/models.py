@@ -64,13 +64,15 @@ class Order(models.Model):
     table_number = models.IntegerField()
     state = models.TextField()
     # time = models.DateTimeField(auto_now=True)
-    time = models.TextField()
+    # items = models.ArrayField()
     quantity = models.IntegerField()
 
     def foo(self):
         print('yolo')
         return HttpResponse('Hi')
     
+class MakeKey(models.Model):
+    date = models.DateTimeField()
 
 
 

@@ -46,20 +46,25 @@ def test(request):
     wrapper = connections['default']
     params = wrapper.get_connection_params()
     db_connection = wrapper.get_new_connection(params) 
-
     data = json.loads(request.body)
-    _status = data['status']
-    for item in data['items']:
-        _id = item['id']
-        _count = item['count']
-        current_order = {
-            "state" : _status,
-            "item" : _id,
-            "quantity" : _count,
-            "table_number" : 3, 
-            "time" : ""
-        }
-        result = db_connection.api_server_order.insert_one(current_order)
+    # _status = data['status']
+    # for item in data['items']:
+    #     _id = item['id']
+    #     _count = item['count']
+    #     current_order = {
+    #         "state" : _status,
+    #         "item" : _id,
+    #         "quantity" : _count,
+    #         "table_number" : data['table_number'], 
+    #         "time" : "",
+    #     }
+    result = db_connection.api_server_order.insert_one(data)
+
+    collection = db_connection.api_server_order
+
+    print('####ORDER INFORMATION####')
+    for item in collection.find({"table_number" : 1}):
+        print(item)
 
     return HttpResponse(result.inserted_id)
 
