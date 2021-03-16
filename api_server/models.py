@@ -60,11 +60,11 @@ class Aut(models.Model):
     def __str__(self):
         return self.role_choice
 
-class Order(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    number = models.IntegerField()
-    state = models.TextField()
-    time = models.TimeField()
+# class Order(models.Model):
+#     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+#     number = models.IntegerField()
+#     state = models.TextField()
+#     time = models.TimeField()
 
 
 

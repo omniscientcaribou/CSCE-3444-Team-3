@@ -31,4 +31,5 @@ router.register(r'aut', views.AutViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),
+    path('get_order', views.get_order),
 ]
