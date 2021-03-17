@@ -35,7 +35,7 @@ var order = {
             "quantity" : 2
         },
     ],
-    "table_number" : 6,
+    "table_number" : 4,
     "time" : now
 }
 
@@ -88,6 +88,10 @@ function iterate_order(order){
 
 
 // enumerate_order(order);
+function tst(r){
+    console.log("TEST");
+    console.log(r['id']);
+}
 
 // Need to return PK from this somehow?
 function place_order(order){
@@ -114,10 +118,13 @@ function place_order(order){
     })
     .then(function(data){
         console.log(data)
+        separate_order(order, data['id'])
     })
 }
 
-function separate_order(order){
+
+function separate_order(order, pk){
+    order_id = pk
     status = order['status']
     table_number = order['table_number']
     ordered_at = order['time']
@@ -131,6 +138,7 @@ function separate_order(order){
         
         var payload = 
         {
+            "order_id"     : order_id,
             "placed_at"    : ordered_at,
             "state"        : status,
             "item"         : item_id,

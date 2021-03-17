@@ -61,7 +61,8 @@ class Order(models.Model):
     placed_at = models.DateTimeField(auto_now=True)
 
 class OrderContent(models.Model):
-    table_number = models.ForeignKey(Order, on_delete = models.CASCADE)
+    order_id = models.ForeignKey(Order, on_delete=models.CASCADE)
+    table_number = models.IntegerField()
     placed_at = models.DateTimeField()
     state = models.TextField()
     item = models.TextField()
