@@ -35,7 +35,7 @@ var order = {
             "quantity" : 2
         },
     ],
-    "table_number" : 3,
+    "table_number" : 4,
     "time" : now
 }
 
@@ -89,7 +89,7 @@ function iterate_order(order){
 
 // enumerate_order(order);
 
-
+// Need to return PK from this somehow?
 function place_order(order){
     status = order['status']
     table_number = order['table_number']
@@ -157,5 +157,15 @@ function separate_order(order){
     }
 }
 
+function update_status(order)
+{
+    // This is a PATCH call we are going to update the status of an item
+    // Enough for today
+    url = 'https://swe3444.herokuapp.com/api/ordercontent/' + order['items'][0]['id']
+    console.log(url)
+}
+
 // place_order(order);
 // separate_order(order);
+
+// update_status(order);
