@@ -2,8 +2,10 @@ import { useState } from 'react';
 import Header from './components/Header';
 import Orders from './components/Orders';
 import Button from './components/Button';
+import Popup from './components/Popup';
 
 function App() {
+	const [buttonPopup, setButtonPopup] = useState(false);
 	const [orders, setOrders] = useState([
 		{
 			id: 1,
@@ -109,11 +111,36 @@ function App() {
 			) : (
 				'All Tickets Completed!'
 			)}
-      <div className='button-wrapper'>
-        <Button className ='btn' color='#74C3C8' text='Call Waitstaff'></Button>
-        <Button className ='btn' color='#FF8800' text='Order READY!'></Button>
-        <Button className ='btn' color='#668EB9' text='Call Manager'></Button>
-      </div>
+			<div className='button-wrapper'>
+				<Button
+					className='btn'
+					color='#74C3C8'
+					text='Call Waitstaff'
+					onClick={() => setButtonPopup(true)}
+				/>
+				<div class="d-grid gap-2 d-md-block">
+					<Button
+						className='btn'
+						color='#FF8800'
+						text='Order READY!'
+						onClick={() => setButtonPopup(true)}
+					/>
+				</div>
+				<Button
+					className='btn'
+					color='#668EB9'
+					text='Call Manager'
+					onClick={() => setButtonPopup(true)}
+				/>
+				<Popup
+					trigger={buttonPopup}
+					setTrigger={setButtonPopup}
+					btn1_text='Order'
+					btn2_text='Call'
+					text='Do you want to call the waitstaff?'
+					heading='Call Waitstaff'
+				/>
+			</div>
 		</div>
 	);
 }
