@@ -27,12 +27,10 @@ router.register(r'table', views.TableViewSet)
 router.register(r'task', views.TaskViewSet)
 router.register(r'credential', views.CredentialViewSet)
 router.register(r'Order', views.OrderViewSet)
-# router.register('test_foo', views.SendOrderView, basename='test_foo')
 
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
-    # path('test/', views.test, name='test')
 ]

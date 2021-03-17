@@ -31,16 +31,16 @@ class Table(models.Model):
         return self.number
 
 class Task(models.Model):
-    role = models.TextField(default='')
+    role = models.TextField(default = '')
 
     # TABLE TASKS
-    table_number = models.IntegerField(default=-1)  
-    refill_request = models.BooleanField(default=False)
-    drink_selections = models.TextField(blank=True) # Custom wrapper in future to turn to JSON probably  
+    table_number = models.IntegerField(default = -1)  
+    refill_request = models.BooleanField(default = False)
+    drink_selections = models.TextField(blank = True) # Custom wrapper in future to turn to JSON probably  
 
     # MISC. TASKS
-    call_waitstaff = models.BooleanField(default=False)
-    call_manager = models.BooleanField(default=False)
+    call_waitstaff = models.BooleanField(default = False)
+    call_manager = models.BooleanField(default = False)
 
 
     def __str__(self):
@@ -57,10 +57,14 @@ class Credential(models.Model):
 class Order(models.Model):
     table_number = models.IntegerField()
     state = models.TextField()
-    order_placed_at = models.DateTimeField(auto_now=True)
+    placed_at = models.DateTimeField(auto_now=True)
 
 class OrderContent(models.Model):
-    pass
+    table_number = models.ForeignKey(Order, on_delete = models.CASCADE)
+    placed_at = models.DateTimeField()
+    state = models.TextField()
+    item = models.TextField()
+    quantity = models.IntegerField()
 
     
 

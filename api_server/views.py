@@ -41,6 +41,10 @@ class OrderViewSet(viewsets.ModelViewSet):
 class SendOrderView(mixins.CreateModelMixin, viewsets.GenericViewSet):
     serializer_class = OrderSerializer
 
+class OrderContent(viewsets.ModelViewSet):
+    queryset = OrderContent.objects.all()
+    serializer_class = OrderContentSerializer
+
 # @api_view(['GET', 'POST']) 
 # def test(request):
 #     wrapper = connections['default']
