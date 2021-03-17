@@ -26,8 +26,8 @@ router.register(r'employee', views.EmployeeViewSet)
 router.register(r'table', views.TableViewSet)
 router.register(r'task', views.TaskViewSet)
 router.register(r'credential', views.CredentialViewSet)
-router.register(r'Order', views.OrderViewSet)
-
+router.register(r'order', views.OrderViewSet)
+router.register(r'ordercontent', views.OrderContentViewSet)
 
 
 urlpatterns = [

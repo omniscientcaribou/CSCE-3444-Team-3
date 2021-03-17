@@ -38,10 +38,7 @@ class OrderViewSet(viewsets.ModelViewSet):
     queryset = Order.objects.all()
     serializer_class = OrderSerializer
     
-class SendOrderView(mixins.CreateModelMixin, viewsets.GenericViewSet):
-    serializer_class = OrderSerializer
-
-class OrderContent(viewsets.ModelViewSet):
+class OrderContentviewSet(viewsets.ModelViewSet):
     queryset = OrderContent.objects.all()
     serializer_class = OrderContentSerializer
 
