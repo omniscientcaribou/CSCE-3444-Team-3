@@ -1,11 +1,26 @@
+.Manager{
+    width:60%;
+}
 .Manager-Header {
     clear: both;
     float: left;
     text-align: center;
     min-height: 15%;
     min-width: 15%;
-    max-height: 70%;
-    max-width:70%;
-    font-size: 20vmin;
-    color: black;
+
+    font-size: 40px;
+    color: white;
+}
+.Tables1{
+    float:left;
+}
+.Manager-Subheader{
+    clear: both;
+    float: left;
+    text-align: center;
+    min-height: 15%;
+    min-width: 15%;
+
+    font-size: 20px;
+    color: white;
 }

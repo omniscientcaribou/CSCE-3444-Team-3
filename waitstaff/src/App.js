@@ -1,40 +1,54 @@
-import logo from './logo.svg';
+
 import './App.css';
 import Home from './Home';
 import SideBar from './SideBar';
 import Pay from './Pay';
 import Order from './Order';
 import Manager from './Manager';
+import BeverageInfo from './BeverageInfo';
+import SplitBill from './SplitBill';
+import Cash from './Cash';
 import React, { useState, useEffect } from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 function App() {
-  const [seconds, setSeconds] = useState(0);
+  const [refresh, setRefresh] = useState(0);
   useEffect(() => {const period = setInterval(() => {
-        setSeconds(seconds => seconds + 1);
+        setRefresh(refresh => refresh + 1);
     }, 3000);
     return() => clearInterval(period);
   }, []);
-  console.log(seconds);
+  console.log(refresh);
   return (
     <Router>
       <div className="App">
         <div className="App-Header">
-          Waitstaff
+          Software Cafe
         </div>
-        <div className="ContentView">
+        <div className="Content-View">
           <Switch>
             <Route exact path="/">
-              <Home seconds={seconds}/>
+              <Home seconds={refresh}/>
             </Route>
             <Route exact path="/pay">
-              <Pay seconds={seconds}/>
+              <Pay seconds={refresh}/>
             </Route>
             <Route exact path="/manager">
-              <Manager seconds={seconds}/>
+              <Manager seconds={refresh} />
             </Route>
             <Route exact path="/order">
-              <Order seconds={seconds}/>
+              <Order seconds={refresh}/>
+            </Route>
+            {////////////////////////////////* *///////////////////////////////////
+            } 
+            <Route exact path="/Cash">
+              <Cash seconds={refresh}/>
+            </Route>
+            <Route exact path="/SplitBill">
+              <SplitBill seconds={refresh} />
+            </Route>
+            <Route exact path="/BeverageInfo">
+              <BeverageInfo seconds={refresh}/>
             </Route>
           </Switch>
         </div>

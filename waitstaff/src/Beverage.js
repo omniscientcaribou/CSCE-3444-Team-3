@@ -1,5 +1,6 @@
 import './Beverage.css';
 import React, { useState, useEffect } from 'react';
+import {Link} from 'react-router-dom';
 import beverage_image from './beverage_image.png'; 
 
 function Beverage(beverageInfo) {
@@ -21,10 +22,17 @@ function Beverage(beverageInfo) {
 //
     if(beverageOn[beverageInfo.ID]){
         return (
-            <button onClick={BeverageClick}>
-                <img src={beverage_image} className="Beverage-image"/>
-            </button>
+
+        <div className="Random">
+            <Link to ="/BeverageInfo">                    
+                <button onClick={BeverageClick} className="Beverage-Button">
+                    <img src={beverage_image} className="Beverage-image"/>
+                </button>
+            </Link>  
+        </div>   
         )
+   
+ 
     }
     else{
         return(<div></div>

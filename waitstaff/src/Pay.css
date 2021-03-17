@@ -1,11 +1,19 @@
+.Pay{
+    width:60%;
+}
+
 .Pay-Header {
     clear: both;
     float: left;
     text-align: center;
     min-height: 15%;
     min-width: 15%;
-    max-height: 70%;
-    max-width:70%;
-    font-size: 20vmin;
-    color: black;
+
+    font-size: 40px;
+    color: white;
+}
+.Button-Bar{
+    float:left;
+    flex-direction: column;
+    display: flex;
 }

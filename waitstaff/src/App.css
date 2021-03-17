@@ -2,54 +2,36 @@
 .Tables {
   float: left;
   width: 60%;
+  background-color:#9e7b91;
 }
 .App {
-
+  background-color:#9e7b91;
   text-align: center;
-}
-
-.App-logo {
-  
-  height: 40vmin;
-  pointer-events: none;
 }
 
 .App-Header {
   text-align: center;
   min-width: 15%;
-  max-width: 40%;
+  max-width: 100%;
   font-size: 100px;
   justify-content: content;
-  background-color: rgba(80, 77, 77, 0.096);
+  /*background-color: rgba(80, 77, 77, 0.096);*/
+  background-color:#865367;
   
 }
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+
+.Content-View{
+  background-color: #9e7b91;
 }
 
 .SideBar{
   min-width: 30vh;
-  background-color: #282c34;
+  /*background-color: #282c34;*/
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: left;
-  justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  background-color: #945d72;
 }

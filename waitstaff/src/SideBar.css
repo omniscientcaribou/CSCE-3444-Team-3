@@ -1,0 +1,17 @@
+*:visited{
+    color:black;
+}
+*. {
+    color: white;
+}
+.SideBar{
+    height:100%;
+}
+.Side-Bar-Button{
+    float:none;
+    width: 30vh;
+    height: 20vh;
+    background-color:#9e7b91;
+    color: white;
+    font-size:larger;
+}

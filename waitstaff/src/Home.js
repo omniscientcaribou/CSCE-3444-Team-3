@@ -1,4 +1,5 @@
 import Table from './Table';
+import './Home.css'
 function Home(prop){
 
     return(

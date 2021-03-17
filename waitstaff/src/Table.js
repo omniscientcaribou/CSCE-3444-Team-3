@@ -2,6 +2,7 @@
 import './Table.css';
 import table_image from './table_image.png';
 import Beverage from './Beverage';
+import Star from './Star';
 import {useState} from 'react';
 
 function Table(tableInfo) {
@@ -9,7 +10,7 @@ function Table(tableInfo) {
     const [tableClick, setTableClick] = useState(0);
     function TableClick(e){
         console.log("button worked?" + tableInfo.ID);
-        if(tableClick == tableInfo.ID){
+        if(tableClick > 0){
             setTableClick(0);
         }
         else
@@ -17,37 +18,26 @@ function Table(tableInfo) {
         console.log(tableClick); 
     }
 
-    //if (typeof table.ID == 'undefined'){
-    //    Table.ID = -1;
-   // }
-   // Table.ID++;
 
-   if(tableClick == tableInfo.ID){
         return (
             <div className="Table">
-                <button onClick={TableClick}>
-                    <img src={table_image} className="Table-image"/>
+                <button onClick={TableClick} clasName="Table-Button">
+                    <img src={table_image} className="Table-Image"/>
                 </button>
                 <div className="Table-ID">
-                    {tableInfo.ID} this table is clicked
+                    {tableInfo.ID} 
+                    {tableClick > 0 && 
+                        <div>
+                        this table is clicked
+                        </div>
+                    }
                 </div>
                 <Beverage ID={tableInfo.ID} seconds={tableInfo.Seconds}/>
+                <Star ID={tableInfo.ID} seconds={tableInfo.Seconds}/>
+                
             </div>           
         );
-   }
-   else{
-    return (
-        <div className="Table">
-            <button onClick={TableClick}>
-                <img src={table_image} className="Table-image"/>
-            </button>
-            <div className="Table-ID">
-                {tableInfo.ID}
-            </div>
-            <Beverage ID={tableInfo.ID} seconds={tableInfo.Seconds}/>
-        </div>
-    );
-    }
+
 }
 
 export default Table;

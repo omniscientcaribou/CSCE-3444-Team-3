@@ -6,11 +6,17 @@
     width: 15vmin;
     height: 15vmin;
     position: relative;
+    background-color:#9e7b91;
 }
 
-.Table-image { 
+.Table-Image { 
     height: 50%;
     width: 50%;
+    background-color:#9e7b91;
+}
+.Table-Button {
+    background-color:#9e7b91;
+    
 }
 .Table-ID {
     flex: 1;
@@ -19,5 +25,6 @@
     top: 0;
     right: 30px;
     width: 100%;
+
  
 }
