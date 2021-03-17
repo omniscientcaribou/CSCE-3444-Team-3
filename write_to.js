@@ -35,7 +35,7 @@ var order = {
             "quantity" : 2
         },
     ],
-    "table_number" : 4,
+    "table_number" : 6,
     "time" : now
 }
 
@@ -166,6 +166,6 @@ function update_status(order)
 }
 
 // place_order(order);
-// separate_order(order);
-
+separate_order(order);
+// 
 // update_status(order);
