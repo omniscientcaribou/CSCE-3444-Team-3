@@ -55,12 +55,13 @@ class Credential(models.Model):
         return self.role_choice
 
 class Order(models.Model):
+    id = models.IntegerField(primary_key=True)
     table_number = models.IntegerField()
     state = models.TextField()
     placed_at = models.DateTimeField(auto_now=True)
 
 class OrderContent(models.Model):
-    table_number = models.ForeignKey()
+    table_number = models.ForeignKey(Order, on_delete = models.CASCADE)
     placed_at = models.DateTimeField()
     state = models.TextField()
     item = models.TextField()
