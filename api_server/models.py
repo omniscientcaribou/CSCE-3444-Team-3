@@ -55,7 +55,7 @@ class Credential(models.Model):
         return self.role_choice
 
 class Order(models.Model):
-    id = models.IntegerField(primary_key=True)
+    # id = models.IntegerField(primary_key=True)
     table_number = models.IntegerField()
     state = models.TextField()
     placed_at = models.DateTimeField(auto_now=True)

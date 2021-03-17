@@ -165,7 +165,7 @@ function update_status(order)
     console.log(url)
 }
 
-// place_order(order);
-separate_order(order);
-// 
+place_order(order);
+// separate_order(order);
+
 // update_status(order);
