@@ -1,9 +1,4 @@
 
-<<<<<<< HEAD
-from .models import Item, Employee
-from . serializers import ItemSerializer, EmployeeSerializer
-from rest_framework import viewsets
-=======
 from .models import * #Item, Employee, Table, Task, Credential, Order
 from .serializers import * #ItemSerializer, EmployeeSerializer, TableSerializer, TaskSerializer, CredentialSerializer, OrderQueueQueueQueueQueueQueueSerializer
 from rest_framework import viewsets
@@ -17,7 +12,6 @@ from django.views.decorators.csrf import csrf_exempt
 from rest_framework.response import Response
 from django.db import connections
 
->>>>>>> cory-postgres-db
 # Create your views here.
 
 class ItemViewSet(viewsets.ModelViewSet):
