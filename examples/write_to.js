@@ -35,7 +35,7 @@ var order = {
             "quantity" : 3
         },
     ],
-    "table_number" : 2,
+    "table_number" : 3,
     "time" : now
 }
 
