@@ -48,16 +48,9 @@ class OrderContentViewSet(viewsets.ModelViewSet):
 @api_view(['GET'])
 def foo_test(request):
 
-    O = Order()
+    OrderContObj = OrderContent()
+    OrderSer = OrderContentSerializer()
     _Order = {}
-    for order in O.objects.raw('SELECT * FROM api_server_order'):
-        # print(order)
-        _Order[order] = ""
-    test = {
-    "placed_at"    : "Date().toLocaleString()",
-    "state"        : "Ordered",
-    "item"         :  "Single",
-    "quantity"     : 2,
-    "table_number" : 2 
-    };
+    for item in OrderSer.objects.raw('SELECT * FROM api_server_ordercontent'):
+        _Order[item] = ""
     return JsonResponse(_Order)
