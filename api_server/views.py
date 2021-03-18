@@ -12,6 +12,7 @@ from django.views.decorators.csrf import csrf_exempt
 from rest_framework.response import Response
 from django.db import connections
 from django.http import JsonResponse
+from django.forms.models import model_to_dict
 
 # Create your views here.
 
@@ -48,4 +49,5 @@ class OrderContentViewSet(viewsets.ModelViewSet):
 @api_view(['GET'])
 def foo_test(request):
     bar = list(OrderContent.objects.filter(state="Ordered", id = 4))
-    return HttpResponse(json.dumps(bar))
+    return HttpResponse(json.simplejson.dumps(bar), mimetype="applications/json")
+    
