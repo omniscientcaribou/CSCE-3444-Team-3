@@ -65,7 +65,7 @@ class OrderContent(models.Model):
     table_number = models.IntegerField()
     placed_at = models.DateTimeField()
     state = models.TextField()
-    item = models.ForeignKey(Order, on_delete=models.CASCADE)
+    item = models.ForeignKey(Item, on_delete=models.CASCADE)
     quantity = models.IntegerField()
 
     
