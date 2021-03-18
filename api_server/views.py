@@ -51,7 +51,7 @@ def foo_test(request):
     bar = OrderContent.objects.filter(state="Ordered", id = 4).values()
     json_r = json.dumps(list(bar))
     
-    return JsonResponse(json_r)
+    return JsonResponse({'result' : list(bar)})
 
 
 # @api_view(['GET'])
