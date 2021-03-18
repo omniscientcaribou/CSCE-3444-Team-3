@@ -117,7 +117,8 @@ function place_order(order){
         return response.json()
     })
     .then(function(data){
-        console.log(data)
+        console.log('---',data)
+        console.log('###', data['id'], '###')
         separate_order(order, data['id'])
     })
 }
@@ -139,7 +140,7 @@ function separate_order(order, pk){
         
         var payload = 
         {
-            "order_id"     : order_id,
+            "order"        : order_id,
             "placed_at"    : ordered_at,
             "state"        : status,
             "item"         : item_id,
