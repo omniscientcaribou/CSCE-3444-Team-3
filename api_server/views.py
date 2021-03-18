@@ -54,39 +54,8 @@ class OrderContentViewSet(viewsets.ModelViewSet):
     queryset = OrderContent.objects.all()
     serializer_class = OrderContentSerializer
 
-# @api_view(['GET', 'POST']) 
-# def test(request):
-#     wrapper = connections['default']
-#     params = wrapper.get_connection_params()
-#     db_connection = wrapper.get_new_connection(params) 
-#     data = json.loads(request.body)
-#     # _status = data['status']
-#     # for item in data['items']:
-#     #     _id = item['id']
-#     #     _count = item['count']
-#     #     current_order = {
-#     #         "state" : _status,
-#     #         "item" : _id,
-#     #         "quantity" : _count,
-#     #         "table_number" : data['table_number'], 
-#     #         "time" : "",
-#     #     }
-#     result = db_connection.api_server_order.insert_one(data)
-
-#     collection = db_connection.api_server_order
-
-#     print('####ORDER INFORMATION####')
-#     for item in collection.find({"table_number" : 1}):
-#         print(item)
-
-#     return HttpResponse(result.inserted_id)
 
 
-
-
-# Need to get JSON Payload
-# I need to parse it
-# Write each individual item from order into DB (queue)
-
-
->>>>>>> cory-postgres-db
+@api_view(['GET'])
+def foo():
+    return Response("Hello, This is working!")
