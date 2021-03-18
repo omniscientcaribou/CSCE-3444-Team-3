@@ -45,5 +45,5 @@ class OrderContentViewSet(viewsets.ModelViewSet):
 
 
 @api_view(['GET'])
-def foo():
+def foo_test():
     return HttpResponse("Hello, This is working!")
