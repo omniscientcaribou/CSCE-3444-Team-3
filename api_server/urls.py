@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.contrib.auth import views as auth_views
 from rest_framework import routers
 from . import views
 
@@ -30,5 +31,5 @@ router.register(r'ordercontent', views.OrderContentViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),
-    path(r'^foo/$', 'views.foo', name='foo'),
+    path(r'^foo/$', auth_views.foo, name='foo'),
 ]
