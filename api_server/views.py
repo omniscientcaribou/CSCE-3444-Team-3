@@ -44,17 +44,7 @@ class OrderContentViewSet(viewsets.ModelViewSet):
     queryset = OrderContent.objects.all()
     serializer_class = OrderContentSerializer
 
-
-
 @api_view(['GET'])
 def foo_test(request):
-    bar = OrderContent.objects.filter(state="Ordered", id = 4).values()
-    json_r = json.dumps(list(bar))
-    
-    return JsonResponse({'result' : list(bar)})
-
-
-# @api_view(['GET'])
-# def foo_test(request):
-#     bar = list(OrderContent.objects.filter(state="Ordered", id = 4).values_list())
-#     return JsonResponse(bar, safe=False)
+    bar = list(OrderContent.objects.filter(state="Ordered", id = 4).values_list())
+    return JsonResponse(bar, safe=False)
