@@ -12,11 +12,8 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 from decouple import config 
-<<<<<<< HEAD
 
-=======
 import dj_database_url
->>>>>>> cory-postgres-db
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -35,7 +32,6 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-<<<<<<< HEAD
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -49,7 +45,6 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-=======
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -63,7 +58,6 @@ MIDDLEWARE = [
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
->>>>>>> cory-postgres-db
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -98,7 +92,6 @@ WSGI_APPLICATION = 'api_server.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-<<<<<<< HEAD
 DATABASES = {
 "default": {
     "ENGINE": "djongo",
@@ -112,7 +105,6 @@ DATABASES = {
     }
 }
 
-=======
 # DATABASES = {
 # "default": {
 #     "ENGINE": "djongo",
@@ -139,7 +131,6 @@ DATABASES = {
 
 DATABASE_URL = config('POSTGRES_URI')
 DATABASES = {'default': dj_database_url.config(default=DATABASE_URL)}
->>>>>>> cory-postgres-db
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
 
@@ -183,10 +174,6 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
-<<<<<<< HEAD
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-=======
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 CORS_ORIGIN_ALLOW_ALL = True
->>>>>>> cory-postgres-db
