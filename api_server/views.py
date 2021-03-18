@@ -11,6 +11,7 @@ import json
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.response import Response
 from django.db import connections
+from django.http import JsonResponse
 
 # Create your views here.
 
@@ -54,4 +55,4 @@ def foo_test(request):
     "quantity"     : 2,
     "table_number" : 2 
     };
-    return HttpResponse(test)
+    return JsonResponse(test)
