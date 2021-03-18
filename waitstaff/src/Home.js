@@ -1,4 +1,5 @@
 import Table from './Table';
+import KitchenCall from './KitchenCall';
 import './Home.css'
 function Home(prop){
 
@@ -24,6 +25,7 @@ function Home(prop){
                 <Table ID="14" Seconds={prop.seconds}/>
                 <Table ID="15" Seconds={prop.seconds}/>
                 <Table ID="16" Seconds={prop.seconds}/>
+                <KitchenCall Seconds={prop.seconds}/>
             </div>
 
         </div>

@@ -4,13 +4,17 @@
     right: 100px;
     width: 10%;
     height: 30%;
+    outline-style: none;
 }
-.Random{
-    width: 10%;
-    height: 30%;
+.Star{
+    width: 0%;
+    height: 0%;
+    outline-style: none;
+    border:0;
 }
 .Star-Button{
     width: 10%;
     height: 30%;
-
+    outline-style: none;
+    border:0;
 }

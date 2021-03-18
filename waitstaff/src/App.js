@@ -8,6 +8,7 @@ import Manager from './Manager';
 import BeverageInfo from './BeverageInfo';
 import SplitBill from './SplitBill';
 import Cash from './Cash';
+import KitchenSuccess from './KitchenSuccess';
 import React, { useState, useEffect } from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
@@ -18,7 +19,7 @@ function App() {
     }, 3000);
     return() => clearInterval(period);
   }, []);
-  console.log(refresh);
+  //console.log(refresh);
   return (
     <Router>
       <div className="App">
@@ -49,6 +50,9 @@ function App() {
             </Route>
             <Route exact path="/BeverageInfo">
               <BeverageInfo seconds={refresh}/>
+            </Route>
+            <Route exact path="/KitchenSuccess">
+              <KitchenSuccess seconds={refresh}/>
             </Route>
           </Switch>
         </div>
