@@ -26,10 +26,6 @@ class Item(models.Model):
         return self.name
 
 class Employee(models.Model):
-<<<<<<< HEAD
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-=======
->>>>>>> cory-postgres-db
     name = models.TextField()
     role = models.TextField()
 
@@ -37,14 +33,6 @@ class Employee(models.Model):
         return self.name
 
 class Table(models.Model):
-<<<<<<< HEAD
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    number = models.IntegerField()
-    state = models.TextField()
-
-    def __str__(self):
-        return str(self.number)
-=======
     number = models.IntegerField()
     state = models.BooleanField()
 
@@ -93,4 +81,3 @@ class OrderContent(models.Model):
 
 
 
->>>>>>> cory-postgres-db
