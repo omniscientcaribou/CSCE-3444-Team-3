@@ -18,12 +18,30 @@ from django.urls import path, include
 from rest_framework import routers
 from . import views
 
+<<<<<<< HEAD
 router = routers.DefaultRouter()
 router.register(r'item', views.ItemViewSet)
 router.register(r'employee', views.EmployeeViewSet)
+=======
+I = views.ItemViewSet()
+
+router = routers.DefaultRouter()
+router.register(r'item', views.ItemViewSet)
+router.register(r'employee', views.EmployeeViewSet)
+router.register(r'table', views.TableViewSet)
+router.register(r'task', views.TaskViewSet)
+router.register(r'credential', views.CredentialViewSet)
+router.register(r'order', views.OrderViewSet)
+router.register(r'ordercontent', views.OrderContentViewSet)
+>>>>>>> cory-postgres-db
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+<<<<<<< HEAD
     path('', include(router.urls)),
 ]
+=======
+    path('api/', include(router.urls)),
+]
+>>>>>>> cory-postgres-db
