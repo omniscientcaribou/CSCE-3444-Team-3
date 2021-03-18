@@ -46,4 +46,11 @@ class OrderContentViewSet(viewsets.ModelViewSet):
 
 @api_view(['GET'])
 def foo_test(request):
-    return HttpResponse("Hello, This is working!")
+    test = {
+    "placed_at"    : Date().toLocaleString(),
+    "state"        : "Ordered",
+    "item"         :  "Single",
+    "quantity"     : 2,
+    "table_number" : 2 
+    };
+    return HttpResponse(test)
