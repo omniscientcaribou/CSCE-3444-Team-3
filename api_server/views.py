@@ -46,6 +46,7 @@ class OrderContentViewSet(viewsets.ModelViewSet):
 
 @api_view(['GET'])
 def foo_test(request):
+    print('Working?')
     test = {
     "placed_at"    : "Date().toLocaleString()",
     "state"        : "Ordered",
