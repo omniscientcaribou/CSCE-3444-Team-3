@@ -47,10 +47,9 @@ class OrderContentViewSet(viewsets.ModelViewSet):
 
 @api_view(['GET'])
 def foo_test(request):
-
-    OrderContObj = OrderContent()
-    OrderSer = OrderContentSerializer()
-    _Order = {}
-    for item in OrderSer.objects.raw('SELECT * FROM api_server_ordercontent'):
-        _Order[item] = ""
-    return JsonResponse(_Order)
+    O = OrderContent()
+    lst = []
+    for p in O.objects.raw('SELECT * FROM api_server_ordercontent'):
+        print(p)
+        lst.append(p)
+    return JsonResponse(lst)
