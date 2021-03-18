@@ -30,5 +30,5 @@ router.register(r'ordercontent', views.OrderContentViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),
-    path('foo/', views.foo),
+    path(r'^foo/$', 'views.foo', name='foo'),
 ]
