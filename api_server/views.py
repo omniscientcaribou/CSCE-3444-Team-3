@@ -49,7 +49,7 @@ class OrderContentViewSet(viewsets.ModelViewSet):
 def foo_test(request):
     O = OrderContent()
     lst = []
-    for p in O.objects.raw('SELECT * FROM api_server_ordercontent'):
+    for p in OrderContent.objects.raw('SELECT * FROM api_server_ordercontent'):
         print(p)
         lst.append(p)
     return JsonResponse(lst)
