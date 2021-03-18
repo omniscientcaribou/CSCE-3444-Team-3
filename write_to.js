@@ -21,21 +21,21 @@ var order = {
     "status" : "Ordered",
     "items" : [
         {
-            "id" : 17,
+            "id" : 11,
             "quantity" : 2
         },
 
         {
-            "id" : 4,
+            "id" : 3,
             "quantity" : 1
         },
 
         {
-            "id" : 19,
-            "quantity" : 2
+            "id" : 55,
+            "quantity" : 3
         },
     ],
-    "table_number" : 4,
+    "table_number" : 2,
     "time" : now
 }
 
@@ -124,6 +124,7 @@ function place_order(order){
 
 
 function separate_order(order, pk){
+    console.log('pk == ', pk)
     order_id = pk
     status = order['status']
     table_number = order['table_number']
@@ -146,6 +147,7 @@ function separate_order(order, pk){
             "table_number" : table_number
         };
 
+        console.log(payload);
         fetch(order_content, { 
             method: 'POST',
             headers: {
@@ -160,8 +162,6 @@ function separate_order(order, pk){
         .then(function(data){
             console.log(data)
         })
-        
-
     }
 }
 
