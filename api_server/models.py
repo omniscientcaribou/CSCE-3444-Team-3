@@ -1,13 +1,5 @@
 from django.db import models
 import uuid
-<<<<<<< HEAD
-
-class Item(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    name = models.TextField()
-    description = models.TextField()
-    group = models.TextField()
-=======
 from django.contrib.postgres.fields import ArrayField
 from django.http import HttpResponse
 
@@ -20,7 +12,6 @@ class Item(models.Model):
     protein = models.TextField()
     carbs = models.TextField()
     allergies = models.TextField()
->>>>>>> cory-postgres-db
 
     def __str__(self):
         return self.name
