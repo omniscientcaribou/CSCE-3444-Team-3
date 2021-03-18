@@ -47,5 +47,8 @@ class OrderContentViewSet(viewsets.ModelViewSet):
 @api_view(['GET'])
 def foo_test(request):
     # bar = list(OrderContent.objects.filter(state="Ordered", table_number = 3).values())
-    bar = (OrderContent.objects.filter(item__id=3))
+    bar = OrderContent.objects.select_related('item').filter(item__id=11)
     return JsonResponse(bar, safe=False)
+
+    # bar.item <-- name
+    # bar.member
