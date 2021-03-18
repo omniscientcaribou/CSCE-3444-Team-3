@@ -48,5 +48,5 @@ class OrderContentViewSet(viewsets.ModelViewSet):
 @api_view(['GET'])
 def foo_test(request):
     bar = {}
-    bar = OrderContent.objects.filter(state="Ordered", quantity=1)
+    bar = OrderContent.objects.filter(state="Ordered", quantity=1, id = 4)
     return JsonResponse(bar, safe = False)
