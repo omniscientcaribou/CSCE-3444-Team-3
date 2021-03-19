@@ -49,7 +49,7 @@ def foo_test(request, pk):
 
     lst = []
     query_data = OrderContent.objects.prefetch_related('item').filter(table_number = pk)
-    for item in len(build_data):    
+    for item in len(query_data):    
         build_data = {
             "id"            : query_data[item].id,
             "order_id"      : query_data[item].order_id,
