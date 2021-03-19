@@ -49,6 +49,7 @@ def foo_test(request, pk):
     # bar = list(OrderContent.objects.filter(state="Ordered", table_number = 3).values())
     bar = OrderContent.objects.select_related('item').filter(item__id=11)
     e = Item.objects.filter(ordercontent__item_id= 11)
+    foo = OrderContent.objects.prefetch_related('item').filter(table_id = pk)
     test = {
         "id"            : str(bar[0].id),
         "order_id"      : str(bar[0].item_id), 
@@ -60,6 +61,7 @@ def foo_test(request, pk):
         "state"         : str(bar[0].state),
         "customization" : "Customization goes here!",
         "pk"            : pk,
+        "test"          : foo,
     }
 
     return JsonResponse(test, safe=False)
