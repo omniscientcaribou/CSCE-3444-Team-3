@@ -46,25 +46,25 @@ class OrderContentViewSet(viewsets.ModelViewSet):
 
 @api_view(['GET'])
 def foo_test(request, pk):
-    # bar = list(OrderContent.objects.filter(state="Ordered", table_number = 3).values())
-    bar = OrderContent.objects.select_related('item').filter(item__id=11)
-    e = Item.objects.filter(ordercontent__item_id= 11)
-    foo = OrderContent.objects.prefetch_related('item').filter(table_id = pk)
-    test = {
-        "id"            : str(bar[0].id),
-        "order_id"      : str(bar[0].item_id), 
-        "item_name"     : str(bar[0].item),
-        "group"         : str(e[0].group),
-        "quantity"      : str(bar[0].quantity),
-        "table_number"  : str(bar[0].table_number),
-        "placed_at"     : str(bar[0].placed_at),
-        "state"         : str(bar[0].state),
-        "customization" : "Customization goes here!",
-        "pk"            : pk,
-        "test"          : foo,
-    }
 
-    return JsonResponse(test, safe=False)
+    lst = []
+    query_data = OrderContent.objects.prefetch_related('item').filter(table_number = pk)
+    for item in len(build_data):    
+        build_data = {
+            "id"            : query_data[item].id,
+            "order_id"      : query_data[item].order_id,
+            "item_name"     : query_data[item].item,
+            "group"         : query_data[item].item.group,
+            "quantity"      : query_data[item].quantity,
+            "table_number"  : query_data[item].table_number,
+            "placed_at"     : query_data[item].placed_at,
+            "state"         : query_data[item].state,
+            "customization" : "Customization goes here!",
+            "pk"            : pk,
+        }
+        lst.append(build_data)
+
+    return JsonResponse(lst, safe=False)
 
     # bar.item <-- name
     # bar.member
