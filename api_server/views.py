@@ -54,7 +54,7 @@ def foo_test(request, pk):
             "id"            : str(element.id),
             "order_id"      : str(element.order_id),
             "item_name"     : str(element.item),
-            "group"         : str(element.item.grou)p,
+            "group"         : str(element.item.group),
             "quantity"      : str(element.quantity),
             "table_number"  : str(element.table_number),
             "placed_at"     : str(element.placed_at),
