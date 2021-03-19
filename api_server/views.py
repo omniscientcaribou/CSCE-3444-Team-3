@@ -55,7 +55,7 @@ def foo_test(request):
         "quantity" : str(bar[0].quantity),
         "table_number" : str(bar[0].table_number),
         "placed_at" : str(bar[0].placed_at),
-        "state" : str(bar[0].quantity),
+        "state" : str(bar[0].state),
     }
 
     return JsonResponse(test, safe=False)
