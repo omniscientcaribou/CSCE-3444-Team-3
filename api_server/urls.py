@@ -32,5 +32,5 @@ router.register(r'ordercontent', views.OrderContentViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
-    path('foo_test/', foo_test, name='foo_test'),
+    path('foo_test/<str:pk>', foo_test, name='foo_test'),
 ]
