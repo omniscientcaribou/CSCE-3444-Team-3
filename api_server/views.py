@@ -51,14 +51,14 @@ def foo_test(request, pk):
     query_data = OrderContent.objects.prefetch_related('item').filter(table_number = pk)
     for element in query_data:    
         build_data = {
-            "id"            : element.id,
-            "order_id"      : element.order_id,
-            "item_name"     : element.item,
-            "group"         : element.item.group,
-            "quantity"      : element.quantity,
-            "table_number"  : element.table_number,
-            "placed_at"     : element.placed_at,
-            "state"         : element.state,
+            "id"            : str(element.id),
+            "order_id"      : str(element.order_id),
+            "item_name"     : str(element.item),
+            "group"         : str(element.item.grou)p,
+            "quantity"      : str(element.quantity),
+            "table_number"  : str(element.table_number),
+            "placed_at"     : str(element.placed_at),
+            "state"         : str(element.state),
             "customization" : "Customization goes here!",
             "pk"            : pk,
         }
