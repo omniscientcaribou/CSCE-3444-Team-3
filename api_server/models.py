@@ -69,6 +69,6 @@ class OrderContent(models.Model):
     quantity = models.IntegerField()
 
     
-
+# e = Item.objects.filter(ordercontent__item_id= 11)
 
 

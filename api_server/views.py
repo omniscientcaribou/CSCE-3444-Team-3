@@ -48,10 +48,12 @@ class OrderContentViewSet(viewsets.ModelViewSet):
 def foo_test(request):
     # bar = list(OrderContent.objects.filter(state="Ordered", table_number = 3).values())
     bar = OrderContent.objects.select_related('item').filter(item__id=11)
+    e = Item.objects.filter(ordercontent__item_id= 11)
     test = {
         "id" : str(bar[0].id),
         "order_id" : str(bar[0].item_id), 
         "item_name" : str(bar[0].item),
+        "group"     : str(e[0].group),
         "quantity" : str(bar[0].quantity),
         "table_number" : str(bar[0].table_number),
         "placed_at" : str(bar[0].placed_at),
