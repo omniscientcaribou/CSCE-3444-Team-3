@@ -52,6 +52,7 @@ def foo_test(request):
         "id" : str(bar[0].id),
         "order_id" : str(bar[0].item_id), 
         "item_name" : str(bar[0].item),
+        "quantity" : str(bar[0].quantity),
         "table_number" : str(bar[0].table_number),
         "placed_at" : str(bar[0].placed_at),
         "state" : str(bar[0].quantity),
