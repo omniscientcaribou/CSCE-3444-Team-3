@@ -72,3 +72,6 @@ class OrderContent(models.Model):
 # e = Item.objects.filter(ordercontent__item_id= 11)
 
 
+#r[0].item.group
+# r[1].item.group
+# OrderContent.objects.prefetch_related('item')
