@@ -45,7 +45,7 @@ class OrderContentViewSet(viewsets.ModelViewSet):
     serializer_class = OrderContentSerializer
 
 @api_view(['GET'])
-def foo_test(request, pk):
+def kitchen_view(request, pk):
 
     lst = []
     query_data = OrderContent.objects.prefetch_related('item').filter(table_number = pk)
