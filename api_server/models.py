@@ -68,10 +68,3 @@ class OrderContent(models.Model):
     item = models.ForeignKey(Item, on_delete=models.CASCADE)
     quantity = models.IntegerField()
 
-    
-# e = Item.objects.filter(ordercontent__item_id= 11)
-
-
-#r[0].item.group
-# r[1].item.group
-# OrderContent.objects.prefetch_related('item')

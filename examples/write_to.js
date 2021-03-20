@@ -21,21 +21,25 @@ var order = {
     "status" : "Ordered",
     "items" : [
         {
-            "id" : 11,
+            "id" : 8,
             "quantity" : 2
         },
 
         {
-            "id" : 3,
+            "id" : 13,
             "quantity" : 1
         },
 
         {
-            "id" : 55,
+            "id" : 18,
             "quantity" : 3
         },
+        {
+            "id" : 28,
+            "quantity" : 5
+        },
     ],
-    "table_number" : 3,
+    "table_number" : 5,
     "time" : now
 }
 

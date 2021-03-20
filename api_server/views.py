@@ -13,6 +13,7 @@ from rest_framework.response import Response
 from django.db import connections
 from django.http import JsonResponse
 from django.forms.models import model_to_dict
+from . import queues
 
 # Create your views here.
 
@@ -44,9 +45,9 @@ class OrderContentViewSet(viewsets.ModelViewSet):
     queryset = OrderContent.objects.all()
     serializer_class = OrderContentSerializer
 
+
 @api_view(['GET'])
 def kitchen_view(request, pk):
-
     lst = []
     query_data = OrderContent.objects.prefetch_related('item').filter(table_number = pk)
     for element in query_data:    
@@ -60,11 +61,13 @@ def kitchen_view(request, pk):
             "placed_at"     : str(element.placed_at),
             "state"         : str(element.state),
             "customization" : "Customization goes here!",
-            "pk"            : pk,
         }
         lst.append(build_data)
-
     return JsonResponse(lst, safe=False)
 
-    # bar.item <-- name
-    # bar.member
+@api_view(['GET'])
+def kitchen_queue(request):
+    queues.kitchen_queue.get()
+    return JsonResponse("")
+
+

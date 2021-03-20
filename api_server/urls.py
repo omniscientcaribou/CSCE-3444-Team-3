@@ -18,7 +18,7 @@ from django.urls import path, include
 from django.contrib.auth import views as auth_views
 from rest_framework import routers
 from . import views
-from .views import kitchen_view
+from .views import *
 
 router = routers.DefaultRouter()
 router.register(r'item', views.ItemViewSet)
@@ -33,4 +33,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
     path('kitchen_view/<str:pk>', kitchen_view, name='kitchen_view'),
+    path('kitchen_queue', kitchen_queue', name='kitchen_queue'),
 ]
