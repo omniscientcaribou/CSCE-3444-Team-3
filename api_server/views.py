@@ -68,6 +68,6 @@ def kitchen_view(request, pk):
 @api_view(['GET'])
 def kitchen_queue(request):
     queues.kitchen_queue.get()
-    return JsonResponse("")
+    return JsonResponse("Sup")
 
 
