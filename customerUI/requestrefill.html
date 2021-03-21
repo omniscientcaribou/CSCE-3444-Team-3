@@ -3,26 +3,12 @@
 		<title>Request Refill</title>
 		<style>
 			h1{text-align: center;}
-			.longbar{
-				border-radius: 25px;
-				background: #945d72;
+
+			.refillform{
 				text-align:center;
-				float:left;
-				margin-left:125px;
-				margin-top: 0px;
-				font-size: 25px;
-				text-shadow: 2px 2px #d9e0e8;
+				font-size: 30px;
+				margin-top:100px;
 			}
-
-			.longbar a{
-				font-family: calibri;
-				text-align: center;
-				line-height:1.6em;
-				display: inline;
-				padding-left:10px;
-				padding-right:10px;
-			}
-
 			.sidebar{
 				border-radius: 25px;
 				background: #945d72;
@@ -60,6 +46,24 @@
 				text-shadow: 2px 2px #d9e0e8;
 			}
 		</style>
+
+		<script type="text/javascript">
+
+			function CollapseForm(){
+			var IDofForm = "form1";
+			var IDofDivWithForm = "refillform";
+
+
+			document.getElementById('refill').style="height:400px;width:500px;margin-left:175px;margin-top:75px";
+			document.getElementById(IDofForm).style.visibility="hidden";
+			document.getElementById(IDofDivWithForm).style.visibility = "hidden";
+
+			
+
+			}
+
+		</script>
+
 	</head>
 
 	<body style="background-color: #d9e0e8">
@@ -74,16 +78,26 @@
 			<a href="waiterassistance.html">Waiter Assistance</a>
 			<a href="">Kid's Game</a>
 		</aside>
-		<img src="drinks.jpg" alt="drinks" style="border0px;margin: 10px auto 10px;margin-top:25px;display:block;width:450px;height:325px">
-		<p style="text-align:center;font-size:35;margin-top:25px">Select desired drink: </p>
-		<aside class="longbar">
-			<a href="">Water</a>
-			<a href="">Coca-Cola</a>
-			<a href="">Sprite</a>
-			<a href="">Lemonade</a>
-			<a href="">Iced Tea</a>
-			<a href="">Unsweet tea</a>
-		</aside>
+
+		<img  id="refill" src="refill.png"  style="height:0px;width:0px;"/>
+
+		<div class = "refillform">
+			<form id = "form1">
+  				<input type="checkbox" id="coke" name="coke" value="coke">
+  				<label for="vehicle1"> Coke - </label>
+  				<label for="quantity">Quantity:</label>
+  				<input type="number" id="quantity" name="quantity" min="0" max="10" step="1" value="0"><br>
+  				<input type="checkbox" id="fanta" name="fanta" value="fanta">
+  				<label for="vehicle2"> Fanta - </label>
+  				<label for="quantity">Quantity:</label>
+  				<input type="number" id="quantity" name="quantity" min="0" max="10" step="1" value="0"><br>
+  				<input type="checkbox" id="tea" name="tea" value="tea">
+  				<label for="vehicle3"> Sweet Tea - </label>
+  				<label for="quantity">Quantity:</label>
+  				<input type="number" id="quantity" name="quantity" min="0" max="10" step="1" value="0"><br>
+  				<input type="button" value="submit" style="margin-top:25px; font-size:30px" onclick="CollapseForm()">
+			</form>
+		</div>
 	</body>
 
 

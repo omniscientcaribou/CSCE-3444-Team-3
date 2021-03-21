@@ -3,6 +3,17 @@
 		<title>Waiter Assistance</title>
 		<style>
 			h1{text-align: center;}
+			.button{
+				text-align:center;
+				font-size:60px;
+				padding: 10px 15px;
+				margin: 0;
+  				position: absolute;
+  				top: 60%;
+  				left:65%;
+  				-ms-transform: translate(-50%, -50%);
+  				transform: translate(-50%, -50%);
+			}
 			.sidebar{
 				border-radius: 25px;
 				background: #945d72;
@@ -40,6 +51,12 @@
 				text-shadow: 2px 2px #d9e0e8;
 			}
 		</style>
+
+		<script type="text/javascript">
+			function assist(){
+				document.getElementById('waiter').style="height:400px;width:500px;margin-left:225px;margin-top:75px";
+			}
+		</script>
 	</head>
 
 	<body style="background-color: #d9e0e8">
@@ -54,8 +71,10 @@
 			<a href="">Payment</a>
 			<a href="">Kid's Game</a>
 		</aside>
-		<img src="waiter.png" alt="waiter" style="border0px;margin: 10px auto 10px;margin-top:25px;display:block;width:450px;height:325px">
-		<p style="text-align:center;font-size:35;margin-top:20px">A waiter has been notified for your table. </p>
+
+		<img  id="waiter" src="waiter.png"  style="height:0px;width:0px;"/>
+		<input type="button" class="button" value="Request Waiter Assistance" onclick="this.style.visibility= 'hidden';assist(); " style="margin: auto" />
+		
 	</body>
 
 

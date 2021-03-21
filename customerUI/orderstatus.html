@@ -2,8 +2,21 @@
 	
 
 	<head>
+
 		<title>Order Status</title>
 		<style>
+			.button{
+				text-align:center;
+				font-size:80px;
+				padding: 10px 15px;
+				margin: 0;
+  				position: absolute;
+  				top: 60%;
+  				left:65%;
+  				-ms-transform: translate(-50%, -50%);
+  				transform: translate(-50%, -50%);
+			}
+			
 			h1{text-align: center;}
 			.sidebar{
 				border-radius: 25px;
@@ -43,7 +56,19 @@
 			}
 
 		</style>
-	
+		
+		<script type="text/javascript">
+			function orderStatus(){
+			document.getElementById('order').style="height:400px;width:500px;margin-left:175px;margin-top:75px";
+			
+			}
+
+			function hideButton(){
+				var div = document.getElementById('button');
+				div.style.display="hidden";
+			}
+
+		</script>
 	</head>
 
 	<body style="background-color: #d9e0e8">
@@ -59,8 +84,12 @@
 			<a href="">Kid's Game</a>
 		</aside>
 		
-		<p style="text-align:center;font-size:35;margin-top:75px">Retrieving order status... </p>
-		<img id="order" src="order.jpg" style="margin: 10px auto 10px;display:block;width:300px;height:250px">
+		<img  id="order" src="order.jpg"  style="height:0px;width:0px;"/> 
+		<input type="button" class="button" value="View Order Status" onclick="this.style.visibility= 'hidden';orderStatus(); " style="margin: auto" />
+		
+		<br><br><br>
+		
+		
 	</body>
 
 
