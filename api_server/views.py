@@ -13,7 +13,6 @@ from rest_framework.response import Response
 from django.db import connections
 from django.http import JsonResponse
 from django.forms.models import model_to_dict
-from . import queues
 
 # Create your views here.
 
@@ -65,9 +64,6 @@ def kitchen_view(request, pk):
         lst.append(build_data)
     return JsonResponse(lst, safe=False)
 
-@api_view(['GET'])
-def kitchen_queue(request):
-    queues.kitchen_queue.get()
-    return JsonResponse("Sup")
+
 
 
