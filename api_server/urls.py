@@ -32,6 +32,5 @@ router.register(r'ordercontent', views.OrderContentViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
-    path('kitchen_view/<str:pk>', kitchen_view, name='kitchen_view'),
-    path('kitchen_queue', kitchen_queue, name='kitchen_queue'),
+    path('api/kitchen_view/<str:pk>', kitchen_view, name='kitchen_view'),
 ]
