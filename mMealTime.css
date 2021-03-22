@@ -5,12 +5,13 @@ body {
 .container {
   display: grid;
   position: relative;
+  grid-template-rows: repeat(minmax(50px, 1fr), 5);
+  grid-template-columns: repeat(minmax(50px, 1fr), 3);
   grid-template-areas: "blank h1 h2"
                        "h3 d1 d2"
                        "h4 d3 d4"
                        "h5 d5 d6"
                        "h6 d7 d8";
-  grid-template: repeat(1fr, 5) / repeat(1fr, 3);
 }
 
 .box {
@@ -32,4 +33,20 @@ body {
 
 #head2 {
   grid-area: h2;
+}
+
+#head3 {
+  grid-area: h3;
+}
+
+#head4 {
+  grid-area: h4;
+}
+
+#head5 {
+  grid-area: h5;
+}
+
+#head6 {
+  grid-area: h6;
 }
