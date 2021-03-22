@@ -37,12 +37,9 @@ a {
   color: inherit;
 }
 
-a:hover {
+a:hover, a[tabindex]:focus {
   color: #fef6df;
-}
-
-a:onclick {
-  color: #fef6df;
+  outline: none;
 }
 
 .display {

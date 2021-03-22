@@ -3,8 +3,12 @@
 <html>
   <head>
     <title>Software Cafe: Manager</title>
+
     <link rel="stylesheet" type="text/css" href="managerUI.css">
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.js"></script>
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.js">
+    </script>
+
     <script type="text/javascript">
       function go(loc) { document.getElementById('op').src = loc; }
     </script>
@@ -21,10 +25,17 @@
       </div>
 
       <div class="container">
-        <div class="box orders"><a onclick="go('mOrders.html')">Orders</a></div>
-        <div class="box menu"><a onclick="go('mMenu.html')">Menu</a></div>
-        <div class="box finances"><a onclick="go('mFinance.html')">Finances</a></div>
-        <div class="box times"><a onclick="go('mMealTime.html')">Meal Times</a></div>
+        <div class="box"><a href="#" tabindex="1" onclick="go('mOrders.html')">
+          Orders</a></div>
+
+        <div class="box"><a href="#" tabindex="2" onclick="go('mMenu.html')">
+          Menu</a></div>
+
+        <div class="box"><a href="#" tabindex="3" onclick="go('mFinance.html')">
+          Finances</a></div>
+
+        <div class="box"><a href="#" tabindex="4" onclick="go('mMealTime.html')">
+          Meal Times</a></div>
       </div>
     </header>
 

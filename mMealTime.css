@@ -1,0 +1,35 @@
+body {
+  font-family: Calibre;
+}
+
+.container {
+  display: grid;
+  position: relative;
+  grid-template-areas: "blank h1 h2"
+                       "h3 d1 d2"
+                       "h4 d3 d4"
+                       "h5 d5 d6"
+                       "h6 d7 d8";
+  grid-template: repeat(1fr, 5) / repeat(1fr, 3);
+}
+
+.box {
+  text-align: center;
+  border: 1px solid black; /* temporary: remove when positioning correct */
+}
+
+.heading {
+  font-weight: bold;
+}
+
+#blank {
+  grid-area: blank;
+}
+
+#head1 {
+  grid-area: h1;
+}
+
+#head2 {
+  grid-area: h2;
+}
