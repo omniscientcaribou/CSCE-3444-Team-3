@@ -37,7 +37,11 @@ a {
   color: inherit;
 }
 
-a:hover, a:active{
+a:hover {
+  color: #fef6df;
+}
+
+a:onclick {
   color: #fef6df;
 }
 
