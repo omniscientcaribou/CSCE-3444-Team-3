@@ -4,7 +4,7 @@ header {
   position: absolute;
   top:0;
   left: 0;
-  background-color: #74c3c8;
+  background-color: #64b3b8;
   background-size: cover;
   font-family: Calibre;
   text-align: center;
@@ -48,7 +48,7 @@ a:hover, a[tabindex]:focus {
 }
 
 .display iframe {
-  border: dotted black; /* change back to 'none' */
+  border: none; /* change back to 'none' */
   width: 100%;
   height: 100%;
   position: absolute;
