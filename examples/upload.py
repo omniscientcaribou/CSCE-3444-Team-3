@@ -6,13 +6,13 @@ def write_menu(pay_load):
     url = 'https://swe3444.herokuapp.com/api/item/'
     res = requests.get(url)
     headers = {}
-    res = requests.post(url, data=pay_load, headers=headers)
+    # res = requests.post(url, data=pay_load, headers=headers)
 
 
 with open('examples/menu.txt') as f:
     lst = list(f)
 
-start = 8
+start = 10
 for i in range(0, len(lst) - start, start):
     name = str(lst[i]).strip()
     description = str(lst[i+1]).strip()
@@ -22,6 +22,8 @@ for i in range(0, len(lst) - start, start):
     protein = str(lst[i+5]).strip()
     carbs = str(lst[i+6]).strip()
     allergies =  str(lst[i+7]).strip()
+    price =  str(lst[i+8]).strip()
+    URL =  str(lst[i+9]).strip()
     pay_load = {
     'name' : name,
     'description' : description,
@@ -31,6 +33,8 @@ for i in range(0, len(lst) - start, start):
     'protein' : protein,
     'carbs' : carbs,
     'allergies' : allergies,
+    'price' : price,
+    'url' : URL,
     }
 
     write_menu(pay_load)

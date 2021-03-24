@@ -12,6 +12,8 @@ class Item(models.Model):
     protein = models.TextField()
     carbs = models.TextField()
     allergies = models.TextField()
+    price = models.FloatField()
+    url = models.TextField()
 
     def __str__(self):
         return self.name
@@ -49,7 +51,7 @@ class Task(models.Model):
 class Credential(models.Model):
     role_choice = models.TextField()
     enter_password = models.TextField()
-    password = 'team3'
+    url = models.TextField()
 
     def __str__(self):
         return self.role_choice
