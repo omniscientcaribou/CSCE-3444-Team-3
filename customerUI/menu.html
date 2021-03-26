@@ -1,0 +1,68 @@
+<html>
+	<head>
+        <script src = "menu.js"></script>
+		<title>Customer UI</title>
+		<style>
+			h1{text-align: center;}
+			.sidebar{
+				border-radius: 25px;
+				background: #945d72;
+				float:left;
+				margin-left: 25px;
+				margin-top: 25px;
+				font-size: 50px;
+				text-shadow: 2px 2px #d9e0e8;
+			}
+
+			.sidebar a{
+				font-family: calibri;
+				text-align: center;
+				line-height:1.6em;
+				display: block;
+				padding-left:10px;
+				padding-right:10px;
+			}
+
+			a:link, a:visited, a:hover{
+				color:black;
+				text-decoration: none;
+			}
+
+			.boxed{
+				font-family: calibri;
+				border-radius: 25px;
+				border: 10px grey;
+				font-size: 75px;
+				text-align: center;
+				margin-left: 25px;
+				margin-top: 25px;
+				margin-right: 25px;
+				background: #945d72;
+				text-shadow: 2px 2px #d9e0e8;
+
+			}
+		</style>
+	</head>
+
+	<body style="background-color: #d9e0e8" onload="getData()">
+		<div class="boxed">
+			Customer UI
+		</div>
+		<aside class="sidebar">
+			<a href="menu.html">Menu</a>
+			<a href="orderstatus.html">Order Status</a>
+			<a href="requestrefill.html">Request Refill</a>
+			<a href="">Payment</a>
+			<a href="waiterassistance.html">Waiter Assistance</a>
+			<a href="">Kid's Game</a>
+		</aside>
+		
+		<div class = menuContainer onload="getData(Menu)">
+            <div class = "menuItem"></div>
+        </div>
+			
+	</body>
+
+
+
+</html>
