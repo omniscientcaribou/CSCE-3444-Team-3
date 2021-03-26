@@ -34,6 +34,6 @@ urlpatterns = [
     path('api/', include(router.urls)),
     path('api/kitchen_view/<str:pk>', kitchen_view, name='kitchen_view'),
     path('api/table_view/<str:pk>', 'table_bill', name='table_view'),
-    path('api/table_total/<str:pk>', 'table_total', name='table_total'),
+    # path('api/table_total/<str:pk>', 'table_total', name='table_total'),
 
 ]
