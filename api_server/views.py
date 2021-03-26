@@ -44,7 +44,6 @@ class OrderContentViewSet(viewsets.ModelViewSet):
     queryset = OrderContent.objects.all()
     serializer_class = OrderContentSerializer
 
-
 @api_view(['GET'])
 def kitchen_view(request, pk):
     lst = []
@@ -63,6 +62,36 @@ def kitchen_view(request, pk):
         }
         lst.append(build_data)
     return JsonResponse(lst, safe=False)
+
+@api_view(['GET'])
+def table_bill(request, pk):
+    lst = []
+    query_data = OrderContent.objects.prefetch_related('item').filter(table_number=pk)
+    for element in query_data:
+        summary_order = {
+            "item" : str(element.item),
+            "quantity" : str(element.quantity),
+            "price" : str(element.item.price),
+            "order_total" : str(element.quantity * element.item.price),
+        }
+        lst.append(summary_order)
+    return JsonResponse(lst, safe=False)
+
+@api_view(['GET'])
+def table_total(request, pk):
+    query_data = OrderContent.objects.prefetch_related('item').filter(table_number=pk)
+    price = 0
+    for element in query_data:
+        price += element.item.price
+    order_total = {
+        'total' : str(price),
+    }
+    return JsonResponse(order_total, safe = False)
+
+
+
+
+
 
 
 
