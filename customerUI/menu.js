@@ -1,12 +1,28 @@
 var Menu = new Array();
 
-async function getData(Menu){
-    const url = "https://swe3444.herokuapp.com/api/item/"
-    Menu = fetch(url, {method: 'GET'})
-    // console.log(x);
-    .then(function(response) { return response.json(); })
-    .then(function(json) {return json});
+const apiCall = () => fetch('https://swe3444.herokuapp.com/api/item/').then(res => {
+  if (res.ok) {
+    return res.json()
+  }
+  throw new Error(res)
+})
+.catch(console.err)
+
+async function getData(){
+    let results = await apiCall()
+    for(const property in results) {
+        Menu.push(results[property]);
+    }  
     
+    accessData()
 }
 
-console.log(Menu);
+function accessData(){
+    
+    console.log(Menu[0].name)
+    console.log(Menu[0].description)
+    console.log(Menu[0].calories)
+    console.log(Menu[0].allergies)
+    console.log(Menu[0].carbs)
+    console.log(Menu[0].url)
+}
