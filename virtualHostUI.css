@@ -1,5 +1,5 @@
 body{
-    background-color: grey
+    background-color: #d9e0e8;
 }
 div.header{
     position: relative;
@@ -14,7 +14,7 @@ div.row{
 
 div.table{
     /* position:relative; */
-    background-color:greenyellow;
+    background-color:#74c3c8;
     width: 15%;
     padding-top: 9%;
     border: 5px solid black;
@@ -31,7 +31,7 @@ div.timer{
 }
 
 div#occupied{
-    background-color:red;
+    background-color: #945d72;
 }
 
 div#table1{
