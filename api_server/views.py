@@ -79,6 +79,7 @@ def table_bill(request, pk):
 
 @api_view(['GET'])
 def table_total(request, pk):
+    lst = []
     query_data = OrderContent.objects.prefetch_related('item').filter(table_number=pk)
     price = 0
     for element in query_data:
@@ -86,7 +87,8 @@ def table_total(request, pk):
     order_total = {
         'total' : str(price),
     }
-    return JsonResponse(order_total, safe = False)
+    lst.append(order_total)
+    return JsonResponse(lst, safe = False)
 
 
 
