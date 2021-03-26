@@ -59,7 +59,6 @@ def kitchen_view(request, pk):
             "table_number"  : str(element.table_number),
             "placed_at"     : str(element.placed_at),
             "state"         : str(element.state),
-            "price"         : str(element.price),
             "customization" : "Customization goes here!",
         }
         lst.append(build_data)
