@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Menu</title>
+    <link rel="stylesheet" href="Menu.css">
+</head>
+<script src="Menu.js"></script>
+<body>
+    <div class= "Menu-Page">
+        <div class = "select">
+            <div class = "Item">
+                <div class= "img">
+                    <img src = "Tacos.jpg" alt="two tacos" width="100" height="100">
+                </div>
+                <div class = "info" onclick="describer(event)">Tacos
+                    <span class= "infotext" id="infoPop">Stuff</span>
+                </div>
+                <div class = "price">$5.99</div>
+                <div class = "choice">
+                    <div class = "minus">-  |</div>
+                    <div class = "number"> &nbsp 0 &nbsp </div>
+                    <div class = "add">|  +</div>
+                </div>
+            </div>
+            <div class = "Item">
+                <div class="img">
+                    <img src = "takoyaki.gif" alt="yummy takoyaki" width="100" height="100">
+                </div>
+                <div class = "info" onclick="describer(event)">Takoyaki
+                    <span class= "infotext" id="infoPop1">Stuff</span>
+                </div>
+                <div class = "price">$3.99</div>
+                <div class = "choice">
+                    <div class = "minus">-  |</div>
+                    <div class = "number"> &nbsp 0 &nbsp </div>
+                    <div class = "add">|  +</div>       
+                </div>   
+            </div>
+            <div class = "Item">
+                <div class= "img">
+                    <img src = "Tacos.jpg" alt="two tacos" width="100" height="100">
+                </div>
+                <div class = "info" onclick="describer(event)">Tacos
+                    <span class= "infotext" id="infoPop">Stuff</span>
+                </div>
+                <div class = "price">$5.99</div>
+                
+                <div class = "choice">
+                    <div class = "minus">-  |</div>
+                    <div class = "number"> &nbsp 0 &nbsp </div>
+                    <div class = "add">|  +</div>
+                </div>
+            </div>
+        </div>
+        <div class = "submit">Submit Order</div>
+    </div>
+
+</body>
+<script>
+    function describer(event){
+        event.target.children[0].classList.toggle("show");
+    }
+</script>
+</html>
