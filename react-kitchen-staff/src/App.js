@@ -1,38 +1,61 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Orders from './components/Orders';
 import Button from './components/Button';
 import Popup from './components/Popup';
+import Cards from './components/Cards';
 // import Card from './components/Card';
 
 function App() {
 	const [callWaitstaffButtonPopup, setCallWaitstaffButtonPopup] = useState(false);
-	const [orderReadyButtonPopup, setOrderReadyButtonPopup] = useState(false);
+	// const [orderReadyButtonPopup, setOrderReadyButtonPopup] = useState(false);
 	const [callManagerButtonPopup, setCallManagerButtonPopup] = useState(false);
+	const [orders, setOrders] = useState([]);
 
-	// Delete Order
-	const deleteOrder = (id) => {
-		setOrders(orders.filter((order) => order.id !== id));
+	useEffect(() => {
+		const getOrders = async () => {
+			const ordersFromServer = await fetchOrders();
+			setOrders(ordersFromServer);
+		};
+
+		getOrders();
+	}, []);
+
+	// Fetch Orders
+	const fetchOrders = async () => {
+		const res = await fetch('https://swe3444.herokuapp.com/kitchen_view');
+		const data = await res.json();
+
+		return data;
 	};
+
+	// // Delete Order
+	// const deleteOrder = async (id) => {
+	// 	await fetch(`https://swe3444.herokuapp.com/kitchen_view/5/${id}`, {
+	// 		method: 'DELETE',
+	// 	})
+
+	// 	setOrders(orders.filter((order) => order.id !== id));
+	// };
 
 	// Display Popup
 	const displayPopup = (pid) => {
-		pid(prev => !prev)
-	}
+		pid((prev) => !prev);
+	};
 
 	return (
 		<div className='container'>
 			<Header title='Kitchen Staff Interface' />
-			{orders.length > 0 ? (
+			{/* {orders.length > 0 ? (
 				<Orders
 					orders={orders}
-					onDelete={deleteOrder}
-					// onToggle={toggleReminder}
+					// onDelete={deleteOrder}
 				/>
 			) : (
 				'All Tickets Completed!'
-			)}
-			{/* <Card title='Card Title' body='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tristique quis quam commodo imperdiet. Ut vestibulum est ac turpis tempus, ut efficitur purus pellentesque. Ut eu orci viverra, porta neque ac, vulputate est. Suspendisse pulvinar condimentum neque, sit amet fringilla justo porttitor vitae. Morbi sollicitudin semper odio, vel pellentesque mi sodales vitae. Quisque tempus eros vel sem pretium, sit amet tempor urna tempor. Morbi vitae ante quis nulla elementum fermentum ac sed diam. Duis eu auctor odio. Nullam augue lorem, convallis eu suscipit non, auctor vitae dui. Morbi aliquet luctus sapien nec mollis. Fusce tempor justo vel turpis interdum, ut molestie orci sodales.' /> */}
+			)} */}
+			<Cards />
+			<div><p>Notes Here</p></div>
 			<div className='button-wrapper'>
 				<Button
 					className='btn'
@@ -40,14 +63,14 @@ function App() {
 					text='Call Waitstaff'
 					onClick={() => displayPopup(setCallWaitstaffButtonPopup)}
 				/>
-				<div class="d-grid gap-2 d-md-block">
+				{/* <div class='btn'>
 					<Button
 						className='btn'
 						color='#FF8800'
 						text='Order READY!'
 						onClick={() => displayPopup(setOrderReadyButtonPopup)}
 					/>
-				</div>
+				</div> */}
 				<Button
 					className='btn'
 					color='#668EB9'
@@ -61,13 +84,13 @@ function App() {
 					text='Do you want to call the waitstaff?'
 					heading='Call waitstaff'
 				/>
-				<Popup
+				{/* <Popup
 					showPopup={orderReadyButtonPopup}
 					setShowPopup={setOrderReadyButtonPopup}
 					btn_text='READY!'
 					text='Is the order ready for pickup?'
 					heading='Order Ready'
-				/>
+				/> */}
 				<Popup
 					showPopup={callManagerButtonPopup}
 					setShowPopup={setCallManagerButtonPopup}

@@ -1,10 +1,15 @@
-import Order from './Order'
+import Order from './Order';
 
 const Orders = ({ orders, onDelete, onToggle }) => {
 	return (
 		<>
-			{orders.map((order) => (
-				<Order key={order.id} order={order} onDelete={onDelete} onToggle={onToggle} />
+			{orders.map((order, index) => (
+				<Order
+					key={index}
+					order={order}
+					onDelete={onDelete}
+					onToggle={onToggle}
+				/>
 			))}
 		</>
 	);
