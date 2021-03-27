@@ -16,7 +16,7 @@ function App() {
   const [refresh, setRefresh] = useState(0);
   useEffect(() => {const period = setInterval(() => {
         setRefresh(refresh => refresh + 1);
-    }, 3000);
+    }, 10000);
     return() => clearInterval(period);
   }, []);
   //console.log(refresh);

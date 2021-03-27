@@ -2,7 +2,7 @@ import './Star.css';
 import React, { useState, useEffect } from 'react';
 import star_image from './star.png'; 
 async function test(){
-    const url = 'https://swe3444.herokuapp.com/api/item/'
+    const url = 'https://swe3444.herokuapp.com/api/task/'
     fetch(url, {method: 'GET'})
     .then(function(response) { return response.json(); })
     .then(function(json) {console.log(json);});

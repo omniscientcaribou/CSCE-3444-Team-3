@@ -32,7 +32,8 @@ function Table(tableInfo) {
                         </div>
                     }
                 </div>
-                <Beverage ID={tableInfo.ID} seconds={tableInfo.Seconds}/>
+                {/*console.log(tableInfo.Refill + tableInfo.ID)*/}
+                <Beverage ID={tableInfo.ID} seconds={tableInfo.Seconds} refill={tableInfo.Refill}/>
                 <Star ID={tableInfo.ID} seconds={tableInfo.Seconds}/>
                 
             </div>           

@@ -20,7 +20,8 @@ function Beverage(beverageInfo) {
 
     }
 //
-    if(beverageOn[beverageInfo.ID]){
+    //if(beverageOn[beverageInfo.ID]){
+    if(beverageInfo.refill){
         return (
 
         <div className="Random">
