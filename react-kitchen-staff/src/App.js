@@ -7,28 +7,56 @@ import Cards from './components/Cards';
 // import Card from './components/Card';
 
 function App() {
-	const [callWaitstaffButtonPopup, setCallWaitstaffButtonPopup] = useState(false);
+	const [callWaitstaffButtonPopup, setCallWaitstaffButtonPopup] = useState(
+		false
+	);
 	// const [orderReadyButtonPopup, setOrderReadyButtonPopup] = useState(false);
 	const [callManagerButtonPopup, setCallManagerButtonPopup] = useState(false);
 	const [orders, setOrders] = useState([]);
+	const [filteredOrders, setFilteredOrders] = useState([]);
 
 	useEffect(() => {
-		const getOrders = async () => {
-			const ordersFromServer = await fetchOrders();
-			setOrders(ordersFromServer);
-		};
+		setInterval(() => {
+			const getOrders = async () => {
+				const ordersFromServer = await fetchOrders();
+				setOrders(ordersFromServer);
+			};
 
-		getOrders();
+			getOrders();
+		}, 3000);
 	}, []);
 
 	// Fetch Orders
 	const fetchOrders = async () => {
-		const res = await fetch('https://swe3444.herokuapp.com/kitchen_view');
+		const res = await fetch('https://swe3444.herokuapp.com/api/ordercontent/');
 		const data = await res.json();
 
 		return data;
 	};
 
+	useEffect(() => {
+		const getFilteredOrders = async () => {
+			const filteredOrdersFromServer = await filterFetchedOrders();
+			setFilteredOrders(filteredOrdersFromServer);
+		};
+
+		getFilteredOrders();
+	}, [orders]);
+
+	// Fetch Orders
+	const filterFetchedOrders = async () => {
+		const filteredData = [];
+		for (let i = 0; i < orders.length; i++) {
+			if (orders[i].state === 'Ordered') {
+				filteredData.push(orders[i]);
+			}
+		}
+
+		return filteredData;
+	};
+
+	console.log('Filtered Orders:');
+	console.log(filteredOrders);
 	// // Delete Order
 	// const deleteOrder = async (id) => {
 	// 	await fetch(`https://swe3444.herokuapp.com/kitchen_view/5/${id}`, {
@@ -55,7 +83,9 @@ function App() {
 				'All Tickets Completed!'
 			)} */}
 			<Cards />
-			<div><p>Notes Here</p></div>
+			<div>
+				<p>Notes Here</p>
+			</div>
 			<div className='button-wrapper'>
 				<Button
 					className='btn'
