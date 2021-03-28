@@ -15,29 +15,27 @@
 
 .popup-inner {
 	display: grid;
-	grid-template-rows: auto 1fr auto;
 	position: relative;
-	border-radius: 2rem;
-	box-shadow: 3px 4px rgba(0, 0, 0, 0.5);
+	border-radius: 1rem;
+	box-shadow: 3px 4px rgba(0, 0, 0, 0.8);
 	border: 1px solid;
 	border-color: black;
-	padding: 1em;
+	padding: 1em 1.1em 1em .5em;
 	width: 100%;
 	max-width: 32em;
-	background-color: #FFF;
+	background-color: #E1E0F2;
 }
 
-.popup-inner-header {
-	display: flex;
-	justify-content: center;
-	text-transform: capitalize;
-}
 
 .popup-inner-header-x-btn {
 	position: absolute;
-	top: .85em;
+	top: .95em;
 	right: .7em;
 	font-size: x-large;
+	width: 1.25em;
+	height: 1.25em;
+	background-color: rgb(0, 0, 0);
+	border-radius: .2em;
 }
 
 .pop-up-inner-text {
