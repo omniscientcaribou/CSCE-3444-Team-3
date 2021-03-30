@@ -14,10 +14,11 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, url
 from django.contrib.auth import views as auth_views
 from rest_framework import routers
 from . import views
+from django.views.generic import TemplateView
 from .views import *
 
 router = routers.DefaultRouter()
@@ -35,5 +36,5 @@ urlpatterns = [
     path('api/kitchen_view/<str:pk>', kitchen_view, name='kitchen_view'),
     path('api/table_view/<str:pk>', table_bill, name='table_view'),
     path('api/table_total/<str:pk>', table_total, name='table_total'),
-    path('api/test_html/', include('api_server.urls')),
+    url(r'^$', TemplateView.as_view(template_name='index.html')),
 ]
