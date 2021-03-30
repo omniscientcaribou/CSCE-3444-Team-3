@@ -1,6 +1,6 @@
 function myFunction(){
     console.log("test")
-    document.getElementById("table1").style.backgroundColor= "blue";
+    document.getElementById("table2").style.backgroundColor= "blue";
 }
 
 async function test(){
