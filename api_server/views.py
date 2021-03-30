@@ -95,7 +95,7 @@ def table_total(request, pk):
 
 
 def test_html(request):
-    return render(request, 'static/test.html')
+    return render(request, 'template/test.html')
 
 
 
