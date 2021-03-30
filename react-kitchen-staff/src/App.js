@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import Header from './components/Header';
-import Orders from './components/Orders';
+// import Orders from './components/Orders';
 import Button from './components/Button';
 import Popup from './components/Popup';
 import Cards from './components/Cards';
@@ -13,7 +13,7 @@ function App() {
 	// const [orderReadyButtonPopup, setOrderReadyButtonPopup] = useState(false);
 	const [callManagerButtonPopup, setCallManagerButtonPopup] = useState(false);
 	const [orders, setOrders] = useState([]);
-	const [filteredOrders, setFilteredOrders] = useState([]);
+	const [orderedState, setFilteredOrders] = useState([]);
 
 	useEffect(() => {
 		setInterval(() => {
@@ -40,23 +40,23 @@ function App() {
 			setFilteredOrders(filteredOrdersFromServer);
 		};
 
+		// Fetch Orders
+		const filterFetchedOrders = async () => {
+			const filteredData = [];
+			for (let i = 0; i < orders.length; i++) {
+				if (orders[i].state === 'Ordered') {
+					filteredData.push(orders[i]);
+				}
+			}
+
+			return filteredData;
+		};
+
 		getFilteredOrders();
 	}, [orders]);
 
-	// Fetch Orders
-	const filterFetchedOrders = async () => {
-		const filteredData = [];
-		for (let i = 0; i < orders.length; i++) {
-			if (orders[i].state === 'Ordered') {
-				filteredData.push(orders[i]);
-			}
-		}
-
-		return filteredData;
-	};
-
 	console.log('Filtered Orders:');
-	console.log(filteredOrders);
+	console.log(orderedState);
 	// // Delete Order
 	// const deleteOrder = async (id) => {
 	// 	await fetch(`https://swe3444.herokuapp.com/kitchen_view/5/${id}`, {
