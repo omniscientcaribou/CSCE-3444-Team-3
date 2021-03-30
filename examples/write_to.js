@@ -174,11 +174,26 @@ function update_status(order)
 {
     // This is a PATCH call we are going to update the status of an item
     // Enough for today
-    url = 'https://swe3444.herokuapp.com/api/ordercontent/' + order['items'][0]['id']
-    console.log(url)
+    url = 'https://swe3444.herokuapp.com/api/ordercontent/1/'
+
+    fetch(url, {
+        method: 'PATCH',
+        body: JSON.stringify({
+            state : "Changed by JSON"
+        }),
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+    })
+    .then(function(response){
+        return response.json()
+    })
+    .then(function(data){
+        console.log(data)
+    })
 }
 
-place_order(order);
-// separate_order(order);
 
-// update_status(order);
+
+update_status()
