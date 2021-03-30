@@ -1,4 +1,5 @@
 function myFunction(){
+    console.log("test")
     document.getElementById("table1").style.backgroundColor= "blue";
 }
 
