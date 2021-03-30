@@ -13,7 +13,7 @@ from rest_framework.response import Response
 from django.db import connections
 from django.http import JsonResponse
 from django.forms.models import model_to_dict
-
+from django.shortcuts import render
 # Create your views here.
 
 class ItemViewSet(viewsets.ModelViewSet):
@@ -89,6 +89,9 @@ def table_total(request, pk):
     }
     lst.append(order_total)
     return JsonResponse(lst, safe = False)
+
+def test_html(request):
+    return render(request, 'static/test.html')
 
 
 
