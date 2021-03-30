@@ -17,7 +17,7 @@ async function getData(){
 }
 
 function accessData(){
-    document.getElementById("item1").textContent = Menu[20].price;
+    document.getElementById("item1")..getElementById("price").textContent = Menu[20].price;
     // console.log(document.getElementById("item1").getElementById("price"))
     // document.getElementById("item1").getElementsByClassName
     console.log(Menu[20].price)
