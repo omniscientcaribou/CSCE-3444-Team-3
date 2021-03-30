@@ -1,0 +1,118 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family:sans-serif;
+}
+:root {
+    --div-height: 350px;
+    --div-width:600px;
+    
+}
+.info{
+    justify-content: center;
+    align-items: center;
+    size: 350px;
+    padding: 10px;
+    margin-left: 100px;
+}
+#cardNumbers {
+    justify-content: center;
+    font-size: 30px;
+    text-align: right;
+    width: 358px;
+    display: block;
+
+}
+#month{
+    display: inline-block;
+    text-align: center;
+    font-size: 30px;
+}
+#Nothing {
+    opacity: .5;
+}
+#year{
+    font-size: 30px;
+    width: 15%;
+}
+.Area{
+    margin-left: 300px; 
+    position: absolute;
+    top: 25%;
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+    width: var(--div-width);
+    height: var(--div-height);
+    background-color: #945d72;
+}
+
+.text{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fef6df;
+    padding: 20px;
+    font-size: 250%;
+    
+}
+.payment{
+    border-color: beige;
+    border-style: solid;
+    text-align: center;
+    font-size: 50px;
+    align-items: center;
+    width:90%;
+    height: 40%;
+    padding-top: 30px;
+    color: #fef6df;
+    margin-left:30px;
+    border-radius: 20px;
+}
+.selection{
+    display: flex;
+    padding: 40px;
+    justify-content: space-around;
+}
+.selection .button{
+    border: none;
+    position: relative;
+    display: inline-block;
+    background-color: #9e7b91;
+    border-radius: 15px;
+    /* margin: 15px; */
+    padding: 15px 35px;
+    color: #fef6df;
+    cursor: pointer;
+    text-align: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 30px;
+    margin-top: -20px;
+}
+
+.button:hover{
+    background-color: #694050;
+}
+
+.selection .next{
+    border: none;
+    position: relative;
+    display: inline-block;
+    background-color: #9e7b91;
+    border-radius: 15px;
+    /* margin: 15px; */
+    padding: 15px 35px;
+    color: #fef6df;
+    cursor: pointer;
+    text-align: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 30px;
+    margin-top: -20px;
+}
+
+.next:hover{
+    background-color: #694050;
+}
