@@ -12,7 +12,8 @@ class Home extends Component{
     //    var prop=props;
     //}
     state = {
-        tasks: [ ]
+        tasks: [ ],
+        orders: []
     }
 
     componentDidMount(){
@@ -21,8 +22,15 @@ class Home extends Component{
                 this.setState({
                     tasks: res.data
                 })
-                console.log("Fetched");
+                //console.log("Fetched");
             })
+        axios.get('https://swe3444.herokuapp.com/api/ordercontent/')
+        .then(res => {
+            this.setState({
+                orders: res.data
+            })
+            //console.log("Fetched");
+        })
     }
     componentDidUpdate(){
         //if(this.props.seconds != )
@@ -30,7 +38,7 @@ class Home extends Component{
         .then(res => {
             //if(res.data != this.tasks){
             if( _.isEqual(res.data, this.state.tasks)){
-                console.log("equal so skip");
+                //console.log("equal so skip");
             }
             else
             {
@@ -42,34 +50,91 @@ class Home extends Component{
             }
             console.log("Fetched");
         }) 
+        axios.get('https://swe3444.herokuapp.com/api/ordercontent/')
+        .then(res => {
+            if(_.isEqual(res.data, this.state.orders)){
+                //console.log("Orders are euqal");
+            }
+            else{
+                this.setState({
+                    orders: res.data
+                })
+            }
+            //console.log("Order fetched");
+        })
     }
     //console.log(refills[7] + " " + refillData[7]);
     render(){
         const { tasks } = this.state;
+        const { orders } = this.state;
         var refills = new Array(16).fill(false);
         var refillData = new Array(16);
-        var assistance = new Array(16);
-
+        var refillsID = new Array(16).fill(0);
+        var assistance = new Array(16).fill(false);
+        var assistanceID = new Array(16).fill(0);
+        let tableOrders = new Array(16);
+        var kitchenCalling = false;
+        var kitchenCallingID = 0;
+        for(let i = 0; i < 16; i++){
+            tableOrders[i] = new Array();
+        }
         for(var i = 1; i <= 16; i++){
             for(var j = 0; j < tasks.length; j++){
-            if(tasks[j].table_number===i)
-                if(tasks[j].refill_request===true){
-                    refills[i-1] = true;
-                    refillData[i-1] = tasks[j].drink_selections;
-
-                }
-                
+                if(tasks[j].table_number===i){
+                    if(tasks[j].refill_request===true){
+                        refills[i-1] = true;
+                        refillData[i-1] = tasks[j].drink_selections;
+                        refillsID[i-1] = tasks[j].id;
+                    }
+                    else if(tasks[j].call_waitstaff===true){
+                        assistance[i-1] = true;
+                        assistanceID[i-1] = tasks[j].id;
+                    }   
                     
+                }
+                else if(tasks[j].role==="Kitchen"){
+                    if(tasks[j].call_waitstaff===true)
+                        kitchenCalling=true;
+                        kitchenCallingID=tasks[j].id;
+                }
+
             }
-        }    
-        //const taskList = tasks.length ? () : (
-            
-        //)
+        }
+
+        for(let i = 1; i <= 16; i++){
+            for(let j = 0; j < orders.length; j++){
+                if(orders[j].state==="Ready to Deliver"){
+                    if(orders[j].table_number===i){
+                       // console.log(orders[j].table_number);
+                        tableOrders[i-1].push(orders[j]);
+                        //console.log(i-1);
+                    }
+                }
+            }
+        } 
+
+        let tables = [];
+        for(let i = 1; i <= 16; i++){
+            tables.push(
+                <Table ID={i}
+                Seconds={this.props.seconds}
+                Refill={refills[i-1]}
+                RefillData={refillData[i-1]}
+                RefillsID={refillsID[i-1]}
+                Assistance={assistance[i-1]}
+                AssistanceID={assistanceID[i-1]}
+                Orders={tableOrders[i-1]}
+
+                />
+            );
+            //console.log(tableOrders[i-1] + i);
+        }
+
         console.log("refresh");
         return(
             <div className="Top">
              <div className="Tables">
-                 <Table ID="1" Seconds={this.props.seconds} Refill={refills[0]} RefillData={refillData[0]}/>
+                 {/*<Table ID="1" Seconds={this.props.seconds} Refill={refills[0]} RefillData={refillData[0]}/>
                  <Table ID="2" Seconds={this.props.seconds} Refill={refills[1]} RefillData={refillData[0]}/>
                     <Table ID="3" Seconds={this.props.seconds} Refill={refills[2]} RefillData={refillData[0]}/>
 
@@ -87,8 +152,9 @@ class Home extends Component{
                     <Table ID="13" Seconds={this.props.seconds} Refill={refills[12]} RefillData={refillData[0]}/>
                     <Table ID="14" Seconds={this.props.seconds} Refill={refills[13]} RefillData={refillData[0]}/>
                     <Table ID="15" Seconds={this.props.seconds} Refill={refills[14]} RefillData={refillData[0]}/>
-                    <Table ID="16" Seconds={this.props.seconds} Refill={refills[15]} RefillData={refillData[0]}/>
-                    <KitchenCall Seconds={this.props.seconds} />
+                    <Table ID="16" Seconds={this.props.seconds} Refill={refills[15]} RefillData={refillData[0]}/>*/}
+                    {tables}
+                    <KitchenCall Seconds={this.props.seconds} KitchenCalling={kitchenCalling} KitchenCallingID={kitchenCallingID}/>
                 </div>
 
             </div>

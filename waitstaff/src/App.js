@@ -48,10 +48,10 @@ function App() {
             <Route exact path="/SplitBill">
               <SplitBill seconds={refresh} />
             </Route>
-            <Route exact path="/BeverageInfo">
+            <Route path="/BeverageInfo">
               <BeverageInfo seconds={refresh}/>
             </Route>
-            <Route exact path="/KitchenSuccess">
+            <Route exact path="/Success">
               <KitchenSuccess seconds={refresh}/>
             </Route>
           </Switch>

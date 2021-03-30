@@ -2,18 +2,29 @@
 import './Table.css';
 import table_image from './table_image.png';
 import {useState} from 'react';
+import axios from 'axios';
 
 function TableManager(tableInfo) {
 
     const [tableClick, setTableClick] = useState(0);
     function TableClick(e){
-        console.log("button worked?" + tableInfo.ID);
         if(tableClick > 0){
             setTableClick(0);
         }
         else
             setTableClick(tableInfo.ID);
-        console.log(tableClick); 
+    }
+    function TableClickManager(e){
+        axios.post('https://swe3444.herokuapp.com/api/task/',{
+            role: 'Waitstaff',
+            table_number: tableInfo.ID,
+            call_manager: true
+        })
+        if(tableClick > 0){
+            setTableClick(0);
+        }
+        else
+            setTableClick(tableInfo.ID);
     }
 
 
@@ -21,7 +32,7 @@ function TableManager(tableInfo) {
             <div className="Table">
                 {tableInfo.type == "Manager" &&
                     <div>
-                        <button onClick={TableClick} clasName="Table-Button">
+                        <button onClick={TableClickManager} clasName="Table-Button">
                             <img src={table_image} className="Table-Image"/>
                         </button>
                         <div className="Table-ID">

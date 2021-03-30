@@ -2,30 +2,34 @@ import './Beverage.css';
 import React, { useState, useEffect } from 'react';
 import {Link} from 'react-router-dom';
 import beverage_image from './beverage_image.png'; 
+import axios from 'axios';
 
 function Beverage(beverageInfo) {
 
-    var beverageOn = Array(17).fill(false);
-    beverageOn[5] = true;
-    beverageOn[7] = true;
-    beverageOn[10] = true;
-    //var randomIndex = (Math.random() * seconds) % 17;
-    if(beverageInfo.seconds%2)
-        beverageOn[beverageInfo.ID] = true;
-    else
-        beverageOn[beverageInfo.ID] = false;
-
     function BeverageClick(e){
-        console.log("Beverage click" + beverageInfo.ID);
-
+        let id = beverageInfo.RefillID;
+        let URL = "https://swe3444.herokuapp.com/api/task/";
+        let URLFull = URL.concat(id);
+        axios.delete(URLFull,)
+        console.log(URLFull);
     }
 //
     //if(beverageOn[beverageInfo.ID]){
-    if(beverageInfo.refill){
+    if(beverageInfo.Refill){
         return (
 
         <div className="Random">
-            <Link to ="/BeverageInfo">                    
+            {//<Link to ="/BeverageInfo" RefillData={beverageInfo.RefillData}>   
+            }   
+            <Link to={{
+                //pathname: '{"/BeverageInfo/"}',
+               // pathname: '/BeverageInfo/' + ${beverageInfo.Refill},
+               pathname: '/BeverageInfo/',
+                state: {
+                    RefillData: "true",
+                },
+            }}>
+           
                 <button onClick={BeverageClick} className="Beverage-Button">
                     <img src={beverage_image} className="Beverage-image"/>
                 </button>
