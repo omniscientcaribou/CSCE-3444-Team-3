@@ -13,16 +13,14 @@ async function getData(){
     for(const property in results) {
         Menu.push(results[property]);
     }  
-    
-    accessData()
 }
 
 function accessData(){
+    document.getElementById("item1").getElementById('price').textContent = Menu[20].price;
+    console.log(document.getElementById("item1").getElementById("price"))
+    document.getElementById("item1").getElementsByClassName
+    console.log(Menu[20].price)
     
-    console.log(Menu[0].name)
-    console.log(Menu[0].description)
-    console.log(Menu[0].calories)
-    console.log(Menu[0].allergies)
-    console.log(Menu[0].carbs)
-    console.log(Menu[0].url)
+    
 }
+accessData();

@@ -1,0 +1,10 @@
+menuitem{
+    width: 50x;
+    height: 100px;
+    background-color: #947b91;
+    color: #fef6df;
+    text-align: center;
+    display: inline;
+    cursor: pointer;
+
+}
