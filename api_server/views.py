@@ -90,9 +90,12 @@ def table_total(request, pk):
     lst.append(order_total)
     return JsonResponse(lst, safe = False)
 
-def test_html(request):
-    return HttpResponse("This is a test static page!")
+# def test_html(request):
+#     return HttpResponse("This is a test static page!")
 
+
+def test_html(request):
+    return render(request, 'test.html')
 
 
 
