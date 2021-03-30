@@ -91,7 +91,7 @@ def table_total(request, pk):
     return JsonResponse(lst, safe = False)
 
 def test_html(request):
-    return render(request, 'static/test.html')
+    return render(request, 'api_server/test.html')
 
 
 
