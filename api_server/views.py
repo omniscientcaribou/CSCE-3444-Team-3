@@ -115,7 +115,7 @@ def wait_order(request, t_num, item_id, quantity, s = ""):
 
     serial_order = {
         'table_number' : t_num,
-        'p  laced_at' : datetime.datetime.now(),
+        'placed_at' : datetime.datetime.now(),
         'state' : 'Ordered',
         'quantity' : quantity,
         'order' : p_key,
