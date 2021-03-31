@@ -69,4 +69,5 @@ class OrderContent(models.Model):
     state = models.TextField()
     item = models.ForeignKey(Item, on_delete=models.CASCADE)
     quantity = models.IntegerField()
+        
 

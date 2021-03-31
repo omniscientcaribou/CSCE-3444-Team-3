@@ -97,7 +97,8 @@ def table_total(request, pk):
 def test_html(request):
     return render(request, 'api_server/test.html')
 
-
+def wait_order(request, t_num, item_id, quantity):
+    return HttpResponse(request)
 
 
 
