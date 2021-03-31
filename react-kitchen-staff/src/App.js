@@ -1,14 +1,16 @@
+import 'react-toastify/dist/ReactToastify.css';
 import { useState, useEffect } from 'react';
+import { ToastContainer } from 'react-toastify';
+// import { Button } from 'react-bootstrap';
+import Card from 'react-bootstrap/Card';
 import Header from './components/Header';
-// import Orders from './components/Orders';
 import Button from './components/Button';
-import Popup from './components/Popup';
 import CallWSPopup from './components/CallWSPopup';
 import CallMngrPopup from './components/CallMngrPopup';
 import Cards from './components/Cards';
+// import Orders from './components/Orders';
 // import Card from './components/Card';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+// import Popup from './components/Popup';
 
 function App() {
 	const [callWaitstaffButtonPopup, setCallWaitstaffButtonPopup] = useState(
@@ -99,15 +101,28 @@ function App() {
 			)} */}
 			<Cards />
 			<div>
-				<p>Notes Here</p>
+				<Card>
+					<Card.Header className='noteCard-Header' as='h5'>
+						Notes:
+					</Card.Header>
+					<Card.Body className='noteCard-Body'>
+						<Card.Title>Placeholder</Card.Title>
+						<Card.Text>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
+							posuere erat a ante.
+						</Card.Text>
+					</Card.Body>
+				</Card>
 			</div>
 			<div className='button-wrapper'>
 				<Button
 					className='btn'
+					id='call_waitstaff_button'
 					color='#74C3C8'
 					text='Call Waitstaff'
 					onClick={() => displayPopup(setCallWaitstaffButtonPopup)}
 				/>
+				<p></p>
 				{/* <div class='btn'>
 					<Button
 						className='btn'
@@ -118,6 +133,7 @@ function App() {
 				</div> */}
 				<Button
 					className='btn'
+					id='call_manager_button'
 					color='#668EB9'
 					text='Call Manager'
 					onClick={() => displayPopup(setCallManagerButtonPopup)}

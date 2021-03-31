@@ -6,9 +6,10 @@
   padding: 0;
 }
 
-body {
+#root {
   font-family: 'Poppins', sans-serif;
   background-color: #E7F2F8;
+  height: 100vh;
 }
 
 /* .container {
@@ -36,27 +37,32 @@ body {
 }
 
 .button-wrapper {
-  display: flex;
-  padding: 1em;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr .025fr 1fr;
+  padding-top: 18em;
 }
 
-.btn {
+#call_waitstaff_button, #call_manager_button {
   display: inline-block;
-  background: #000;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  margin: 5px;
-  border-radius: 1em;
-  cursor: pointer;
-  text-decoration: none;
-  font-size: 15px;
-  font-family: inherit;
+  margin-right: 5px;
 }
 
+.noteCard-Header.card-header {
+  width: 100%;
+  background-color: #7dce94;
+}
+
+.noteCard-Body.card-body {
+  flex: 1 1 auto;
+  min-height: 1px;
+  padding: 1.25rem;
+  width: 100%;
+  background: #d4d4dc;
+  color: #434343;
+}
+
+
+/* 
 .btn:focus {
   outline: none;
 }
@@ -68,4 +74,4 @@ body {
 .btn-block {
   display: block;
   width: 100%;
-}
+} */
