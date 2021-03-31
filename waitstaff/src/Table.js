@@ -18,10 +18,14 @@ function Table(tableInfo) {
         //else
         //    setTableClick(tableInfo.ID);
         //console.log(tableClick); 
+
+        //var inProgress = new Array();
+
         for(let i = 0; i < tableInfo.Orders.length; i++){
             let id = tableInfo.Orders[i].id;
             let URL = "https://swe3444.herokuapp.com/api/ordercontent/";
             let URLFull = URL.concat(id);
+            URLFull = URLFull.concat("/")
             axios.patch(URLFull, {state:"Delivered"}).catch(error => console.log(error))
             .then(console.log(URLFull));
             
@@ -41,14 +45,33 @@ function Table(tableInfo) {
             //console.log(tableInfo.Orders[i].id);
         }
         console.log(ordersReady);
+        var path = '/Success?';
+        path = path.concat("name=Table Orders Ready");
+        path = path.concat("&ID=" +tableInfo.ID);
+        path = path.concat("&data=");    
+        for(let i = 0; i < tableInfo.Orders.length; i++){
+            path = path.concat(tableInfo.Orders[i].id + " ");    
+        }
+        if(tableInfo.Orders.length > 0){
+            path = path.concat("&OrdersReady:true")
+        }     
+        path = path.concat("&OtherOrders=")
+        for(let i = 0; i < tableInfo.AllOrders.length; i++){
+            //console.log(typeof tableInfo.ID + typeof tableInfo.AllOrders.table_number)
+            if(tableInfo.AllOrders[i].table_number===parseInt(tableInfo.ID)){
+                //console.log(tableInfo.AllOrders[i].state)
+                //if(tableInfo.AllOrders[i].state!=="Ready to Deliver" &&tableInfo.AllOrders[i].state!=="Delivered" && tableInfo.AllOrders[i].state!=="Payed" && tableInfo.AllOrders[i].state!=="Complete"){
+                if(tableInfo.AllOrders[i].state=="Ordered" || tableInfo.AllOrders[i].state== "In Progress") {
+                    path = path.concat(tableInfo.AllOrders[i].id + " ")
+                    //console.log(tableInfo.AllOrders[i].id)
+                }
+            }
+        }     
         return (
             <div className="Table">
-                <Link to ="Success">
+                <Link to ={path}>
                     <button onClick={TableClick} clasName="Table-Button">
-                        <img src={table_image} className="Table-Image"/>
-                    </button>
-                </Link>
-                <div className="Table-ID">
+                    <div className="Table-ID">
                     {tableInfo.ID} 
                     {tableInfo.Orders.length > 0 && 
                         <div>
@@ -58,7 +81,11 @@ function Table(tableInfo) {
                             
                         </div>
                     }
-                </div>
+                        </div>
+                        <img src={table_image} className="Table-Image"/>
+                    </button>
+                </Link>
+
                 {/*console.log(tableInfo.Refill + tableInfo.ID)*/}
                 {
                 }

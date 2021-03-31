@@ -51,7 +51,7 @@ function App() {
             <Route path="/BeverageInfo">
               <BeverageInfo seconds={refresh}/>
             </Route>
-            <Route exact path="/Success">
+            <Route path='/Success'>
               <KitchenSuccess seconds={refresh}/>
             </Route>
           </Switch>

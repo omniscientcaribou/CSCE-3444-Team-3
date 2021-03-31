@@ -11,7 +11,7 @@ function Pay(prop){
                         <button className="Side-Bar-Button">
                             Pay In Cash
                        </button>
-                    </Link>
+                </Link>
 
                 <Link to="/SplitBill">                    
                     <button className="Side-Bar-Button">

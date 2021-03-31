@@ -1,0 +1,14 @@
+.Success{
+    width: 60%;
+    float: left;
+
+}
+.Sucess-Header{
+    text-align:center;
+    font-size: 40px;
+    
+}
+.Data-Display{
+    font-size: 20px;
+    text-align: center;
+}

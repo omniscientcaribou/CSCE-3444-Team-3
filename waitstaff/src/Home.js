@@ -124,7 +124,7 @@ class Home extends Component{
                 Assistance={assistance[i-1]}
                 AssistanceID={assistanceID[i-1]}
                 Orders={tableOrders[i-1]}
-
+                AllOrders={orders}
                 />
             );
             //console.log(tableOrders[i-1] + i);

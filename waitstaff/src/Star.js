@@ -26,11 +26,15 @@ function Star(starInfo) {
     
     //console.log("starClick = " + starClick);
     if(starInfo.Assistance){
+        var path = '/Success?';
+        path = path.concat("name=Assistance Requested");
+        path = path.concat("&ID=" + starInfo.ID);
+        //path = path.concat("&data=" + starInfo.);
         //console.log("THIS SHOULD RENDER IT");
         return (
 
         <div className="Star">  
-            <Link to='/Success'>             
+            <Link to={path}>             
                 <button onClick={StarClick} className="Star-Button">
                     <img src={star_image} className="Star-image"/>
                 </button>

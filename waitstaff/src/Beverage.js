@@ -13,23 +13,31 @@ function Beverage(beverageInfo) {
         axios.delete(URLFull,)
         console.log(URLFull);
     }
-//
+//  
+    //var path = ''
     //if(beverageOn[beverageInfo.ID]){
     if(beverageInfo.Refill){
+        var path = '/Success?';
+        path = path.concat("name=Deliver Refill");
+        path = path.concat("&ID=" + beverageInfo.ID);
+        path = path.concat("&data=" + beverageInfo.RefillData);
+        console.log(path);
         return (
 
         <div className="Random">
             {//<Link to ="/BeverageInfo" RefillData={beverageInfo.RefillData}>   
             }   
-            <Link to={{
-                //pathname: '{"/BeverageInfo/"}',
+            {/*<Link to={{
+            //    //pathname: '{"/BeverageInfo/"}',
                // pathname: '/BeverageInfo/' + ${beverageInfo.Refill},
-               pathname: '/BeverageInfo/',
+               pathname: '/Success?name=assistancee&data=32',
                 state: {
                     RefillData: "true",
                 },
-            }}>
-           
+            }}>*/}
+            {//<Link to='/Success?name=Deliver Refill&data=${beverageInfo.Refill}'>
+            }
+            <Link to = {path}>
                 <button onClick={BeverageClick} className="Beverage-Button">
                     <img src={beverage_image} className="Beverage-image"/>
                 </button>
