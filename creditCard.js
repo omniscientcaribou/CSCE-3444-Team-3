@@ -1,19 +1,19 @@
-var num=document.getElementById("cardNumbers").value.length;
-alert(num);
-alert("WHY 2")
-
-windows.onload = function(){
-    alert("WHY 2")
+window.onload = function(){
     function check(){
-        alert("WHY")
+        var d= new Date()
         if(document.getElementById("cardNumbers").value.length!=16){
-            alert("Invalid card input");
+            alert("Card must have 16 digits");
+        }
+        else if(document.getElementById("year").value<d.getFullYear()){
+            alert("Please input a valid non-expired year");
+        }
+        else if(document.getElementById("month").value<d.getMonth()){
+            alert("Please choose a valid non-expired month");
         }
         else {
-            window.location.replace("http://bing.com");
+            window.location.replace("comments.html");
         }
     }
     var nextBut= document.getElementById("submit");
     nextBut.addEventListener("click",check);
 }
-
