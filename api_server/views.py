@@ -14,6 +14,7 @@ from django.db import connections
 from django.http import JsonResponse
 from django.forms.models import model_to_dict
 from django.shortcuts import render
+import datetime
 # Create your views here.
 
 class ItemViewSet(viewsets.ModelViewSet):
@@ -93,14 +94,20 @@ def table_total(request, pk):
 def test_html(request):
     return render(request, 'api_server/test.html')
 
-def wait_order(request, t_num, item_id, quantity):
+def wait_order(request, t_num, item_id, quantity, s =""):
     lst = []
-    ob = {
+    payload = {
         't_num' : t_num,
         'item_id' : item_id,
         'quantity' : quantity,
+        's' : s,
     }
-    lst.append(ob)
+
+
+
+
+
+    lst.append(payload)
     return JsonResponse(lst, safe = False)
 
 
