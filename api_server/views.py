@@ -94,7 +94,7 @@ def table_total(request, pk):
 def test_html(request):
     return render(request, 'api_server/test.html')
 
-def wait_order(request, t_num, item_id, quantity, s =""):
+def wait_order(request, t_num, item_id, quantity, s = ""):
     
     url_one = 'https://swe3444.herokuapp.com/api/ordercontent/'
     url_two = 'https://swe3444.herokuapp.com/api/order/'
@@ -104,7 +104,7 @@ def wait_order(request, t_num, item_id, quantity, s =""):
         'state' : 'Occupied',
     }
 
-    init_order = request.get(url_two)
+    # init_order = request.get(url_two)
     headers = {}
     init_order = request.post(url_two, data = create_order, headers = headers)
     data = json.loads(init_order.text)
