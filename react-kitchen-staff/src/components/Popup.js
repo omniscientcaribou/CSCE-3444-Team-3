@@ -11,6 +11,7 @@ const Popup = ({
 	text,
 	heading,
 	btn_text,
+	func_name,
 }) => {
 	const popupRef = useRef();
 
@@ -51,7 +52,12 @@ const Popup = ({
 						<p className='pop-up-inner-text'>{text}</p>
 						<br />
 						{/* <Button className='popup-btn' text={btn_text} color='#74C3C8' /> */}
-						<Button variant='info' size='lg' block>
+						<Button
+							onClick={() => setShowPopup((prev) => !prev)}
+							variant='info'
+							size='lg'
+							block
+						>
 							{btn_text}
 						</Button>
 						{children}

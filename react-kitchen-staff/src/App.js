@@ -3,8 +3,12 @@ import Header from './components/Header';
 // import Orders from './components/Orders';
 import Button from './components/Button';
 import Popup from './components/Popup';
+import CallWSPopup from './components/CallWSPopup';
+import CallMngrPopup from './components/CallMngrPopup';
 import Cards from './components/Cards';
 // import Card from './components/Card';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
 	const [callWaitstaffButtonPopup, setCallWaitstaffButtonPopup] = useState(
@@ -73,6 +77,17 @@ function App() {
 
 	return (
 		<div className='container'>
+			<ToastContainer
+				position='bottom-right'
+				autoClose={5000}
+				hideProgressBar={false}
+				newestOnTop
+				closeOnClick
+				rtl={false}
+				pauseOnFocusLoss={false}
+				draggable
+				pauseOnHover
+			/>
 			<Header title='Kitchen Staff Interface' />
 			{/* {orders.length > 0 ? (
 				<Orders
@@ -107,12 +122,12 @@ function App() {
 					text='Call Manager'
 					onClick={() => displayPopup(setCallManagerButtonPopup)}
 				/>
-				<Popup
+				<CallWSPopup
 					showPopup={callWaitstaffButtonPopup}
 					setShowPopup={setCallWaitstaffButtonPopup}
 					btn_text='CALL'
 					text='Do you want to call the waitstaff?'
-					heading='Call waitstaff'
+					heading='Call Waitstaff'
 				/>
 				{/* <Popup
 					showPopup={orderReadyButtonPopup}
@@ -121,12 +136,12 @@ function App() {
 					text='Is the order ready for pickup?'
 					heading='Order Ready'
 				/> */}
-				<Popup
+				<CallMngrPopup
 					showPopup={callManagerButtonPopup}
 					setShowPopup={setCallManagerButtonPopup}
 					btn_text='CALL'
-					text='Do you want to summon a manager?'
-					heading='call manager'
+					text='Do you want to call a manager?'
+					heading='Call Manager'
 				/>
 			</div>
 		</div>
