@@ -15,6 +15,7 @@ from django.http import JsonResponse
 from django.forms.models import model_to_dict
 from django.shortcuts import render
 import datetime
+
 # Create your views here.
 
 class ItemViewSet(viewsets.ModelViewSet):
@@ -106,7 +107,7 @@ def wait_order(request, t_num, item_id, quantity, s = ""):
 
     # init_order = request.get(url_two)
     headers = {}
-    init_order = request.POST(url_two, data = create_order, headers = headers)
+    init_order = requests.post(url_two, data = create_order, headers = headers)
     data = json.loads(init_order.text)
 
     p_key = data['id']
@@ -120,7 +121,7 @@ def wait_order(request, t_num, item_id, quantity, s = ""):
         'item' : item_id,
     }
     
-    request.POST(url_one, data = serial_order, headers = headers)
+    requests.post(url_one, data = serial_order, headers = headers)
 
     return JsonResponse({"Response" : "Success"})
 
