@@ -90,15 +90,18 @@ def table_total(request, pk):
     lst.append(order_total)
     return JsonResponse(lst, safe = False)
 
-# def test_html(request):
-#     return HttpResponse("This is a test static page!")
-
-
 def test_html(request):
     return render(request, 'api_server/test.html')
 
 def wait_order(request, t_num, item_id, quantity):
-    return HttpResponse("Hi")
+    lst = []
+    ob = {
+        't_num' : t_num,
+        'item_id' : item_id,
+        'quantity' : quantity,
+    }
+    lst.append(ob)
+    return JsonResponse(lst, safe = False)
 
 
 
