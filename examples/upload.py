@@ -14,16 +14,16 @@ def drive_write_menu():
 
     start = 10
     for i in range(0, len(lst) - start, start):
-        name = str(lst[i]).strip()
-        description = str(lst[i+1]).strip()
-        group = str(lst[i+2]).strip()
-        calories = str(lst[i+3]).strip()
-        fat = str(lst[i+4]).strip()
-        protein = str(lst[i+5]).strip()
-        carbs = str(lst[i+6]).strip()
-        allergies =  str(lst[i+7]).strip()
-        price =  str(lst[i+8]).strip()
-        URL =  str(lst[i+9]).strip()
+        name            = str(lst[i]).strip()
+        description     = str(lst[i+1]).strip()
+        group           = str(lst[i+2]).strip()
+        calories        = str(lst[i+3]).strip()
+        fat             = str(lst[i+4]).strip()
+        protein         = str(lst[i+5]).strip()
+        carbs           = str(lst[i+6]).strip()
+        allergies       = str(lst[i+7]).strip()
+        price           = str(lst[i+8]).strip()
+        URL             = str(lst[i+9]).strip()
         pay_load = {
         'name' : name,
         'description' : description,
@@ -37,9 +37,9 @@ def drive_write_menu():
         'url' : URL,
         }
 
-        write_menu(pay_load)
-    # print(f'{pay_load} complete.')
-        print('##########')
+        # write_menu(pay_load)
+        # print(f'{pay_load} complete.')
+        # print('##########')
         for key in pay_load:
             print(f'{key} --> {pay_load[key]}')
         print('############')
@@ -102,4 +102,6 @@ def generate_orders():
 
 
 
-generate_orders()
+# generate_orders()
+
+drive_write_menu()

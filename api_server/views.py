@@ -115,14 +115,14 @@ def wait_order(request, t_num, item_id, quantity, a_flag = False, s = ""):
     p_key = data['id']
 
     serial_order = {
-        'table_number' : str(t_num),
-        'placed_at' : str(datetime.datetime.now()),
-        'state' : 'ORDERED',
-        'quantity' : str(quantity),
-        'order' : str(p_key),
-        'item' : str(item_id),
-        'allergy_flag' : str(a_flag),
-        'comment' : str(s), 
+        'table_number'  : t_num,
+        'placed_at'     : datetime.datetime.now(),
+        'state'         : 'ORDERED',
+        'quantity'      : quantity,
+        'order'         : p_key,
+        'item'          : item_id,
+        'allergy_flag'  : a_flag,
+        'comment'       : s, 
     }
     
     requests.post(url_one, data = serial_order, headers = headers)

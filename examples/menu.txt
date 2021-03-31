@@ -1,349 +1,429 @@
 Horchata
-A popular Mexican drink made of rice, milk, vanilla and cinnamon 
+A popular Mexican drink made of rice, milk, vanilla and cinnamon
 Drink
 54
- .7g
- .5g
- 12g
- Dairy
+.7g
+.5g
+12g
+Dairy
 1.99
 BLANK
 Orange Fanta
 An orange flavored soda
 Drink
 170
- 0g
- 0g
- 44g
- None
+0g
+0g
+44g
+None
 1.99
 BLANK
 Coca-Cola
 The classic soft drink
 Drink
 140
- 0g
- 0g
- 39g
- None
- 1.99
+0g
+0g
+39g
+None
+1.99
 BLANK
 Cherry Cola
 Cherry flavoured Coca-Cola
 Drink
 150
- 0g
- 0g
- 42g
- None
- 1.99
+0g
+0g
+42g
+None
+1.99
 BLANK
 Iced Tea
 Lipton Iced Tea
 Drink
 190
- 0g
- 0g
- 48.5g
- None
- 1.99
+0g
+0g
+48.5g
+None
+1.99
 BLANK
 Bubble Milk Tea
-Iced black tea with milk and chewy tapioca pearls shaken not stirred
+Iced black tea with milk and chewy tapioca pearls. Shaken, not stirred
 Drink
 120
- 1.5g
- 0g
- 28g
- Dairy
- 1.99
+1.5g
+0g
+28g
+Dairy
+1.99
 BLANK
 Water
 A glass of water
 Drink
 0
- 0g
- 0g
- 0g
- None
- 1.99
+0g
+0g
+0g
+None
+1.99
 BLANK
 Potato Chips
-Homemade golden potato chips freshly made today and seasoned with sea salt.
+Homemade golden potato chips freshly made today and seasoned with sea salt
 Sides
 152
- 10g
- 2g
- 15g
- None
- 3.99
+10g
+2g
+15g
+None
+3.99
 BLANK
 Sticky Rice
-Classic sticky rice brought in a bamboo container
+Classic sticky rice served in a bamboo container
 Sides
 169
- .3g
- 3.5g
- 37g
- None
-  3.99
+.3g
+3.5g
+37g
+None
+3.99
 BLANK
 Fries
-Homemade fries made every morning seasoned with garlic and seasalt
+Homemade fries made every morning seasoned with garlic and sea salt
 Sides
 365
- 17g
- 4g
- 48g
- None
-  3.99
+17g
+4g
+48g
+None
+3.99
 BLANK
 Mac and Cheese
-Macaroni Pasta with cheddar cheese
+Macaroni pasta with cheddar cheese
 Sides
 310
- 9g
- 13g
- 44g
- Dairy
-  3.99
+9g
+13g
+44g
+Dairy
+3.99
 BLANK
 Fried Okra
 Fresh okra deep fried and ready to serve
 Sides
 33
- .2g
- 7g
- 1.9g
- None
-  3.99
+.2g
+7g
+1.9g
+None
+3.99
 BLANK
 Dan Dan noodles
 Iconic spicy Sichuan noodles freshly boiled and served in a sesame chili sauce topped with stir fried pork, preserved mustard greens, green onions and chopped peanuts.
 Sides
 392
- 22g
- 12g
- 38g
- Peanuts
-  3.99
+22g
+12g
+38g
+Peanuts
+3.99
 BLANK
 Brussel Sprouts
-Fresh Brussel Sprouts
+Fresh brussel sprouts
 Sides
 38
- .3g
- 3g
- 8g
- None
-  3.99
+.3g
+3g
+8g
+None
+3.99
 BLANK
 Nachos
 Corn Nacho chips drizzled in melted cheese and served with jalapenos
 Appetizers
 346
- 19g
- 9g
- 36g
- Dairy
-  8.99
+19g
+9g
+36g
+Dairy
+8.99
 BLANK
 Takoyaki
-A fluffy dough ball with octopus in the inside and drizzled in takoyaki sauce
+A fluffy dough ball with octopus on the inside and drizzled with takoyaki sauce
 Appetizers
 173
- 6g
- 17g
- 11g
- Seafood
-  8.99
+6g
+17g
+11g
+Seafood
+8.99
 BLANK
 Fried Pickles
-Fried pickles that have been battered and fried
+Pickles that have been battered and fried
 Appetizers
 163
- 6.3g
- 3.9g
- 23g
- None
-  8.99
+6.3g
+3.9g
+23g
+Gluten
+8.99
 BLANK
 Mozzarella Sticks
 Deep Fried Mozzarella sticks
 Appetizers
 101
- 5.7g
- 4.6g
- 7.8g
- Dairy
-  8.99
+5.7g
+4.6g
+7.8g
+Dairy
+8.99
 BLANK
 Onion Rings
 Onion rings that have been battered and fried
 Appetizers
 1004
- 54g
- 14g
+54g
+14g
 115
- None
-  8.99
+None
+8.99
 BLANK
 Drunken Chicken
 Chicken steeped in rice wine and cooked
 Appetizers
 440
- 18g
+18g
 47g
- 19g
+19g
 None
-  8.99
+8.99
 BLANK
-Calamari 
+Calamari
 Fried squid
 Appetizers
 356
- 15g
- 18g
- 37g
- Seafood
-   8.99
+15g
+18g
+37g
+Seafood
+8.99
 BLANK
 Pulled Pork and Brisket Burger
-Our famous pulled pork and brisket burger!
+Our famous pulled pork and brisket burger
 Entrees
 870
- 52g
- 44g
- 47g
- None
-   11.99
+52g
+44g
+47g
+None
+11.99
 BLANK
 Bird’s Nest
 Fried egg noodles with chinese broccoli and in a sweet soup
 Entrees
 195.3
- 10.5g
- 11.1g
+10.5g
+11.1g
 16.7
- None
-    11.99
+None
+11.99
 BLANK
 Cheeseburger
 Classic american cheeseburger
 Entrees
 535
- 29g
- 30g
- 39g
- Dairy
-    11.99
+29g
+30g
+39g
+Dairy
+11.99
 BLANK
 Tacos al Pastor
-Three corn tortilla tacos filled with spit grilled pork and pico de gallo
+Three corn tacos filled with spit grilled pork and pico de gallo
 Entrees
 224
- 6.8g
- 19g
- 22g
- None
-    11.99
+6.8g
+19g
+22g
+None
+11.99
 BLANK
 Lasagna
 Lasagna made with pork and freshly rolled pasta
 Entrees
 602
- 32g
- 44g
- 35g
- None
-    11.99
+32g
+44g
+35g
+Dairy
+11.99
 BLANK
 Spice Beef Noodles with Soup
 Iconic spicy Taipei beef noodle soup made of tender braised beef shank simmered for hours in a savory beef broth, topped with bok choy and green onions. Thick handcrafted noodles are freshly pulled and added just before serving each bowl for the perfect blend of hearty and intense flavors.
 Entrees
 345
- 7.3g
- 26g
- 44g
- None
-    11.99
+7.3g
+26g
+44g
+None
+11.99
 BLANK
 Veal Rossini
 Sautéed veal topped with sliced tomato and mozzarella cheese in a sherry wine sauce
 Entrees
 353
- 31.4g
- 16.5g
+31.4g
+16.5g
 9.66
- None
-    6.99
+Dairy
+6.99
 BLANK
 Fruit Cobbler
 Various fruits covered in batter and baked
 Dessert
 10
- 0g
- 0g
- 2.7g
- Citrus
-     6.99
+0g
+0g
+2.7g
+Citrus
+6.99
 BLANK
 Flan
 A mexican dessert consisting of custard with a caramel top
 Dessert
 222
- 6.2g
- 6.9g
- 35g
- Dairy
-     6.99
+6.2g
+6.9g
+35g
+Dairy
+6.99
 BLANK
 Ice Cream Cone
 Soft serve vanilla ice cream in a standard cone
 Dessert
 274
- 13g
- 4.7g
+13g
+4.7g
 35g
- Dairy
-     6.99
+Dairy
+6.99
 BLANK
 Chocolate Eclair
 A pastry with a cream filling and covered in rich milk chocolate
 Dessert
 341
- 19g
- 4.5g
- 38g
- Dairy
-     6.99
+19g
+4.5g
+38g
+Dairy
+6.99
 BLANK
 Tiramisu
 Ladyfingers dipped in chocolate and layered in cream and dusted in cocoa powder
 Dessert
 572
- 44g
- 8.3g
- 35g
- Dairy
-     6.99
+44g
+8.3g
+35g
+Dairy
+6.99
 BLANK
 Mango Pudding
 A rich mango flavoured pudding topped with mango slices and whip cream
 Dessert
 166.7
- .3g
- 4.1g
- 38.8g
- Dairy
-     6.99
+.3g
+4.1g
+38.8g
+Dairy
+6.99
 BLANK
 Strawberry Cake
 A rich strawberry flavored cake with a strawberry frosting
 Dessert
 553
- 24g
- 7g
- 80g
- Dairy
-
+24g
+7g
+80g
+Dairy
+6.99
+BLANK
+Kid's Slider (Mini Cheeseburger)
+A smaller take on an American classic
+Kid's Menu
+266
+13g
+16g
+21g
+Dairy
+2.99
+BLANK
+Chicken Tenders
+Crispy chicken tenders
+Kid's Menu
+289
+14g
+19g
+21g
+Gluten, Eggs
+2.99
+BLANK
+Kid's Half Rack of Ribs
+A half rack of ribs, perfect for kids
+Kid's Menu
+580
+36g
+47g
+20g
+None
+2.99
+BLANK
+Slice of Bread with Butter
+Butter, bread, what else is there to say
+Kid's Menu
+170
+12g
+3g
+12g
+Gluten, Dairy
+2.99
+BLANK
+Corndog
+Breaded corndog
+Kid's Menu
+260
+15g
+7g
+25g
+Gluten
+2.99
+BLANK
+Pizza
+A slice of cheese pizza
+Kid's Menu
+285
+10.4g
+12.2g
+35.7g
+Dairy
+$2.99
+BLANK
+Grilled Cheese Sandwich
+A classic for kids, our Grilled Cheese Sandwich
+Kid's Menu
+366
+23g
+12g
+28g
+Dairy
+$2.99
+BLANK
+Manager's Special Item
+Do not put this in the menu, under any circumstance. Ever.
+Manager's Selection
+0
+0
+0
+None
+-1
+BLANK

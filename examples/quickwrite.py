@@ -38,22 +38,29 @@ def test_write(t_num, item_id, quantity, s = ""):
 
     p_key = data['id']
 
+    print(f'PK -> {p_key}.')
+    status = "Ordered"
     serial_order = {
-        'table_number' : t_num,
-        'placed_at' : datetime.datetime.now(),
-        'state' : 'Ordered',
-        'quantity' : quantity,
-        'order' : p_key,
-        'item' : item_id,
+        'order'         : p_key,
+        'table_number'  : t_num,
+        'placed_at'     : datetime.datetime.now(),
+        'state'         : status,
+        'item'          : item_id,
+        'quantity'      : quantity,
+        'allergy_flag'  : False,
+        'comment'       : "Test",
     }
     
-    requests.post(url_one, data = serial_order, headers = headers)
+    print(serial_order)
 
-    print('Done!')
+    try:
+        r = requests.post(url_one, data = serial_order, headers = headers)
+        r.raise_for_status()
+    except requests.exceptions.HTTPError as e:
+        print (e.response.text)
 
 
-
-test_write(2, 3, 4, "I am a cat")
+# test_write(2, 3, 4, "I am a cat")
 
 
 
