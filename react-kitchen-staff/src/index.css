@@ -39,17 +39,23 @@
 .button-wrapper {
   display: grid;
   grid-template-columns: 1fr .025fr 1fr;
-  padding-top: 18em;
+  margin-top: 2.8em;
 }
 
 #call_waitstaff_button, #call_manager_button {
   display: inline-block;
   margin-right: 5px;
+  transition-duration: 0.4s;
+}
+
+#noteCard {
+  margin-top: 15em;
 }
 
 .noteCard-Header.card-header {
   width: 100%;
-  background-color: #7dce94;
+  /* background-color: #7dce94; */
+  background-color: #fabfb9;
 }
 
 .noteCard-Body.card-body {
@@ -57,10 +63,10 @@
   min-height: 1px;
   padding: 1.25rem;
   width: 100%;
-  background: #d4d4dc;
+  /* background-color: #d4d4dc; */
+  background-color: #fef6df;
   color: #434343;
 }
-
 
 /* 
 .btn:focus {

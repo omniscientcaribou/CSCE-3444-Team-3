@@ -101,7 +101,7 @@ function App() {
 			)} */}
 			<Cards />
 			<div>
-				<Card>
+				<Card id='noteCard'>
 					<Card.Header className='noteCard-Header' as='h5'>
 						Notes:
 					</Card.Header>
