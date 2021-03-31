@@ -95,8 +95,8 @@ def table_total(request, pk):
 
 def test_html(request):
     return render(request, 'api_server/test.html')
-    
-@api_view(['POST'])
+
+@api_view(['GET', 'POST'])
 def wait_order(request, t_num, item_id, quantity, s = ""):
     
     url_one = 'https://swe3444.herokuapp.com/api/ordercontent/'
@@ -115,7 +115,7 @@ def wait_order(request, t_num, item_id, quantity, s = ""):
 
     serial_order = {
         'table_number' : t_num,
-        'placed_at' : datetime.datetime.now(),
+        'p  laced_at' : datetime.datetime.now(),
         'state' : 'Ordered',
         'quantity' : quantity,
         'order' : p_key,
