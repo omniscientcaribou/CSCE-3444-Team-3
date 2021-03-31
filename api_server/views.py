@@ -106,7 +106,7 @@ def wait_order(request, t_num, item_id, quantity, s = ""):
 
     # init_order = request.get(url_two)
     headers = {}
-    init_order = request.post(url_two, data = create_order, headers = headers)
+    init_order = request.POST(url_two, data = create_order, headers = headers)
     data = json.loads(init_order.text)
 
     p_key = data['id']
@@ -120,7 +120,7 @@ def wait_order(request, t_num, item_id, quantity, s = ""):
         'item' : item_id,
     }
     
-    request.post(url_one, data = serial_order, headers = headers)
+    request.POST(url_one, data = serial_order, headers = headers)
 
     return JsonResponse({"Response" : "Success"})
 
