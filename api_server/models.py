@@ -69,5 +69,7 @@ class OrderContent(models.Model):
     state = models.TextField()
     item = models.ForeignKey(Item, on_delete=models.CASCADE)
     quantity = models.IntegerField()
+    allergy_flag = models.BooleanField(default=False)
+    comment = models.TextField()
         
 

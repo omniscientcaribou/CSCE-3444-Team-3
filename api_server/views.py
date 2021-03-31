@@ -60,8 +60,9 @@ def kitchen_view(request, pk):
             "quantity"      : str(element.quantity),
             "table_number"  : str(element.table_number),
             "placed_at"     : str(element.placed_at),
-            "state"         : str(element.state),
-            "customization" : "Customization goes here!",
+            "state"         : str(element.state).upper(),
+            "allergy_flag"  : str(element.allergy_flag),
+            "comment"       : str(element.comment), 
         }
         lst.append(build_data)
     return JsonResponse(lst, safe=False)
@@ -97,7 +98,7 @@ def test_html(request):
     return render(request, 'api_server/test.html')
 
 @api_view(['GET', 'POST'])
-def wait_order(request, t_num, item_id, quantity, s = ""):
+def wait_order(request, t_num, item_id, quantity, a_flag = False, s = ""):
     
     url_one = 'https://swe3444.herokuapp.com/api/ordercontent/'
     url_two = 'https://swe3444.herokuapp.com/api/order/'
@@ -114,12 +115,14 @@ def wait_order(request, t_num, item_id, quantity, s = ""):
     p_key = data['id']
 
     serial_order = {
-        'table_number' : t_num,
-        'placed_at' : datetime.datetime.now(),
-        'state' : 'Ordered',
-        'quantity' : quantity,
-        'order' : p_key,
-        'item' : item_id,
+        'table_number' : str(t_num),
+        'placed_at' : str(datetime.datetime.now()),
+        'state' : 'ORDERED',
+        'quantity' : str(quantity),
+        'order' : str(p_key),
+        'item' : str(item_id),
+        'allergy_flag' : str(a_flag),
+        'comment' : str(s), 
     }
     
     requests.post(url_one, data = serial_order, headers = headers)
