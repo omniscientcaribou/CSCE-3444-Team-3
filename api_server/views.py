@@ -95,20 +95,34 @@ def test_html(request):
     return render(request, 'api_server/test.html')
 
 def wait_order(request, t_num, item_id, quantity, s =""):
-    lst = []
-    payload = {
-        't_num' : t_num,
-        'item_id' : item_id,
-        'quantity' : quantity,
-        's' : s,
+    
+    url_one = 'https://swe3444.herokuapp.com/api/ordercontent/'
+    url_two = 'https://swe3444.herokuapp.com/api/order/'
+
+    create_order = {
+        'table_number' : t_num,
+        'state' : 'Occupied',
     }
 
+    init_order = request.get(url_two)
+    headers = {}
+    init_order = request.post(url_two, data = create_order, headers = headers)
+    data = json.loads(init_order.text)
 
+    p_key = data['id']
 
+    serial_order = {
+        'table_number' : t_num,
+        'placed_at' : datetime.datetime.now(),
+        'state' : 'Ordered',
+        'quantity' : quantity,
+        'order' : p_key,
+        'item' : item_id,
+    }
+    
+    request.post(url_one, data = serial_order, headers = headers)
 
-
-    lst.append(payload)
-    return JsonResponse(lst, safe = False)
+    return JsonResponse({"Response" : "Success"})
 
 
 
