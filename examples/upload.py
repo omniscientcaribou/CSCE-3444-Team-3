@@ -14,7 +14,11 @@ def drive_write_menu():
 
     url_dict = update_urls()
 
+    # for k in url_dict:
+    #     print(k)
+
     for position in range(0, len(lst), 10):
+        print(f'name -> {str(lst[position]).strip().upper()}')
         name            = str(lst[position]).strip().upper()
         description     = str(lst[position+1]).strip().upper()
         group           = str(lst[position+2]).strip().upper()
@@ -24,8 +28,6 @@ def drive_write_menu():
         carbs           = str(lst[position+6]).strip().upper()
         allergies       = str(lst[position+7]).strip().upper()
         price           = str(lst[position+8]).strip().upper()
-        if name == "MANAGER'S SPECIAL ITEM":
-            continue
         URL             = url_dict[name]
 
         pay_load = {
@@ -41,10 +43,8 @@ def drive_write_menu():
         'url' : URL,
         }
 
-        # write_menu(pay_load)
-        # print('Complete')
-        for k in pay_load:
-            print(pay_load[k])
+        write_menu(pay_load)
+
 
 
 def generate_orders():
@@ -75,12 +75,6 @@ def generate_orders():
             'state' :'Occupied',
             }
 
-        # print('##########################################################################')
-        # print(order)
-        # print(second_payload)
-        # print('##########################################################################')
-
-
         url_one = 'https://swe3444.herokuapp.com/api/ordercontent/'
         url_two = 'https://swe3444.herokuapp.com/api/order/'
         
@@ -97,18 +91,11 @@ def generate_orders():
         res = requests.get(url_one)
         res = requests.post(url_one, data = order, headers = headers)
 
-        # print('#############################################')
-        # print(second_payload)
-        # print(order)
-        # print('#############################################')
         print('Order Uploaded')
 
 
 def update_urls():
-    url_dict = {
-        "name" : "MANAGER'S SPECIAL ITEM",
-        "url" : "BLANK",
-    }
+    url_dict = {}
     f = open('examples/MenuPics.txt')
     for line in f:
         line_split = line.split('$')

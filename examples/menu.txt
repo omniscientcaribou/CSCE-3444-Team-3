@@ -418,13 +418,3 @@ Kid's Menu
 Dairy
 $2.99
 BLANK
-Manager's Special Item
-Do not put this in the menu, under any circumstance. Ever.
-Manager's Selection
-0
-0
-0
-0
-None
--1
-BLANK
