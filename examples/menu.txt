@@ -424,6 +424,7 @@ Manager's Selection
 0
 0
 0
+0
 None
 -1
 BLANK

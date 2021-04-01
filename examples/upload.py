@@ -12,18 +12,22 @@ def drive_write_menu():
     with open('examples/menu.txt') as f:
         lst = list(f)
 
-    start = 10
-    for i in range(0, len(lst) - start, start):
-        name            = str(lst[i]).strip()
-        description     = str(lst[i+1]).strip()
-        group           = str(lst[i+2]).strip()
-        calories        = str(lst[i+3]).strip()
-        fat             = str(lst[i+4]).strip()
-        protein         = str(lst[i+5]).strip()
-        carbs           = str(lst[i+6]).strip()
-        allergies       = str(lst[i+7]).strip()
-        price           = str(lst[i+8]).strip()
-        URL             = str(lst[i+9]).strip()
+    url_dict = update_urls()
+
+    for position in range(0, len(lst), 10):
+        name            = str(lst[position]).strip().upper()
+        description     = str(lst[position+1]).strip().upper()
+        group           = str(lst[position+2]).strip().upper()
+        calories        = str(lst[position+3]).strip().upper()
+        fat             = str(lst[position+4]).strip().upper()
+        protein         = str(lst[position+5]).strip().upper()
+        carbs           = str(lst[position+6]).strip().upper()
+        allergies       = str(lst[position+7]).strip().upper()
+        price           = str(lst[position+8]).strip().upper()
+        if name == "MANAGER'S SPECIAL ITEM":
+            break
+        URL             = url_dict[name]
+
         pay_load = {
         'name' : name,
         'description' : description,
@@ -37,12 +41,11 @@ def drive_write_menu():
         'url' : URL,
         }
 
-        # write_menu(pay_load)
-        # print(f'{pay_load} complete.')
-        # print('##########')
-        for key in pay_load:
-            print(f'{key} --> {pay_load[key]}')
-        print('############')
+        write_menu(pay_load)
+        # print('Complete')
+        for k in pay_load:
+            print(pay_load[k])
+
 
 def generate_orders():
     print(f'{datetime.datetime.now()}')
@@ -101,7 +104,27 @@ def generate_orders():
         print('Order Uploaded')
 
 
+def update_urls():
+    url_dict = {
+        "name" : "MANAGER'S SPECIAL ITEM",
+        "url" : "BLANK",
+    }
+    f = open('examples/MenuPics.txt')
+    for line in f:
+        line_split = line.split('$')
+        s_1 = line_split[0].upper()
+        s_1 = s_1.strip()
+        url_dict[s_1] = line_split[1]
+
+    return url_dict
+
+
+
+
+
 
 # generate_orders()
 
 drive_write_menu()
+
+# update_urls()
