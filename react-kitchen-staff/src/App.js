@@ -50,7 +50,7 @@ function App() {
 		const filterFetchedOrders = async () => {
 			const filteredData = [];
 			for (let i = 0; i < orders.length; i++) {
-				if (orders[i].state === 'Ordered') {
+				if (orders[i].state === 'ORDERED') {
 					filteredData.push(orders[i]);
 				}
 			}
