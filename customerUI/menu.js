@@ -86,6 +86,16 @@ function populateDeserts(){
   setData("item7", 34);
 }
 
+function populateKidsMeal(){
+  setData("item1", 35);
+  setData("item2", 36);
+  setData("item3", 37);
+  setData("item4", 38);
+  setData("item5", 39);
+  setData("item6", 40);
+  setData("item7", 41);
+}
+
 function addtoOrder(itemName){
   var item = document.getElementById(itemName);
   // var str = item.getElementsByClassName("Id")[0].textContent;
@@ -93,15 +103,15 @@ function addtoOrder(itemName){
   var OrderItem = {
     id: item.getElementsByClassName("Id")[0].textContent.split(" ")[1],
     quantity: 1,
-    commentBool: item.getElementsByClassName("commentBool")[0].value,
+    allergy_flag: item.getElementsByClassName("commentBool")[0].value,
     comment: item.getElementsByClassName("comment")[0].value
   }
   if(item.getElementsByClassName("commentBool")[0].checked){
-    OrderItem.commentBool = 1;
+    OrderItem.allergy_flag = true;
     OrderItem.comment = item.getElementsByClassName("comment")[0].value;
   }
   else{
-    OrderItem.commentBool = 0;
+    OrderItem.allergy_flag = flag;
     OrderItem.comment = "NULL";
   }
   item.getElementsByClassName("comment")[0].value = "";
@@ -115,7 +125,6 @@ function sendOrder(){
     table_number: 5,
     placed_at: "now",
     item: Order,
-    time: "now"
   };
   var json = JSON.stringify(package);
 
