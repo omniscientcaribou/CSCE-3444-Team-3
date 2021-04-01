@@ -154,7 +154,7 @@ def get_table(request):
             }
             return JsonResponse(use_table, safe=False)
 
-    return JsonResponse{"reservation_status" : "Failed. No table available."}
+    return JsonResponse({"reservation_status" : "Failed. No table available."}, safe=False)
 
 @api_view(['GET', 'PATCH'])
 def release_table(request):
