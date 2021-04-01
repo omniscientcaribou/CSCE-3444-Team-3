@@ -142,13 +142,19 @@ def all_tables(request):
 @api_view(['GET', 'PATCH'])
 def get_table(request):
     url = 'https://swe3444.herokuapp.com/api/table/'
-    r = requests.get(url)
-    print(r.status_code)
-    d = {
-        "Code" : r.status_code,
-        "Data" : r,
-    }
-    return JsonResponse(d, safe=False)
+    r = requests.get(url).json()
+
+    for table in r:
+        if table['state'] == False:
+            table['state'] = True
+            use_table = {
+                'table_number'  : table['number'],
+                'primary_key'   : table['id'],
+                'reservation_status'       : 'Table Reserved'
+            }
+            return JsonResponse(use_table, safe=False)
+
+    return JsonResponse{"reservation_status" : "Failed. No table available."}
 
 @api_view(['GET', 'PATCH'])
 def release_table(request):

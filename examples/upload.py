@@ -105,11 +105,19 @@ def update_urls():
 
 
 
+def get_table():
+    url = 'https://swe3444.herokuapp.com/api/table/'
+    r = requests.get(url).json()
 
+    for table in r:
+        if table['state'] == False:
+            table['state'] = True
+            use_table = {
+                'table_number'  : table['number'],
+                'primary key'   : table['id'],
+                'success'       : 'Table Reserved'
+            }
+            return JsonResponse(use_table, safe=False)
 
+get_table()
 
-# generate_orders()
-
-drive_write_menu()
-
-# update_urls()
