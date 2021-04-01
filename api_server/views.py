@@ -128,8 +128,14 @@ def wait_order(request, t_num, item_id, quantity, a_flag = False, s = ""):
     requests.post(url_one, data = serial_order, headers = headers)
 
     return JsonResponse({"Response" : "Success"})
-    # return HttpResponse("Hi")
 
+
+@api_view(['GET', 'PATCH'])
+def get_table(request):
+    return HttpResponse("Yes")
+
+def release_table(request):
+    return HttpResponse("Release")
 
 
 
