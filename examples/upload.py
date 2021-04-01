@@ -25,7 +25,7 @@ def drive_write_menu():
         allergies       = str(lst[position+7]).strip().upper()
         price           = str(lst[position+8]).strip().upper()
         if name == "MANAGER'S SPECIAL ITEM":
-            break
+            continue
         URL             = url_dict[name]
 
         pay_load = {
@@ -41,7 +41,7 @@ def drive_write_menu():
         'url' : URL,
         }
 
-        write_menu(pay_load)
+        # write_menu(pay_load)
         # print('Complete')
         for k in pay_load:
             print(pay_load[k])
