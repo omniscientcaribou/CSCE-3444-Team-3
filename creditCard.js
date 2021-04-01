@@ -7,7 +7,10 @@ window.onload = function(){
         else if(document.getElementById("year").value<d.getFullYear()){
             alert("Please input a valid non-expired year");
         }
-        else if(document.getElementById("month").value<d.getMonth() || document.getElementById("month").value==-1){
+        else if(document.getElementById("year").value==d.getFullYear() && document.getElementById("month").value<d.getMonth()){
+            alert("Please choose a valid non-expired month");
+        }
+        else if(document.getElementById("month").value==-1){
             alert("Please choose a valid non-expired month");
         }
         else {
@@ -17,4 +20,3 @@ window.onload = function(){
     var nextBut= document.getElementById("submit");
     nextBut.addEventListener("click",check);
 }
-
