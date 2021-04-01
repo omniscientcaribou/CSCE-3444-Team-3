@@ -127,8 +127,8 @@ def wait_order(request, t_num, item_id, quantity, a_flag = False, s = ""):
     
     requests.post(url_one, data = serial_order, headers = headers)
 
-    # return JsonResponse({"Response" : "Success"})
-    return HttpResponse("Hi")
+    return JsonResponse({"Response" : "Success"})
+    # return HttpResponse("Hi")
 
 
 
