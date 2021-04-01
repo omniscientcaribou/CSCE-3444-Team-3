@@ -87,7 +87,8 @@ def table_total(request, pk):
     query_data = OrderContent.objects.prefetch_related('item').filter(table_number=pk)
     price = 0
     for element in query_data:
-        price += (element.item.price * element.quantity)
+        if element.id != 'PAID':
+            price += (element.item.price * element.quantity)
     order_total = {
         'total' : str(price),
     }
@@ -131,13 +132,18 @@ def wait_order(request, t_num, item_id, quantity, a_flag = False, s = ""):
 
 @api_view(['GET'])
 def all_tables(request):
-    return HttpResponse("Sup")
+    price_dictionary = {}
+    query_data = OrderContent.objects.prefetch_related('item')
+    for element in query_data:
+        if element.id != 'PAID':
+            price_dictionary[element.table_number] += (element.item.price * element.quantity)
+    return JsonResponse(price_dictionary, safe = False)
 
 @api_view(['GET', 'PATCH'])
 def get_table(request):
     return HttpResponse("Yes")
 
-@api_view(['PATCH'])
+@api_view(['GET', 'PATCH'])
 def release_table(request):
     return HttpResponse("Release")
 
