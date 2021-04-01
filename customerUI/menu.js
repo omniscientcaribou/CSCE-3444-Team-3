@@ -141,12 +141,15 @@ function separate_order(pk){
   table_number = 9999
   ordered_at = now
   console.log(pk)
+  
 
 
   for(let val in Order){
     console.log(Order[val].id)
     item_id = Order[val].id
     item_quantity = 1
+    comment = Order[val].comment
+    a_flag = Order[val].allergy_flag
   
     const order_content = 'https://swe3444.herokuapp.com/api/ordercontent/'
       
@@ -158,8 +161,8 @@ function separate_order(pk){
         "state"        : status,
         "item"         : item_id,
         "quantity"     : item_quantity, 
-        "allergy_flag" : false,
-        "comment"      : "Is this working",      
+        "allergy_flag" : a_flag,
+        "comment"      : comment,      
     };
     console.log(payload);
     fetch(order_content, { 
