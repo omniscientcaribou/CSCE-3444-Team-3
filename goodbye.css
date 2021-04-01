@@ -1,0 +1,43 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family:sans-serif;
+}
+:root {
+    --div-height: 350px;
+    --div-width:600px;
+    
+}
+
+.Area{
+    margin-left: 300px; 
+    position: absolute;
+    top: 25%;
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+    width: var(--div-width);
+    height: var(--div-height);
+    background-color: #945d72;
+}
+
+.text{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #e7dfc5;
+    padding: 20px;
+    font-size: 250%;
+    margin-top: 15%;
+}
+
+.smalltext{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fef6df;
+    padding: 5px;
+    font-size: 150%;
+    margin: 5px;
+}
