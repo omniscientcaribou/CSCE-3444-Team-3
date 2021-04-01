@@ -20,6 +20,8 @@ function KitchenSuccess(){
     const ID = searchParams.get('ID')
     const OrdersInProgress = searchParams.get('OtherOrders')
     const OrdersReady = searchParams.get('OrdersReady')
+    const item = searchParams.get('item')
+    const quantity = searchParams.get('quantity')
     if (name==="Deliver Refill" || name==="Assistance Requested"||name==="Kitchen Calling"){
         return(
             <div className="Success">
@@ -75,6 +77,32 @@ function KitchenSuccess(){
             </div>
 
         );       
+    }
+    else if(name==="Order Sent"){
+        return(
+            <div className="Success">
+                <div className="Sucess-Header">
+                    {name} 
+                    {
+                        ID !== null &&
+                            <div>
+                                to table {ID}:
+                            </div>
+                    }
+                </div>
+                <div className="Data-Display">
+                    
+                  Order: {item}(item ID) X {quantity}
+
+                  
+                </div>
+                <div className="Data-Display">
+                    {data}
+                </div>
+ 
+            </div>
+
+        );         
     }
     else {return(<div></div>);}
     
