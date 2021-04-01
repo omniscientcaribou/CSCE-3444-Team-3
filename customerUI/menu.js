@@ -111,7 +111,7 @@ function addtoOrder(itemName){
     OrderItem.comment = item.getElementsByClassName("comment")[0].value;
   }
   else{
-    OrderItem.allergy_flag = flag;
+    OrderItem.allergy_flag =  false;
     OrderItem.comment = "NULL";
   }
   item.getElementsByClassName("comment")[0].value = "";
@@ -131,6 +131,81 @@ function sendOrder(){
   //put request here
   console.log(json);
 }
+
+var now = new Date();
+var isoString = now.toISOString();
+
+function separate_order(pk){
+  order_id = pk
+  status = "ORDERED"
+  table_number = 9999
+  ordered_at = now
+  console.log(pk)
+
+
+  for(let val in Order){
+    console.log(Order[val].id)
+    item_id = Order[val].id
+    item_quantity = 1
+  
+    const order_content = 'https://swe3444.herokuapp.com/api/ordercontent/'
+      
+    var payload = 
+    {
+        "order"        : order_id,
+        "table_number" : table_number,
+        "placed_at"    : ordered_at,
+        "state"        : status,
+        "item"         : item_id,
+        "quantity"     : item_quantity, 
+        "allergy_flag" : false,
+        "comment"      : "Is this working",      
+    };
+    console.log(payload);
+    fetch(order_content, { 
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload),
+    })
+    .then(function(response){
+        return response.json()
+    })
+    .then(function(data){
+        console.log(data)
+    })
+  }
+}
+
+function coryYeet(){
+  // This function posts our original order, and returns a primary key to hand to 
+  // items encapsulated by this order.
+  url = 'https://swe3444.herokuapp.com/api/order/'
+
+  payload = {
+    "table_number"  : 9999,
+    "state"         : "ORDERED"
+  }
+  fetch(url, { 
+      method: 'POST',
+      headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(payload),
+  })
+  .then(function(response){
+      return response.json()
+  })
+  .then(function(data){
+      console.log(`The primary key is ${data['id']}`)
+      separate_order(data['id'])
+  })
+}
+
+
 
 
 // function place_order(order){
