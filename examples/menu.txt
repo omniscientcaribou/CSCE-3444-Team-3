@@ -406,7 +406,7 @@ Kid's Menu
 12.2g
 35.7g
 Dairy
-$2.99
+2.99
 BLANK
 Grilled Cheese Sandwich
 A classic for kids, our Grilled Cheese Sandwich
@@ -416,5 +416,5 @@ Kid's Menu
 12g
 28g
 Dairy
-$2.99
+2.99
 BLANK

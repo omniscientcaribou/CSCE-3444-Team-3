@@ -4,9 +4,10 @@ import random
 import json
 def write_menu(pay_load):
     url = 'https://swe3444.herokuapp.com/api/item/'
-    res = requests.get(url)
     headers = {}
     res = requests.post(url, data=pay_load, headers=headers)
+    print(f'PAYLOAD -> {pay_load["name"]} -- {res}.')
+
 
 def drive_write_menu():
     with open('examples/menu.txt') as f:
@@ -14,11 +15,8 @@ def drive_write_menu():
 
     url_dict = update_urls()
 
-    # for k in url_dict:
-    #     print(k)
 
     for position in range(0, len(lst), 10):
-        print(f'name -> {str(lst[position]).strip().upper()}')
         name            = str(lst[position]).strip().upper()
         description     = str(lst[position+1]).strip().upper()
         group           = str(lst[position+2]).strip().upper()
