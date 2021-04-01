@@ -129,8 +129,8 @@ def wait_order(request, t_num, item_id, quantity, a_flag = False, s = ""):
 
     return JsonResponse({"Response" : "Success"})
 
-@api_view(['GET']):
-def all_tables:
+@api_view(['GET'])
+def all_tables(request):
     return HttpResponse("Sup")
 
 @api_view(['GET', 'PATCH'])
