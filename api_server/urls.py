@@ -38,6 +38,7 @@ urlpatterns = [
     path('api/table_total/<str:pk>', table_total, name='table_total'),
     path('api/test_html/', test_html, name='test_html' ),
     path('api/wait_order/<str:t_num>/<str:item_id>/<str:quantity>/<str:a_flag>/<str:s>', wait_order, name='wait_order'),
+    path('api/all_tables/', all_tables, name='all_tables'),
     path('api/get_table/', get_table, name='get_table'),
     path('api/release_table/', release_table, name='release_table'),
 ]
