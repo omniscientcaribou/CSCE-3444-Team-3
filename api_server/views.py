@@ -146,7 +146,7 @@ def get_table(request):
     print(r.status_code)
     d = {
         "Code" : r.status_code,
-        "Data" : r.text,
+        "Data" : r,
     }
     return JsonResponse(d, safe=False)
 
