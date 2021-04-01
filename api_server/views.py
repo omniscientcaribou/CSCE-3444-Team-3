@@ -135,8 +135,8 @@ def all_tables(request):
     price_dictionary = {}
     query_data = OrderContent.objects.prefetch_related('item')
     for element in query_data:
-        if element.id != 'PAID':
-            price_dictionary[element.table_number] += (element.item.price * element.quantity)
+        if element.state != 'PAID':
+            price_dictionary[element.table_number] = price_dictionary.get(element.table_number, 0) + (element.item.price * element.quantity)
     return JsonResponse(price_dictionary, safe = False)
 
 @api_view(['GET', 'PATCH'])
