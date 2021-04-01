@@ -141,7 +141,14 @@ def all_tables(request):
 
 @api_view(['GET', 'PATCH'])
 def get_table(request):
-    return HttpResponse("Yes")
+    url = 'https://swe3444.herokuapp.com/api/table/'
+    r = requests.get(url)
+    print(r.status_code)
+    d = {
+        "Code" : r.status_code,
+        "Data" : r.text,
+    }
+    return JsonResponse(d, safe=False)
 
 @api_view(['GET', 'PATCH'])
 def release_table(request):
