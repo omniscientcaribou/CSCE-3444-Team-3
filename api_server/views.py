@@ -163,15 +163,23 @@ def get_table(request):
         url_build = url + str(table["id"]) + "/"
         if table["state"] == False:
             table["state"] = True
-            update_table = requests.patch(url_build, data=table)
+            requests.patch(url_build, data=table)
             print(f" {url_build} {table}.")
             return JsonResponse(
                 {"reservation_status": "Success", "data": table}, safe=False
             )
 
-    return JsonResponse({"reservation_status": "Failed"}, safe=False)
+    return JsonResponse({"reservation_status" : "Failed"}, safe=False)
 
 
 @api_view(["GET", "PATCH"])
-def release_table(request):
+def release_table(request, t_num):
+    url = "https://swe3444.herokuapp.com/api/table/"
+    url_build = url + t_num + "/"
+
+    table = {
+        "state" : False
+    }
+
+    requests.patch(url_build, data=table)
     return HttpResponse("Release")
