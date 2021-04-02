@@ -52,9 +52,38 @@
 		</style>
 
 		<script type="text/javascript">
+			
 			function assist(){
+
+				const order_content = 'https://swe3444.herokuapp.com/api/task/'
+
+				table_number = 12;
+				var payload = 
+				{
+				   "role" : "Customer",
+				   "table_number" : table_number,
+				   "call_waitstaff" : true,
+				};
+				console.log(payload);
+
+				fetch(order_content, { 
+				    method: 'POST',
+				    headers: {
+				        'Accept': 'application/json',
+				        'Content-Type': 'application/json'
+				    },
+				    body: JSON.stringify(payload),
+				})
+				.then(function(response){
+				    return response.json()
+				})
+				.then(function(data){
+				    console.log(data)
+				})
+
 				document.getElementById('waiter').style="height:400px;width:500px;margin-left:225px;margin-top:75px";
 			}
+
 		</script>
 	</head>
 
@@ -65,7 +94,7 @@
 		<aside class="sidebar">
 			<a href="customerui.html">Back</a>
 			<a href="">Menu</a>
-			<a href="orderstatus.html">Order Status</a>
+			
 			<a href="requestrefill.html">Request Refill</a>
 			<a href="">Payment</a>
 			<a href="">Kid's Game</a>

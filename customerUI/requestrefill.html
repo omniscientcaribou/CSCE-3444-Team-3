@@ -1,5 +1,6 @@
 <html>
 	<head>
+		<script src="requestrefill.js"></script>
 		<title>Request Refill</title>
 		<style>
 			h1{text-align: center;}
@@ -54,6 +55,8 @@
 			var IDofDivWithForm = "refillform";
 
 
+
+
 			document.getElementById('refill').style="height:400px;width:500px;margin-left:175px;margin-top:75px";
 			document.getElementById(IDofForm).style.visibility="hidden";
 			document.getElementById(IDofDivWithForm).style.visibility="hidden";
@@ -66,14 +69,14 @@
 
 	</head>
 
-	<body style="background-color: #d9e0e8">
+	<body style="background-color: #d9e0e8" onload="getData()">
 		<div class="boxed">
 			Request Refill
 		</div>
 		<aside class="sidebar">
 			<a href="customerui.html">Back</a>
 			<a href="">Menu</a>
-			<a href="orderstatus.html">Order Status</a>
+			
 			<a href="">Payment</a>
 			<a href="waiterassistance.html">Waiter Assistance</a>
 			<a href="">Kid's Game</a>
@@ -84,21 +87,35 @@
 
 		<div class = "refillform">
 			<form id = "form1">
-  				<label for="quantity">Coca-Cola - Quantity:</label>
-  				<input type="number" id="quantity" name="quantity" min="0" max="10" step="1" value="0"><br>
-  				<label for="quantity">Orange Fanta - Quantity:</label>
-  				<input type="number" id="quantity" name="quantity" min="0" max="10" step="1" value="0"><br>
-  				<label for="quantity">Horchata - Quantity:</label>
-  				<input type="number" id="quantity" name="quantity" min="0" max="10" step="1" value="0"><br>
-  				<label for="quantity">Cherry Cola - Quantity:</label>
-  				<input type="number" id="quantity" name="quantity" min="0" max="10" step="1" value="0"><br>
-  				<label for="quantity">Iced Tea - Quantity:</label>
-  				<input type="number" id="quantity" name="quantity" min="0" max="10" step="1" value="0"><br>
-  				<label for="quantity">Bubble Milk Tea - Quantity:</label>
-  				<input type="number" id="quantity" name="quantity" min="0" max="10" step="1" value="0"><br>
-  				<label for="quantity">Water - Quantity:</label>
-  				<input type="number" id="quantity" name="quantity" min="0" max="10" step="1" value="0"><br>
-  				<input type="button" value="submit" style="margin-top:25px; font-size:30px" onclick="CollapseForm()">
+				<div id = "item1">
+  					<label class = "itemlabel" for="quantity"></label>
+  					<input type="number" class="quantity" name="quantity" min="0" max="10" step="1" value="0"><br>
+  				</div>
+  				<div id = "item2">
+  					<label class = "itemlabel" for="quantity"></label>
+  					<input type="number" class="quantity" name="quantity" min="0" max="10" step="1" value="0"><br>
+  				</div>
+  				<div id = "item3">
+  					<label class = "itemlabel" for="quantity"></label>
+  					<input type="number" class="quantity" name="quantity" min="0" max="10" step="1" value="0"><br>
+  				</div>
+  				<div id = "item4">
+  					<label class = "itemlabel" for="quantity"></label>
+  					<input type="number" class="quantity" name="quantity" min="0" max="10" step="1" value="0"><br>
+  				</div>
+  				<div id = "item5">
+  					<label class = "itemlabel" for="quantity"></label>
+  					<input type="number" class="quantity" name="quantity" min="0" max="10" step="1" value="0"><br>
+  				</div>
+  				<div id = "item6">
+  					<label class = "itemlabel" for="quantity"></label>
+  					<input type="number" class="quantity" name="quantity" min="0" max="10" step="1" value="0"><br>
+  				</div>
+  				<div id = "item7">
+  					<label class = "itemlabel" for="quantity"></label>
+  					<input type="number" class="quantity" name="quantity" min="0" max="10" step="1" value="0"><br>
+  				</div>
+  				<input type="button" value="submit" style="margin-top:25px; font-size:30px" onclick="sendRequest(); CollapseForm()">
 			</form>
 		</div>
 	</body>
