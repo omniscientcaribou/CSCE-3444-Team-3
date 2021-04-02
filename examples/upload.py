@@ -110,14 +110,16 @@ def get_table():
     r = requests.get(url).json()
 
     for table in r:
+        url_build = url + str(table['id']) + '/'
         if table['state'] == False:
             table['state'] = True
-            use_table = {
-                'table_number'  : table['number'],
-                'primary key'   : table['id'],
-                'success'       : 'Table Reserved'
-            }
-            return JsonResponse(use_table, safe=False)
+            update_table = requests.patch(url_build, data = table)
+            print(f' {url_build} {table}.')
+            return update_table
 
-get_table()
+
+    # print(table_dict)
+
+    
+print(get_table())
 

@@ -145,16 +145,14 @@ def get_table(request):
     r = requests.get(url).json()
 
     for table in r:
+        url_build = url + str(table['id']) + '/'
         if table['state'] == False:
             table['state'] = True
-            use_table = {
-                'table_number'  : table['number'],
-                'primary_key'   : table['id'],
-                'reservation_status'       : 'Table Reserved'
-            }
-            return JsonResponse(use_table, safe=False)
+            update_table = requests.patch(url_build, data = table)
+            print(f' {url_build} {table}.')
+            return JsonResponse({"reservation_status" : "Success", "data" : table}, safe = False)
 
-    return JsonResponse({"reservation_status" : "Failed. No table available."}, safe=False)
+    return JsonResponse({"reservation_status" : "Failed"}, safe=False)
 
 @api_view(['GET', 'PATCH'])
 def release_table(request):
