@@ -25,6 +25,7 @@ async function getData(){
 
 function setData(itemName, x){
     var item = document.getElementById(itemName);
+    item.getElementsByClassName("img")[0].src = Menu[x].url;
     item.getElementsByClassName("name")[0].textContent = Menu[x].name;
     item.getElementsByClassName("price")[0].textContent ="$" + Menu[x].price;
     item.getElementsByClassName("description")[0].textContent = Menu[x].description;
@@ -98,7 +99,6 @@ function populateKidsMeal(){
 
 function addtoOrder(itemName){
   var item = document.getElementById(itemName);
-  // var str = item.getElementsByClassName("Id")[0].textContent;
 
   var OrderItem = {
     id: item.getElementsByClassName("Id")[0].textContent.split(" ")[1],
@@ -117,19 +117,6 @@ function addtoOrder(itemName){
   item.getElementsByClassName("comment")[0].value = "";
   Order.push(OrderItem);
   console.log(Order);
-}
-
-function sendOrder(){
-  var package = {
-    order: 1,
-    table_number: 5,
-    placed_at: "now",
-    item: Order,
-  };
-  var json = JSON.stringify(package);
-
-  //put request here
-  console.log(json);
 }
 
 var now = new Date();
@@ -182,7 +169,7 @@ function separate_order(pk){
   }
 }
 
-function coryYeet(){
+function sendOrder(){
   // This function posts our original order, and returns a primary key to hand to 
   // items encapsulated by this order.
   url = 'https://swe3444.herokuapp.com/api/order/'
@@ -207,78 +194,3 @@ function coryYeet(){
       separate_order(data['id'])
   })
 }
-
-
-
-
-// function place_order(order){
-//   status = order['status']
-//   table_number = order['table_number']
-//   ordered_at = order['time']
-
-//   payload = {
-//       "table_number" : table_number,
-//       "state" : status
-//   }
-
-//   url = 'https://swe3444.herokuapp.com/api/order/'
-//   fetch(url, { 
-//       method: 'POST',
-//       headers: {
-//           'Accept': 'application/json',
-//           'Content-Type': 'application/json'
-//       },
-//       body: JSON.stringify(payload),
-//   })
-//   .then(function(response){
-//       return response.json()
-//   })
-//   .then(function(data){
-//       console.log('---',data)
-//       console.log('###', data['id'], '###')
-//       separate_order(order, data['id'])
-//   })
-// }
-
-
-// function separate_order(order, pk){
-//   console.log('pk == ', pk)
-//   order_id = pk
-//   status = order['status']
-//   table_number = order['table_number']
-//   ordered_at = order['time']
-
-//   // Write to order queue
-//   for(let val in order['items']){
-//       item_id = order['items'][val]['id']
-//       item_quantity = order['items'][val]['quantity']
-  
-//       const order_content = 'https://swe3444.herokuapp.com/api/ordercontent/'
-      
-//       var payload = 
-//       {
-//           "order"        : order_id,
-//           "placed_at"    : ordered_at,
-//           "state"        : status,
-//           "item"         : item_id,
-//           "quantity"     : item_quantity,      
-//           "table_number" : table_number
-//       };
-
-//       console.log(payload);
-//       fetch(order_content, { 
-//           method: 'POST',
-//           headers: {
-//               'Accept': 'application/json',
-//               'Content-Type': 'application/json'
-//           },
-//           body: JSON.stringify(payload),
-//       })
-//       .then(function(response){
-//           return response.json()
-//       })
-//       .then(function(data){
-//           console.log(data)
-//       })
-//   }
-// }
