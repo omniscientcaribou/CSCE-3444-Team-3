@@ -21,17 +21,17 @@ function TableManager(tableInfo) {
             table_number: tableInfo.ID,
             call_manager: true
         })
-        if(tableClick > 0){
-            setTableClick(0);
-        }
-        else
+        //if(tableClick > 0){
+        //    setTableClick(0);
+        //}
+        //else
             setTableClick(tableInfo.ID);
     }
     function TableClickCash(e){
-        if(tableClick > 0){
-            setTableClick(0);
-        }
-        else
+        //if(tableClick > 0){
+        //    setTableClick(0);
+        //}
+        //else
             setTableClick(tableInfo.ID);
         axios.get('https://swe3444.herokuapp.com/api/ordercontent/')
         .then(res => {
@@ -112,10 +112,16 @@ function TableManager(tableInfo) {
                             {tableInfo.ID} 
                             {tableClick > 0 &&
                         
-                            <div>
-                                Bill paid in cash
-                            </div>
+                                <div>
+                                    Bill paid in cash
+                                </div>
                         
+                            }
+                            {
+                            tableClick == 0 &&
+                                <div>
+                                    {tableInfo.bill}
+                                </div>
                             }
                         </div>
                     </div>

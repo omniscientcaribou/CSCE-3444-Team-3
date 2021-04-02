@@ -22,6 +22,7 @@ class Order extends React.Component{
             item : 1,
             quantity: 1,
             comment: " ",
+            allergens: "false",
             //itemName: " ",
 
         }; 
@@ -29,6 +30,8 @@ class Order extends React.Component{
         this.handleChangeTable = this.handleChangeTable.bind(this);
         this.handleChangeQuantity = this.handleChangeQuantity.bind(this);
         this.handleChangeComment = this.handleChangeComment.bind(this);
+        this.handleChangeAllergen = this.handleChangeAllergen.bind(this);
+        this.OrderClick = this.OrderClick.bind(this);
     }
 
     componentDidMount() {
@@ -54,10 +57,34 @@ class Order extends React.Component{
     handleChangeComment(e){
         this.setState({ comment: e.target.value});
     }
+    handleChangeAllergen(e){
+        this.setState({allergens: e.target.value});
+    }
     OrderClick(e){
-        console.log(e.target.path)
+        var path = 'https://swe3444.herokuapp.com/api/wait_order/';
+        //path = path.concat("name=Order Sent");
+        path = path.concat( this.state.table + "/");
+        path = path.concat( this.state.item + "/")
+        path = path.concat( this.state.quantity + "/")
+        path = path.concat( this.state.allergens + "/")
+        path = path.concat( this.state.comment)
+
+        //path = path.concat("&data=" + this.state.comment)
+        //path = path.concat("&item=" + this.state.item)
+        //path = path.concat("&quantity=" + this.state.quantity)
+        //path = path.concat("&allergen=" + this.state.allergens)
+        //console.log(e.target.path)
+        ///https://swe3444.herokuapp.com/api/wait_order/<str:t_num>/<str:item_id>/<str:quantity>/<str:a_flag>/<str:s>
+        axios.get(path)
+        .then(res => {
+            //this.setState({
+            //    tasks: res.data
+            //})
+            console.log(res);
+        })
     }
     render() {
+        var TFTable = ["true", "false"]
         var tableNumbers = new Array(16)
         for(let i = 1; i <= 16; i++){
             tableNumbers[i-1] = i;
@@ -78,6 +105,7 @@ class Order extends React.Component{
         path = path.concat("&data=" + comment)
         path = path.concat("&item=" + item)
         path = path.concat("&quantity=" + quantity)
+        path = path.concat("&allergen=" + this.state.allergens)
 
         return(
         <div className="Order-Header">
@@ -107,12 +135,21 @@ class Order extends React.Component{
                 </select>
             </div> 
             <div className="Choose">
+                Comments
                 <input 
                     type="text"
                     value={this.state.comment}
                     onChange={this.handleChangeComment}
                 />
             </div>
+            <div className="Choose">
+                Allergens?
+                <select value={this.state.allergens} onChange={this.handleChangeAllergen}>
+                    {TFTable.map(data=>(
+                        <option value={data}>{data}</option>
+                    ))}
+                </select>
+            </div> 
             <div className="Send-Order">
                 <Link to={path}>             
                     <button onClick={this.OrderClick} className="Order-Button">
