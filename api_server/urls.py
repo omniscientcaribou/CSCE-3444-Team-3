@@ -22,23 +22,27 @@ from django.views.generic import TemplateView
 from .views import *
 
 router = routers.DefaultRouter()
-router.register(r'item', views.ItemViewSet)
-router.register(r'employee', views.EmployeeViewSet)
-router.register(r'table', views.TableViewSet)
-router.register(r'task', views.TaskViewSet)
-router.register(r'credential', views.CredentialViewSet)
-router.register(r'order', views.OrderViewSet)
-router.register(r'ordercontent', views.OrderContentViewSet)
+router.register(r"item", views.ItemViewSet)
+router.register(r"employee", views.EmployeeViewSet)
+router.register(r"table", views.TableViewSet)
+router.register(r"task", views.TaskViewSet)
+router.register(r"credential", views.CredentialViewSet)
+router.register(r"order", views.OrderViewSet)
+router.register(r"ordercontent", views.OrderContentViewSet)
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('api/', include(router.urls)),
-    path('api/kitchen_view/<str:pk>', kitchen_view, name='kitchen_view'),
-    path('api/table_view/<str:pk>', table_bill, name='table_view'),
-    path('api/table_total/<str:pk>', table_total, name='table_total'),
-    path('api/test_html/', test_html, name='test_html' ),
-    path('api/wait_order/<str:t_num>/<str:item_id>/<str:quantity>/<str:a_flag>/<str:s>', wait_order, name='wait_order'),
-    path('api/all_tables/', all_tables, name='all_tables'),
-    path('api/get_table/', get_table, name='get_table'),
-    path('api/release_table/<str:table_num>', release_table, name='release_table'),
+    path("admin/", admin.site.urls),
+    path("api/", include(router.urls)),
+    path("api/kitchen_view/<str:pk>", kitchen_view, name="kitchen_view"),
+    path("api/table_view/<str:pk>", table_bill, name="table_view"),
+    path("api/table_total/<str:pk>", table_total, name="table_total"),
+    path("api/test_html/", test_html, name="test_html"),
+    path(
+        "api/wait_order/<str:t_num>/<str:item_id>/<str:quantity>/<str:a_flag>/<str:s>",
+        wait_order,
+        name="wait_order",
+    ),
+    path("api/all_tables/", all_tables, name="all_tables"),
+    path("api/get_table/", get_table, name="get_table"),
+    path("api/release_table/<str:table_num>", release_table, name="release_table"),
 ]

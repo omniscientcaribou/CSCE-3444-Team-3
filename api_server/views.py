@@ -169,7 +169,7 @@ def get_table(request):
                 {"reservation_status": "Success", "data": table}, safe=False
             )
 
-    return JsonResponse({"reservation_status" : "Failed"}, safe=False)
+    return JsonResponse({"reservation_status": "Failed"}, safe=False)
 
 
 @api_view(["GET", "PATCH"])
@@ -177,9 +177,7 @@ def release_table(request, table_num):
     url = "https://swe3444.herokuapp.com/api/table/"
     url_build = url + table_num + "/"
 
-    table = {
-        "state" : False
-    }
+    table = {"state": False}
 
     requests.patch(url_build, data=table)
     return HttpResponse("Release")
