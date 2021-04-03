@@ -11,15 +11,24 @@ const getOrders = async () => {
 };
 
 const getItems = async (table_number) => {
-	console.log('table_number is: ', table_number);
 	const kitchen_view_api_url = `https://swe3444.herokuapp.com/api/kitchen_view/${table_number}`;
 	const response = await fetch(kitchen_view_api_url);
 	return response.json();
 };
 
-function isOrdered(id) {
+const isOrdered = (id) => {
 	return id.state === 'ORDERED' ? true : false;
-}
+};
+
+const findOrdered = (data) => {
+	let tmp = [];
+
+	data.flatMap((order) =>
+		order.state === 'ORDERED' ? tmp.push(order.table_number) : []
+	);
+
+	return tmp;
+};
 
 const FetchOrders = () => {
 	const intervalMs = 3000; // Refresh Interval in MS
@@ -32,12 +41,7 @@ const FetchOrders = () => {
 	);
 
 	const { data: items, isIdle } = useQuery(
-		orders && [
-			'ORDERED',
-			console.log(
-				orders.flatMap((o) => (o.state === 'ORDERED' ? o.table_number : []))
-			),
-		],
+		orders && ['ORDERED', findOrdered(orders)],
 		(key, table_number) => {
 			const response = getItems(table_number);
 
@@ -97,13 +101,6 @@ const FetchOrders = () => {
 	// 		transition: Flip,
 	// 	});
 	// }
-
-	const ordered = [];
-	const findOrdered = () => {
-		orders.flatMap((order) =>
-			order.state === 'ORDERED' ? ordered.push(order) : []
-		);
-	};
 
 	// for (let i = 0; i < data.length; i++) {
 	// 	(isOrdered(data[i])) ? ordered.push(data[i]) : continue;
