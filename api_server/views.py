@@ -208,3 +208,24 @@ def log_in(request, user_name, password):
                     return JsonResponse(redirect, safe=False)
     return HttpResponse("Invalid credentials")
 
+
+@api_view(["GET"])
+def tickets(request):
+    lst = []
+    query_data = OrderContent.objects.prefetch_related("item").filter(state='ORDERED')
+    for element in query_data:
+        build_data = {
+            "id": str(element.id),
+            "order_id": str(element.order_id),
+            "item_name": str(element.item),
+            "group": str(element.item.group),
+            "quantity": str(element.quantity),
+            "table_number": str(element.table_number),
+            "placed_at": str(element.placed_at),
+            "state": str(element.state).upper(),
+            "allergy_flag": str(element.allergy_flag),
+            "comment": str(element.comment),
+        }
+        lst.append(build_data)
+    return JsonResponse(lst, safe=False)
+

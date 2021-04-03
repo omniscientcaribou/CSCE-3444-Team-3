@@ -46,4 +46,5 @@ urlpatterns = [
     path("api/get_table/", get_table, name="get_table"),
     path("api/release_table/<str:table_num>", release_table, name="release_table"),
     path("api/log_in/<str:user_name>/<str:password>", log_in, name="log_in"),
+    path("api/tickets/", tickets, name="tickets"),
 ]
