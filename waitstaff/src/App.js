@@ -9,6 +9,7 @@ import BeverageInfo from './BeverageInfo';
 import SplitBill from './SplitBill';
 import Cash from './Cash';
 import KitchenSuccess from './KitchenSuccess';
+import SplitSuccess from './SplitSuccess';
 import React, { useState, useEffect } from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
@@ -53,6 +54,9 @@ function App() {
             </Route>
             <Route path='/Success'>
               <KitchenSuccess seconds={refresh}/>
+            </Route>
+            <Route path='/SplitSuccess'>
+              <SplitSuccess seconds={refresh}/>
             </Route>
           </Switch>
         </div>

@@ -3,6 +3,7 @@ import './Table.css';
 import table_image from './table_image.png';
 import {useState} from 'react';
 import axios from 'axios';
+import {Link} from 'react-router-dom';
 
 function TableManager(tableInfo) {
     var ID = tableInfo.ID;
@@ -14,6 +15,9 @@ function TableManager(tableInfo) {
         }
         else
             setTableClick(tableInfo.ID);
+    }
+    function TableClickSplit(e) {
+
     }
     function TableClickManager(e){
         axios.post('https://swe3444.herokuapp.com/api/task/',{
@@ -32,7 +36,7 @@ function TableManager(tableInfo) {
         //    setTableClick(0);
         //}
         //else
-            setTableClick(tableInfo.ID);
+            
         axios.get('https://swe3444.herokuapp.com/api/ordercontent/')
         .then(res => {
                 console.log("This happened at all")
@@ -43,10 +47,12 @@ function TableManager(tableInfo) {
                     //console.log(orders[i].table_number+tableInfo.ID)
                     if(orders[i].table_number===parseInt(ID)){
                         console.log("same number")
-                        if(orders[i].state==="Delivered"){
+                        //if(orders[i].state==="Delivered"){
+                        //if(orders[i].state==="DELIVERED"){
+                            setTableClick(tableInfo.ID);
                             tableOrders.push(orders[i].id);
                             console.log(orders[i].id)
-                        }
+                        //}
                     }
                 }
                 for(let i = 0; i < tableOrders.length; i++){
@@ -54,7 +60,7 @@ function TableManager(tableInfo) {
                     let URL = "https://swe3444.herokuapp.com/api/ordercontent/";
                     let URLFull = URL.concat(id);
                     URLFull = URLFull.concat("/")
-                    axios.patch(URLFull, {state:"Payed"}).catch(error => console.log(error))
+                    axios.patch(URLFull, {state:"PAID"}).catch(error => console.log(error))
                     .then(console.log(URLFull));                  
                 }
             //console.log("Fetched");
@@ -66,8 +72,12 @@ function TableManager(tableInfo) {
         //})
     }
 
-
+        var path = '/SplitSuccess?';
+        path = path.concat("name=Split Bill");
+        path = path.concat("&ID=" +tableInfo.ID);
+        path = path.concat("&data="+tableInfo.bill);
         return (
+            
             <div className="Table">
                 {tableInfo.type == "Manager" &&
                     <div>
@@ -88,9 +98,11 @@ function TableManager(tableInfo) {
                 }   
                 {tableInfo.type == "SplitBill" &&
                     <div>
-                        <button onClick={TableClick} clasName="Table-Button">
-                            <img src={table_image} className="Table-Image"/>
-                        </button>
+                        <Link to={path}> 
+                            <button onClick={TableClickSplit} clasName="Table-Button">
+                                <img src={table_image} className="Table-Image"/>
+                            </button>
+                        </Link>
                         <div className="Table-ID">
                             {tableInfo.ID} 
                             {tableClick > 0 &&
@@ -110,18 +122,25 @@ function TableManager(tableInfo) {
                         </button>
                         <div className="Table-ID">
                             {tableInfo.ID} 
-                            {tableClick > 0 &&
-                        
-                                <div>
-                                    Bill paid in cash
-                                </div>
+                            {
+                                tableClick > 0 && 
+                            
+                                    <div>
+                                        Bill paid in cash
+                                    </div>
                         
                             }
                             {
-                            tableClick == 0 &&
-                                <div>
-                                    {tableInfo.bill}
-                                </div>
+                                tableClick == 0 &&
+                                    <div>
+                                        {parseFloat(tableInfo.bill).toFixed(2)}
+                                    </div>
+                            }
+                            {/*
+                                tableClick== 0 && tableInfo.Ready==true &&
+                                    <div>
+                                        Part of bill ready to be payed
+                                    </div>*/
                             }
                         </div>
                     </div>

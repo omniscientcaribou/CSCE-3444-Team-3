@@ -103,7 +103,7 @@ class Home extends Component{
 
         for(let i = 1; i <= 16; i++){
             for(let j = 0; j < orders.length; j++){
-                if(orders[j].state==="Ready to Deliver"){
+                if(orders[j].state==="READY TO DELIVER"){
                     if(orders[j].table_number===i){
                        // console.log(orders[j].table_number);
                         tableOrders[i-1].push(orders[j]);

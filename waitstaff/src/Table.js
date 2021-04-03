@@ -26,7 +26,7 @@ function Table(tableInfo) {
             let URL = "https://swe3444.herokuapp.com/api/ordercontent/";
             let URLFull = URL.concat(id);
             URLFull = URLFull.concat("/")
-            axios.patch(URLFull, {state:"Delivered"}).catch(error => console.log(error))
+            axios.patch(URLFull, {state:"DELIVERED"}).catch(error => console.log(error))
             .then(console.log(URLFull));
             
 
@@ -61,7 +61,7 @@ function Table(tableInfo) {
             if(tableInfo.AllOrders[i].table_number===parseInt(tableInfo.ID)){
                 //console.log(tableInfo.AllOrders[i].state)
                 //if(tableInfo.AllOrders[i].state!=="Ready to Deliver" &&tableInfo.AllOrders[i].state!=="Delivered" && tableInfo.AllOrders[i].state!=="Payed" && tableInfo.AllOrders[i].state!=="Complete"){
-                if(tableInfo.AllOrders[i].state=="Ordered" || tableInfo.AllOrders[i].state== "In Progress") {
+                if(tableInfo.AllOrders[i].state=="ORDERED" || tableInfo.AllOrders[i].state== "IN PROGRESS") {
                     path = path.concat(tableInfo.AllOrders[i].id + " ")
                     //console.log(tableInfo.AllOrders[i].id)
                 }
