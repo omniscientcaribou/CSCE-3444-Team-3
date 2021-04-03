@@ -181,3 +181,30 @@ def release_table(request, table_num):
 
     requests.patch(url_build, data=table)
     return HttpResponse("Release")
+
+@api_view(["GET"])
+def log_in(request, user_name, password):
+    employees = requests.get('https://swe3444.herokuapp.com/api/employee/').json()
+    credentials = requests.get('https://swe3444.herokuapp.com/api/credential/').json()
+
+    url_redirection = {
+        "Customer"      : "customer_ui",
+        "Kitchen"       : "kitchen_ui",
+        "Wait Staff"    : "waitstaff_ui",
+        "Manager"       : "manager_ui",
+        "Developer"     : "developer_ui",
+    }
+
+    for employee in employees:
+        if user_name == employee["name"]:
+            for credential in credentials:
+                if password == credential['enter_password']:
+                    # print(f'{user_name} has been found with password: {password} and role {employee["role"]}')
+                    redirect = {
+                        "name" : user_name,
+                        "role" : employee["role"],
+                        "url"  : url_redirection[employee["role"]]
+                    }
+                    return JsonResponse(redirect, safe=False)
+    return HttpResponse("Invalid credentials")
+
