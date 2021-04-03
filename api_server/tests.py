@@ -62,100 +62,88 @@ class EndPointTest(TestCase):
 
 class CreateEmployeeTest(TestCase):
     """
-        This is a test to create an Employee object, and verify its creation/correctness.
+    This is a test to create an Employee object, and verify its creation/correctness.
     """
+
     def test_employee(self):
         person = Employee.objects.create(name="Cory", role="CSCE 3444 Student")
         self.assertEqual(person.name, "Cory")
         self.assertEqual(person.role, "CSCE 3444 Student")
 
+
 class CreateItemTest(TestCase):
     """
-        This is a test to create an Item object, and verify its creation/correctness.
+    This is a test to create an Item object, and verify its creation/correctness.
     """
+
     def test_create_item(self):
-        item = Item.objects.create(    
-            name        = "Test Name", 
-            description = "Test Description", 
-            group       = "Test Group", 
-            calories    = "Test Calories", 
-            fat         = "Test Fat", 
-            protein     = "Test Protein", 
-            carbs       = "Test Carbs", 
-            allergies   = "Test Allergies", 
-            price       = 2, 
-            url         = "Test URL", 
+        item = Item.objects.create(
+            name="Test Name",
+            description="Test Description",
+            group="Test Group",
+            calories="Test Calories",
+            fat="Test Fat",
+            protein="Test Protein",
+            carbs="Test Carbs",
+            allergies="Test Allergies",
+            price=2,
+            url="Test URL",
         )
 
-
-        self.assertEqual(item.name , "Test Name")
-        self.assertEqual(item.description , "Test Description")
-        self.assertEqual(item.group , "Test Group")
-        self.assertEqual(item.calories , "Test Calories") 
-        self.assertEqual(item.fat , "Test Fat")
-        self.assertEqual(item.protein , "Test Protein") 
-        self.assertEqual(item.carbs , "Test Carbs")
-        self.assertEqual(item.allergies , "Test Allergies")
-        self.assertEqual(item.price , 2.0)
-        self.assertEqual(item.url , "Test URL")
+        self.assertEqual(item.name, "Test Name")
+        self.assertEqual(item.description, "Test Description")
+        self.assertEqual(item.group, "Test Group")
+        self.assertEqual(item.calories, "Test Calories")
+        self.assertEqual(item.fat, "Test Fat")
+        self.assertEqual(item.protein, "Test Protein")
+        self.assertEqual(item.carbs, "Test Carbs")
+        self.assertEqual(item.allergies, "Test Allergies")
+        self.assertEqual(item.price, 2.0)
+        self.assertEqual(item.url, "Test URL")
 
 
 class CreateOrderTest(TestCase):
+    """
+    This is a test to create an item, then use it to place an Order,
+    and serialize the order as well.
+    """
+
     def test_make_order(self):
-        
-        response = requests.get('https://swe3444.herokuapp.com/api/item/').json()
         current_time = datetime.datetime.now()
         current_time = current_time.replace(microsecond=0)
-        individual_order = Order.objects.create(table_number = 1, state = "ORDERED", placed_at = current_time)
+        individual_order = Order.objects.create(
+            table_number=1, state="ORDERED", placed_at=current_time
+        )
         self.assertEqual(individual_order.table_number, 1)
         self.assertEqual(individual_order.state, "ORDERED")
-        check_id = response[14]["id"]
-        print(check_id)
 
-        item = Item.objects.create(    
-            name        = "Test Name", 
-            description = "Test Description", 
-            group       = "Test Group", 
-            calories    = "Test Calories", 
-            fat         = "Test Fat", 
-            protein     = "Test Protein", 
-            carbs       = "Test Carbs", 
-            allergies   = "Test Allergies", 
-            price       = 2, 
-            url         = "Test URL", 
+        item = Item.objects.create(
+            name="Test Name",
+            description="Test Description",
+            group="Test Group",
+            calories="Test Calories",
+            fat="Test Fat",
+            protein="Test Protein",
+            carbs="Test Carbs",
+            allergies="Test Allergies",
+            price=2,
+            url="Test URL",
         )
 
-        
-        ordercontent = OrderContent.objects.create(
-            order           = Order.objects.get(id=individual_order.id),
-            table_number    = 1,
-            placed_at       = current_time,
-            state           = "ORDERED",
-            item            = Item.objects.get(id=item.id),                
-            quantity        = 1,            
-            allergy_flag    = True,
-            comment         = "This is a test comment",
+        order = OrderContent.objects.create(
+            order=Order.objects.get(id=individual_order.id),
+            table_number=1,
+            placed_at=current_time,
+            state="ORDERED",
+            item=Item.objects.get(id=item.id),
+            quantity=1,
+            allergy_flag=True,
+            comment="This is a test comment",
         )
 
-
-
-
-        # self.assertEqual(order.id,1)
-        # self.assertEqual(order.table_number,1)
-        # self.assertEqual(order.state,"ORDERED")
-        # self.assertEqual(order.item,15)
-        # self.assertEqual(order.quantity,1)
-        # self.assertEqual(order.allergy_flag,True)
-        # self.assertEqual(order.comment,"This is a test comment")
-
-
-
-
-
-
-
-
-
-
-
-
+        self.assertEqual(order.id, 1)
+        self.assertEqual(order.table_number, 1)
+        self.assertEqual(order.state, "ORDERED")
+        self.assertEqual(order.quantity, 1)
+        self.assertEqual(order.allergy_flag, True)
+        self.assertEqual(order.comment, "This is a test comment")
