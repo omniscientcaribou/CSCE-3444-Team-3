@@ -1,10 +1,10 @@
-import './css/Popup.css';
+import '../../css/Popup.css';
 import { FaTimes } from 'react-icons/fa';
 import { useRef, useEffect, useCallback } from 'react';
 import { Button } from 'react-bootstrap';
 import { toast } from 'react-toastify';
 
-const CallMngrPopup = ({
+const CallWSPopup = ({
 	showPopup,
 	setShowPopup,
 	children,
@@ -17,7 +17,7 @@ const CallMngrPopup = ({
 	const closePopup = (e) => {
 		if (popupRef.current === e.target) {
 			setShowPopup((prev) => !prev);
-			toast.warn('⚠️ Call Manager Aborted', {
+			toast.warn('⚠️ Call Waitstaff Aborted', {
 				position: 'bottom-right',
 				autoClose: 5000,
 				hideProgressBar: false,
@@ -33,7 +33,7 @@ const CallMngrPopup = ({
 		(e) => {
 			if (e.key === 'Escape' && showPopup) {
 				setShowPopup((prev) => !prev);
-				toast.warn('⚠️ Call Manager Aborted', {
+				toast.warn('⚠️ Call Waitstaff Aborted', {
 					position: 'bottom-right',
 					autoClose: 5000,
 					hideProgressBar: false,
@@ -53,10 +53,10 @@ const CallMngrPopup = ({
 	}, [keyPress]);
 
 	// POST Request
-	const CallMngr = async () => {
+	const CallWS = async () => {
 		const kitchenRequest = {
 			role: 'Kitchen',
-			call_manager: 'true',
+			call_waitstaff: 'true',
 		};
 
 		const response = await fetch('https://swe3444.herokuapp.com/api/task/', {
@@ -68,7 +68,7 @@ const CallMngrPopup = ({
 		const result = await response.json();
 
 		if (response.ok) {
-			toast.success('🚀 Manager Successfully Called!', {
+			toast.success('🚀 Waitstaff Successfully Called!', {
 				position: 'bottom-right',
 				autoClose: 5000,
 				hideProgressBar: false,
@@ -87,14 +87,14 @@ const CallMngrPopup = ({
 			{showPopup ? (
 				<div className='popup-background' ref={popupRef} onClick={closePopup}>
 					<div className='popup-inner'>
-						<div class='row'>
+						<div className='row'>
 							<h2 className='popup-inner-header'>{heading}</h2>
 							<FaTimes
 								className='popup-inner-header-x-btn'
 								style={{ color: 'red', cursor: 'pointer' }}
 								onClick={() => {
 									setShowPopup((prev) => !prev);
-									toast.warn('⚠️ Call Manager Aborted', {
+									toast.warn('⚠️ Call Waitstaff Aborted', {
 										position: 'bottom-right',
 										autoClose: 5000,
 										hideProgressBar: false,
@@ -113,7 +113,7 @@ const CallMngrPopup = ({
 						{/* <Button className='popup-btn' text={btn_text} color='#74C3C8' /> */}
 						<Button
 							onClick={() => {
-								CallMngr();
+								CallWS();
 								setShowPopup((prev) => !prev);
 							}}
 							variant='info'
@@ -130,4 +130,4 @@ const CallMngrPopup = ({
 	);
 };
 
-export default CallMngrPopup;
+export default CallWSPopup;

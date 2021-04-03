@@ -4,7 +4,7 @@ import { HiOutlineClipboardList } from 'react-icons/hi';
 import { FcClock } from 'react-icons/fc';
 import { TiStopwatch } from 'react-icons/ti';
 import { Button, CardDeck, Card } from 'react-bootstrap';
-import Popup from '../components/Popup';
+import Popup from '../components/Popups/Popup';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Cards = () => {
@@ -39,7 +39,7 @@ const Cards = () => {
 							</span>
 						</Card.Title>
 						<Card.Title>
-							<div class='d-flex justify-content-center p-3 mb-2 bg-white text-dark'>
+							<div className='d-flex justify-content-center p-3 mb-2 bg-white text-dark'>
 								<TiStopwatch />
 							</div>
 						</Card.Title>
@@ -81,7 +81,7 @@ const Cards = () => {
 							</span>
 						</Card.Title>
 						<Card.Title>
-							<div class='d-flex justify-content-center p-3 mb-2 bg-warning text-dark'>
+							<div className='d-flex justify-content-center p-3 mb-2 bg-warning text-dark'>
 								<TiStopwatch />
 							</div>
 						</Card.Title>
@@ -123,7 +123,7 @@ const Cards = () => {
 							</span>
 						</Card.Title>
 						<Card.Title>
-							<div class='d-flex justify-content-center p-3 mb-2 bg-danger text-white'>
+							<div className='d-flex justify-content-center p-3 mb-2 bg-danger text-white'>
 								<TiStopwatch />
 							</div>
 						</Card.Title>

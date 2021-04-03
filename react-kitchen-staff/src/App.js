@@ -1,71 +1,32 @@
+import React from 'react';
 import 'react-toastify/dist/ReactToastify.css';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { ToastContainer } from 'react-toastify';
 // import { Button } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card';
 import Header from './components/Header';
 import Button from './components/Button';
-import CallWSPopup from './components/CallWSPopup';
-import CallMngrPopup from './components/CallMngrPopup';
-import Cards from './components/Cards';
+import CallWSPopup from './components/Popups/CallWSPopup';
+import CallMngrPopup from './components/Popups/CallMngrPopup';
+// import Cards from './components/Cards';
+import OrdersCarousel from './components/OrdersCarousel';
 // import Orders from './components/Orders';
 // import Card from './components/Card';
-// import Popup from './components/Popup';
+// import Popup from './components/Popups/Popup';
+import FetchOrders from './components/FetchOrders';
+import { QueryClient, QueryClientProvider } from 'react-query';
+
+const queryClient = new QueryClient();
 
 function App() {
 	const [callWaitstaffButtonPopup, setCallWaitstaffButtonPopup] = useState(
 		false
 	);
-	// const [orderReadyButtonPopup, setOrderReadyButtonPopup] = useState(false);
 	const [callManagerButtonPopup, setCallManagerButtonPopup] = useState(false);
-	const [orders, setOrders] = useState([]);
-	const [orderedState, setFilteredOrders] = useState([]);
 
-	useEffect(() => {
-		setInterval(() => {
-			const getOrders = async () => {
-				const ordersFromServer = await fetchOrders();
-				setOrders(ordersFromServer);
-			};
-
-			getOrders();
-		}, 3000);
-	}, []);
-
-	// Fetch Orders
-	const fetchOrders = async () => {
-		const res = await fetch('https://swe3444.herokuapp.com/api/ordercontent/');
-		const data = await res.json();
-
-		return data;
-	};
-
-	useEffect(() => {
-		const getFilteredOrders = async () => {
-			const filteredOrdersFromServer = await filterFetchedOrders();
-			setFilteredOrders(filteredOrdersFromServer);
-		};
-
-		// Fetch Orders
-		const filterFetchedOrders = async () => {
-			const filteredData = [];
-			for (let i = 0; i < orders.length; i++) {
-				if (orders[i].state === 'ORDERED') {
-					filteredData.push(orders[i]);
-				}
-			}
-
-			return filteredData;
-		};
-
-		getFilteredOrders();
-	}, [orders]);
-
-	console.log('Filtered Orders:');
-	console.log(orderedState);
 	// // Delete Order
 	// const deleteOrder = async (id) => {
-	// 	await fetch(`https://swe3444.herokuapp.com/kitchen_view/5/${id}`, {
+	// 	await fetch(`https://swe3444.herokuapp.com/api/kitchen_view/${id}`, {
 	// 		method: 'DELETE',
 	// 	})
 
@@ -78,20 +39,22 @@ function App() {
 	};
 
 	return (
-		<div className='container'>
-			<ToastContainer
-				position='bottom-right'
-				autoClose={5000}
-				hideProgressBar={false}
-				newestOnTop
-				closeOnClick
-				rtl={false}
-				pauseOnFocusLoss={false}
-				draggable
-				pauseOnHover
-			/>
-			<Header title='Kitchen Staff Interface' />
-			{/* {orders.length > 0 ? (
+		<QueryClientProvider client={queryClient}>
+			<FetchOrders />
+			<div className='container'>
+				<ToastContainer
+					position='bottom-right'
+					autoClose={5000}
+					hideProgressBar={false}
+					newestOnTop
+					closeOnClick
+					rtl={false}
+					pauseOnFocusLoss={false}
+					draggable
+					pauseOnHover
+				/>
+				<Header title='Kitchen Staff Interface' />
+				{/* {orders.length > 0 ? (
 				<Orders
 					orders={orders}
 					// onDelete={deleteOrder}
@@ -99,69 +62,95 @@ function App() {
 			) : (
 				'All Tickets Completed!'
 			)} */}
-			<Cards />
-			<div>
-				<Card id='noteCard'>
-					<Card.Header className='noteCard-Header' as='h5'>
-						Notes:
-					</Card.Header>
-					<Card.Body className='noteCard-Body'>
-						<Card.Title>Placeholder</Card.Title>
-						<Card.Text>
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-							posuere erat a ante.
-						</Card.Text>
-					</Card.Body>
-				</Card>
-			</div>
-			<div className='button-wrapper'>
-				<Button
-					className='btn'
-					id='call_waitstaff_button'
-					color='#74C3C8'
-					text='Call Waitstaff'
-					onClick={() => displayPopup(setCallWaitstaffButtonPopup)}
-				/>
-				<p></p>
-				{/* <div class='btn'>
+
+				{/* <Cards /> */}
+				<OrdersCarousel />
+
+				<div>
+					<Card id='noteCard'>
+						<Card.Header className='noteCard-Header' as='h5'>
+							Notes:
+						</Card.Header>
+						<Card.Body className='noteCard-Body'>
+							<Card.Title>Placeholder</Card.Title>
+							<Card.Text>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
+								posuere erat a ante.
+							</Card.Text>
+						</Card.Body>
+					</Card>
+				</div>
+				<div className='button-wrapper'>
 					<Button
 						className='btn'
-						color='#FF8800'
-						text='Order READY!'
-						onClick={() => displayPopup(setOrderReadyButtonPopup)}
+						id='call_waitstaff_button'
+						color='#74C3C8'
+						text='Call Waitstaff'
+						onClick={() => displayPopup(setCallWaitstaffButtonPopup)}
 					/>
-				</div> */}
-				<Button
-					className='btn'
-					id='call_manager_button'
-					color='#668EB9'
-					text='Call Manager'
-					onClick={() => displayPopup(setCallManagerButtonPopup)}
-				/>
-				<CallWSPopup
-					showPopup={callWaitstaffButtonPopup}
-					setShowPopup={setCallWaitstaffButtonPopup}
-					btn_text='CALL'
-					text='Do you want to call the waitstaff?'
-					heading='Call Waitstaff'
-				/>
-				{/* <Popup
-					showPopup={orderReadyButtonPopup}
-					setShowPopup={setOrderReadyButtonPopup}
-					btn_text='READY!'
-					text='Is the order ready for pickup?'
-					heading='Order Ready'
-				/> */}
-				<CallMngrPopup
-					showPopup={callManagerButtonPopup}
-					setShowPopup={setCallManagerButtonPopup}
-					btn_text='CALL'
-					text='Do you want to call a manager?'
-					heading='Call Manager'
-				/>
+					<p></p>
+					<Button
+						className='btn'
+						id='call_manager_button'
+						color='#668EB9'
+						text='Call Manager'
+						onClick={() => displayPopup(setCallManagerButtonPopup)}
+					/>
+					<CallWSPopup
+						showPopup={callWaitstaffButtonPopup}
+						setShowPopup={setCallWaitstaffButtonPopup}
+						btn_text='CALL'
+						text='Do you want to call the waitstaff?'
+						heading='Call Waitstaff'
+					/>
+					<CallMngrPopup
+						showPopup={callManagerButtonPopup}
+						setShowPopup={setCallManagerButtonPopup}
+						btn_text='CALL'
+						text='Do you want to call a manager?'
+						heading='Call Manager'
+					/>
+				</div>
 			</div>
-		</div>
+		</QueryClientProvider>
 	);
 }
 
 export default App;
+
+// const [data, setData] = useState();
+// const [ordered, setOrdered] = useState();
+// const [ticket, setTicket] = useState();
+
+// useEffect(() => {
+// 	fetch('https://swe3444.herokuapp.com/api/ordercontent/')
+// 		.then((response) => {
+// 			if (response.ok) {
+// 				return response.json();
+// 			}
+// 		})
+// 		.then((data) => {
+// 			setData(data);
+// 		});
+// 	.finally((data) => {
+// 		for (let i = 0; i < data.length; i++) {
+// 			if (data[i].state === 'ORDERED') {
+// 				fetch(
+// 					`https://swe3444.herokuapp.com/api/kitchen_view/${data[i].table_number}`
+// 				)
+// 					.then((res) => {
+// 						if (res.ok) {
+// 							return res.json();
+// 						}
+// 					})
+// 					.then((ticket) => {
+// 						setTicket(...ticket);
+// 					});
+// 			}
+// 		}
+// 		console.log(ordered);
+// 	});
+// });
+
+// console.log('Data: ', data);
+// console.log('Length: ', data.length);

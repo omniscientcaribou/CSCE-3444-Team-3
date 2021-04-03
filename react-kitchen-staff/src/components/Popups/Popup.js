@@ -1,4 +1,4 @@
-import './css/Popup.css';
+import '../../css/Popup.css';
 // import Button from './Button';
 import { FaTimes } from 'react-icons/fa';
 import { useRef, useEffect, useCallback } from 'react';
@@ -40,7 +40,7 @@ const Popup = ({
 			{showPopup ? (
 				<div className='popup-background' ref={popupRef} onClick={closePopup}>
 					<div className='popup-inner'>
-						<div class='row'>
+						<div className='row'>
 							<h2 className='popup-inner-header'>{heading}</h2>
 							<FaTimes
 								className='popup-inner-header-x-btn'

@@ -1,15 +1,10 @@
 import Order from './Order';
 
-const Orders = ({ orders, onDelete, onToggle }) => {
+const Orders = ({ orders }) => {
 	return (
 		<>
-			{orders.map((order, index) => (
-				<Order
-					key={index}
-					order={order}
-					onDelete={onDelete}
-					onToggle={onToggle}
-				/>
+			{orders.map((index, order, onToggle) => (
+				<Order key={index} order={order} onToggle={onToggle} />
 			))}
 		</>
 	);

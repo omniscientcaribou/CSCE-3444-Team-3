@@ -2,8 +2,8 @@
 // import Moment from 'react-moment';
 
 const Order = ({ order }) => {
-	return (
-		
+	return null;
+
 	// 	<div
 	// 		className={`order ${order.reminder ? 'reminder' : ''}`}
 	// 		onDoubleClick={() => onToggle(order.id)}
