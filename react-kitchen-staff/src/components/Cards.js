@@ -41,14 +41,15 @@ const Cards = ({ ticket }) => {
 				<Card className='shadow-sm p-3 mb-5 bg-white rounded'>
 					<Card.Body>
 						<Card.Title className='d-flex justify-content-around'>
-							<span>🍽️{ticket.table_number}</span>
-							<span>📋{ticket.id}</span>
+							<span>🍽️&nbsp;{ticket.table_number}</span>&emsp;
+							<span>📋&nbsp;{ticket.id}</span>&emsp;
 							<span>
-								⌚️
+								⌚️&nbsp;
 								<Moment local format='hh:mm A'>
 									{ticket.placed_at}
 								</Moment>
 							</span>
+							&emsp;
 							{allergyFlag()}
 						</Card.Title>
 						<Card.Title>
