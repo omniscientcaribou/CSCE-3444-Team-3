@@ -39,13 +39,13 @@ const Popup = ({
 	// PUT Request
 	const updateTicket = async (id) => {
 		let p_id = id.id;
-		console.log('p_id: ', p_id);
+		// console.log('p_id: ', p_id);
 		const updateRequest = {
-			method: 'PUT',
+			method: 'PATCH',
 			headers: {
 				'Content-Type': 'application/json',
 			},
-			body: JSON.stringify({ 'state': 'READY TO BE DELIVERED' }),
+			body: JSON.stringify({ state: 'READY TO BE DELIVERED' }),
 		};
 
 		const response = await fetch(

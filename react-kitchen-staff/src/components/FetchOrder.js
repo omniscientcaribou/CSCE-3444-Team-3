@@ -86,7 +86,6 @@ const FetchOrder = () => {
 		});
 	}
 
-	console.log(ticket);
 	return (
 		<div>
 			{status === 'success' && (
