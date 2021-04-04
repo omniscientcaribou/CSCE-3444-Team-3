@@ -43,7 +43,7 @@ const Popup = ({
 		const updateRequest = {
 			method: 'PATCH',
 			headers: {
-				'Content-Type': 'application/json',
+				'Content-Type': 'application/json', 'Accept': 'application/json',
 			},
 			body: JSON.stringify({ state: 'READY TO BE DELIVERED' }),
 		};
