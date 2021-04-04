@@ -53,6 +53,10 @@ class OrderContentViewSet(viewsets.ModelViewSet):
     queryset = OrderContent.objects.all()
     serializer_class = OrderContentSerializer
 
+class PriceCalculationsViewSet(viewsets.ModelViewSet):
+    queryset = PriceCalculations.objects.all()
+    serializer_class = PriceCalculations
+
 
 @api_view(["GET"])
 def kitchen_view(request, pk):
