@@ -4,17 +4,24 @@ import { toast, Flip } from 'react-toastify';
 import Order from './Order';
 
 const getOrders = async () => {
-	const order_content_api_url =
-		'https://swe3444.herokuapp.com/api/ordercontent/';
+	const order_content_api_url = 'https://swe3444.herokuapp.com/api/tickets/';
 	const response = await fetch(order_content_api_url);
 	return response.json();
 };
 
-const getItems = async (table_number) => {
-	const kitchen_view_api_url = `https://swe3444.herokuapp.com/api/kitchen_view/${table_number}`;
-	const response = await fetch(kitchen_view_api_url);
-	return response.json();
-};
+// const getItems = async (orders) => {
+// 	let table_number = 0;
+// 	let table_numbers = [findOrdered(orders)];
+// 	let items = [];
+// 	const kitchen_view_api_url = `https://swe3444.herokuapp.com/api/kitchen_view/${table_number}`;
+
+// 	for (table_number; table_number < table_numbers.length; table_number++) {
+// 		const response = await fetch(kitchen_view_api_url);
+// 		items.push(response.json());
+// 	}
+
+// 	return console.log(items);
+// };
 
 const isOrdered = (id) => {
 	return id.state === 'ORDERED' ? true : false;
@@ -27,11 +34,11 @@ const findOrdered = (data) => {
 		order.state === 'ORDERED' ? tmp.push(order.table_number) : []
 	);
 
-	return tmp;
+	return tmp.flat();
 };
 
 const FetchOrders = () => {
-	const intervalMs = 3000; // Refresh Interval in MS
+	// const intervalMs = 3000; // Refresh Interval in MS
 	const { data: orders, error, isLoading, isError } = useQuery(
 		'ORDERS',
 		getOrders
@@ -40,14 +47,20 @@ const FetchOrders = () => {
 		// }
 	);
 
-	const { data: items, isIdle } = useQuery(
-		orders && ['ORDERED', findOrdered(orders)],
-		(key, table_number) => {
-			const response = getItems(table_number);
+	console.log(orders);
 
-			return response;
-		}
-	);
+	// const { data: items, isIdle } = useQuery(
+	// 	orders && ['ORDERED', getItems(orders)]
+	// );
+
+	// const { data: items, isIdle } = useQuery(
+	// 	orders && ['ORDERED', findOrdered(orders)],
+	// 	(key, table_number) => {
+	// 		const response = getItems(table_number);
+
+	// 		return response;
+	// 	}
+	// );
 
 	if (isLoading) {
 		toast.info('⏳ Loading Data, Please Wait...', {

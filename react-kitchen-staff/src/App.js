@@ -8,7 +8,7 @@ import Header from './components/Header';
 import Button from './components/Button';
 import CallWSPopup from './components/Popups/CallWSPopup';
 import CallMngrPopup from './components/Popups/CallMngrPopup';
-// import Cards from './components/Cards';
+import Cards from './components/Cards';
 import OrdersCarousel from './components/OrdersCarousel';
 // import Orders from './components/Orders';
 // import Card from './components/Card';
@@ -63,8 +63,8 @@ function App() {
 				'All Tickets Completed!'
 			)} */}
 
-				{/* <Cards /> */}
-				<OrdersCarousel />
+				<Cards />
+				{/* <OrdersCarousel /> */}
 
 				<div>
 					<Card id='noteCard'>

@@ -22,25 +22,16 @@ const Cards = () => {
 	return (
 		<div>
 			<CardDeck>
-				<Card
-					className='shadow-sm p-3 mb-5 bg-white rounded'
-					style={{ width: '18rem' }}
-				>
+				<Card className='shadow-sm p-3 mb-5 bg-white rounded'>
 					<Card.Body>
 						<Card.Title className='d-flex justify-content-around'>
-							<span>
-								<GiRoundTable /> 1
-							</span>
-							<span>
-								<HiOutlineClipboardList /> 1
-							</span>
-							<span>
-								<FcClock /> {time}
-							</span>
+							<span>🍽️ 1</span>
+							<span>🎫 1</span>
+							<span>⌚️ {time}</span>
 						</Card.Title>
 						<Card.Title>
 							<div className='d-flex justify-content-center p-3 mb-2 bg-white text-dark'>
-								<TiStopwatch />
+								⏱
 							</div>
 						</Card.Title>
 						<Card.Text>
