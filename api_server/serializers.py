@@ -45,5 +45,5 @@ class OrderContentSerializer(serializers.ModelSerializer):
 
 class PriceCalculationsSerializer(serializers.ModelSerializer):
     class Meta:
-        model = PriceCalculation
+        model = PriceCalculations
         fields = "__all__"
