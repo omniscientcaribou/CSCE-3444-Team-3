@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Item, Employee, Table, Task, Credential, Order, OrderContent
+from .models import Item, Employee, Table, Task, Credential, Order, OrderContent, PriceCalculations
 
 
 class ItemSerializer(serializers.ModelSerializer):
