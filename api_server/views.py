@@ -15,7 +15,15 @@ from django.forms.models import model_to_dict
 from django.shortcuts import render
 import datetime
 import requests
-
+import psycopg2
+import os
+from os.path import join, dirname
+from dotenv import load_dotenv
+dotenv_path = join(dirname(__file__), '.env')
+load_dotenv(dotenv_path)
+import pandas as pd
+import pandas.io.sql as sqlio
+import plotly.express as px
 # Create your views here.
 
 
@@ -107,11 +115,6 @@ def table_total(request, pk):
     }
     lst.append(order_total)
     return JsonResponse(lst, safe=False)
-
-
-def test_html(request):
-    return render(request, "api_server/test.html")
-
 
 @api_view(["GET", "POST"])
 def wait_order(request, t_num, item_id, quantity, a_flag=False, s=""):
@@ -232,4 +235,43 @@ def tickets(request):
         }
         lst.append(build_data)
     return JsonResponse(lst, safe=False)
+
+
+def test_html(request):
+    con = psycopg2.connect(
+        host = os.getenv('POSTGRES_HOST'),
+        database = os.getenv('POSTGRES_DATABASE'),
+        user = (os.getenv('POSTGRES_USER')),
+        password = os.getenv('POSTGRES_PASSWORD')
+    )
+
+    # CONNECT TO DB
+    cur = con.cursor()
+
+    # EXECUTE QUERY & STORE RESULTS 
+    data = sqlio.read_sql(query, con)
+
+    # TERMINATE CONNECTION
+    con.close()
+
+    query = "select * from api_server_item;"
+    query_two = "select * from api_server_ordercontent;"
+
+    items , paid_orders = get_data_frame(query), get_data_frame(query_two)
+    items = items[['id', 'name', 'group', 'price']]
+    paid_orders = paid_orders[['id', 'placed_at', 'state', 'quantity', 'item_id', 'order_id']]
+    paid_orders = paid_orders[(paid_orders['state'] == "PAID") | (paid_orders['state'] == "COMPENSATED")]
+    df = pd.merge(items, paid_orders, left_on = 'id', right_on = 'item_id')
+    df = df[['order_id', 'item_id', 'name', 'group', 'quantity', 'price', 'placed_at', 'state']]
+
+    df.assign(col = 'profit')
+    df['profit'] = df['quantity'] * df['price']
+    print(df)
+    print(df.groupby(['group']).sum())
+
+    fig = px.pie(df, names = "group", values = "profit", title = "Daily Profit By Group")
+    fig.show()
+    fig.write_html("api_server/pie.html")
+
+    return render(request, "api_server/pie.html")
 
