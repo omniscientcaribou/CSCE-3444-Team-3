@@ -143,5 +143,14 @@ def log_in(user_name, password):
     return "Invalid credentials"
 
 
-q = log_in("Cory", "swe3444")
-print(q)
+# q = log_in("Cory", "swe3444")
+# print(q)
+
+# CREATE TABLE api_server_pricecalculations (
+#    	ID   INT              NOT NULL,
+# 	"group" varchar(255),
+# 	price decimal(10, 3),
+# 	unit_cost decimal(10,3),
+# 	tax decimal(10, 3),
+# 	revenue decimal(10, 3)
+# );
