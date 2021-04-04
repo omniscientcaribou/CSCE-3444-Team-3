@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Item, Employee, Table, Task, Credential, Order, OrderContent, PriceCalculations
+from .models import Item, Employee, Table, Task, Credential, Order, OrderContent#, PriceCalculations
 
 
 class ItemSerializer(serializers.ModelSerializer):
@@ -43,7 +43,7 @@ class OrderContentSerializer(serializers.ModelSerializer):
         model = OrderContent
         fields = "__all__"
 
-class PriceCalculationsSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = PriceCalculations
-        fields = "__all__"
+# class PriceCalculationsSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = PriceCalculations
+#         fields = "__all__"
