@@ -13,7 +13,7 @@ import OrdersCarousel from './components/OrdersCarousel';
 // import Orders from './components/Orders';
 // import Card from './components/Card';
 // import Popup from './components/Popups/Popup';
-import FetchOrders from './components/FetchOrders';
+import FetchOrder from './components/FetchOrder';
 import { QueryClient, QueryClientProvider } from 'react-query';
 
 const queryClient = new QueryClient();
@@ -40,7 +40,6 @@ function App() {
 
 	return (
 		<QueryClientProvider client={queryClient}>
-			<FetchOrders />
 			<div className='container'>
 				<ToastContainer
 					position='bottom-right'
@@ -62,8 +61,8 @@ function App() {
 			) : (
 				'All Tickets Completed!'
 			)} */}
-
-				<Cards />
+				<FetchOrder />
+				{/* <Cards /> */}
 				{/* <OrdersCarousel /> */}
 
 				<div>

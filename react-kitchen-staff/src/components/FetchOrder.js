@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
 import { useQuery } from 'react-query';
 import { toast, Flip } from 'react-toastify';
-import Order from './Order';
+import Cards from './Cards';
 
-const getOrders = async () => {
+const getTicket = async () => {
 	const order_content_api_url = 'https://swe3444.herokuapp.com/api/tickets/';
 	const response = await fetch(order_content_api_url);
 	return response.json();
@@ -23,31 +22,29 @@ const getOrders = async () => {
 // 	return console.log(items);
 // };
 
-const isOrdered = (id) => {
-	return id.state === 'ORDERED' ? true : false;
-};
+// const isOrdered = (id) => {
+// 	return id.state === 'ORDERED' ? true : false;
+// };
 
-const findOrdered = (data) => {
-	let tmp = [];
+// const findOrdered = (data) => {
+// 	let tmp = [];
 
-	data.flatMap((order) =>
-		order.state === 'ORDERED' ? tmp.push(order.table_number) : []
+// 	data.flatMap((order) =>
+// 		order.state === 'ORDERED' ? tmp.push(order.table_number) : []
+// 	);
+
+// 	return tmp.flat();
+// };
+
+const FetchOrder = () => {
+	const intervalMs = 3000; // Refresh Interval in MS
+	const { data: ticket, error, isLoading, isError, status } = useQuery(
+		'TICKET',
+		getTicket,
+		{
+			refetchInterval: intervalMs,
+		}
 	);
-
-	return tmp.flat();
-};
-
-const FetchOrders = () => {
-	// const intervalMs = 3000; // Refresh Interval in MS
-	const { data: orders, error, isLoading, isError } = useQuery(
-		'ORDERS',
-		getOrders
-		// {
-		// 	refetchInterval: intervalMs,
-		// }
-	);
-
-	console.log(orders);
 
 	// const { data: items, isIdle } = useQuery(
 	// 	orders && ['ORDERED', getItems(orders)]
@@ -75,19 +72,6 @@ const FetchOrders = () => {
 			transition: Flip,
 		});
 	}
-	// if (isFetching) {
-	// 	toast.info("🎉 Now Fetching Data, Let's Go!!", {
-	// 		toastId: 'fetching',
-	// 		position: 'top-center',
-	// 		autoClose: 2000,
-	// 		hideProgressBar: true,
-	// 		closeOnClick: true,
-	// 		pauseOnHover: false,
-	// 		draggable: true,
-	// 		progress: undefined,
-	// 		transition: Flip,
-	// 	});
-	// }
 	if (isError) {
 		toast.error('🛑 Uhoh, ' + error.message, {
 			toastId: 'error',
@@ -101,29 +85,19 @@ const FetchOrders = () => {
 			transition: Flip,
 		});
 	}
-	// if (isSuccess) {
-	// 	toast.success('🎉 Woo-hoo! Fetch Was Successful!', {
-	// 		toastId: 'success',
-	// 		position: 'top-center',
-	// 		autoClose: 2000,
-	// 		hideProgressBar: true,
-	// 		closeOnClick: true,
-	// 		pauseOnHover: false,
-	// 		draggable: true,
-	// 		progress: undefined,
-	// 		transition: Flip,
-	// 	});
-	// }
 
-	// for (let i = 0; i < data.length; i++) {
-	// 	(isOrdered(data[i])) ? ordered.push(data[i]) : continue;
-	// }
-	// findOrdered();
-	// console.log(ordered);
-	// console.log(orders);
-	// console.log(items);
-
-	return null;
+	console.log(ticket);
+	return (
+		<div>
+			{status === 'success' && (
+				<div>
+					{ticket.map((ticket) => (
+						<Cards key={ticket.id} ticket={ticket} />
+					))}
+				</div>
+			)}
+		</div>
+	);
 };
 
-export default FetchOrders;
+export default FetchOrder;

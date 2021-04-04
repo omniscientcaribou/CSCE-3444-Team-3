@@ -17,6 +17,7 @@
     "react-moment": "^1.1.1",
     "react-query": "^3.13.4",
     "react-scripts": "4.0.3",
+    "react-spinners": "^0.10.6",
     "react-toastify": "^7.0.3",
     "typescript": "^4.2.3",
     "web-vitals": "^1.1.1"
@@ -44,5 +45,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "devDependencies": {}
 }
