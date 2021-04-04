@@ -42,3 +42,8 @@ class OrderContentSerializer(serializers.ModelSerializer):
     class Meta:
         model = OrderContent
         fields = "__all__"
+
+class PriceCalculationsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = PriceCalculation
+        fields = "__all__"

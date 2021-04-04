@@ -79,3 +79,11 @@ class OrderContent(models.Model):
     quantity = models.IntegerField()
     allergy_flag = models.BooleanField(default=False)
     comment = models.TextField()
+
+class PriceCalculations(models.Model):
+    group = models.TextField()
+    price = models.FloatField()
+    unit_cost = models.FloatField()
+    tax = models.FloatField()
+    revenue = models.FloatField()
+

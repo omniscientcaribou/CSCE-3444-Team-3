@@ -29,6 +29,7 @@ router.register(r"task", views.TaskViewSet)
 router.register(r"credential", views.CredentialViewSet)
 router.register(r"order", views.OrderViewSet)
 router.register(r"ordercontent", views.OrderContentViewSet)
+router.register(r"pricecalculation", views.PriceCalculations)
 
 urlpatterns = [
     path("admin/", admin.site.urls),

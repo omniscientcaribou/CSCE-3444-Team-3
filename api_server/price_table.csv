@@ -1,0 +1,6 @@
+group,price,unit_cost,tax,revenue
+ DRINK      ,1.99,0.199,0.152,1.639
+ APPETIZERS ,8.99,0.899,0.685,7.406
+ ENTREES    ,11.99,1.199,0.914,9.877
+ DESSERT    ,6.99,0.699,0.533,5.758
+ KID'S MENU ,2.99,0.299,0.228,2.463
