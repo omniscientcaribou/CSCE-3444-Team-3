@@ -57,12 +57,19 @@ const Cards = ({ ticket }) => {
 							</div>
 						</Card.Title>
 						<Card.Text>
-							<h3>
-								<strong>{ticket.group}</strong>
-							</h3>
-							<p>
-								{ticket.item_name} - QTY: {ticket.quantity}
-							</p>
+							<span
+								style={{
+									color: 'purple',
+									fontSize: '1.17em',
+									fontWeight: 'bolder',
+								}}
+							>
+								<strong>{ticket.group}:</strong>
+							</span>
+							<br />
+							<span>
+								&emsp;{ticket.item_name}&ensp;-&ensp;QTY:&nbsp;{ticket.quantity}
+							</span>
 						</Card.Text>
 						<Button
 							variant='success'
