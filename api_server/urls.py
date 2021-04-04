@@ -38,7 +38,6 @@ urlpatterns = [
     path("api/kitchen_view/<str:pk>", kitchen_view, name="kitchen_view"),
     path("api/table_view/<str:pk>", table_bill, name="table_view"),
     path("api/table_total/<str:pk>", table_total, name="table_total"),
-    path("api/pie_html/", test_html, name="pie_html"),
     path(
         "api/wait_order/<str:t_num>/<str:item_id>/<str:quantity>/<str:a_flag>/<str:s>",
         wait_order,
