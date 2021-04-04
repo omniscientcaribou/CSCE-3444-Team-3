@@ -55,7 +55,7 @@ class OrderContentViewSet(viewsets.ModelViewSet):
 
 class PriceCalculationsViewSet(viewsets.ModelViewSet):
     queryset = PriceCalculations.objects.all()
-    serializer_class = PriceCalculations
+    serializer_class = PriceCalculationsSerializer
 
 
 @api_view(["GET"])
