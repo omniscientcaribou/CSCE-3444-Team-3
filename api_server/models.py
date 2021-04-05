@@ -87,3 +87,9 @@ class PriceCalculations(models.Model):
     tax = models.FloatField()
     revenue = models.FloatField()
 
+class MealTime(models.Model):
+    start_hour = models.IntegerField() 
+    start_minute = models.IntegerField()
+    end_hour = models.IntegerField()
+    end_minute = models.IntegerField()
+

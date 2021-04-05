@@ -47,3 +47,8 @@ class PriceCalculationsSerializer(serializers.ModelSerializer):
     class Meta:
         model = PriceCalculations
         fields = "__all__"
+
+class MealTimeSerializer(serializers.ModelSerializer):
+    class Meta
+        model = MealTime
+        fields = "__all__"

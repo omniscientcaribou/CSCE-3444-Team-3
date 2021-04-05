@@ -162,7 +162,7 @@ def get_table(request, pk):
     }
     requests.patch(url_build, data = pay_load)
 
-    return JsonResponse({"reservation_status": "Failed"}, safe=False)
+    return JsonResponse({"reservation_status": "Success"}, safe=False)
 
 
 @api_view(["GET", "PATCH"])
@@ -175,7 +175,7 @@ def release_table(request, pk):
         "state" : False
     }
     requests.patch(url_build, data = pay_load)
-    return HttpResponse("Release")
+    return JsonResponse({"release_status": "Success"}, safe=False)
 
 @api_view(["GET"])
 def log_in(request, user_name, password):

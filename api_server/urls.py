@@ -30,6 +30,7 @@ router.register(r"credential", views.CredentialViewSet)
 router.register(r"order", views.OrderViewSet)
 router.register(r"ordercontent", views.OrderContentViewSet)
 router.register(r"pricecalculations", views.PriceCalculationsViewSet)
+router.register(r"mealtimes", views.MealTimeSerializer)
 
 
 urlpatterns = [
