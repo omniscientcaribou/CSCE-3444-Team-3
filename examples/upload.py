@@ -108,23 +108,18 @@ def get_table(pk):
     r = requests.get(url).json()
     print(r)
     url_build = url + str(pk) + "/"
-    pay_load = {
-        "id"    : r[pk-1]["id"],
-        "state" : True
-    }
-    requests.patch(url_build, data = pay_load)
+    pay_load = {"id": r[pk - 1]["id"], "state": True}
+    requests.patch(url_build, data=pay_load)
     return None
+
 
 def release_table(pk):
     url = "https://swe3444.herokuapp.com/api/table/"
     r = requests.get(url).json()
     print(r)
     url_build = url + str(pk) + "/"
-    pay_load = {
-        "id"    : r[pk-1]["id"],
-        "state" : False
-    }
-    requests.patch(url_build, data = pay_load)
+    pay_load = {"id": r[pk - 1]["id"], "state": False}
+    requests.patch(url_build, data=pay_load)
     return None
 
 
@@ -158,8 +153,8 @@ def log_in(user_name, password):
 
 
 def price_calc():
-    url = 'https://swe3444.herokuapp.com/api/pricecalculations/'
-    headers = {}    
+    url = "https://swe3444.herokuapp.com/api/pricecalculations/"
+    headers = {}
     lst = []
     with open("price_table.csv", "r") as file:
         reader = csv.reader(file)
@@ -168,26 +163,27 @@ def price_calc():
     lst = lst[1:]
     for group in lst:
         pay_load = {
-            "group"     : group[0].strip(),
-            "price"     : group[1],
-            "unit_cost" : group[2],
-            "tax"       : group[3],
-            "revenue"   : group[4],
+            "group": group[0].strip(),
+            "price": group[1],
+            "unit_cost": group[2],
+            "tax": group[3],
+            "revenue": group[4],
         }
         res = requests.post(url, data=pay_load, headers=headers)
-        print(f'{group[0]} upload complete.')
+        print(f"{group[0]} upload complete.")
     return None
 
 
 def make_tables():
-    url = 'https://swe3444.herokuapp.com/api/table/'
-    headers = {}    
-    for i in range(1,13):
+    url = "https://swe3444.herokuapp.com/api/table/"
+    headers = {}
+    for i in range(1, 13):
         pay_load = {
-            "number" : i,
-            "state"  : False,
+            "number": i,
+            "state": False,
         }
         res = requests.post(url, data=pay_load, headers=headers)
+
 
 # make_tables()
 
