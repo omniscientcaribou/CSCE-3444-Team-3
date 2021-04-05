@@ -158,7 +158,7 @@ def get_table(request, pk):
     print(r)
     url_build = url + str(pk) + "/"
     pay_load = {
-        "id"    : r[pk-1]["id"],
+        "id"    : int(r[pk-1]["id"]),
         "state" : True
     }
     requests.patch(url_build, data = pay_load)
@@ -173,7 +173,7 @@ def release_table(request, pk):
     print(r)
     url_build = url + str(pk) + "/"
     pay_load = {
-        "id"    : r[pk-1]["id"],
+        "id"    : int(r[pk-1]["id"]),
         "state" : False
     }
     requests.patch(url_build, data = pay_load)
