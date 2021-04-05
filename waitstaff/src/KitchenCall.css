@@ -1,3 +1,11 @@
-.Kitchen-Call{
-    
+.KitchenButton{
+    width: 50%;
+    height: 50%;
+    background-color: #945d72;
+    border:black;
+    border-color: black;
+    border-width:thick;
+    font-size: XX-large;
+    padding: 40px 20px;
+    border: none;
 }

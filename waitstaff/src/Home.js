@@ -103,7 +103,7 @@ class Home extends Component{
 
         for(let i = 1; i <= 16; i++){
             for(let j = 0; j < orders.length; j++){
-                if(orders[j].state==="READY TO DELIVER"){
+                if(orders[j].state=="READY TO BE DELIVERED"){
                     if(orders[j].table_number===i){
                        // console.log(orders[j].table_number);
                         tableOrders[i-1].push(orders[j]);
@@ -154,9 +154,12 @@ class Home extends Component{
                     <Table ID="15" Seconds={this.props.seconds} Refill={refills[14]} RefillData={refillData[0]}/>
                     <Table ID="16" Seconds={this.props.seconds} Refill={refills[15]} RefillData={refillData[0]}/>*/}
                     {tables}
+
+                
+                <div className="KitchenCall">
                     <KitchenCall Seconds={this.props.seconds} KitchenCalling={kitchenCalling} KitchenCallingID={kitchenCallingID}/>
                 </div>
-
+                </div>
             </div>
         );
     }

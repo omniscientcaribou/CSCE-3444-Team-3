@@ -17,7 +17,7 @@ function KitchenCall(prop){
         return(
             <div className="Kitchen-Call">
                 <Link to ={path}>
-                    <button onClick={KitchenClick} className KitchenButton>
+                    <button onClick={KitchenClick} className="KitchenButton">
                         kitchen call
                     </button>
                 </Link>

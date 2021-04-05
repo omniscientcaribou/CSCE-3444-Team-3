@@ -108,7 +108,7 @@ class Order extends React.Component{
         path = path.concat("&allergen=" + this.state.allergens)
 
         return(
-        <div className="Order-Header">
+        <div className="Header">
             Order 
             <div className="Choose">
                 Choose Item

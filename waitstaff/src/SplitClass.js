@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import './Order.css';
 class SplitClass extends Component{
     constructor(props){
         super(props);
@@ -87,8 +88,8 @@ class SplitClass extends Component{
             )
         }
         return(
-            <div className="Split-Header">
-                Order Total for each Customer is: {this.state.data/this.state.N} 
+            <div className="Header">
+                Order Total for each Customer is: {(this.state.data/this.state.N).toFixed(2)} 
                 
                 <div className="Choose">
                     How Many Customers?
