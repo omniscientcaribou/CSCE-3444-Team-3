@@ -2,6 +2,7 @@ import requests
 import datetime
 import random
 import json
+import csv
 
 
 def write_menu(pay_load):
@@ -118,39 +119,54 @@ def get_table():
 
 
 def log_in(user_name, password):
-    employees = requests.get('https://swe3444.herokuapp.com/api/employee/').json()
-    credentials = requests.get('https://swe3444.herokuapp.com/api/credential/').json()
+    employees = requests.get("https://swe3444.herokuapp.com/api/employee/").json()
+    credentials = requests.get("https://swe3444.herokuapp.com/api/credential/").json()
 
     url_redirection = {
-        "Customer"      : "customer_ui",
-        "Kitchen"       : "kitchen_ui",
-        "Wait Staff"    : "waitstaff_ui",
-        "Manager"       : "manager_ui",
-        "Developer"     : "developer_ui",
+        "Customer": "customer_ui",
+        "Kitchen": "kitchen_ui",
+        "Wait Staff": "waitstaff_ui",
+        "Manager": "manager_ui",
+        "Developer": "developer_ui",
     }
 
     for employee in employees:
         if user_name == employee["name"]:
             for credential in credentials:
-                if password == credential['enter_password']:
+                if password == credential["enter_password"]:
                     # print(f'{user_name} has been found with password: {password} and role {employee["role"]}')
                     redirect = {
-                        "name" : user_name,
-                        "role" : employee["role"],
-                        "url"  : url_redirection[employee["role"]]
+                        "name": user_name,
+                        "role": employee["role"],
+                        "url": url_redirection[employee["role"]],
                     }
                     return redirect
     return "Invalid credentials"
 
 
-# q = log_in("Cory", "swe3444")
-# print(q)
+# drive_write_menu()
 
-# CREATE TABLE api_server_pricecalculations (
-#    	ID   INT              NOT NULL,
-# 	"group" varchar(255),
-# 	price decimal(10, 3),
-# 	unit_cost decimal(10,3),
-# 	tax decimal(10, 3),
-# 	revenue decimal(10, 3)
-# );
+
+def price_calc():
+    url = 'https://swe3444.herokuapp.com/api/pricecalculations/'
+    headers = {}    
+    lst = []
+    with open("price_table.csv", "r") as file:
+        reader = csv.reader(file)
+        for row in reader:
+            lst.append(row)
+    lst = lst[1:]
+    for group in lst:
+        pay_load = {
+            "group"     : group[0].strip(),
+            "price"     : group[1],
+            "unit_cost" : group[2],
+            "tax"       : group[3],
+            "revenue"   : group[4],
+        }
+        res = requests.post(url, data=pay_load, headers=headers)
+        print(f'{group[0]} upload complete.')
+    return None
+
+
+print(price_calc())
