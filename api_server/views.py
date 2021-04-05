@@ -55,6 +55,10 @@ class PriceCalculationsViewSet(viewsets.ModelViewSet):
     queryset = PriceCalculations.objects.all()
     serializer_class = PriceCalculationsSerializer
 
+class MealTimeViewSet(viewsets.ModelViewSet):
+    queryset = MealTime.objects.all()
+    serializer_class = MealTimeSerializer
+
 
 @api_view(["GET"])
 def kitchen_view(request, pk):
