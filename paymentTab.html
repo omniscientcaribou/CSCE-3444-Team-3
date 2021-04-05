@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Goodbye</title>
+		<title>Payment Tab</title>
 		<style>
 			h1{text-align: center;}
 			
@@ -48,13 +48,14 @@
 			}
 		</style>
 
-        <link rel="stylesheet" href="goodbye.css">
+        <link rel="stylesheet" href="payment.css">
 	</head>
     
+    <script src="payment.js"></script>
 	
     <body style="background-color: #d9e0e8">
 		<div class="boxed">
-			Thank you
+			Payment Tab
 		</div>
 		<aside class="sidebar">
 			<a href="customerui.html">Back</a>
@@ -66,14 +67,16 @@
 		</aside>
         <div class="Area">
             <div class ="text">
-                Thank you for your patronage. 
+                How would you like to pay?
             </div>
-            <div class="smalltext">
-                (If you won a free dessert, the waiter has been notified <br> and
-                will have it ready for you at the front desk)
+            <div class="payment" id ="payment"></div>
+            <div class ="selection">
+                <a href="comments.html" class="button">Cash</a>
+                <a href="creditCard.html" class="button">Card</a>
             </div>
         </div>
 	</body>
-</html>
-    
 
+
+
+</html>

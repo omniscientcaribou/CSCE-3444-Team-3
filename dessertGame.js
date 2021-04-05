@@ -66,7 +66,7 @@ window.onload=function(e){
         }
         setTimeout(function(){
             window.location.replace("goodbye.html");
-        },10000)
+        },8000)
 
     }
     const once={

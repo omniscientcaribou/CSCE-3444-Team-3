@@ -8,9 +8,8 @@
     color: #fef6dfb4;
 }
 :root {
-    --div-height: 350px;
-    --div-width:600px;
-    
+    --div-height: 75%;/*479px; */
+    --div-width: 62%;
 }
 .info{
     justify-content: center;
@@ -20,23 +19,27 @@
     margin-left: 100px;
 }
 #cardNumbers {
+    margin-top: 10%;
     border: none;
     justify-content: center;
     font-size: 30px;
     text-align: right;
-    width: 358px;
+    width: 59%;
     display: block;
     background-color: #9e7b91;
     color: #fef6df;
     margin-bottom: 5px;
     padding-right: 10px;
+    margin-left: 10%;
 }
 #month{
+    border: none;
     display: inline-block;
     text-align: center;
     font-size: 30px;
     background-color: #9e7b91;
     color: #fef6df;
+    margin-left: 10%;
 }
 
 #year{
@@ -45,7 +48,7 @@
     align-items: center;
     text-align: center;
     font-size: 30px;
-    width: 15%;
+    width: 15.3%;
     background-color: #9e7b91;
     color: #fef6df;
 }
@@ -55,9 +58,9 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 .Area{
-    margin-left: 300px; 
     position: absolute;
-    top: 25%;
+    margin-top: 2%;
+    margin-left: 35%;
     border-radius: 20px;
     justify-content: center;
     align-items: center;
@@ -67,30 +70,19 @@ input::-webkit-inner-spin-button {
 }
 
 .text{
+    margin-top: 4%;
     justify-content: center;
     align-items: center;
     text-align: center;
     color: #fef6df;
     padding: 20px;
     font-size: 250%;
-    
-}
-.payment{
-    border-color: beige;
-    border-style: solid;
-    text-align: center;
-    font-size: 50px;
-    align-items: center;
-    width:90%;
-    height: 40%;
-    padding-top: 30px;
-    color: #fef6df;
-    margin-left:30px;
-    border-radius: 20px;
 }
 .selection{
     display: flex;
     padding: 40px;
+    margin-top: 4%;
+    height:auto;
     justify-content: space-around;
 }
 .selection .button{
@@ -101,6 +93,7 @@ input::-webkit-inner-spin-button {
     border-radius: 15px;
     /* margin: 15px; */
     padding: 15px 35px;
+    width: 25%; 
     color: #fef6df;
     cursor: pointer;
     text-align: center;
@@ -124,6 +117,7 @@ input::-webkit-inner-spin-button {
     padding: 15px 35px;
     color: #fef6df;
     cursor: pointer;
+    width: 25%;
     text-align: center;
     align-items: center;
     text-decoration: none;

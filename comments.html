@@ -1,20 +1,78 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8"/>
-    <title>Comments</title>
-    <link rel="stylesheet" href="comments.css">
-</head>
-<script src="comments.js"></script>
+	<head>
+		<title>Comment Tab</title>
+		<style>
+			h1{text-align: center;}
+			.sidebar{
+				border-radius: 25px;
+				background: #945d72;
+				float:left;
+				margin-left: 25px;
+				margin-top: 25px;
+				font-size: 50px;
+                width:30%;
+                height:80%;
+			}
 
-<body>
-    <div class="Area">
-        <div class="text">Any Comments?</div>
-        <input type="text" id="comments" name="comments" placeholder="please type your comments here...">
-        <div class="text">Would you like to play a game to win a free dessert coupon?</div>
-        <div class ="selection">
-            <a href="goodbye.html" class="button">No</a>
-            <a href="dessertGame.html" class="button">Yes</a>
+			.sidebar a{
+				font-family: calibri;
+				text-align: center;
+				line-height:1.6em;
+				display: block;
+				/* padding-l	eft:10px; */
+				margin-bottom: 5.2%;
+				/* padding-right:10px; */
+                height: 20%;
+			}
+
+			a:link, a:visited, a:hover{
+				color: #fef6df;
+				text-decoration: none;
+                font-size: 90%;
+			}
+
+			.boxed{
+				color: #fef6df;
+				font-family: calibri;
+				border-radius: 25px;
+				border: 10px grey;
+				font-size: 75px;
+				text-align: center;
+				margin-left: 25px;
+				margin-top: 25px;
+				margin-right: 25px;
+				width: 95%;
+				background: #945d72;
+			}
+		</style>
+
+        <link rel="stylesheet" href="comments.css">
+	</head>
+    
+    <script src="comments.js"></script>
+	
+    <body style="background-color: #d9e0e8">
+		<div class="boxed">
+			Comments
+		</div>
+		<aside class="sidebar">
+			<a href="customerui.html">Back</a>
+			<a href="">Menu</a>
+			<!-- <a href="orderstatus.html">Order Status</a> -->
+			<a href="requestrefill.html">Request Refill</a>
+			<a href="waiterassistance.html">Waiter Assistance</a>
+			<a href="">Kid's Game</a>
+		</aside>
+        <div class="Area">
+            <div class="info">Any Comments?</div>
+            <input type="text" id="comments" class="comments" placeholder="please type your comments here...">
+            <div class="info">Would you like to play a game to win a free dessert coupon?</div>
+            <div class ="selection">
+                <a href="goodbye.html" class="button">No</a>
+                <a href="dessertGame.html" class="button">Yes</a>
+            </div>
         </div>
-    </div>
-</body>
+	</body>
+
+

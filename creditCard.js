@@ -19,4 +19,10 @@ window.onload = function(){
     }
     var nextBut= document.getElementById("submit");
     nextBut.addEventListener("click",check);
+    document.addEventListener("wheel", function(event){
+        if(document.activeElement.type === "number"){
+            document.activeElement.blur();
+        }
+    });
 }
+
