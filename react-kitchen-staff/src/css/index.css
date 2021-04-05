@@ -69,12 +69,14 @@
 }
 
 .splide__slide.is-active {
-  background-color: #13c59d;
+  border: 1px solid black !important;
+  border-radius: 1.15rem;
+  padding-bottom: auto;
 }
 
-.splide__slide:hover {
-  background-color: mediumturquoise;
-}
+/* .splide__slide:hover {
+  background-color: RGBA(0,0,0,.25);
+} */
 
 /* 
 .btn:focus {
