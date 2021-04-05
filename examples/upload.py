@@ -103,19 +103,29 @@ def update_urls():
     return url_dict
 
 
-def get_table():
+def get_table(pk):
     url = "https://swe3444.herokuapp.com/api/table/"
     r = requests.get(url).json()
+    print(r)
+    url_build = url + str(pk) + "/"
+    pay_load = {
+        "id"    : r[pk-1]["id"],
+        "state" : True
+    }
+    requests.patch(url_build, data = pay_load)
+    return None
 
-    for table in r:
-        url_build = url + str(table["id"]) + "/"
-        if table["state"] == False:
-            table["state"] = True
-            update_table = requests.patch(url_build, data=table)
-            print(f" {url_build} {table}.")
-            return update_table
-
-    # print(table_dict)
+def release_table(pk):
+    url = "https://swe3444.herokuapp.com/api/table/"
+    r = requests.get(url).json()
+    print(r)
+    url_build = url + str(pk) + "/"
+    pay_load = {
+        "id"    : r[pk-1]["id"],
+        "state" : False
+    }
+    requests.patch(url_build, data = pay_load)
+    return None
 
 
 def log_in(user_name, password):
@@ -169,4 +179,17 @@ def price_calc():
     return None
 
 
-print(price_calc())
+def make_tables():
+    url = 'https://swe3444.herokuapp.com/api/table/'
+    headers = {}    
+    for i in range(1,13):
+        pay_load = {
+            "number" : i,
+            "state"  : False,
+        }
+        res = requests.post(url, data=pay_load, headers=headers)
+
+# make_tables()
+
+# get_table(2)
+release_table(2)

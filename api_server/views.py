@@ -152,19 +152,15 @@ def all_tables(request):
 
 
 @api_view(["GET", "PATCH"])
-def get_table(request):
+def get_table(request, pk):
     url = "https://swe3444.herokuapp.com/api/table/"
     r = requests.get(url).json()
-
-    for table in r:
-        url_build = url + str(table["id"]) + "/"
-        if table["state"] == False:
-            table["state"] = True
-            requests.patch(url_build, data=table)
-            print(f" {url_build} {table}.")
-            return JsonResponse(
-                {"reservation_status": "Success", "data": table}, safe=False
-            )
+    url_build = url + str(pk) + "/"
+    pay_load = {
+        "id"    : r[pk-1]["id"],
+        "state" : True
+    }
+    requests.patch(url_build, data = pay_load)
 
     return JsonResponse({"reservation_status": "Failed"}, safe=False)
 
@@ -173,9 +169,7 @@ def get_table(request):
 def release_table(request, table_num):
     url = "https://swe3444.herokuapp.com/api/table/"
     url_build = url + table_num + "/"
-
     table = {"state": False}
-
     requests.patch(url_build, data=table)
     return HttpResponse("Release")
 
