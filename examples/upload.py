@@ -183,9 +183,10 @@ def make_tables():
             "state": False,
         }
         res = requests.post(url, data=pay_load, headers=headers)
+    return None
 
+if __name__ == "__main__":
+    drive_write_menu()
+    price_calc()
+    make_tables()
 
-# make_tables()
-
-# get_table(2)
-release_table(2)
