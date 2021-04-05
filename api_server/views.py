@@ -155,6 +155,7 @@ def all_tables(request):
 def get_table(request, pk):
     url = "https://swe3444.herokuapp.com/api/table/"
     r = requests.get(url).json()
+    print(r)
     url_build = url + str(pk) + "/"
     pay_load = {
         "id"    : r[pk-1]["id"],
@@ -166,7 +167,7 @@ def get_table(request, pk):
 
 
 @api_view(["GET", "PATCH"])
-def release_table(request, table_num):
+def release_table(request, pk):
     url = "https://swe3444.herokuapp.com/api/table/"
     r = requests.get(url).json()
     print(r)
