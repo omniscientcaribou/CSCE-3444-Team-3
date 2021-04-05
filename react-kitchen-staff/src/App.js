@@ -65,7 +65,7 @@ function App() {
 				{/* <Cards /> */}
 				{/* <OrdersCarousel /> */}
 
-				<div>
+				{/* <div>
 					<Card id='noteCard'>
 						<Card.Header className='noteCard-Header' as='h5'>
 							Notes:
@@ -78,13 +78,13 @@ function App() {
 							</Card.Text>
 						</Card.Body>
 					</Card>
-				</div>
+				</div> */}
 				<div className='button-wrapper'>
 					<Button
 						className='btn'
 						id='call_waitstaff_button'
 						color='#74C3C8'
-						text='Call Waitstaff'
+						text='📞 Call Waitstaff'
 						onClick={() => displayPopup(setCallWaitstaffButtonPopup)}
 					/>
 					<p></p>
@@ -92,22 +92,22 @@ function App() {
 						className='btn'
 						id='call_manager_button'
 						color='#668EB9'
-						text='Call Manager'
+						text='📟 Request Manager'
 						onClick={() => displayPopup(setCallManagerButtonPopup)}
 					/>
 					<CallWSPopup
 						showPopup={callWaitstaffButtonPopup}
 						setShowPopup={setCallWaitstaffButtonPopup}
 						btn_text='CALL'
-						text='Do you want to call the waitstaff?'
-						heading='Call Waitstaff'
+						text='Do you want call waitstaff to the kitchen?'
+						heading='CALL WAITSTAFF'
 					/>
 					<CallMngrPopup
 						showPopup={callManagerButtonPopup}
 						setShowPopup={setCallManagerButtonPopup}
-						btn_text='CALL'
-						text='Do you want to call a manager?'
-						heading='Call Manager'
+						btn_text='REQUEST'
+						text='Do you want to request a manager to come to the kitchen?'
+						heading='REQUEST MANAGER'
 					/>
 				</div>
 			</div>

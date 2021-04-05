@@ -1,10 +1,13 @@
+import React, { Component } from 'react';
 import { useQuery } from 'react-query';
 import { toast, Flip } from 'react-toastify';
+import { Splide, SplideSlide } from '@splidejs/react-splide';
+import '@splidejs/splide/dist/css/themes/splide-sea-green.min.css';
 import Cards from './Cards';
 
 const getTicket = async () => {
-	const order_content_api_url = 'https://swe3444.herokuapp.com/api/tickets/';
-	const response = await fetch(order_content_api_url);
+	const TICKETS_URL = 'https://swe3444.herokuapp.com/api/tickets/';
+	const response = await fetch(TICKETS_URL);
 	return response.json();
 };
 
@@ -87,15 +90,30 @@ const FetchOrder = () => {
 	}
 
 	return (
-		<div>
-			{status === 'success' && (
-				<div>
-					{ticket.map((ticket) => (
+		<Splide
+			options={{
+				type: 'loop',
+				rewind: 'true',
+				perPage: 3,
+				perMove: 1,
+				gap: '1rem',
+				pagination: true,
+				focus: 'left',
+				// updateOnMove: true,
+				isNavigation: false,
+				fixedWidth: '29.5%',
+				fixedHeight: '58%',
+				autoHeight: true,
+				autoWidth: true,
+			}}
+		>
+			{status === 'success' &&
+				ticket.map((ticket) => (
+					<SplideSlide>
 						<Cards key={ticket.id} ticket={ticket} />
-					))}
-				</div>
-			)}
-		</div>
+					</SplideSlide>
+				))}
+		</Splide>
 	);
 };
 

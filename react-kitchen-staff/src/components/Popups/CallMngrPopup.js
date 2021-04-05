@@ -1,4 +1,6 @@
 import '../../css/Popup.css';
+import ReactDOM from 'react-dom';
+import { useSpring, animated } from 'react-spring';
 import { FaTimes } from 'react-icons/fa';
 import { useRef, useEffect, useCallback } from 'react';
 import { Button } from 'react-bootstrap';
@@ -13,6 +15,14 @@ const CallMngrPopup = ({
 	btn_text,
 }) => {
 	const popupRef = useRef();
+
+	const animation = useSpring({
+		config: {
+			duration: 75,
+		},
+		opacity: showPopup ? 1 : 0,
+		transform: showPopup ? `translateY(0%)` : `translateY(-100%)`,
+	});
 
 	const closePopup = (e) => {
 		if (popupRef.current === e.target) {
@@ -82,11 +92,11 @@ const CallMngrPopup = ({
 		return result;
 	};
 
-	return (
+	return ReactDOM.createPortal(
 		<>
 			{showPopup ? (
 				<div className='popup-background' ref={popupRef} onClick={closePopup}>
-					<div className='popup-inner'>
+					<animated.div className='popup-inner' style={animation}>
 						<div className='row'>
 							<h2 className='popup-inner-header'>{heading}</h2>
 							<FaTimes
@@ -123,10 +133,11 @@ const CallMngrPopup = ({
 							{btn_text}
 						</Button>
 						{children}
-					</div>
+					</animated.div>
 				</div>
 			) : null}
-		</>
+		</>,
+		document.getElementById('root')
 	);
 };
 

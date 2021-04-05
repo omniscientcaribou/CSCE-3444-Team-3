@@ -68,6 +68,14 @@
   color: #434343;
 }
 
+.splide__slide.is-active {
+  background-color: #13c59d;
+}
+
+.splide__slide:hover {
+  background-color: mediumturquoise;
+}
+
 /* 
 .btn:focus {
   outline: none;

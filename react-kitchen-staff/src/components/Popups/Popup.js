@@ -1,9 +1,12 @@
 import '../../css/Popup.css';
 // import Button from './Button';
+import ReactDOM from 'react-dom';
+import { useSpring, animated } from 'react-spring';
 import { FaTimes } from 'react-icons/fa';
 import { useRef, useEffect, useCallback } from 'react';
 import { Button } from 'react-bootstrap';
 import { toast } from 'react-toastify';
+// import { TiLockClosedOutline } from 'react-icons/ti';
 
 const Popup = ({
 	showPopup,
@@ -16,46 +19,68 @@ const Popup = ({
 }) => {
 	const popupRef = useRef();
 
+	const animation = useSpring({
+		config: {
+			duration: 75,
+		},
+		opacity: showPopup ? 1 : 0,
+		transform: showPopup ? `translateY(0%)` : `translateY(-100%)`,
+	});
+
 	const closePopup = (e) => {
 		if (popupRef.current === e.target) {
 			setShowPopup((prev) => !prev);
+			toast.warn('⚠️ Order READY Aborted', {
+				position: 'bottom-right',
+				autoClose: 5000,
+				hideProgressBar: false,
+				closeOnClick: true,
+				pauseOnHover: true,
+				draggable: true,
+				progress: undefined,
+			});
 		}
 	};
 
-	const keyPress = useCallback(
+	const closeOnKeyPress = useCallback(
 		(e) => {
 			if (e.key === 'Escape' && showPopup) {
 				setShowPopup((prev) => !prev);
+				toast.warn('⚠️ Order READY Aborted', {
+					position: 'bottom-right',
+					autoClose: 5000,
+					hideProgressBar: false,
+					closeOnClick: true,
+					pauseOnHover: true,
+					draggable: true,
+					progress: undefined,
+				});
 			}
 		},
 		[setShowPopup, showPopup]
 	);
 
 	useEffect(() => {
-		document.addEventListener('keydown', keyPress);
-		return () => document.removeEventListener('keydown', keyPress);
-	}, [keyPress]);
+		document.addEventListener('keydown', closeOnKeyPress);
+		return () => document.removeEventListener('keydown', closeOnKeyPress);
+	}, [closeOnKeyPress]);
 
-	// PUT Request
+	// PATCH Request
 	const updateTicket = async (id) => {
-		let p_id = id.id;
-		// console.log('p_id: ', p_id);
+		let PATCH_URL = `https://swe3444.herokuapp.com/api/ordercontent/${id}/`;
 		const updateRequest = {
 			method: 'PATCH',
 			headers: {
-				'Content-Type': 'application/json', 'Accept': 'application/json',
+				'Content-Type': 'application/json',
 			},
 			body: JSON.stringify({ state: 'READY TO BE DELIVERED' }),
 		};
 
-		const response = await fetch(
-			`https://swe3444.herokuapp.com/api/ordercontent/${p_id}`,
-			updateRequest
-		);
+		const response = await fetch(PATCH_URL, updateRequest);
 		const result = await response.json();
 
 		if (response.ok) {
-			toast.success('✔️ Ticket Marked as READY TO BE DELIVERED', {
+			toast.success(`✔️ Ticket ${id} Marked as READY TO BE DELIVERED`, {
 				position: 'bottom-right',
 				autoClose: 5000,
 				hideProgressBar: false,
@@ -69,17 +94,28 @@ const Popup = ({
 		return result;
 	};
 
-	return (
+	return ReactDOM.createPortal(
 		<>
 			{showPopup ? (
 				<div className='popup-background' ref={popupRef} onClick={closePopup}>
-					<div className='popup-inner'>
+					<animated.div className='popup-inner' style={animation}>
 						<div className='row'>
 							<h2 className='popup-inner-header'>{heading}</h2>
 							<FaTimes
 								className='popup-inner-header-x-btn'
 								style={{ color: 'red', cursor: 'pointer' }}
-								onClick={() => setShowPopup((prev) => !prev)}
+								onClick={() => {
+									setShowPopup((prev) => !prev);
+									toast.warn('⚠️ Order READY Aborted', {
+										position: 'bottom-right',
+										autoClose: 5000,
+										hideProgressBar: false,
+										closeOnClick: true,
+										pauseOnHover: true,
+										draggable: true,
+										progress: undefined,
+									});
+								}}
 							/>
 						</div>
 						<hr />
@@ -87,7 +123,7 @@ const Popup = ({
 						<br />
 						{/* <Button className='popup-btn' text={btn_text} color='#74C3C8' /> */}
 						<Button
-							onClick={() => updateTicket({ id })}
+							onClick={() => updateTicket(id)}
 							variant='info'
 							size='lg'
 							block
@@ -95,10 +131,11 @@ const Popup = ({
 							{btn_text}
 						</Button>
 						{children}
-					</div>
+					</animated.div>
 				</div>
 			) : null}
-		</>
+		</>,
+		document.getElementById('root')
 	);
 };
 
