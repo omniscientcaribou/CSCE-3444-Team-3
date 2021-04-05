@@ -168,9 +168,14 @@ def get_table(request, pk):
 @api_view(["GET", "PATCH"])
 def release_table(request, table_num):
     url = "https://swe3444.herokuapp.com/api/table/"
-    url_build = url + table_num + "/"
-    table = {"state": False}
-    requests.patch(url_build, data=table)
+    r = requests.get(url).json()
+    print(r)
+    url_build = url + str(pk) + "/"
+    pay_load = {
+        "id"    : r[pk-1]["id"],
+        "state" : False
+    }
+    requests.patch(url_build, data = pay_load)
     return HttpResponse("Release")
 
 @api_view(["GET"])
