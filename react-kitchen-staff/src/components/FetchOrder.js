@@ -92,7 +92,7 @@ const FetchOrder = () => {
 	return (
 		<Splide
 			options={{
-				type: 'loop',
+				type: 'slide',
 				rewind: 'true',
 				perPage: 3,
 				perMove: 1,
@@ -103,8 +103,9 @@ const FetchOrder = () => {
 				isNavigation: false,
 				fixedWidth: '29.5%',
 				fixedHeight: '58%',
-				autoHeight: true,
+				// autoHeight: true,
 				autoWidth: true,
+				paddingLeft: '1rem',
 			}}
 		>
 			{status === 'success' &&

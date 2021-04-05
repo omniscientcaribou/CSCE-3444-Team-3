@@ -136,7 +136,7 @@ const Cards = ({ ticket }) => {
 						fontSize: '.75em',
 					}}
 				>
-					Ticket Came in <ReactTimeAgo date={ticket.placed_at} locale='en-US' />
+					Order Placed <ReactTimeAgo date={ticket.placed_at} locale='en-US' />
 				</Card.Footer>
 			</Card>
 			{/* </CardDeck> */}
