@@ -40,3 +40,4 @@ Slice of Bread with Butter $ https://spicedblog.com/wp-content/uploads/2019/01/T
 Corndog $ https://alittleinsanity.com/wp-content/uploads/2017/04/Gluten-Free-Vegan-Corndog-Recipe-Instagram.jpg
 Pizza $ https://starkist.com/sites/default/files/recipes/kids_pizza.jpg
 Grilled Cheese Sandwich $ https://www.thespruceeats.com/thmb/HFhwRkYlizNSPj98HKQmsHN478c=/2400x1600/filters:fill(auto,1)/grilled-cheese-sandwich-4783471-last-a2b5beafbf3b4b308d0eb1ef4a359953.jpg
+Manager Special Item $ BLANK

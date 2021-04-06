@@ -418,3 +418,13 @@ Kid's Menu
 Dairy
 2.99
 BLANK
+Manager Special Item
+Never put this on the menu
+Secret Menu
+0
+0
+0
+0
+0
+-1.00
+BLANK
