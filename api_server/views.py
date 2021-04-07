@@ -111,7 +111,7 @@ def table_total(request, pk):
     return JsonResponse(lst, safe=False)
 
 @api_view(["GET", "POST"])
-def wait_order(request, t_num, item_id, quantity, a_flag=False, s=""):
+def wait_order(request, t_num, item_id, quantity, a_flag=False, s="", s_2 = ""):
 
     url_one = "https://swe3444.herokuapp.com/api/ordercontent/"
     url_two = "https://swe3444.herokuapp.com/api/order/"
@@ -136,6 +136,7 @@ def wait_order(request, t_num, item_id, quantity, a_flag=False, s=""):
         "item": item_id,
         "allergy_flag": a_flag,
         "comment": s,
+        "allergy_comment" : s_2,
     }
 
     requests.post(url_one, data=serial_order, headers=headers)

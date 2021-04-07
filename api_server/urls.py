@@ -40,7 +40,7 @@ urlpatterns = [
     path("api/table_view/<str:pk>", table_bill, name="table_view"),
     path("api/table_total/<str:pk>", table_total, name="table_total"),
     path(
-        "api/wait_order/<str:t_num>/<str:item_id>/<str:quantity>/<str:a_flag>/<str:s>",
+        "api/wait_order/<str:t_num>/<str:item_id>/<str:quantity>/<str:a_flag>/<str:s>/<str:s_2>",
         wait_order,
         name="wait_order",
     ),
