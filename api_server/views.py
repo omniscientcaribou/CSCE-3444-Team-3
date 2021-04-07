@@ -224,6 +224,7 @@ def tickets(request):
             "state": str(element.state).upper(),
             "allergy_flag": str(element.allergy_flag),
             "comment": str(element.comment),
+            "allergy_comment" : str(element.allergy_flag),
         }
         lst.append(build_data)
     return JsonResponse(lst, safe=False)
