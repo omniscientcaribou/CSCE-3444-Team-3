@@ -190,7 +190,7 @@ def log_in(request, user_name, password):
         "Customer"      : "customer_ui",
         "Kitchen"       : "kitchen_ui",
         "Wait Staff"    : "waitstaff_ui",
-        "Manager"       : "manager_ui",
+        "Manager"       : "https://theoldreader.com/kittens/",
         "Developer"     : "developer_ui",
     }
 

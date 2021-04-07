@@ -13,7 +13,7 @@ def write_menu(pay_load):
 
 
 def drive_write_menu():
-    with open("examples/menu.txt") as f:
+    with open("menu.txt") as f:
         lst = list(f)
 
     url_dict = update_urls()
@@ -93,7 +93,7 @@ def generate_orders():
 
 def update_urls():
     url_dict = {}
-    f = open("examples/MenuPics.txt")
+    f = open("MenuPics.txt")
     for line in f:
         line_split = line.split("$")
         s_1 = line_split[0].upper()
