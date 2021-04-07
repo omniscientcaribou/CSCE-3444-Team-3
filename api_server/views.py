@@ -187,7 +187,7 @@ def log_in(request, user_name, password):
     credentials = requests.get('https://swe3444.herokuapp.com/api/credential/').json()
 
     url_redirection = {
-        "Customer"      : "customer_ui",
+        "Customer"      : "https://customerui3444.herokuapp.com/customerui",
         "Kitchen"       : "kitchen_ui",
         "Wait Staff"    : "waitstaff_ui",
         "Manager"       : "https://theoldreader.com/kittens/",
