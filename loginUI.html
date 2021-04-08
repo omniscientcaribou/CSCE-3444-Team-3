@@ -13,25 +13,71 @@
         padding-bottom: 100px;
       }
 
-      #value:hover {
+      .submit:hover {
         background: #C0D6DF;
         color: #FFF;
       }
+
+      .submit:active {
+        transform: translateY(4px);
+      }
     </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   </head>
 
   <body>
-    <!-- <img src="" alt="" id="logo"> -->
     <h1 style="font-size: 50px;">Software Cafe</h1>
     <br><br>
-    <form>
-      <label for="username">Username:</label>
-  		<input type="text" name="username" id="username">
-      <br><br>
-      <label for="user-pw">Password:</label>
-			<input type="password" id="user-pw" name="user-pw">
-      <br><br><br>
-      <input type="submit" value="Log In">
+    <!-- <button onclick="getURL()">Log In</button> -->
+    <form id="form">
+        <label for="username">Username:</label>
+      	<input type="text" name="username" id="username" pattern="[a-zA-Z0-9]+"
+        autocomplete="off">
+        <br><br>
+        <label for="user-pw">Password:</label>
+    		<input type="password" id="user-pw" name="user-pw" pattern="[a-zA-Z0-9]+"
+        autocomplete="off">
+        <br><br><br>
+        <input type="submit" value="Log In" />
     </form>
   </body>
+
+  <script>
+
+    $('form').submit(function (evt) {
+      evt.preventDefault(); //prevents the default action
+      getURL();
+    });
+
+    function getURL(event) {
+      var u = document.getElementById("username").value;
+      var p = document.getElementById("user-pw").value;
+
+      const url = `https://swe3444.herokuapp.com/api/log_in/${u}/${p}`;
+
+      fetch(url)
+      .then(response => {
+        if (response.ok){
+          return response.text();
+        }
+        else {
+          return "error";
+        }
+      })
+      .then(data => {
+        console.log(data);
+        if (data === 'error'){
+          alert('There was an error with api call');
+        }
+        else if (data === 'Invalid credentials') {
+          alert('Invalid Username and/or Password');
+        }
+        else {
+          var json = JSON.parse(data);
+          window.location.replace(json.url);
+        }
+      })
+      .catch(error => console.log('error: ', error));
+    }
+  </script>
 </html>
