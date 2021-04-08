@@ -7,6 +7,7 @@ import axios from 'axios';
 function Beverage(beverageInfo) {
 
     function BeverageClick(e){
+        //delete the refill task in the API to prevent it from reappering
         let id = beverageInfo.RefillID;
         let URL = "https://swe3444.herokuapp.com/api/task/";
         let URLFull = URL.concat(id);
@@ -14,9 +15,11 @@ function Beverage(beverageInfo) {
         console.log(URLFull);
     }
 //  
-    //var path = ''
-    //if(beverageOn[beverageInfo.ID]){
+
+    //only display hte icon if there is a refill task for this table number
     if(beverageInfo.Refill){
+        //create the URL path for the success screen so that it has the specific data
+        
         var path = '/Success?';
         path = path.concat("name=Deliver Refill");
         path = path.concat("&ID=" + beverageInfo.ID);
@@ -25,18 +28,7 @@ function Beverage(beverageInfo) {
         return (
 
         <div className="Random">
-            {//<Link to ="/BeverageInfo" RefillData={beverageInfo.RefillData}>   
-            }   
-            {/*<Link to={{
-            //    //pathname: '{"/BeverageInfo/"}',
-               // pathname: '/BeverageInfo/' + ${beverageInfo.Refill},
-               pathname: '/Success?name=assistancee&data=32',
-                state: {
-                    RefillData: "true",
-                },
-            }}>*/}
-            {//<Link to='/Success?name=Deliver Refill&data=${beverageInfo.Refill}'>
-            }
+
             <Link to = {path}>
                 <button onClick={BeverageClick} className="Beverage-Button">
                     <img src={beverage_image} className="Beverage-image"/>

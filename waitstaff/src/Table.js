@@ -11,15 +11,6 @@ function Table(tableInfo) {
 
     const [tableClick, setTableClick] = useState(0);
      function TableClick(e){
-        //console.log("button worked?" + tableInfo.ID);
-        //if(tableClick > 0){
-        //    setTableClick(0);
-        //}
-        //else
-        //    setTableClick(tableInfo.ID);
-        //console.log(tableClick); 
-
-        //var inProgress = new Array();
 
         for(let i = 0; i < tableInfo.Orders.length; i++){
             let id = tableInfo.Orders[i].id;
@@ -33,9 +24,7 @@ function Table(tableInfo) {
         }
     }
 
-    //if(tableInfo.Refill===true)
-        //console.log(tableInfo.RefillData)
-        //console.log(tableInfo.Orders + tableInfo.ID);
+
         var ordersReady = "\n";
         for(let i = 0; i < tableInfo.Orders.length; i++){
             let num = tableInfo.Orders[i].id;

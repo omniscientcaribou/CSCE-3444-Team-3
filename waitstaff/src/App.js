@@ -5,7 +5,6 @@ import SideBar from './SideBar';
 import Pay from './Pay';
 import Order from './Order';
 import Manager from './Manager';
-import BeverageInfo from './BeverageInfo';
 import SplitBill from './SplitBill';
 import Cash from './Cash';
 import KitchenSuccess from './KitchenSuccess';
@@ -14,13 +13,16 @@ import React, { useState, useEffect } from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 function App() {
+  //creates the refresh rate for the entire app
   const [refresh, setRefresh] = useState(0);
   useEffect(() => {const period = setInterval(() => {
         setRefresh(refresh => refresh + 1);
     }, 10000);
     return() => clearInterval(period);
   }, []);
-  //console.log(refresh);
+  //app is mostly used to route around the app
+  //the swtich controlls the main content view between home, order, manager...etc
+  //sidebar and header outside of the switch
   return (
     <Router>
       <div className="App">
@@ -49,9 +51,7 @@ function App() {
             <Route exact path="/SplitBill">
               <SplitBill seconds={refresh} />
             </Route>
-            <Route path="/BeverageInfo">
-              <BeverageInfo seconds={refresh}/>
-            </Route>
+
             <Route path='/Success'>
               <KitchenSuccess seconds={refresh}/>
             </Route>

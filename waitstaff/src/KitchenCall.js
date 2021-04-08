@@ -3,13 +3,19 @@ import {Link} from 'react-router-dom';
 import './KitchenCall.css';
 function KitchenCall(prop){
     function KitchenClick(){
-        let id = prop.KitchenCallingID;
-        let URL = "https://swe3444.herokuapp.com/api/task/";
-        let URLFull = URL.concat(id);
-        axios.delete(URLFull);
-        console.log(URLFull);
+        console.log(prop.KitchenCallingID.length)
+        //loops through every kitchencall task and deletes it
+        for(let i = 0; i < prop.KitchenCallingID.length; i++){
+            let id = prop.KitchenCallingID[i];
+            let URL = "https://swe3444.herokuapp.com/api/task/";
+            let URLFull = URL.concat(id);
+            axios.delete(URLFull);
+            console.log(URLFull);
+        }
     }
+    //only render if theres a kitchen call
     if(prop.KitchenCalling){
+        //create the URL for the success screen
         var path = '/Success?';
         path = path.concat("name=Kitchen Calling");
         //path = path.concat("&ID=" + prop.ID);

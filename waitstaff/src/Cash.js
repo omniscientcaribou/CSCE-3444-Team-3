@@ -2,12 +2,15 @@ import TableManager from './TableManager.js';
 import React, {Component} from 'react';
 import axios from 'axios';
 class Cash extends Component {
+    //these states store the bills for all 16 tables and the total list of orders
     state = {
         bills: [],
         orders: [],
         //ready: [],
     }
+    //runs the first tiem
     componentDidMount(){
+        //gets the bills for each table
         axios.get('https://swe3444.herokuapp.com/api/all_tables/')
         .then(res => {
             this.setState({
@@ -15,6 +18,7 @@ class Cash extends Component {
             })
             //console.log("Fetched");
         })
+        //gets the orders 
         axios.get('https://swe3444.herokuapp.com/api/ordercontent/')
         .then(res=> {
             this.setState({
@@ -24,18 +28,11 @@ class Cash extends Component {
 
     }
     render(){
-        const { bills } = this.state;
-        const { orders } = this.state;
+        const { bills } = this.state;   //creates a variable fo rthe bills
+        const { orders } = this.state;  //creates a variable for the orders
         let tables = [];
         let tablesReady = new Array(16);
-       // for(let i = 0; i < 16; i++){
-       //     tablesReady[i] = new Array();
-        //}
-        /*for(let i = 0; i < orders.length; i++){
-            if(orders[i].state == "DELIVERED"){
-                tablesReady[parseInt(orders[i].table_number)-1] = true;
-            }
-        }*/
+        //create the array of tables that are displayed
         for(let i = 1; i <= 16; i++){
             console.log(i);
             tables.push(
@@ -58,26 +55,7 @@ class Cash extends Component {
                     Click Table to pay in cash
                 </div>
                 <div className="Tables1">
-                    {/*<TableManager ID="1" Seconds={prop.seconds}type="Cash"/>
-                    <TableManager ID="2" Seconds={prop.seconds}type="Cash"/>
-                    <TableManager ID="3" Seconds={prop.seconds}type="Cash"/>
 
-                    <TableManager ID="4" Seconds={prop.seconds}type="Cash"/>
-                    <TableManager ID="5" Seconds={prop.seconds}type="Cash"/>
-                    <TableManager ID="6" Seconds={prop.seconds}type="Cash"/>
-
-                    <TableManager ID="7" Seconds={prop.seconds}type="Cash"/>
-                    <TableManager ID="8" Seconds={prop.seconds}type="Cash"/>
-                    <TableManager ID="9" Seconds={prop.seconds} type="Cash"/>
-
-                    <TableManager ID="10" Seconds={prop.seconds}type="Cash"/>
-                    <TableManager ID="11" Seconds={prop.seconds}type="Cash"/>
-                    <TableManager ID="12" Seconds={prop.seconds}type="Cash"/>
-                    <TableManager ID="13" Seconds={prop.seconds}type="Cash"/>
-                    <TableManager ID="14" Seconds={prop.seconds}type="Cash"/>
-                    <TableManager ID="15" Seconds={prop.seconds}type="Cash"/>
-                    <TableManager ID="16" Seconds={prop.seconds}type="Cash"/>
-                    */}
                     {tables}
                 </div>
                 <div className="Manager-Tables">

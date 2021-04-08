@@ -5,17 +5,10 @@ import axios from 'axios';
 import {Link} from 'react-router-dom';
 
 function Star(starInfo) {
-    //const [randomNothing, setRandom] = useState(0);
-    //var starClick = beverageInfo.seconds%2;
-    //const [starClick, setStarClick] = useState(1);
+
     
     function StarClick(e){
         
-        //console.log("Beverage click" + beverageInfo.ID);
-        //setStarClick(0);
-        //starClick=0;
-        //setRandom(randomNothing%2+1);
-        //test();
         let id = starInfo.AssistanceID;
         let URL = "https://swe3444.herokuapp.com/api/task/";
         let URLFull = URL.concat(id);
@@ -24,13 +17,12 @@ function Star(starInfo) {
 
     }
     
-    //console.log("starClick = " + starClick);
+
     if(starInfo.Assistance){
         var path = '/Success?';
         path = path.concat("name=Assistance Requested");
         path = path.concat("&ID=" + starInfo.ID);
-        //path = path.concat("&data=" + starInfo.);
-        //console.log("THIS SHOULD RENDER IT");
+
         return (
 
         <div className="Star">  

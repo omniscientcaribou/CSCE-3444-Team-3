@@ -5,14 +5,10 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import React, {Component} from 'react';
 
+//this is a general success screen for any success message that needs to appear
 function KitchenSuccess(){
-    /*const [orders, setOrders] = useState([]);
-    axios.get('https://swe3444.herokuapp.com/api/ordercontent/')
-    .then(res => {
-        setOrders(res.data);
-        //console.log("Fetched");
-    });   */ 
 
+    //gets the information from the URL 
     const { search } = useLocation()
     const searchParams = new URLSearchParams(search)
     const name = searchParams.get('name')
@@ -22,6 +18,8 @@ function KitchenSuccess(){
     const OrdersReady = searchParams.get('OrdersReady')
     const item = searchParams.get('item')
     const quantity = searchParams.get('quantity')
+
+    //success template for refill, assistance and kitchen calling
     if (name==="Deliver Refill" || name==="Assistance Requested"||name==="Kitchen Calling"){
         return(
             <div className="Success">
@@ -40,18 +38,10 @@ function KitchenSuccess(){
             </div>
         );
     }
-    //else if(name==="Kitchen Calling"){
 
-    //}
+    //success template for a table click 
     else if(name==="Table Orders Ready"){
-        /*const tableOrders =  new Array();
-        for(let i =0; i < orders.length; i++){
-            if(orders[i].table_number===ID){
-                if(orders[i].state !== "Delivered" && orders[i].state!=="Paid"){
-                    tableOrders.push(orders[i].id);
-                }
-            }
-        }*/
+
         return(
             <div className="Success">
                 <div className="Sucess-Header">
@@ -78,6 +68,7 @@ function KitchenSuccess(){
 
         );       
     }
+    //success temmplate for the order success screen
     else if(name==="Order Sent"){
         return(
             <div className="Success">
