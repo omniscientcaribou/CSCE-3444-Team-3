@@ -63,6 +63,10 @@ function TableManager(tableInfo) {
                     axios.patch(URLFull, {state:"PAID"}).catch(error => console.log(error))
                     .then(console.log(URLFull));                  
                 }
+                let URL = "https://swe3444.herokuapp.com/api/release_table/"//<TABLE_NUMBER>"
+                let URLFull = URL.concat(tableInfo.ID);
+                axios.get(URLFull).catch(error => console.log(error)).then(console.log(URLFull));
+
             //console.log("Fetched");
         })
         //let id = tableInfo.ID;

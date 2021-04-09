@@ -81,6 +81,10 @@ class Order extends React.Component{
             //})
             console.log(res);
         })
+
+        let URL = "https://swe3444.herokuapp.com/api/get_table/"//<TABLE_NUMBER>"
+        let URLFull = URL.concat(this.state.table);
+        axios.get(URLFull).catch(error => console.log(error)).then(console.log(URLFull));
     }
     render() {
         var TFTable = ["true", "false"]     //values in the allergens dropdown
