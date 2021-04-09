@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { Card } from 'react-bootstrap';
 
-const NoteCard = ({ ticket }) => {
+const AllergyCard = ({ allergyComment }) => {
 	return (
 		<div
 			style={{
@@ -29,18 +29,18 @@ const NoteCard = ({ ticket }) => {
 						fontWeight: 'bolder',
 					}}
 				>
-					NOTES:
+					ALLERGY (OTHER):
 				</span>
 			</Card.Text>
 			<Card.Body>
-				<pre>{ticket.comment}</pre>
+				<pre>{allergyComment}</pre>
 			</Card.Body>
 		</div>
 	);
 };
 
-NoteCard.protoTypes = {
-	ticket: PropTypes.object.isRequired,
+AllergyCard.protoTypes = {
+	allergyComment: PropTypes.string.isRequired,
 };
 
-export default NoteCard;
+export default AllergyCard;
