@@ -1,5 +1,31 @@
 var Menu = new Array();
 var Order = new Array();
+var table_number = localStorage[1];
+
+function asdf(){
+  console.log(table_number);
+}
+
+function tagTable(){
+  url = 'https://swe3444.herokuapp.com/api/get_table/' + table_number;
+  fetch(url, { 
+    method: 'GET'
+  })
+}
+
+function releaseTable(){
+  url = 'https://swe3444.herokuapp.com/api/release_table/' + table_number;
+  fetch(url, {
+    method: 'Get'
+  })
+
+}
+
+function setTable(number){
+  localStorage[1] = number;
+  console.log(table_number);
+  window.location.replace("customerui.html");
+}
 
 const apiCall = () => fetch('https://swe3444.herokuapp.com/api/item/').then(res => {
   if (res.ok) {
@@ -21,6 +47,7 @@ async function getData(){
     setData("item5", 4);
     setData("item6", 5);
     setData("item7", 6);
+    tagTable();
 }
 
 function setData(itemName, x){
@@ -103,17 +130,59 @@ function addtoOrder(itemName){
   var OrderItem = {
     id: item.getElementsByClassName("Id")[0].textContent.split(" ")[1],
     quantity: 1,
-    allergy_flag: item.getElementsByClassName("commentBool")[0].value,
+    allergy_flag: false,
+    allergy_comment: "NA",
     comment: item.getElementsByClassName("comment")[0].value
   }
-  if(item.getElementsByClassName("commentBool")[0].checked){
-    OrderItem.allergy_flag = true;
+  if(item.getElementsByClassName("comment")[0].value != "") {
     OrderItem.comment = item.getElementsByClassName("comment")[0].value;
   }
   else{
-    OrderItem.allergy_flag =  false;
     OrderItem.comment = "NULL";
   }
+  if(document.getElementById("dairy").checked){
+    if(OrderItem.allergy_comment == 'NA' ){
+      OrderItem.allergy_comment = ""
+    }
+    OrderItem.allergy_flag = true;
+    OrderItem.allergy_comment = OrderItem.allergy_comment + "Dairy|";
+  }
+  if(document.getElementById("shellfish").checked){
+    if(OrderItem.allergy_comment == 'NA' ){
+      OrderItem.allergy_comment = ""
+    }
+    OrderItem.allergy_flag = true;
+    OrderItem.allergy_comment = OrderItem.allergy_comment + "Shellfish|";
+  }
+  if(document.getElementById("gluten").checked){
+    if(OrderItem.allergy_comment == 'NA' ){
+      OrderItem.allergy_comment = ""
+    }
+    OrderItem.allergy_flag = true;
+    OrderItem.allergy_comment = OrderItem.allergy_comment + "Gluten|";
+  }
+  if(document.getElementById("peanut").checked){
+    if(OrderItem.allergy_comment == 'NA' ){
+      OrderItem.allergy_comment = ""
+    }
+    OrderItem.allergy_flag = true;
+    OrderItem.allergy_comment = OrderItem.allergy_comment + "Peanut|";
+  }
+  if(document.getElementById("treeNut").checked){
+    if(OrderItem.allergy_comment == 'NA' ){
+      OrderItem.allergy_comment = ""
+    }
+    OrderItem.allergy_flag = true;
+    OrderItem.allergy_comment = OrderItem.allergy_comment + "TreeNut|";
+  }
+  if(document.getElementById("other").checked){
+    if(OrderItem.allergy_comment == 'NA' ){
+      OrderItem.allergy_comment = ""
+    }
+    OrderItem.allergy_flag = true;
+    OrderItem.allergy_comment = OrderItem.allergy_comment + document.getElementById("otherAllergenField").value;
+  }
+
   item.getElementsByClassName("comment")[0].value = "";
   Order.push(OrderItem);
   console.log(Order);
@@ -125,7 +194,6 @@ var isoString = now.toISOString();
 function separate_order(pk){
   order_id = pk
   status = "ORDERED"
-  table_number = 9999
   ordered_at = now
   console.log(pk)
   
@@ -137,6 +205,7 @@ function separate_order(pk){
     item_quantity = 1
     comment = Order[val].comment
     a_flag = Order[val].allergy_flag
+    allergy_comment = Order[val].allergy_comment
   
     const order_content = 'https://swe3444.herokuapp.com/api/ordercontent/'
       
@@ -149,7 +218,8 @@ function separate_order(pk){
         "item"         : item_id,
         "quantity"     : item_quantity, 
         "allergy_flag" : a_flag,
-        "comment"      : comment,      
+        "comment"      : comment,
+        "allergy_comment" : allergy_comment,      
     };
     console.log(payload);
     fetch(order_content, { 
@@ -167,6 +237,7 @@ function separate_order(pk){
         console.log(data)
     })
   }
+  Order = [];
 }
 
 function sendOrder(){
@@ -175,7 +246,7 @@ function sendOrder(){
   url = 'https://swe3444.herokuapp.com/api/order/'
 
   payload = {
-    "table_number"  : 9999,
+    "table_number"  : table_number,
     "state"         : "ORDERED"
   }
   fetch(url, { 
@@ -193,4 +264,5 @@ function sendOrder(){
       console.log(`The primary key is ${data['id']}`)
       separate_order(data['id'])
   })
+
 }
