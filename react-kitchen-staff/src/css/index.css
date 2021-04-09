@@ -74,6 +74,10 @@
   padding-bottom: auto;
 }
 
+.card {
+  height: 100%;
+}
+
 /* .splide__slide:hover {
   background-color: RGBA(0,0,0,.25);
 } */
