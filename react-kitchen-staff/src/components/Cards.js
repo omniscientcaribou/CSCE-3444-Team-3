@@ -5,7 +5,7 @@ import { HiOutlineClipboardList } from 'react-icons/hi';
 import { FcClock } from 'react-icons/fc';
 import { TiStopwatch } from 'react-icons/ti';
 import { GrFlagFill } from 'react-icons/gr';
-import { Button, CardDeck, Card } from 'react-bootstrap';
+import { Button, Card } from 'react-bootstrap';
 import Popup from '../components/Popups/Popup';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Moment from 'react-moment';
@@ -118,14 +118,14 @@ const Cards = ({ ticket }) => {
 						block
 						onClick={() => displayPopup(setOrderReadyButtonPopup)}
 					>
-						Order READY!
+						Item READY!
 					</Button>
 					<Popup
 						showPopup={orderReadyButtonPopup}
 						setShowPopup={setOrderReadyButtonPopup}
 						btn_text='🛎️ READY! 🛎️'
-						text='Is this order ready to be delivered?'
-						heading='ORDER READY'
+						text='Is this item ready to be sent to the table?'
+						heading='ITEM READY'
 						id={ticket.id}
 					/>
 				</Card.Body>
