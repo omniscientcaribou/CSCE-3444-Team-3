@@ -9,7 +9,8 @@
     border-radius: 10px;
     background-color: #945d72;
     color: #fef6df;
-    display: block;
+    /* display: block; */
+    display: none;
     margin: 10px;
     padding: 15px 15px;
     text-align: center;

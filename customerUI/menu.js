@@ -23,7 +23,6 @@ function releaseTable(){
 
 function setTable(number){
   localStorage[1] = number;
-  console.log(table_number);
   window.location.replace("customerui.html");
 }
 
@@ -40,13 +39,7 @@ async function getData(){
     for(const property in results) {
         Menu.push(results[property]);
     }  
-    setData("item1", 0);
-    setData("item2", 1);
-    setData("item3", 2);
-    setData("item4", 3);
-    setData("item5", 4);
-    setData("item6", 5);
-    setData("item7", 6);
+    populateDrinks()
     tagTable();
 }
 
@@ -62,66 +55,91 @@ function setData(itemName, x){
     item.getElementsByClassName("fat")[0].textContent ="Fats: " +  Menu[x].fat;
     item.getElementsByClassName("allergies")[0].textContent = "Allergens: " + Menu[x].allergies;
     item.getElementsByClassName("Id")[0].textContent = "Id: " + Menu[x].id;
+    item.style.display = "block";
 }
 
 function populateDrinks(){
-  setData("item1", 0);
-  setData("item2", 1);
-  setData("item3", 2);
-  setData("item4", 3);
-  setData("item5", 4);
-  setData("item6", 5);
-  setData("item7", 6);
+  var count = 0;
+  menuItemarr = document.getElementsByClassName("menuItem");
+  for(var i = 0; i < menuItemarr.length; i++){
+    menuItemarr[i].style.display = "none";
+  }
+  for(let i in Menu){
+    if(Menu[i].group == "DRINK"){
+      setData(menuItemarr[count].id, i)
+       count = count + 1;
+    }
+  }
 }
 
 function populateSides(){
-  setData("item1", 7);
-  setData("item2", 8);
-  setData("item3", 9);
-  setData("item4", 10);
-  setData("item5", 11);
-  setData("item6", 12);
-  setData("item7", 13);
+  var count = 0;
+  menuItemarr = document.getElementsByClassName("menuItem");
+  for(var i = 0; i < menuItemarr.length; i++){
+    menuItemarr[i].style.display = "none";
+  }
+  for(let i in Menu){
+    if(Menu[i].group == "SIDES"){
+      setData(menuItemarr[count].id, i)
+       count = count + 1;
+    }
+  }
 }
 
 function populateAppetizers(){
-  setData("item1", 14);
-  setData("item2", 15);
-  setData("item3", 16);
-  setData("item4", 17);
-  setData("item5", 18);
-  setData("item6", 19);
-  setData("item7", 20);
+  var count = 0;
+  menuItemarr = document.getElementsByClassName("menuItem");
+  for(var i = 0; i < menuItemarr.length; i++){
+    menuItemarr[i].style.display = "none";
+  }
+  for(let i in Menu){
+    if(Menu[i].group == "APPETIZERS"){
+      setData(menuItemarr[count].id, i)
+       count = count + 1;
+    }
+  }
 }
 
 function populateEntrees(){
-  setData("item1", 21);
-  setData("item2", 22);
-  setData("item3", 23);
-  setData("item4", 24);
-  setData("item5", 25);
-  setData("item6", 26);
-  setData("item7", 27);
+  var count = 0;
+  menuItemarr = document.getElementsByClassName("menuItem");
+  for(var i = 0; i < menuItemarr.length; i++){
+    menuItemarr[i].style.display = "none";
+  }
+  for(let i in Menu){
+    if(Menu[i].group == "ENTREES"){
+      setData(menuItemarr[count].id, i)
+       count = count + 1;
+    }
+  }
 }
 
 function populateDeserts(){
-  setData("item1", 28);
-  setData("item2", 29);
-  setData("item3", 30);
-  setData("item4", 31);
-  setData("item5", 32);
-  setData("item6", 33);
-  setData("item7", 34);
+  var count = 0;
+  menuItemarr = document.getElementsByClassName("menuItem");
+  for(var i = 0; i < menuItemarr.length; i++){
+    menuItemarr[i].style.display = "none";
+  }
+  for(let i in Menu){
+    if(Menu[i].group == "DESSERT"){
+      setData(menuItemarr[count].id, i)
+       count = count + 1;
+    }
+  }
 }
 
 function populateKidsMeal(){
-  setData("item1", 35);
-  setData("item2", 36);
-  setData("item3", 37);
-  setData("item4", 38);
-  setData("item5", 39);
-  setData("item6", 40);
-  setData("item7", 41);
+  var count = 0;
+  menuItemarr = document.getElementsByClassName("menuItem");
+  for(var i = 0; i < menuItemarr.length; i++){
+    menuItemarr[i].style.display = "none";
+  }
+  for(let i in Menu){
+    if(Menu[i].group == "KID'S MENU"){
+      setData(menuItemarr[count].id, i)
+       count = count + 1;
+    }
+  }
 }
 
 function addtoOrder(itemName){
@@ -180,12 +198,12 @@ function addtoOrder(itemName){
       OrderItem.allergy_comment = ""
     }
     OrderItem.allergy_flag = true;
+    OrderItem.allergy_comment = OrderItem.allergy_comment + "Other|"
     OrderItem.allergy_comment = OrderItem.allergy_comment + document.getElementById("otherAllergenField").value;
   }
 
   item.getElementsByClassName("comment")[0].value = "";
   Order.push(OrderItem);
-  console.log(Order);
 }
 
 var now = new Date();
@@ -195,12 +213,10 @@ function separate_order(pk){
   order_id = pk
   status = "ORDERED"
   ordered_at = now
-  console.log(pk)
   
 
 
   for(let val in Order){
-    console.log(Order[val].id)
     item_id = Order[val].id
     item_quantity = 1
     comment = Order[val].comment
@@ -221,7 +237,6 @@ function separate_order(pk){
         "comment"      : comment,
         "allergy_comment" : allergy_comment,      
     };
-    console.log(payload);
     fetch(order_content, { 
         method: 'POST',
         headers: {
@@ -234,7 +249,6 @@ function separate_order(pk){
         return response.json()
     })
     .then(function(data){
-        console.log(data)
     })
   }
   Order = [];
@@ -261,7 +275,6 @@ function sendOrder(){
       return response.json()
   })
   .then(function(data){
-      console.log(`The primary key is ${data['id']}`)
       separate_order(data['id'])
   })
 
