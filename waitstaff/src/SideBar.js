@@ -1,6 +1,7 @@
 import {useState} from 'react';
 import {Link} from 'react-router-dom';
 import './SideBar.css'
+//the sidebar component contains the tabs that are always displayed, home, pay, call manager,order
 function SideBar(){
     return(
         <div className="SideBar">

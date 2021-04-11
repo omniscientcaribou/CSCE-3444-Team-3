@@ -5,7 +5,7 @@ import React, {Component} from 'react';
 import { render } from '@testing-library/react';
 import axios from 'axios';
 import _ from 'lodash';
-
+//the main home tab
 class Home extends Component{
     
  

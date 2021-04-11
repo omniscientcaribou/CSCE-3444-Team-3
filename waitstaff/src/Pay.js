@@ -1,5 +1,7 @@
 import './Pay.css';
 import {Link} from 'react-router-dom';
+
+//the Pay component contains the two button options split bill and cash
 function Pay(prop){
     return(
         <div className="Pay"> 

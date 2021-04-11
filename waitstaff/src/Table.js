@@ -6,12 +6,12 @@ import Star from './Star';
 import {useState} from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
-
+//the tables that show up on the home screen
 function Table(tableInfo) {
 
     const [tableClick, setTableClick] = useState(0);
      function TableClick(e){
-
+        //sets all the deliverable orders to delivered when clicked
         for(let i = 0; i < tableInfo.Orders.length; i++){
             let id = tableInfo.Orders[i].id;
             let URL = "https://swe3444.herokuapp.com/api/ordercontent/";
@@ -26,6 +26,7 @@ function Table(tableInfo) {
 
 
         var ordersReady = "\n";
+        //convoluted print statement so i can see whats happening with the orders being available
         for(let i = 0; i < tableInfo.Orders.length; i++){
             let num = tableInfo.Orders[i].id;
             let n = num.toString();
@@ -34,6 +35,7 @@ function Table(tableInfo) {
             //console.log(tableInfo.Orders[i].id);
         }
         console.log(ordersReady);
+        //creates the URL params for the success screen
         var path = '/Success?';
         path = path.concat("name=Table Orders Ready");
         path = path.concat("&ID=" +tableInfo.ID);
@@ -45,6 +47,7 @@ function Table(tableInfo) {
             path = path.concat("&OrdersReady:true")
         }     
         path = path.concat("&OtherOrders=")
+        //concats the orders in progress for the success screen
         for(let i = 0; i < tableInfo.AllOrders.length; i++){
             //console.log(typeof tableInfo.ID + typeof tableInfo.AllOrders.table_number)
             if(tableInfo.AllOrders[i].table_number===parseInt(tableInfo.ID)){

@@ -5,6 +5,8 @@ import {useState} from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
 
+//this is a general table template that is used for all the tables that aren't the home page tables.
+//each ahs its own click function 
 function TableManager(tableInfo) {
     var ID = tableInfo.ID;
     console.log(typeof ID)
@@ -17,44 +19,39 @@ function TableManager(tableInfo) {
             setTableClick(tableInfo.ID);
     }
     function TableClickSplit(e) {
-
+        //split routes to a different page so nothing happens
     }
     function TableClickManager(e){
+        //sends manager request to task list
         axios.post('https://swe3444.herokuapp.com/api/task/',{
             role: 'Waitstaff',
             table_number: tableInfo.ID,
             call_manager: true
         })
-        //if(tableClick > 0){
-        //    setTableClick(0);
-        //}
-        //else
+            //changes message over table
             setTableClick(tableInfo.ID);
     }
     function TableClickCash(e){
-        //if(tableClick > 0){
-        //    setTableClick(0);
-        //}
-        //else
-            
+
+        //requests the orders so it can find which orders to set to "PAID"    
         axios.get('https://swe3444.herokuapp.com/api/ordercontent/')
         .then(res => {
-                console.log("This happened at all")
+                
                 var orders = res.data;
                 var tableOrders = new Array();
                 console.log(orders.length)
+                //parse through the orders list to find orders that match the table chosen
                 for(let i = 0; i < orders.length; i++){
-                    //console.log(orders[i].table_number+tableInfo.ID)
                     if(orders[i].table_number===parseInt(ID)){
                         console.log("same number")
-                        //if(orders[i].state==="Delivered"){
-                        //if(orders[i].state==="DELIVERED"){
-                            setTableClick(tableInfo.ID);
-                            tableOrders.push(orders[i].id);
-                            console.log(orders[i].id)
-                        //}
+
+                        setTableClick(tableInfo.ID);
+                        tableOrders.push(orders[i].id);
+                        console.log(orders[i].id)
+
                     }
                 }
+                //set the orders that match to PAID
                 for(let i = 0; i < tableOrders.length; i++){
                     let id = tableOrders[i];
                     let URL = "https://swe3444.herokuapp.com/api/ordercontent/";
@@ -63,17 +60,14 @@ function TableManager(tableInfo) {
                     axios.patch(URLFull, {state:"PAID"}).catch(error => console.log(error))
                     .then(console.log(URLFull));                  
                 }
+                //set the table to released
                 let URL = "https://swe3444.herokuapp.com/api/release_table/"//<TABLE_NUMBER>"
                 let URLFull = URL.concat(tableInfo.ID);
                 axios.get(URLFull).catch(error => console.log(error)).then(console.log(URLFull));
 
             //console.log("Fetched");
         })
-        //let id = tableInfo.ID;
-        //let URL = 
-        //axios.get('https://swe3444.herokuapp.com/api/ordercontent/').then(res=> {
 
-        //})
     }
 
         var path = '/SplitSuccess?';
@@ -83,24 +77,29 @@ function TableManager(tableInfo) {
         return (
             
             <div className="Table">
-                {tableInfo.type == "Manager" &&
+                {//option 1: a table thats in the "CALL MANAGER" tab
+                tableInfo.type == "Manager" &&
                     <div>
                         <button onClick={TableClickManager} clasName="Table-Button">
                             <img src={table_image} className="Table-Image"/>
                         </button>
                         <div className="Table-ID">
                             {tableInfo.ID} 
-                            {tableClick > 0 &&
+                            {//if the user has clicked the table 
+                            tableClick > 0 &&
                         
                             <div>
                                 Sending Manager to this table
                             </div>
                         
+                            }{
+                                //if the user hasnt clicked the table, show nothing
                             }
                         </div>
                     </div>
                 }   
-                {tableInfo.type == "SplitBill" &&
+                {//option 2: a table in the "SPLIT BILL" tab under the payment options.
+                tableInfo.type == "SplitBill" &&
                     <div>
                         <Link to={path}> 
                             <button onClick={TableClickSplit} clasName="Table-Button">
@@ -109,24 +108,28 @@ function TableManager(tableInfo) {
                         </Link>
                         <div className="Table-ID">
                             {tableInfo.ID} 
-                            {tableClick > 0 &&
+                            {//if the user has clicked the table 
+                            tableClick > 0 &&
                         
                             <div>
                                 Bill has Been split
                             </div>
                         
+                            }{
+                                //if the user hasnt clicked the table, show nothing
                             }
                         </div>
                     </div>
                 }
-                {tableInfo.type == "Cash" &&
+                {//option 3: a table under the "CASH" tab under the payment options
+                tableInfo.type == "Cash" &&
                     <div>
                         <button onClick={TableClickCash} clasName="Table-Button">
                             <img src={table_image} className="Table-Image"/>
                         </button>
                         <div className="Table-ID">
                             {tableInfo.ID} 
-                            {
+                            {//if the user has clicked the table 
                                 tableClick > 0 && 
                             
                                     <div>
@@ -134,7 +137,7 @@ function TableManager(tableInfo) {
                                     </div>
                         
                             }
-                            {
+                            {//if the user hasnt clicked the table
                                 tableClick == 0 &&
                                     <div>
                                         {parseFloat(tableInfo.bill).toFixed(2)}

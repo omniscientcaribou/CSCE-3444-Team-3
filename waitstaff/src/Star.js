@@ -3,12 +3,12 @@ import React, { useState, useEffect } from 'react';
 import star_image from './star.png'; 
 import axios from 'axios';
 import {Link} from 'react-router-dom';
-
+//is the star component that conditionally renders
 function Star(starInfo) {
 
     
     function StarClick(e){
-        
+        //deletes the task for assitance if clicked
         let id = starInfo.AssistanceID;
         let URL = "https://swe3444.herokuapp.com/api/task/";
         let URLFull = URL.concat(id);
@@ -17,7 +17,7 @@ function Star(starInfo) {
 
     }
     
-
+    //only renders if a task exists for assistance
     if(starInfo.Assistance){
         var path = '/Success?';
         path = path.concat("name=Assistance Requested");

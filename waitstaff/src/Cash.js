@@ -1,6 +1,7 @@
 import TableManager from './TableManager.js';
 import React, {Component} from 'react';
 import axios from 'axios';
+//component that contains the list of tables to choose from for cash payment
 class Cash extends Component {
     //these states store the bills for all 16 tables and the total list of orders
     state = {

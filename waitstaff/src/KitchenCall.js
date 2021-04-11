@@ -1,7 +1,10 @@
 import axios from 'axios';
 import {Link} from 'react-router-dom';
 import './KitchenCall.css';
+
+//This is the component that renders if theres a kitchen call in the task list
 function KitchenCall(prop){
+    //the component got clicked
     function KitchenClick(){
         console.log(prop.KitchenCallingID.length)
         //loops through every kitchencall task and deletes it

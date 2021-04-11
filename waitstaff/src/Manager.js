@@ -1,6 +1,18 @@
 import './Manager.css';
 import TableManager from './TableManager.js';
+//this component is the content view that contains the tables and header for the manager tab
 function Manager(prop){
+    //the array of dynamically generated table templates for manager tables
+    let tables = [];
+    for(let i = 1; i <= 16; i++){
+        tables.push(
+            <TableManager 
+            ID={i} 
+            Seconds={prop.seconds}
+            type="Manager"
+            />
+        );
+    }
     return(
         <div className="Manager">
             <div className="Manager-Header">
@@ -10,25 +22,11 @@ function Manager(prop){
                 Click Table To Send Manager To It
             </div>
             <div className="Tables1">
-                <TableManager ID="1" Seconds={prop.seconds}type="Manager"/>
-                <TableManager ID="2" Seconds={prop.seconds}type="Manager"/>
-                <TableManager ID="3" Seconds={prop.seconds}type="Manager"/>
+                {
+                    //inserting the list of tables into the component
+                tables
+                }
 
-                <TableManager ID="4" Seconds={prop.seconds}type="Manager"/>
-                <TableManager ID="5" Seconds={prop.seconds}type="Manager"/>
-                <TableManager ID="6" Seconds={prop.seconds}type="Manager"/>
-
-                <TableManager ID="7" Seconds={prop.seconds}type="Manager"/>
-                <TableManager ID="8" Seconds={prop.seconds}type="Manager"/>
-                <TableManager ID="9" Seconds={prop.seconds}type="Manager"/>
-
-                <TableManager ID="10" Seconds={prop.seconds}type="Manager"/>
-                <TableManager ID="11" Seconds={prop.seconds}type="Manager"/>
-                <TableManager ID="12" Seconds={prop.seconds}type="Manager"/>
-                <TableManager ID="13" Seconds={prop.seconds}type="Manager"/>
-                <TableManager ID="14" Seconds={prop.seconds}type="Manager"/>
-                <TableManager ID="15" Seconds={prop.seconds}type="Manager"/>
-                <TableManager ID="16" Seconds={prop.seconds}type="Manager"/>
             </div>
             <div className="Manager-Tables">
 

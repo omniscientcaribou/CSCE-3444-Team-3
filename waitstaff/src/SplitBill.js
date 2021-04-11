@@ -1,6 +1,8 @@
 import TableManager from './TableManager.js';
 import React, {Component} from 'react';
 import axios from 'axios';
+
+//is the content view for the split bill option and contains the list of tables
 class SplitBill extends Component{
     //stores the bills for each table by number
     state = {
@@ -14,7 +16,7 @@ class SplitBill extends Component{
             this.setState({
                 bills: res.data
             })
-            //console.log("Fetched");
+           
         })   
     }
     render(){
@@ -28,10 +30,10 @@ class SplitBill extends Component{
                 ID={i}
                 type="SplitBill"
                 bill={bills[i]}
-                //Ready={tablesReady[i-1]}
+                
                 />
             );
-            //console.log(tableOrders[i-1] + i);
+            
         }
         return(
             <div className="Manager">

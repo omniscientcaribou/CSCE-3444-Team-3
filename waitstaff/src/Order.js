@@ -3,7 +3,7 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import axios from 'axios';
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-
+//Order is the order tab, contatins the drop down menus and text boxes as well as API calls
 class Order extends React.Component{
     constructor(props){
         super(props);
@@ -76,15 +76,13 @@ class Order extends React.Component{
         //posts it to teh api with a get
         axios.get(path)
         .then(res => {
-            //this.setState({
-            //    tasks: res.data
-            //})
+ 
             console.log(res);
         })
 
-        let URL = "https://swe3444.herokuapp.com/api/get_table/"//<TABLE_NUMBER>"
-        let URLFull = URL.concat(this.state.table);
-        axios.get(URLFull).catch(error => console.log(error)).then(console.log(URLFull));
+        //let URL = "https://swe3444.herokuapp.com/api/get_table/"//<TABLE_NUMBER>"
+       // let URLFull = URL.concat(this.state.table);
+       // axios.get(URLFull).catch(error => console.log(error)).then(console.log(URLFull));
     }
     render() {
         var TFTable = ["true", "false"]     //values in the allergens dropdown

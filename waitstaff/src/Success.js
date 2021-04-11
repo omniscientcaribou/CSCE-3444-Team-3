@@ -6,7 +6,7 @@ import axios from 'axios';
 import React, {Component} from 'react';
 
 //this is a general success screen for any success message that needs to appear
-function KitchenSuccess(){
+function Success(){
 
     //gets the information from the URL 
     const { search } = useLocation()
@@ -98,4 +98,4 @@ function KitchenSuccess(){
     else {return(<div></div>);}
     
 }
-export default KitchenSuccess;
+export default Success;
