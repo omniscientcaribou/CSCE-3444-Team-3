@@ -102,7 +102,7 @@ def table_total(request, pk):
     query_data = OrderContent.objects.prefetch_related("item").filter(table_number=pk)
     price = 0
     for element in query_data:
-        if element.id != "PAID":
+        if element.state != "PAID":
             price += element.item.price * element.quantity
     order_total = {
         "total": str(price),
