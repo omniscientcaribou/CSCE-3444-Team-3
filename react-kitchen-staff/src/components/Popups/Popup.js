@@ -30,7 +30,7 @@ const Popup = ({
 	const closePopup = (e) => {
 		if (popupRef.current === e.target) {
 			setShowPopup((prev) => !prev);
-			toast.warn('⚠️ Order READY Aborted', {
+			toast.warn('⚠️ Item READY Aborted', {
 				position: 'bottom-right',
 				autoClose: 5000,
 				hideProgressBar: false,
@@ -46,7 +46,7 @@ const Popup = ({
 		(e) => {
 			if (e.key === 'Escape' && showPopup) {
 				setShowPopup((prev) => !prev);
-				toast.warn('⚠️ Order READY Aborted', {
+				toast.warn('⚠️ Item READY Aborted', {
 					position: 'bottom-right',
 					autoClose: 5000,
 					hideProgressBar: false,
@@ -106,7 +106,7 @@ const Popup = ({
 								style={{ color: 'red', cursor: 'pointer' }}
 								onClick={() => {
 									setShowPopup((prev) => !prev);
-									toast.warn('⚠️ Order READY Aborted', {
+									toast.warn('⚠️ Item READY Aborted', {
 										position: 'bottom-right',
 										autoClose: 5000,
 										hideProgressBar: false,
@@ -126,7 +126,7 @@ const Popup = ({
 							onClick={() => updateTicket(id)}
 							variant='info'
 							size='lg'
-							block
+							style={{ border: '1px solid black' }}
 						>
 							{btn_text}
 						</Button>

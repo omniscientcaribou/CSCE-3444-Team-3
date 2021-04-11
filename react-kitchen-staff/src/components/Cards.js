@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import { Icon, InlineIcon } from '@iconify/react';
-import { GiConsoleController, GiRoundTable } from 'react-icons/gi';
-import { HiOutlineClipboardList } from 'react-icons/hi';
-import { FcClock } from 'react-icons/fc';
-import { TiStopwatch } from 'react-icons/ti';
+// import { Icon, InlineIcon } from '@iconify/react';
+// import { GiConsoleController, GiRoundTable } from 'react-icons/gi';
+// import { HiOutlineClipboardList } from 'react-icons/hi';
+// import { FcClock } from 'react-icons/fc';
+// import { TiStopwatch } from 'react-icons/ti';
 import { GrFlagFill } from 'react-icons/gr';
 import { Button, Card } from 'react-bootstrap';
 import Popup from '../components/Popups/Popup';
@@ -17,18 +17,6 @@ import en from 'javascript-time-ago/locale/en';
 
 TimeAgo.addDefaultLocale(en);
 
-// allergy_flag
-// comment
-// group
-// id
-// item_name
-// order_id
-// placed_at
-// quantity
-// state
-// table_number
-
-// Dairy (emoji: Cow / Glass of Milk) Shellfish (emoji: Shrimp) Gluten (emoji: Loaf Of Bread) Peanut (emoji: Peanuts) TreeNut (emoji: Chestnut) Other (Show Comment)
 const Cards = ({ ticket }) => {
 	const [orderReadyButtonPopup, setOrderReadyButtonPopup] = useState(false);
 	var hasFlag;
@@ -92,7 +80,7 @@ const Cards = ({ ticket }) => {
 					borderRadius: '1.15rem',
 				}}
 			>
-				<Card.Body>
+				<Card.Body className='d-flex flex-column'>
 					<Card.Title
 						className='d-flex justify-content-around'
 						style={{
@@ -111,16 +99,17 @@ const Cards = ({ ticket }) => {
 						<span>&ensp;{showAllergyFlag({ ticket })}</span>
 					</Card.Title>
 					<Card.Title>
-						<div className='d-flex justify-content-center p-3 mb-2 text-dark'>
+						<div className='d-inline-flex justify-content-center p-3 mb-2 text-dark'>
 							⏱&nbsp;
 						</div>
 					</Card.Title>
-					<Card.Text>
+					<Card.Text style={{ marginLeft: '0' }}>
 						<span
 							style={{
 								color: 'purple',
 								fontSize: '1.25em',
 								fontWeight: 'bolder',
+								marginLeft: '0',
 							}}
 						>
 							<strong>{ticket.group}:</strong>
@@ -149,31 +138,16 @@ const Cards = ({ ticket }) => {
 					<CommentCard ticket={ticket} />
 					{/* End Comment Card */}
 					{/* Button Alignment */}
-					{allergyArray[5] === true ? (
-						<Button
-							id='item-ready-card-button'
-							variant='success'
-							size='lg'
-							block
-							onClick={() => displayPopup(setOrderReadyButtonPopup)}
-							// If the other allergen comment box is present, don't push the button down as far
-							style={{ marginTop: '2.27rem', border: '1px solid black' }}
-						>
-							Item READY!
-						</Button>
-					) : (
-						<Button
-							id='item-ready-card-button'
-							variant='success'
-							size='lg'
-							block
-							onClick={() => displayPopup(setOrderReadyButtonPopup)}
-							// If the other allergen comment box is NOT present, push the button down further so they are aligned
-							style={{ marginTop: '10.5rem', border: '1px solid black' }}
-						>
-							Item READY!
-						</Button>
-					)}
+					<Button
+						className='mt-auto'
+						id='item-ready-card-button'
+						variant='success'
+						size='lg'
+						onClick={() => displayPopup(setOrderReadyButtonPopup)}
+						style={{ border: '1px solid black' }}
+					>
+						Item READY!
+					</Button>
 					{/* End Button Alignment */}
 
 					<Popup

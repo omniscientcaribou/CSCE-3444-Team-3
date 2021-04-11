@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sue+Ellen+Francisco:wght@300;400&display=swap');
 
 * {
   box-sizing: border-box;
@@ -23,7 +24,7 @@
 } */
 
 .container {
-  max-width: 100%;
+  max-width: 85% !important; 
   margin: 0 auto;
   overflow: auto;
   padding: 1em;
@@ -39,7 +40,11 @@
 .button-wrapper {
   display: grid;
   grid-template-columns: 1fr .025fr 1fr;
-  margin-top: 2.8em;
+  margin: 4rem auto;
+}
+
+.my_btn:hover {
+  filter: brightness(0.8) !important;
 }
 
 #call_waitstaff_button, #call_manager_button {
@@ -48,39 +53,33 @@
   transition-duration: 0.4s;
 }
 
+.splide__slide {
+  border: 1px solid black;
+}
+
 .splide__slide.is-active {
-  border: 3px solid black !important;
-  /* background-color: #e3fc03 !important; */
-  background: -webkit-linear-gradient(to right, #c6ffdd, #fbd786, #f7797d); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #c6ffdd, #fbd786, #f7797d); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  border-radius: 1vw;
-  padding-bottom: auto;
+  border: 3px solid #6200ff !important;
+  border-radius: 1.1vw;
 }
 
 .splide__slide:hover {
-  /* background: #f4d35e; */
-  background-color: #e3fc03;
-  border-radius: 1vw;
+  cursor: grab;
+  /* border: 3px DASHED #000; 
+  border-radius: 1.1vw; */
+  filter: brightness(0.70);
+}
+
+.splide__slide:hover:active {
+  cursor: grabbing;
+  /* border: 3px DASHED #000; */
+  /* border-radius: 1.1vw; */
+  filter: brightness(0.70);
 }
 
 .card {
   height: 100%;
 }
 
-/* .splide__slide:hover {
-  background-color: RGBA(0,0,0,.25);
-} */
-
-/* 
-.btn:focus {
-  outline: none;
+.splide {
+  padding: 0 4em 3em 4em !important;
 }
-
-.btn:active {
-  transform: scale(0.98);
-}
-
-.btn-block {
-  display: block;
-  width: 100%;
-} */

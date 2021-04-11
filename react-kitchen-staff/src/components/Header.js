@@ -2,7 +2,10 @@ import PropTypes from 'prop-types';
 
 const Header = ({ title }) => {
 	return (
-		<header className='header'>
+		<header
+			className='header'
+			style={{ fontFamily: 'Sue Ellen Francisco, cursive' }}
+		>
 			<h1>{title}</h1>
 		</header>
 	);
@@ -10,7 +13,7 @@ const Header = ({ title }) => {
 
 // Set Default Title
 Header.defaultProps = {
-	title: 'Kitchen Staff',
+	title: 'Kitchen Staff Interface',
 };
 
 // Set Title to a String Type

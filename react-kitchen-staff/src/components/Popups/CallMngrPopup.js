@@ -128,7 +128,7 @@ const CallMngrPopup = ({
 							}}
 							variant='info'
 							size='lg'
-							block
+							style={{ border: '1px solid black' }}
 						>
 							{btn_text}
 						</Button>

@@ -2,5 +2,14 @@
     "editor.formatOnSave": true,
     "prettier.singleQuote": true,
     "prettier.jsxSingleQuote": true,
-    "prettier.useTabs": true
+    "prettier.useTabs": true,
+    "cSpell.words": [
+        "Mngr",
+        "emsp",
+        "ensp",
+        "iconify",
+        "splidejs",
+        "steelblue",
+        "toastify"
+    ]
 }
