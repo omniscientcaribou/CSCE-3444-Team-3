@@ -6,9 +6,10 @@ const AllergyCard = ({ allergyComment }) => {
 		<div
 			style={{
 				border: '1px solid black',
-				backgroundColor: '#fef6df',
+				backgroundColor: '#fbf4f9',
 				marginBottom: '1em',
 				borderRadius: '1rem',
+				width: '100%',
 			}}
 		>
 			<Card.Text
@@ -16,7 +17,7 @@ const AllergyCard = ({ allergyComment }) => {
 					paddingTop: '.35em',
 					paddingLeft: '.15em',
 					marginBottom: '.25em',
-					backgroundColor: '#fabfb9',
+					backgroundColor: '#c3aed6',
 					borderBottom: '1px solid black',
 					borderRadius: '1rem 1rem 0 0',
 				}}
@@ -25,8 +26,9 @@ const AllergyCard = ({ allergyComment }) => {
 					style={{
 						paddingTop: '.15em',
 						paddingLeft: '.15em',
-						fontSize: '1.17em',
+						fontSize: '1.1em',
 						fontWeight: 'bolder',
+						wordWrap: 'normal',
 					}}
 				>
 					ALLERGY (OTHER):

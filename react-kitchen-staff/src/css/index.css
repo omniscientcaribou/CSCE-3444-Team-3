@@ -48,30 +48,19 @@
   transition-duration: 0.4s;
 }
 
-#noteCard {
-  margin-top: 2.5%;
-}
-
-.noteCard-Header.card-header {
-  width: 100%;
-  /* background-color: #7dce94; */
-  background-color: #fabfb9;
-}
-
-.noteCard-Body.card-body {
-  flex: 1 1 auto;
-  min-height: 1px;
-  padding: 1.25rem;
-  width: 100%;
-  /* background-color: #d4d4dc; */
-  background-color: #fef6df;
-  color: #434343;
-}
-
 .splide__slide.is-active {
-  border: 1px solid black !important;
-  border-radius: 1.15rem;
+  border: 3px solid black !important;
+  /* background-color: #e3fc03 !important; */
+  background: -webkit-linear-gradient(to right, #c6ffdd, #fbd786, #f7797d); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #c6ffdd, #fbd786, #f7797d); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  border-radius: 1vw;
   padding-bottom: auto;
+}
+
+.splide__slide:hover {
+  /* background: #f4d35e; */
+  background-color: #e3fc03;
+  border-radius: 1vw;
 }
 
 .card {

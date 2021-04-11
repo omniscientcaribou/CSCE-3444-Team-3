@@ -9,6 +9,7 @@ const CommentCard = ({ ticket }) => {
 				backgroundColor: '#fef6df',
 				marginBottom: '1em',
 				borderRadius: '1rem',
+				width: '100%',
 			}}
 		>
 			<Card.Text
@@ -25,8 +26,9 @@ const CommentCard = ({ ticket }) => {
 					style={{
 						paddingTop: '.15em',
 						paddingLeft: '.15em',
-						fontSize: '1.17em',
+						fontSize: '1.1em',
 						fontWeight: 'bolder',
+						wordWrap: 'normal',
 					}}
 				>
 					COMMENTS:

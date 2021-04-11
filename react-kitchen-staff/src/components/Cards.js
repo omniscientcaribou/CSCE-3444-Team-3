@@ -14,6 +14,7 @@ import AllergyCard from './AllergyCard';
 import ReactTimeAgo from 'react-time-ago';
 import TimeAgo from 'javascript-time-ago';
 import en from 'javascript-time-ago/locale/en';
+
 TimeAgo.addDefaultLocale(en);
 
 // allergy_flag
@@ -32,12 +33,6 @@ const Cards = ({ ticket }) => {
 	const [orderReadyButtonPopup, setOrderReadyButtonPopup] = useState(false);
 	var hasFlag;
 	var allergyArray = [7];
-	// var allergyDairy;
-	// var allergyShellfish;
-	// var allergyGluten;
-	// var allergyPeanut;
-	// var allergyTreeNut;
-	// var allergyOther;
 
 	// Display Popup
 	const displayPopup = (pid) => {
@@ -79,50 +74,16 @@ const Cards = ({ ticket }) => {
 				i++;
 			}
 		}
-
-		// for (let i = 0; i < allergyList.length; i++) {
-		// 	allergyList[i] === 'Dairy'
-		// 		? (allergyDairy = true)
-		// 		: (allergyDairy = false);
-		// 	allergyList[i] === 'Shellfish'
-		// 		? (allergyShellfish = true)
-		// 		: (allergyShellfish = false);
-		// 	allergyList[i] === 'Gluten'
-		// 		? (allergyGluten = true)
-		// 		: (allergyGluten = false);
-		// 	allergyList[i] === 'Peanut'
-		// 		? (allergyPeanut = true)
-		// 		: (allergyPeanut = false);
-		// 	allergyList[i] === 'TreeNut'
-		// 		? (allergyTreeNut = true)
-		// 		: (allergyTreeNut = false);
-		// 	allergyList[i] === 'Other'
-		// 		? (allergyOther = true)
-		// 		: (allergyOther = false);
-
-		// 	return {
-		// 		allergyDairy,
-		// 		allergyShellfish,
-		// 		allergyGluten,
-		// 		allergyPeanut,
-		// 		allergyTreeNut,
-		// 		allergyOther,
-		// 	};
 	};
 
 	const setFlag = ({ ticket }) => {
 		ticket.allergy_flag === 'True' ? (hasFlag = true) : (hasFlag = false);
 	};
 
-	var today = new Date(),
-		time =
-			today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
-
 	return (
 		<>
 			{setFlag({ ticket })}
 			{checkAllergies({ ticket }, allergyArray)}
-			{/* <CardDeck> */}
 			<Card
 				className='shadow-sm p-3 mb-5'
 				id='cardTemplate'
@@ -151,14 +112,14 @@ const Cards = ({ ticket }) => {
 					</Card.Title>
 					<Card.Title>
 						<div className='d-flex justify-content-center p-3 mb-2 text-dark'>
-							⏱
+							⏱&nbsp;
 						</div>
 					</Card.Title>
 					<Card.Text>
 						<span
 							style={{
 								color: 'purple',
-								fontSize: '1.17em',
+								fontSize: '1.25em',
 								fontWeight: 'bolder',
 							}}
 						>
@@ -187,14 +148,34 @@ const Cards = ({ ticket }) => {
 					{/* Comment Card */}
 					<CommentCard ticket={ticket} />
 					{/* End Comment Card */}
-					<Button
-						variant='success'
-						size='lg'
-						block
-						onClick={() => displayPopup(setOrderReadyButtonPopup)}
-					>
-						Item READY!
-					</Button>
+					{/* Button Alignment */}
+					{allergyArray[5] === true ? (
+						<Button
+							id='item-ready-card-button'
+							variant='success'
+							size='lg'
+							block
+							onClick={() => displayPopup(setOrderReadyButtonPopup)}
+							// If the other allergen comment box is present, don't push the button down as far
+							style={{ marginTop: '2.27rem', border: '1px solid black' }}
+						>
+							Item READY!
+						</Button>
+					) : (
+						<Button
+							id='item-ready-card-button'
+							variant='success'
+							size='lg'
+							block
+							onClick={() => displayPopup(setOrderReadyButtonPopup)}
+							// If the other allergen comment box is NOT present, push the button down further so they are aligned
+							style={{ marginTop: '10.5rem', border: '1px solid black' }}
+						>
+							Item READY!
+						</Button>
+					)}
+					{/* End Button Alignment */}
+
 					<Popup
 						showPopup={orderReadyButtonPopup}
 						setShowPopup={setOrderReadyButtonPopup}
@@ -214,7 +195,6 @@ const Cards = ({ ticket }) => {
 					Order Placed <ReactTimeAgo date={ticket.placed_at} locale='en-US' />
 				</Card.Footer>
 			</Card>
-			{/* </CardDeck> */}
 		</>
 	);
 };

@@ -99,11 +99,10 @@ const FetchOrder = () => {
 				gap: '1rem',
 				pagination: true,
 				focus: 'left',
-				// updateOnMove: true,
+				updateOnMove: true,
 				isNavigation: false,
-				fixedWidth: '29.5%',
+				// fixedWidth: '28%',
 				fixedHeight: '58%',
-				// autoHeight: true,
 				autoWidth: true,
 				paddingLeft: '1rem',
 			}}

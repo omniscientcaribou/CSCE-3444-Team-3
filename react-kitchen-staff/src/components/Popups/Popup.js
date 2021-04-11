@@ -82,7 +82,7 @@ const Popup = ({
 		if (response.ok) {
 			toast.success(`✔️ Ticket ${id} Marked as READY TO BE DELIVERED`, {
 				position: 'bottom-right',
-				autoClose: 5000,
+				autoClose: 2300,
 				hideProgressBar: false,
 				closeOnClick: true,
 				pauseOnHover: true,
