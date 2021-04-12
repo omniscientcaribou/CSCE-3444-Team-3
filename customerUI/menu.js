@@ -277,5 +277,5 @@ function sendOrder(){
   .then(function(data){
       separate_order(data['id'])
   })
-
+  window.alert("Order Sent");
 }

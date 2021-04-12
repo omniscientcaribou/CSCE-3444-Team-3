@@ -1,0 +1,76 @@
+* { 
+    font-family:sans-serif;
+}
+:root {
+    --div-height: 74.9%;/*479px; */
+    --div-width: 62%;
+    
+}
+
+.Area{
+    margin-left: 300px; 
+    position: absolute;
+    margin-top: 2%;
+    margin-left: 35%;
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+    width: var(--div-width);
+    height: var(--div-height);
+    background-color: #945d72;
+}
+
+.text{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fef6df;
+    padding: 20px;
+    font-size: 250%;
+    
+}
+.payment{
+    border-color: beige;
+    border-style: solid;
+    text-align: center;
+    font-size: 50px;
+    align-items: center;
+    width:90%;
+    height: 20%;
+    margin-top: 8%;
+    padding-top: 5%;
+    color: #fef6df;
+    margin-left:30px;
+    border-radius: 20px;
+}
+.selection{
+    display: flex;
+    padding: 40px;
+    margin-top: 5%;
+    height:10%;
+    justify-content: space-around;
+}
+.selection .button{
+    border: none;
+    position: relative;
+    display: inline-block;
+    background-color: #9e7b91;
+    border-radius: 15px;
+    /* margin: 15px; */
+    padding: 15px 35px;
+    width: 25%; 
+    color: #fef6df;
+    cursor: pointer;
+    text-align: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 30px;
+    margin-top: -20px;
+}
+
+.button:hover{
+    background-color: #694050;
+}
+#split{
+    width: 13%;
+}
