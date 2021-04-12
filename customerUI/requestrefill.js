@@ -13,18 +13,23 @@ async function getData(){
     for(const property in results) {
         Menu.push(results[property]);
     }
-    setData("item1", 0);
-    setData("item2", 1);
-    setData("item3", 2);
-    setData("item4", 3);
-    setData("item5", 4);
-    setData("item6", 5);
-    setData("item7", 6);
+    var count = 0;
+    itemarr = document.getElementsByClassName("item");
+    for(var i = 0; i < itemarr.length; i++){
+      itemarr[i].style.display = "none";
+    }
+    for(let i in Menu){
+      if(Menu[i].group == "DRINK"){
+        setData(itemarr[count].id, i)
+        count = count + 1;
+      }
+    }
 }
 
 function setData(itemName, x){
     var item = document.getElementById(itemName);
     item.getElementsByClassName("itemlabel")[0].textContent=Menu[x].name;
+    item.style.display = "block";
 
 }
 
@@ -45,7 +50,7 @@ function buildString(itemName){
 
 function sendRequest(){
 
-  table_number = 3
+  table_number = localStorage[1];
   var drink_string = "";
   drink_string = drink_string + buildString("item1");
   drink_string = drink_string + buildString("item2");
