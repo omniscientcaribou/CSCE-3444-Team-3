@@ -1,0 +1,128 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --div-height: 100px;
+    --div-width:200px;
+}
+
+body{
+    display: flex;
+    font-family: sans-serif;
+    justify-content: center;
+}
+
+.board{
+    background: #945d72;
+    margin: 50px;
+    padding: 30px;
+    margin-top: 10px;
+    border-radius: 30px;
+}
+
+.Title {
+    color: #fef6df;
+    text-align: center;
+    font-size: xx-large;
+}
+
+.newGame:hover {
+    color: #74c3c8;
+}
+
+.area {
+    margin: 30px;
+    display:grid;
+    grid-template-columns: repeat(4,auto);
+    grid-template-rows: repeat(3,auto);
+    grid-gap: 20px;
+}
+
+.area .card{
+    list-style-type: none;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    border-radius: 20px;
+    background: #9e7b91;
+    height: var(--div-height);
+    width: var(--div-width);
+    cursor: pointer;
+    font-size: 0;
+    display: flex;
+}
+
+.card.select{
+	background: #fabdb9;
+	cursor: default;
+    pointer-events: none;
+    font-size: 33px;
+	backface-visibility: visible !important;
+}
+
+.card.matched{
+    background-color: #74c3c8 !important;
+    cursor: default;
+    pointer-events: none;
+    font-size: 33px;
+    backface-visibility: visible !important;
+}
+
+.card.wrong{
+    background-color: red !important;
+    cursor: default;
+    pointer-events: none;
+    font-size: 33px;
+    backface-visibility: visible !important;
+}
+
+.card.stop{
+    cursor: not-allowed;
+    pointer-events: none;
+}
+.selection{
+    display: flex;
+    margin-top: 1%;
+}
+
+::placeholder{
+    color: #fef6dfb4;
+}
+.password{
+    background: #937b91;
+    border: none;
+    padding: 5px;
+    font-size: 130%;
+    width: 38%;
+    border-radius: 7px;
+    color: #fef6df;
+    margin-left: 3.5%;
+}
+
+.home{
+    background: #937b91;
+    border: solid;
+    border-color: #fef6df;
+    padding: 5px;
+    margin-left: 1%;
+    font-size: 130%;
+    border-radius: 7px;
+    color: #fef6df;
+    cursor: pointer;
+}
+
+.new-game{
+    background: #937b91;
+    border: solid;
+    border-color: #fef6df;
+    padding: 5px;
+    font-size: 130%;
+    border-radius: 7px;
+    margin-right: 3%;
+    margin-left: auto;
+    color: #fef6df;
+    cursor: pointer;
+}

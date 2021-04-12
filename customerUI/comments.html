@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Comment Tab</title>
+		<style>
+			h1{text-align: center;}
+			.sidebar{
+				border-radius: 25px;
+				background: #945d72;
+				float:left;
+				margin-left: 25px;
+				margin-top: 25px;
+				font-size: 50px;
+                width:30%;
+                height:80%;
+			}
+			.sidebar a{
+				font-family: calibri;
+				text-align: center;
+				line-height:1.6em;
+				display: block;
+				/* padding-l	eft:10px; */
+				margin-bottom: 5.2%;
+				/* padding-right:10px; */
+                height: 20%;
+			}
+
+			a:link, a:visited, a:hover{
+				color: #fef6df;
+				text-decoration: none;
+                font-size: 90%;
+			}
+
+			.boxed{
+				color: #fef6df;
+				font-family: calibri;
+				border-radius: 25px;
+				border: 10px grey;
+				font-size: 75px;
+				text-align: center;
+				margin-left: 25px;
+				margin-top: 25px;
+				margin-right: 25px;
+				width: 95%;
+				background: #945d72;
+			}
+		</style>
+
+        <link rel="stylesheet" href="comments.css">
+	</head>
+    
+    <script src="comments.js"></script>
+	
+    <body style="background-color: #d9e0e8">
+		<!-- the title card on top -->
+		<div class="boxed">
+			Comments
+		</div>
+		<!-- The side bar with  -->
+		<aside class="sidebar">
+			<a href="customerui.html">Back</a>
+			<a href="menu.js">Menu</a>
+			<a href="requestrefill.html">Request Refill</a>
+			<a href="waiterassistance.html">Waiter Assistance</a>
+			<a href="gameTab.html">Kid's Game</a>
+		</aside>
+        <div class="Area">
+            <div class="info">Any Comments?</div>
+            <input type="text" id="comments" class="comments" placeholder="please type your comments here...">
+            <div class="info">Would you like to play a game to win a free dessert coupon?</div>
+            <div class ="selection">
+                <button id="goodbye" class="button">No</a>
+                <button id="dessert" class="button">Yes</a>
+            </div>
+        </div>
+	</body>
+
+
