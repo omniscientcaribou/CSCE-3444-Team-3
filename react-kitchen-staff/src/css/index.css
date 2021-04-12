@@ -41,6 +41,8 @@
   display: grid;
   grid-template-columns: 1fr .025fr 1fr;
   margin: 4rem auto;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
 }
 
 .my_btn:hover {
@@ -51,10 +53,6 @@
   display: inline-block;
   margin-right: 5px;
   transition-duration: 0.4s;
-}
-
-.splide__slide {
-  border: 1px solid black;
 }
 
 .splide__slide.is-active {
@@ -78,6 +76,7 @@
 
 .card {
   height: 100%;
+  border: 1px solid black !important;
 }
 
 .splide {

@@ -8,12 +8,13 @@ import { GrFlagFill } from 'react-icons/gr';
 import { Button, Card } from 'react-bootstrap';
 import Popup from '../components/Popups/Popup';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Moment from 'react-moment';
+import DayJS from 'react-dayjs';
 import CommentCard from './CommentCard';
 import AllergyCard from './AllergyCard';
 import ReactTimeAgo from 'react-time-ago';
 import TimeAgo from 'javascript-time-ago';
 import en from 'javascript-time-ago/locale/en';
+import Timer from './Timer';
 
 TimeAgo.addDefaultLocale(en);
 
@@ -92,15 +93,23 @@ const Cards = ({ ticket }) => {
 						<span>📋&nbsp;{ticket.id}</span>&emsp;
 						<span>
 							📅&nbsp;
-							<Moment local format='hh:mm A'>
+							<DayJS local format='hh:mm A'>
 								{ticket.placed_at}
-							</Moment>
+							</DayJS>
 						</span>
 						<span>&ensp;{showAllergyFlag({ ticket })}</span>
 					</Card.Title>
 					<Card.Title>
 						<div className='d-inline-flex justify-content-center p-3 mb-2 text-dark'>
 							⏱&nbsp;
+							<Timer
+								autostart={true}
+								showDays={false}
+								showHours={true}
+								showMinutes={true}
+								showSeconds={true}
+								showCentiseconds={false}
+							/>
 						</div>
 					</Card.Title>
 					<Card.Text style={{ marginLeft: '0' }}>
@@ -115,7 +124,7 @@ const Cards = ({ ticket }) => {
 							<strong>{ticket.group}:</strong>
 						</span>
 						<br />
-						<span>
+						<span style={{ fontSize: '1.25rem' }}>
 							&emsp;{ticket.item_name}&ensp;-&ensp;QTY:&nbsp;{ticket.quantity}
 						</span>
 						<br />
