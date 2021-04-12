@@ -19,8 +19,8 @@
     "react-query": "^3.13.6",
     "react-scripts": "4.0.3",
     "react-spring": "^9.1.0",
-    "react-time-ago": "^6.2.2",
     "react-toastify": "^7.0.3",
+    "timeago-react": "^3.0.2",
     "web-vitals": "^1.1.1"
   },
   "scripts": {

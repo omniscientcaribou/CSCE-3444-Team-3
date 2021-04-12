@@ -4,12 +4,16 @@
     "prettier.jsxSingleQuote": true,
     "prettier.useTabs": true,
     "cSpell.words": [
+        "Centiseconds",
         "Mngr",
+        "browserslist",
+        "datetime",
         "emsp",
         "ensp",
         "iconify",
         "splidejs",
         "steelblue",
+        "timeago",
         "toastify"
     ]
 }

@@ -72,8 +72,8 @@ const FetchOrder = () => {
 		>
 			{status === 'success' &&
 				ticket.map((ticket) => (
-					<SplideSlide>
-						<Cards key={ticket.id} ticket={ticket} />
+					<SplideSlide key={ticket.id}>
+						<Cards ticket={ticket} />
 					</SplideSlide>
 				))}
 		</Splide>

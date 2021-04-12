@@ -62,15 +62,15 @@
 
 .splide__slide:hover {
   cursor: grab;
-  /* border: 3px DASHED #000; 
-  border-radius: 1.1vw; */
+  border: 3px DASHED #000; 
+  border-radius: 1.1vw;
   filter: brightness(0.70);
 }
 
 .splide__slide:hover:active {
   cursor: grabbing;
-  /* border: 3px DASHED #000; */
-  /* border-radius: 1.1vw; */
+  border: 3px DASHED #000;
+  border-radius: 1.1vw;
   filter: brightness(0.70);
 }
 
