@@ -11,12 +11,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import DayJS from 'react-dayjs';
 import CommentCard from './CommentCard';
 import AllergyCard from './AllergyCard';
-import ReactTimeAgo from 'react-time-ago';
-import TimeAgo from 'javascript-time-ago';
-import en from 'javascript-time-ago/locale/en';
 import Timer from './Timer';
-
-TimeAgo.addDefaultLocale(en);
+import TimeAgo from 'timeago-react'; // var TimeAgo = require('timeago-react');
 
 const Cards = ({ ticket }) => {
 	const [orderReadyButtonPopup, setOrderReadyButtonPopup] = useState(false);
@@ -93,9 +89,7 @@ const Cards = ({ ticket }) => {
 						<span>📋&nbsp;{ticket.id}</span>&emsp;
 						<span>
 							📅&nbsp;
-							<DayJS local format='hh:mm A'>
-								{ticket.placed_at}
-							</DayJS>
+							<DayJS format='hh:mm A'>{ticket.placed_at}</DayJS>
 						</span>
 						<span>&ensp;{showAllergyFlag({ ticket })}</span>
 					</Card.Title>
@@ -175,7 +169,7 @@ const Cards = ({ ticket }) => {
 						fontSize: '.75em',
 					}}
 				>
-					Order Placed <ReactTimeAgo date={ticket.placed_at} locale='en-US' />
+					Order Placed <TimeAgo datetime={ticket.placed_at} locale='en_US' />
 				</Card.Footer>
 			</Card>
 		</>
