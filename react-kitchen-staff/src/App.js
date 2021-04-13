@@ -1,3 +1,13 @@
+/* 
+UNT - CSCE 3444 - Spring 2021 - Dr. Bryce 
+Group Project - Restaurant Management System 
+Team #3 Members: Alexander Lambert, Carlos Ochoa, Cruz Gonzales, Garet Dade, Hunter Thompson, Stephen Bishop, Thomas Lane 
+----------------------
++ Kitchen Staff View +
++ By: Thomas Lane    +
+----------------------
+*/
+
 import React from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query'; // Used for handling background fetching from the API
 import { useState } from 'react'; 								// Used for handing simple state changes
