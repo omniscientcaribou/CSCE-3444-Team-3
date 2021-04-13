@@ -1,3 +1,4 @@
+/* CSS for the Background of the Modal Page */
 .popup-background {
 	display: flex;
 	justify-content: center;
@@ -14,6 +15,7 @@
 	z-index: 40;    
 }
 
+/* CSS for the actual popup box */
 .popup-inner {
 	display: grid;
 	position: relative;
@@ -27,7 +29,7 @@
 	background-color: #E1E0F2;
 }
 
-
+/* CSS for the close button */
 .popup-inner-header-x-btn {
 	position: absolute;
 	top: .95em;
@@ -39,10 +41,12 @@
 	border-radius: .2em;
 }
 
+/* CSS for the body text */
 .pop-up-inner-text {
 	margin-left: .4em;
 }
 
+/* CSS for the body button */
 .popup-inner .popup-btn {
 	position: absolute;
 	top: 16px;

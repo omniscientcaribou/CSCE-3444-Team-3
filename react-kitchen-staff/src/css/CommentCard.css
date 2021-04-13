@@ -1,0 +1,39 @@
+/* CSS for the comment card container */
+#comment-card-container {
+    display: flex;
+    border: 1px solid black;
+    background-color: #fef6df;
+    margin-bottom: 1em;
+    border-radius: 1rem;
+    min-width: 100%;
+    max-width: 45ch;
+    min-height: 13vh;
+    height: auto;
+    word-wrap: normal;
+    overflow-wrap: normal;
+    overflow-y: auto;
+}
+
+/* CSS for the comment card body */
+#comment-card-text {
+    width: 100%;
+    padding-top: .35em;
+    margin-bottom: .25em;
+    background-color: #fabfb9;
+    border-bottom: 1px solid black;
+    border-radius: 1rem 1rem 0 0;
+}
+
+/* CSS for the comment card header */
+#comment-card-header {
+    padding-top: .25em;
+    padding-left: .25em;
+    font-size: 1.1em;
+    font-weight: bolder;
+    word-wrap: normal;
+}
+
+/* CSS for the comment card body */
+#comment-card-body {
+    padding-top: 0;
+}

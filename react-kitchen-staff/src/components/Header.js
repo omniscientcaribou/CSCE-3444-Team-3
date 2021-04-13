@@ -1,11 +1,14 @@
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'; // Needed for making the prototype 
 
 const Header = ({ title }) => {
+	console.log('Header is: ', typeof title);
 	return (
+		// Header Container - in-line style to set the font-family
 		<header
 			className='header'
 			style={{ fontFamily: 'Sue Ellen Francisco, cursive' }}
 		>
+			{/* Page title in h1 tags */}
 			<h1>{title}</h1>
 		</header>
 	);

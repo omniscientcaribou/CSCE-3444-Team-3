@@ -1,46 +1,27 @@
-import PropTypes from 'prop-types';
-import { Card } from 'react-bootstrap';
+import PropTypes from 'prop-types'; // Needed for PropTypes
+import { Card } from 'react-bootstrap'; // Used for the BootStrap cards
 
+import '../css/CommentCard.css'; // Import our CommentCard Stylesheet
+
+// This component is used to display the Comments card on the order card. The comment card contains order customization information
+// Ticket is the json object retrieved from the API
 const CommentCard = ({ ticket }) => {
+	const commentCardHeader = 'COMMENTS:'; // variable to hold our HEADER string
 	return (
-		<div
-			style={{
-				border: '1px solid black',
-				backgroundColor: '#fef6df',
-				marginBottom: '1em',
-				borderRadius: '1rem',
-				width: '100%',
-			}}
-		>
-			<Card.Text
-				style={{
-					paddingTop: '.35em',
-					paddingLeft: '.15em',
-					marginBottom: '.25em',
-					backgroundColor: '#fabfb9',
-					borderBottom: '1px solid black',
-					borderRadius: '1rem 1rem 0 0',
-				}}
-			>
-				<span
-					style={{
-						paddingTop: '.15em',
-						paddingLeft: '.15em',
-						fontSize: '1.1em',
-						fontWeight: 'bolder',
-						wordWrap: 'normal',
-					}}
-				>
-					COMMENTS:
-				</span>
+		// Bootstrap Card container to hold our card
+		<Card id='comment-card-container'>
+			{/* Bootstrap Card Text Container */}
+			<Card.Text id='comment-card-text'>
+				{/* Span to hold our header text */}
+				<span id='comment-card-header'>{commentCardHeader}</span>
 			</Card.Text>
-			<Card.Body>
-				<pre>{ticket.comment}</pre>
-			</Card.Body>
-		</div>
+			{/* Bootstrap Card Body to hold our comment */}
+			<Card.Body id='comment-card-body'>{ticket.comment}</Card.Body>
+		</Card>
 	);
 };
 
+// State that our prototype is an object and is required
 CommentCard.protoTypes = {
 	ticket: PropTypes.object.isRequired,
 };

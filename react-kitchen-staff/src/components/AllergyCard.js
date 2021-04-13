@@ -1,43 +1,25 @@
-import PropTypes from 'prop-types';
-import { Card } from 'react-bootstrap';
+import PropTypes from 'prop-types'; // Needed for PropTypes
+import { Card } from 'react-bootstrap'; // Used for the BootStrap cards
 
+import '../css/AllergyCard.css'; // Import our AllergyCard Stylesheet
+
+// This component is used to display the Allergy Card on the order card.
+// The Allergy Card is only shown when other is selected and lists the customer's allergies
+// allergyComment is the json object retrieved from the API
 const AllergyCard = ({ allergyComment }) => {
+	const allergyCardHeader = 'ALLERGY (OTHER):'; // variable to hold our HEADER string
+
 	return (
-		<div
-			style={{
-				border: '1px solid black',
-				backgroundColor: '#fbf4f9',
-				marginBottom: '1em',
-				borderRadius: '1rem',
-				width: '100%',
-			}}
-		>
-			<Card.Text
-				style={{
-					paddingTop: '.35em',
-					paddingLeft: '.15em',
-					marginBottom: '.25em',
-					backgroundColor: '#c3aed6',
-					borderBottom: '1px solid black',
-					borderRadius: '1rem 1rem 0 0',
-				}}
-			>
-				<span
-					style={{
-						paddingTop: '.15em',
-						paddingLeft: '.15em',
-						fontSize: '1.1em',
-						fontWeight: 'bolder',
-						wordWrap: 'normal',
-					}}
-				>
-					ALLERGY (OTHER):
-				</span>
+		// Bootstrap Card container to hold our card
+		<Card id='allergy-card-container'>
+			{/* Bootstrap Card Text Container */}
+			<Card.Text id='allergy-card-text'>
+				{/* Span to hold our header text */}
+				<span id='allergy-card-header'>{allergyCardHeader}</span>
 			</Card.Text>
-			<Card.Body>
-				<pre>{allergyComment}</pre>
-			</Card.Body>
-		</div>
+			{/* Bootstrap Card Body to hold our allergy comment */}
+			<Card.Body id='allergy-card-body'>{allergyComment}</Card.Body>
+		</Card>
 	);
 };
 

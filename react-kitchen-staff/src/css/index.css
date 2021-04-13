@@ -1,18 +1,22 @@
+/* Font imports */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Sue+Ellen+Francisco:wght@300;400&display=swap');
 
+/* CSS for everything */
 * {
   box-sizing: border-box;
   margin: 0 auto;
   padding: 0;
 }
 
+/* CSS for the ROOT id */
 #root {
   font-family: 'Poppins', sans-serif;
   background-color: #E7F2F8;
   height: 100vh;
 }
 
+/* CSS for the container div */
 .container {
   max-width: 85% !important; 
   margin: 0 auto;
@@ -20,6 +24,7 @@
   padding: 1em;
 }
 
+/* CSS for the header */
 .header {
   display: flex;
   justify-content: space-between;
@@ -27,29 +32,39 @@
   margin-bottom: 20px;
 }
 
+/* CSS for the button wrapper div */
 .button-wrapper {
   display: grid;
   grid-template-columns: 1fr .025fr 1fr;
-  margin: 4rem auto;
+  margin: 2rem auto;
   padding-left: 1.25rem;
   padding-right: 1.25rem;
 }
 
+/* CSS for when you hover over the buttons */
 .my_btn:hover {
   filter: brightness(0.8) !important;
 }
 
+/* CSS for the two buttons */
 #call_waitstaff_button, #call_manager_button {
   display: inline-block;
   margin-right: 5px;
   transition-duration: 0.4s;
 }
 
+/* CSS for the Splide carousel */
+.splide {
+  padding: 0 4em 3em 4em !important;
+}
+
+/* CSS for the Splide carousel when it's active (Focused) */
 .splide__slide.is-active {
   border: 3px solid #6200ff !important;
   border-radius: 1.1vw;
 }
 
+/* CSS for the Splide carousel when it's hovered over */
 .splide__slide:hover {
   cursor: grab;
   border: 3px DASHED #000; 
@@ -57,6 +72,7 @@
   filter: brightness(0.70);
 }
 
+/* CSS for the Splide carousel when it's hovered over and active - This makes the hand icon grabbing when clicked and held */
 .splide__slide:hover:active {
   cursor: grabbing;
   border: 3px DASHED #000;
@@ -64,11 +80,8 @@
   filter: brightness(0.70);
 }
 
+/* CSS for the cards held within the Splide carousel to make them fill the entire area */
 .card {
   height: 100%;
   border: 1px solid black !important;
-}
-
-.splide {
-  padding: 0 4em 3em 4em !important;
 }
