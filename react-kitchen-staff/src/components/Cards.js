@@ -45,7 +45,6 @@ const Cards = ({ ticket }) => {
 		var allergyList = [];
 
 		allergyList = ticket.allergy_comment.split('|');
-		// allergyList = allergyList.slice(0, allergyList.length - 1);
 
 		for (let i = 0; i < allergyList.length; i++) {
 			if (allergyList[i] === 'Dairy' ? (allergyArray[0] = true) : '');

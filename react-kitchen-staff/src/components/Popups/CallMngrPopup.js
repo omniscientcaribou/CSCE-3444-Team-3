@@ -1,10 +1,11 @@
-import '../../css/Popup.css';
 import ReactDOM from 'react-dom';
 import { useSpring, animated } from 'react-spring';
 import { FaTimes } from 'react-icons/fa';
 import { useRef, useEffect, useCallback } from 'react';
 import { Button } from 'react-bootstrap';
 import { toast } from 'react-toastify';
+
+import '../../css/Popup.css';
 
 const CallMngrPopup = ({
 	showPopup,
@@ -114,13 +115,11 @@ const CallMngrPopup = ({
 										progress: undefined,
 									});
 								}}
-								// onClick={() => setShowPopup((prev) => !prev)}
 							/>
 						</div>
 						<hr />
 						<p className='pop-up-inner-text'>{text}</p>
 						<br />
-						{/* <Button className='popup-btn' text={btn_text} color='#74C3C8' /> */}
 						<Button
 							onClick={() => {
 								CallMngr();

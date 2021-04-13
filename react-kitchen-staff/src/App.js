@@ -1,13 +1,14 @@
 import React from 'react';
-import 'react-toastify/dist/ReactToastify.css';
+import { QueryClient, QueryClientProvider } from 'react-query';
 import { useState } from 'react';
 import { ToastContainer } from 'react-toastify';
-import Header from './components/Header';
-import Button from './components/Button';
+import FetchOrder from './components/FetchOrder';
 import CallWSPopup from './components/Popups/CallWSPopup';
 import CallMngrPopup from './components/Popups/CallMngrPopup';
-import FetchOrder from './components/FetchOrder';
-import { QueryClient, QueryClientProvider } from 'react-query';
+import Header from './components/Header';
+import Button from './components/Button';
+
+import 'react-toastify/dist/ReactToastify.css';
 
 const queryClient = new QueryClient();
 

@@ -61,7 +61,6 @@ const FetchOrder = () => {
 				focus: 'left',
 				updateOnMove: true,
 				isNavigation: false,
-				// fixedWidth: '28%',
 				fixedHeight: '40%',
 				autoWidth: true,
 				padding: {
