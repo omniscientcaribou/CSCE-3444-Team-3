@@ -1,34 +1,50 @@
 window.onload=function(e){
     
     //sounds to be played
-    var audio1=new Audio('sounds/chicken.mp3')
-    var audio2=new Audio('sounds/bird.mp3')
-    var audio3=new Audio('sounds/horse.mp3')
-    var audio4=new Audio('sounds/wolf.mp3')
-    var audio5=new Audio('sounds/police.mp3')
-    var audio6=new Audio('sounds/cow.mp3')
-    var audio7=new Audio('sounds/cricket.mp3')
-    var audio8=new Audio('sounds/cat.mp3')
-    var audio9=new Audio('sounds/lion.mp3')
-    var audio10=new Audio('sounds/robot.mp3')
-    var audio11=new Audio('sounds/bell.mp3')
-    var audio12=new Audio('sounds/doorbell.mp3')
+    var audio1=new Audio('chicken.mp3')
+    audio1.volume=.7
+    var audio2=new Audio('bird.mp3')
+    audio2.volume=.7
+    var audio3=new Audio('horse.mp3')
+    audio3.volume=.7
+    var audio4=new Audio('wolf.mp3')
+    audio4.volume=.7
+    var audio5=new Audio('police.mp3')
+    audio5.volume=.7
+    var audio6=new Audio('cow.mp3')
+    audio6.volume=.7
+    var audio7=new Audio('cricket.mp3')
+    audio7.volume=.7
+    var audio8=new Audio('cat.mp3')
+    audio8.volume=.7
+    var audio9=new Audio('lion.mp3')
+    audio9.volume=.7
+    var audio10=new Audio('robot.mp3')
+    audio10.volume=.7
+    var audio11=new Audio('bell.mp3')
+    audio11.volume=.7
+    var audio12=new Audio('doorbell.mp3')
+    audio12.volume=.7
     
+    //function to be played when a button on the sound baord is pla
     function cardPlayed(){
+        //disables other buttons to prevent overlapping sounds
         for(const clip of clips){
             clip.classList.add("disable")
             clip.removeEventListener("click",cardPlayed);
         }
         this.classList.add("played");
-        //just plays the audio and resets everything afterwards
+        //just plays the chicken audio and resets everything afterwards
         if(this.id=="chicken"){
             var text=document.getElementById("chickenText")
             text.classList.add("played")
             console.log(text)
+            //plays audio
             audio1.play();
             console.log("audio1 played");
             console.log(audio1.duration)
             text.innerHTML="<i class='fas fa-pause-circle'></i>"
+            //Reenables button after the audio is done playing
             setTimeout(function(){
                 text.classList.remove("played")
                 text.innerHTML="<i class='fas fa-play-circle'></i>"
@@ -38,6 +54,7 @@ window.onload=function(e){
                 }
             }, audio1.duration *1000)
         }
+        //Rest of else if statements are a repeat of the the first if but different audio
         //just plays the bird audio and resets everything afterwards
         else if(this.id=="bird"){
             var text=document.getElementById("birdText")
@@ -237,20 +254,22 @@ window.onload=function(e){
             }, audio12.duration *1000)
         }
     }
-
+    //Function to check password is correct
     function leave(){
-
+        //if the password is correct the home button works correctly
         if(document.getElementById("password").value=="Pineapple Pie"){
-            window.location.href="https://google.com"
+            window.location.href="gameTab.html"
         }
+        //when it is not correct it alerts the user of such
         else{
             alert("Please input the correct password in order to return to normal functionality.")
         }
     }
-
+    //links home button to leave function
     var leaveBut=document.getElementById("home");
     leaveBut.addEventListener("click",leave);
 
+    // Links each button to the cardPlayed function
     var clips = document.querySelectorAll(".sound-bite");
     for(const clip of clips){
         clip.addEventListener("click",cardPlayed);

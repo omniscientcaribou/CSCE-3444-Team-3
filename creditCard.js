@@ -1,4 +1,8 @@
 window.onload = function(){
+    tableNum=2
+    const totalUrl = 'https://swe3444.herokuapp.com/api/table_total/'.concat((tableNum).toString())
+    //gets number of times the credit card html should revisit itself for other payers
+    var cardNum = localStorage.getItem("times")
     function check(){
         var d= new Date()
         if(document.getElementById("cardNumbers").value.length!=16){
@@ -14,9 +18,16 @@ window.onload = function(){
             alert("Please choose a valid non-expired month");
         }
         else {
-            window.location.replace("comments.html");
+            if(cardNum>1){
+                localStorage.setItem("times",parseInt(cardNum,10)-1)
+                window.location.href="creditCard.html"
+            }
+            else{
+                window.location.href="comments.html"
+            }
         }
     }
+    //adds event listener for submit button and disables the scroll wheel changing number input
     var nextBut= document.getElementById("submit");
     nextBut.addEventListener("click",check);
     document.addEventListener("wheel", function(event){

@@ -54,19 +54,22 @@
     <script src="dessertGame.js"></script>
 	<script src="https://kit.fontawesome.com/b1d34e43b0.js" crossorigin="anonymous"></script>
     <body style="background-color: #d9e0e8">
+		<!-- Title Card -->
 		<div class="boxed">
 			Dessert Game
 		</div>
+		<!-- sidebar with correct links -->
 		<aside class="sidebar">
 			<a href="customerui.html">Back</a>
 			<a href="">Menu</a>
-			<!-- <a href="orderstatus.html">Order Status</a> -->
 			<a href="requestrefill.html">Request Refill</a>
 			<a href="waiterassistance.html">Waiter Assistance</a>
-			<a href="">Kid's Game</a>
+			<a href="gameTab.html">Kid's Game</a>
 		</aside>
+		<!-- area for playing game -->
         <div class="Area">
             <div class="text" id="title">Play Rock, Paper, Scissors for a free dessert coupon</div>
+			<!-- User selects their choice -->
             <div class ="selection">
                 <button class="button" id = "rock" name="rock">
                 Rock
@@ -81,6 +84,7 @@
                     <i class="fas fa-hand-scissors"></i>
                 </button>
             </div>
+			<!-- The opponent choice which is hidden until user chooses their choice -->
             <div class="opText" id="compText">The opponent chose</div>
             <Div class="selection">
                 <div class="opponent" id=opponent>

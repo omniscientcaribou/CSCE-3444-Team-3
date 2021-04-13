@@ -54,23 +54,26 @@
     <script src="creditCard.js"></script>
 	
     <body style="background-color: #d9e0e8">
+		<!-- Title card -->
 		<div class="boxed">
 			Credit Card
 		</div>
+		<!-- sidebar that goes to other tabs -->
 		<aside class="sidebar">
 			<a href="customerui.html">Back</a>
 			<a href="">Menu</a>
-			<!-- <a href="orderstatus.html">Order Status</a> -->
 			<a href="requestrefill.html">Request Refill</a>
 			<a href="waiterassistance.html">Waiter Assistance</a>
-			<a href="">Kid's Game</a>
+			<a href="gameTab.html">Kid's Game</a>
 		</aside>
         <div class="Area">
             <div class ="text">
                 Please input your card information
             </div>
             <div class = "info">
+				<!-- input for card numbers with a max length of 16 to coincide with US standard -->
                 <input type="text" id="cardNumbers" name="cardNumbers" placeholder="Card Numbers" maxlength="16">
+				<!-- input for expiration month -->
                 <select id="month" name="month" placeholder="Nothing">
                     <option value=-1 disabled selected hidden>Please Input Month</option>
                     <option value=0>January</option>
@@ -86,8 +89,10 @@
                     <option value=10>November</option>
                     <option value=11>December</option>
                 </select>
+				<!-- input for expiration year -->
                 <input type="number" id="year" name="year" placeholder="year" max="9999">
             </div>
+			<!-- button selection -->
             <div class ="selection">
                 <a href="paymentTab.html" class="button">Back</a>
                 <button class="next" id="submit" >Submit</a>

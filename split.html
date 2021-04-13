@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Goodbye</title>
+		<title>Split</title>
 		<style>
 			h1{text-align: center;}
-			
 			.sidebar{
 				border-radius: 25px;
 				background: #945d72;
@@ -21,9 +20,9 @@
 				text-align: center;
 				line-height:1.6em;
 				display: block;
-				padding-left:10px;
+				/* padding-l	eft:10px; */
 				margin-bottom: 5.2%;
-				padding-right:10px;
+				/* padding-right:10px; */
                 height: 20%;
 			}
 
@@ -42,22 +41,23 @@
 				text-align: center;
 				margin-left: 25px;
 				margin-top: 25px;
-				width: 95%;
 				margin-right: 25px;
+				width: 95%;
 				background: #945d72;
 			}
 		</style>
 
-        <link rel="stylesheet" href="goodbye.css">
+        <link rel="stylesheet" href="split.css">
 	</head>
     
+    <script src="split.js"></script>
 	
     <body style="background-color: #d9e0e8">
-		<!-- Title Card -->
+		<!-- Title -->
 		<div class="boxed">
-			Thank you
+			Split Bill
 		</div>
-		<!-- side bar with links to other tabs -->
+		<!--  Side bar  -->
 		<aside class="sidebar">
 			<a href="customerui.html">Back</a>
 			<a href="">Menu</a>
@@ -65,16 +65,19 @@
 			<a href="waiterassistance.html">Waiter Assistance</a>
 			<a href="gameTab.html">Kid's Game</a>
 		</aside>
+		<!-- input for how many ways to split and how many are paying in cash and how many with card -->
         <div class="Area">
-            <div class ="text">
-                Thank you for your patronage. 
-            </div>
-            <div class="smalltext">
-                (If you won a free dessert, the waiter has been notified <br> and
-                will have it ready for you at the front desk)
+            <div class="info">How many people would you like to split the bill amongst?</div>
+            <input type="number" id="split" class="split" min="2">
+			<div class="info" id="cashInfo">How many would like to pay in cash?</div>
+			<input type="number" id="cashPay" class="split" min="0">
+			<div class="info" id="cardInfo">How many would like to pay with card?</div>
+			<input type="number" id="cardPay" class="split" min="0">
+            <div class ="selection">
+                <a href="paymentTab.html" class="button" id="back">Back</a>
+                <button class="button" id="Submit">Submit</a>
             </div>
         </div>
 	</body>
-</html>
-    
+
 

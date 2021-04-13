@@ -1,12 +1,17 @@
-* { 
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
     font-family:sans-serif;
 }
 :root {
-    --div-height: 74.9%;/*479px; */
-    --div-width: 62%;
+    --div-height: 75%;
+    --div-width:62%;
     
 }
-
+::placeholder{
+    color: #fef6dfb4;
+}
 .Area{
     margin-left: 300px; 
     position: absolute;
@@ -18,37 +23,42 @@
     width: var(--div-width);
     height: var(--div-height);
     background-color: #945d72;
-}
-
-.text{
+}   
+.info{
     justify-content: center;
     align-items: center;
     text-align: center;
     color: #fef6df;
+    margin-top: 10%;
     padding: 20px;
-    font-size: 250%;
+    padding-left: 10px;
+    font-size: 225%;
     
 }
-.payment{
-    border-color: beige;
-    border-style: solid;
-    text-align: center;
-    font-size: 50px;
-    align-items: center;
-    width:90%;
-    height: 20%;
-    margin-top: 8%;
-    padding-top: 5%;
+.comments{
+    border: solid;
+    border-color: #fef6df;
+    justify-content: left;
+    font-size: 30px;
+    text-align: left;
+    width: 500px;
+    margin-left: 2.5%;
+    display: block;
+    background-color: #9e7b91;
     color: #fef6df;
-    margin-left:30px;
-    border-radius: 20px;
+    margin-top: 4%;
+    margin-bottom: 5%;
+    padding-left: 10px;
+    width: 95%;
+    overflow-y:scroll;
+    overflow-x: scroll;
+    white-space: pre-wrap;
 }
 .selection{
     display: flex;
     padding: 40px;
-    margin-top: 5%;
-    height:10%;
-    justify-content: space-around;
+    margin-top: 4.3%;
+    justify-content: space-around;  
 }
 .selection .button{
     border: none;
@@ -58,19 +68,17 @@
     border-radius: 15px;
     /* margin: 15px; */
     padding: 15px 35px;
-    width: 25%; 
+    width: 40%;
+    height: 30%;
     color: #fef6df;
     cursor: pointer;
     text-align: center;
     align-items: center;
     text-decoration: none;
-    font-size: 30px;
-    margin-top: -20px;
+    font-size: 50px;
+    /* margin-top: -20px; */
 }
 
 .button:hover{
     background-color: #694050;
-}
-#split{
-    width: 13%;
 }

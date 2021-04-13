@@ -54,25 +54,29 @@
     <script src="payment.js"></script>
 	
     <body style="background-color: #d9e0e8">
+		<!-- title card -->
 		<div class="boxed">
 			Payment Tab
 		</div>
+		<!-- sidebar -->
 		<aside class="sidebar">
 			<a href="customerui.html">Back</a>
 			<a href="">Menu</a>
-			<!-- <a href="orderstatus.html">Order Status</a> -->
 			<a href="requestrefill.html">Request Refill</a>
 			<a href="waiterassistance.html">Waiter Assistance</a>
-			<a href="">Kid's Game</a>
+			<a href="gameTab.html">Kid's Game</a>
 		</aside>
         <div class="Area">
             <div class ="text">
                 How would you like to pay?
             </div>
-            <div class="payment" id ="payment"></div>
+			<!-- box with the amount owed -->
+            <div class="payment" id ="payment">----</div>
+			<!-- buttons -->
             <div class ="selection">
-                <a href="comments.html" class="button">Cash</a>
-                <a href="creditCard.html" class="button">Card</a>
+                <button class="button" id="cash">Cash</button>
+				<a href="split.html" class= "button" id="split">Split</a>
+                <button class="button" id="card">Card</button>
             </div>
         </div>
 	</body>

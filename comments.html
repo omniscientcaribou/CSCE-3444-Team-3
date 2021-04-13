@@ -14,7 +14,6 @@
                 width:30%;
                 height:80%;
 			}
-
 			.sidebar a{
 				font-family: calibri;
 				text-align: center;
@@ -53,24 +52,25 @@
     <script src="comments.js"></script>
 	
     <body style="background-color: #d9e0e8">
+		<!-- the title card on top -->
 		<div class="boxed">
 			Comments
 		</div>
+		<!-- The side bar with  -->
 		<aside class="sidebar">
 			<a href="customerui.html">Back</a>
 			<a href="">Menu</a>
-			<!-- <a href="orderstatus.html">Order Status</a> -->
 			<a href="requestrefill.html">Request Refill</a>
 			<a href="waiterassistance.html">Waiter Assistance</a>
-			<a href="">Kid's Game</a>
+			<a href="gameTab.html">Kid's Game</a>
 		</aside>
         <div class="Area">
             <div class="info">Any Comments?</div>
             <input type="text" id="comments" class="comments" placeholder="please type your comments here...">
             <div class="info">Would you like to play a game to win a free dessert coupon?</div>
             <div class ="selection">
-                <a href="goodbye.html" class="button">No</a>
-                <a href="dessertGame.html" class="button">Yes</a>
+                <button id="goodbye" class="button">No</a>
+                <button id="dessert" class="button">Yes</a>
             </div>
         </div>
 	</body>

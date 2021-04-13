@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8"/>
-    <title>Menu</title>
+    <title>Matching</title>
     <link rel="stylesheet" href="matchingCSS.css">
 </head>
 <script src="matchingJS.js"></script>
@@ -10,8 +10,19 @@
 
 <body>
     <div class ="board">
+        <!-- title -->
         <div class="Title">Matching Cards</div>
-        <div class="new-game">New Game</div>
+        <!-- Buttons -->
+        <div class="selection">
+            <!-- Password to be inputted to go to other tabs -->
+            <input type ="text" class="password" id="password" placeholder="Input password here to leave">
+            <button class="home" id="home">Home</button>
+            <!-- button to go to other game -->
+            <a href="audioGame.html" class="home"> Other Game </a>
+            <!-- button to start new game -->
+            <button class="new-game">New Game</button>
+        </div>
+        <!-- Cards -->
         <ul class="area" id="board-area">
             <li class="card" type = "dragon">
                 <br>

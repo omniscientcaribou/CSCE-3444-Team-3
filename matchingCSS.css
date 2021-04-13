@@ -19,6 +19,7 @@ body{
     background: #945d72;
     margin: 50px;
     padding: 30px;
+    margin-top: 10px;
     border-radius: 30px;
 }
 
@@ -26,13 +27,6 @@ body{
     color: #fef6df;
     text-align: center;
     font-size: xx-large;
-}
-.new-game   {
-    font-size: x-large;
-    text-align: right;
-    color: #fef6df;
-    margin-left: 800px;
-    cursor: pointer;
 }
 
 .newGame:hover {
@@ -58,7 +52,7 @@ body{
     width: var(--div-width);
     cursor: pointer;
     font-size: 0;
-    display: flexs;
+    display: flex;
 }
 
 .card.select{
@@ -88,4 +82,47 @@ body{
 .card.stop{
     cursor: not-allowed;
     pointer-events: none;
+}
+.selection{
+    display: flex;
+    margin-top: 1%;
+}
+
+::placeholder{
+    color: #fef6dfb4;
+}
+.password{
+    background: #937b91;
+    border: none;
+    padding: 5px;
+    font-size: 130%;
+    width: 38%;
+    border-radius: 7px;
+    color: #fef6df;
+    margin-left: 3.5%;
+}
+
+.home{
+    background: #937b91;
+    border: solid;
+    border-color: #fef6df;
+    padding: 5px;
+    margin-left: 1%;
+    font-size: 130%;
+    border-radius: 7px;
+    color: #fef6df;
+    cursor: pointer;
+}
+
+.new-game{
+    background: #937b91;
+    border: solid;
+    border-color: #fef6df;
+    padding: 5px;
+    font-size: 130%;
+    border-radius: 7px;
+    margin-right: 3%;
+    margin-left: auto;
+    color: #fef6df;
+    cursor: pointer;
 }
