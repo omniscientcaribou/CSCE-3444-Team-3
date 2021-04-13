@@ -21,6 +21,11 @@ from . import views
 from django.views.generic import TemplateView
 from .views import *
 
+"""
+    Routers correspond to our view sets as seen in Views.Py, this will
+    simply show the boot strap UI on the actual API server for ease of 
+    viewing for our team.
+"""
 router = routers.DefaultRouter()
 router.register(r"item", views.ItemViewSet)
 router.register(r"employee", views.EmployeeViewSet)
@@ -31,7 +36,14 @@ router.register(r"order", views.OrderViewSet)
 router.register(r"ordercontent", views.OrderContentViewSet)
 router.register(r"pricecalculations", views.PriceCalculationsViewSet)
 router.register(r"mealtimes", views.MealTimeViewSet)
+router.register(r"customerfeedback", views.CustomerFeedBackViewSet)
 
+
+"""
+    urlpatterns is the actual routing of how different functions and end points that we create will be accessible.
+    You will see things like <str:pk> after a URL and what is really happening is that when you make a call to that 
+    end point with that pattern, the end point is going to use that information to do different tasks/work.
+"""
 
 urlpatterns = [
     path("admin/", admin.site.urls),

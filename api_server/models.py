@@ -4,6 +4,11 @@ from django.contrib.postgres.fields import ArrayField
 from django.http import HttpResponse
 
 
+""" 
+    Models is an abstraction of Django, you can think of these as a schema for a database table.
+    Each class is a table, and its members are the columns that comprise that table. 
+"""
+
 class Item(models.Model):
     name = models.TextField()
     description = models.TextField()
@@ -94,3 +99,5 @@ class MealTime(models.Model):
     start_hour = models.IntegerField()
     end_hour = models.IntegerField()
 
+class CustomerFeedBack(models.Model):
+    comment = models.TextField()
