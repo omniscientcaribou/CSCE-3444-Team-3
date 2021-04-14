@@ -75,6 +75,11 @@
     color: #fef6df;
 }
 
+.Id{
+    display: none;
+
+}
+
 ::placeholder{
     color: #fef6dfb4;
 }
