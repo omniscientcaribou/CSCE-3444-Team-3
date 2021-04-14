@@ -25,6 +25,26 @@ window.onload=function(){
             }
         })
 
+        comment = document.getElementById("comments");
+        var payload = { "comment": comment.value};
+        if(comment.value == ""){
+            payload = {"comment": "NA"}
+        }
+
+        fetch(commenturl, { 
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(payload),
+        })
+        .then(function(response){
+            return response.json()
+        })
+        .then(function(data){
+        }) 
+        console.log("here");
         //sets state to paid
         setTimeout(function(){
             console.log(indexes)
@@ -54,24 +74,7 @@ window.onload=function(){
                     window.location.replace("dessertGame.html")
                 })        
             }
-        },150)
-        comment = document.getElementById("comments");
-        var payload = { "comment": comment.value}
-        console.log(payload);
-
-        fetch(commenturl, { 
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(payload),
-        })
-        .then(function(response){
-            return response.json()
-        })
-        .then(function(data){
-        })        
+        },150)        
     }
     function bye(){
         //gets all ID's associated with table
@@ -99,6 +102,25 @@ window.onload=function(){
                     "state": "PAID",
                     "id": index.toString()
                 };
+                comment = document.getElementById("comments");
+                var payload = { "comment": comment.value};
+                if(comment.value == ""){
+                    payload = {"comment": "NA"}
+                }
+                fetch(commenturl, { 
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(payload),
+                })
+                .then(function(response){
+                    return response.json()
+                })
+                .then(function(data){
+                })
+
                 fetch(orderUrl.concat(index.toString()).concat("/"),{
                     method: 'PATCH',
                     headers: {
@@ -118,23 +140,7 @@ window.onload=function(){
                 })        
             }
         },150)
-        comment = document.getElementById("comments");
-        var payload = { "comment": comment.value}
-        console.log(payload);
-
-        fetch(commenturl, { 
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(payload),
-        })
-        .then(function(response){
-            return response.json()
-        })
-        .then(function(data){
-        })
+        
     }
     // adds events to determine which function to use
     // functions are identical except for the replace htmls
