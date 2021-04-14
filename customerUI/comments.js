@@ -1,3 +1,4 @@
+var commenturl = "https://swe3444.herokuapp.com/api/customerfeedback/"
 window.onload=function(){
     var tableNum = localStorage[1];
     const getIDs = 'https://swe3444.herokuapp.com/api/kitchen_view/'.concat((tableNum).toString())
@@ -23,6 +24,7 @@ window.onload=function(){
                 console.log(indexes)
             }
         })
+
         //sets state to paid
         setTimeout(function(){
             console.log(indexes)
@@ -52,7 +54,24 @@ window.onload=function(){
                     window.location.replace("dessertGame.html")
                 })        
             }
-        },150)        
+        },150)
+        comment = document.getElementById("comments");
+        var payload = { "comment": comment.value}
+        console.log(payload);
+
+        fetch(commenturl, { 
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(payload),
+        })
+        .then(function(response){
+            return response.json()
+        })
+        .then(function(data){
+        })        
     }
     function bye(){
         //gets all ID's associated with table
@@ -99,6 +118,23 @@ window.onload=function(){
                 })        
             }
         },150)
+        comment = document.getElementById("comments");
+        var payload = { "comment": comment.value}
+        console.log(payload);
+
+        fetch(commenturl, { 
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(payload),
+        })
+        .then(function(response){
+            return response.json()
+        })
+        .then(function(data){
+        })
     }
     // adds events to determine which function to use
     // functions are identical except for the replace htmls
