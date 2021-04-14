@@ -57,7 +57,7 @@ window.onload=function(e){
     //goes to the credit card page
     function goCard(){
         localStorage.setItem("times",1)
-        window.location.href="creditcard.html"
+        window.location.href="creditCard.html"
     }
     // links button to corresponding functions
     var cash= document.getElementById("cash")
