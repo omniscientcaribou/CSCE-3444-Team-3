@@ -12,10 +12,20 @@ and are accessible from anywhere on any device that has access to the internet.
 
 Github link
 API         = https://github.com/SCBishop/CSCE-3444-Team-3/tree/cory_final_api
+
+
 Customer    = https://github.com/SCBishop/CSCE-3444-Team-3/tree/cruz
+
+
 Kitchen     = https://github.com/SCBishop/CSCE-3444-Team-3/tree/Thomas-KitchenUI
+
+
 Manager     = https://github.com/SCBishop/CSCE-3444-Team-3/tree/garet/
+
+
 Waitstaff   = https://github.com/SCBishop/CSCE-3444-Team-3/tree/Hunters_branch
+
+
 
 Heroku link
 Log in      = https://csce-3444-login.herokuapp.com/loginUI
