@@ -45,7 +45,7 @@ Kitchen     = https://kitchenui3444.herokuapp.com/
 Manager     = https://csce3444-manager.herokuapp.com/
 
 
-Waitstaff   = https://waitstaffcsce3444.herokuapp.com"
+Waitstaff   = https://waitstaffcsce3444.herokuapp.com
 
 
 
