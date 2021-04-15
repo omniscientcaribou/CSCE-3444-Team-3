@@ -29,11 +29,23 @@ Waitstaff   = https://github.com/SCBishop/CSCE-3444-Team-3/tree/Hunters_branch
 
 Heroku link
 Log in      = https://csce-3444-login.herokuapp.com/loginUI
+
+
 API         = https://swe3444.herokuapp.com/api/
+
+
 Customer    = https://customerui3444.herokuapp.com/customerlandingpage
+
+
 Kitchen     = https://kitchenui3444.herokuapp.com/
+
+
 Manager     = https://csce3444-manager.herokuapp.com/
+
+
 Waitstaff   = https://waitstaffcsce3444.herokuapp.com"
+
+
 
 Please, note, that our repository does have a lot of branches. In practice, we would have
 squashed and merged these branches into main. But in the interest of preserving history
