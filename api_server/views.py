@@ -255,10 +255,12 @@ def log_in(request, user_name, password):
     credentials = requests.get("https://swe3444.herokuapp.com/api/credential/").json()
 
     url_redirection = {
-        "Customer": "https://customerui3444.herokuapp.com/customerui",
-        "Kitchen": "https://swe3444.herokuapp.com/api/",
+        "Customer": "https://customerui3444.herokuapp.com/customerlandingpage",
+        "Kitchen": "https://kitchenui3444.herokuapp.com/",
         "Wait Staff": "https://waitstaffcsce3444.herokuapp.com",
-        "Manager": "https://theoldreader.com/kittens/",
+        "Manager": "https://csce3444-manager.herokuapp.com/",
+        "Virtual Host" : "https://virtualhost3444.herokuapp.com/VirtualHost",
+        "Log in" : "https://csce-3444-login.herokuapp.com/loginUI",
     }
 
     for employee in employees:

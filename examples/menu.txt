@@ -181,7 +181,7 @@ BLANK
 Onion Rings
 Onion rings that have been battered and fried
 Appetizers
-1004
+.994
 54g
 14g
 115
@@ -426,5 +426,5 @@ Secret Menu
 0
 0
 0
--1.00
+-1.99
 BLANK
