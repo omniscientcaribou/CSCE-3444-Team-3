@@ -10,7 +10,7 @@ At a high level our front end interfaces utilize both React as well as standard 
 Our database/API uses Django (Python). All of our web services are hosted on the Heroku platform
 and are accessible from anywhere on any device that has access to the internet.
 
-Please use the following Test Cases when grading our project: https://docs.google.com/spreadsheets/d/1Nk-5owrSoLhzDF357b840uTbTVE53eLNmh2kcC_uaoE/edit#gid=1879101890
+Please use the following renegotiated (with Sarah) Test Cases when grading our project: https://docs.google.com/spreadsheets/d/1Nk-5owrSoLhzDF357b840uTbTVE53eLNmh2kcC_uaoE/edit#gid=1879101890 as a team we went through each test case and tested each test case. At the bottom of the document here, we included a number of test cases passed, failed, and percentage that passed.  
 
 Github link
 
