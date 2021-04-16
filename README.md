@@ -17,8 +17,10 @@ Technologies used include:
 | React-Spring   	| https://www.react-spring.io/                                     	| Animation                	|
 | React-Toastify 	| https://fkhadra.github.io/react-toastify/introduction/           	| Toast Notifications      	|
 | timeago-react  	| https://git.hust.cc/timeago-react/                               	| …'long ago' timestamp    	|
-<br>
+
 *** App initially created with create-react-app - https://reactjs.org/docs/create-a-new-react-app.html
+
+---
 
 Popup modal can be closed by: Clicking the X, clicking anywhere outside of the window, or hitting ESC on your keyboard.
 Cards are built dynamically from a template generator. We use the BootStrap Card structure to contain those cards. The cards are then placed into the SplideJS Carousel to allow for them to be scrolled through. This can be accomplished by clicking a dragging with your mouse, using your keyboard's arrow keys, or clicking the pagination icons below the carousel (little rectangles). 
