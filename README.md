@@ -6,7 +6,7 @@ Technologies used include:
 | Library        	| URL                                                              	| USED FOR                 	|
 |----------------	|------------------------------------------------------------------	|--------------------------	|
 | React          	| https://reactjs.org/                                             	| Framework                	|
-| BootStrap      	| https://react-bootstrap.github.io/                               	| Buttons (not all), Card  	|
+| React BootStrap	| https://react-bootstrap.github.io/                               	| Buttons (not all), Card  	|
 | SplideJS       	| https://splidejs.com/                                            	| Carousel                 	|
 | DayJS          	| https://day.js.org/                                              	| UTC Timestamp Conversion 	|
 | React-DOM      	| https://github.com/facebook/react/tree/master/packages/react-dom 	| Create a Portal          	|
