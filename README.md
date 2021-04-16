@@ -8,7 +8,7 @@ Technologies used include:
 | React          	| https://reactjs.org/                                             	| Framework                	|
 | BootStrap      	| https://react-bootstrap.github.io/                               	| Buttons (not all), Card  	|
 | SplideJS       	| https://splidejs.com/                                            	| Carousel                 	|
-| Dayjs          	| https://day.js.org/                                              	| UTC Timestamp Conversion 	|
+| DayJS          	| https://day.js.org/                                              	| UTC Timestamp Conversion 	|
 | React-DOM      	| https://github.com/facebook/react/tree/master/packages/react-dom 	| Create a Portal          	|
 | React Icons    	| https://react-icons.github.io/react-icons/                       	| Collection of Icons      	|
 | Font Awesome   	| https://fontawesome.com/                                         	| FA Icon Set              	|
