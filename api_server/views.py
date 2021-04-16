@@ -258,7 +258,7 @@ def log_in(request, user_name, password):
         "Customer": "https://customerui3444.herokuapp.com/customerlandingpage",
         "Kitchen": "https://kitchenui3444.herokuapp.com/",
         "Wait Staff": "https://waitstaffcsce3444.herokuapp.com",
-        "Manager": "https://csce3444-manager.herokuapp.com/",
+        "Manager": "https://csce3444-manager.herokuapp.com/managerUI",
         "Virtual Host" : "https://virtualhost3444.herokuapp.com/VirtualHost",
         "Log in" : "https://csce-3444-login.herokuapp.com/loginUI",
     }
