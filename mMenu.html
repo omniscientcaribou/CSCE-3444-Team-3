@@ -2,11 +2,332 @@
 
 <html>
 <head>
-
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <!-- <script src="https://code.jquery.com/jquery-3.5.0.js"></script> -->
+  <link rel="stylesheet" type="text/css" href="mMenu.css">
 </head>
 
-<body>
-  <h1>mMenu</h1>
+<body onload="getTable()">
+  <div class="menu" style="display: block;"></div>
+<script>
+  const menuDiv = document.querySelector("div.menu");
+  let tableHeaders = ["Item Name", "Menu Section"];
+
+  const createMenuTable = () => {
+    let menuTable = document.createElement('table');
+    menuTable.className = 'menuTable';
+    let menuTableHead = document.createElement('thead');
+    menuTableHead.className = 'menuTableHead';
+    let menuTableHeaderRow = document.createElement('tr');
+    menuTableHeaderRow.className = 'menuTableHeaderRow';
+
+    /* Will iterate over all the strings in the tableHeader array and will
+     append the header cells to the table header row */
+    tableHeaders.forEach(
+      header => {
+        let menuHeader = document.createElement('th');
+        menuHeader.innerText = header;
+        menuTableHeaderRow.append(menuHeader);
+      }
+    )
+
+    menuTableHead.append(menuTableHeaderRow);
+    menuTable.append(menuTableHead);
+
+    let menuTableBody = document.createElement('tbody');
+    menuTableBody.className = 'menuTableBody';
+    menuTable.append(menuTableBody);
+    menuDiv.append(menuTable);
+  }
+
+function rowPopOut(item) {
+  console.log('item: ', item);
+  modalDisplay(item);
+}
+
+  /* the function below will accept a single menu item and its index to
+  create the menu */
+  const appendMenu = (item) => {
+    const menuTable = document.querySelector('.menuTable'); // Find the table we created
+    let menuTableBodyRow = document.createElement('tr'); // Create the current table row
+    menuTableBodyRow.className = 'menuTableBodyRow';
+    menuTableBodyRow.onclick = function(){rowPopOut(item)};
+    // create the column cells that will be appended to the current table row
+    let name = document.createElement('td');
+    name.innerText = item.name;
+    let group = document.createElement('td');
+    group.innerText = item.group;
+    // Append 2 cells to the table row
+    menuTableBodyRow.append(name, group);
+    // Append the current row to menuTableBody
+    menuTable.append(menuTableBodyRow);
+  }
+
+  function getTable() {
+    fetch("https://swe3444.herokuapp.com/api/item/", {
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json' }
+    })
+    .then(response => {
+      return response.json();
+    })
+    .then(data => {
+      createMenuTable();
+      console.log(data);
+      // tableData = data;
+      // iterates through all objects in menu array and adds to table body
+      for (let item of data) {
+        appendMenu(item);
+      }
+
+    })
+  }
+</script>
+
+<!-- The Modal -->
+<div id="myModalFilled" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>* to edit: change any inputs you wish and click 'edit' button*</p>
+    <form id="menu_item" onsubmit="return false">
+      <label for="id">id: </label>
+      <input type="text" name="id" id="id" pattern="[0-9]+"
+      autocomplete="off" disabled><br><br>
+
+      <label for="name">name:</label>
+      <input type="text" name="name" id="name" pattern="[A-Z]+"
+      autocomplete="off"><br><br>
+
+      <label for="description">description:</label>
+      <input type="text" name="description" id="description" pattern="[a-zA-Z0-9]+"
+      autocomplete="off"><br><br>
+
+      <label for="group">group:</label>
+      <input type="text" name="group" id="group" pattern="[A-Z]+"
+      autocomplete="off"><br><br>
+
+      <label for="calories">calories:</label>
+      <input type="text" name="calories" id="calories" pattern="[0-9]+"
+      autocomplete="off"><br><br>
+
+      <label for="fat">fat:</label>
+      <input type="text" name="fat" id="fat" pattern="[A-Z0-9.]+"
+      autocomplete="off"><br><br>
+
+      <label for="protein">protein:</label>
+      <input type="text" name="protein" id="protein" pattern="[A-Z0-9.]+"
+      autocomplete="off"><br><br>
+
+      <label for="carbs">carbs:</label>
+      <input type="text" name="carbs" id="carbs" pattern="[A-Z0-9.]+"
+      autocomplete="off"><br><br>
+
+      <label for="allergies">allergies:</label>
+      <input type="text" name="allergies" id="allergies" pattern="[A-Z]+"
+      autocomplete="off"><br><br>
+
+      <label for="price">price:</label>
+      <input type="text" name="price" id="price" pattern="[0-9.]+"
+      autocomplete="off"><br><br>
+
+      <label for="url">image url:</label>
+      <input type="text" name="url" id="url" autocomplete="off"><br><br>
+      <br><br>
+
+      <button id="edit_button" type="submit">submit edit</button>
+      <button id="delete_button" type="submit">delete item</button>
+    </form>
+  </div>
+
+</div>
+
+<div class="add_item">
+  <button class="main_add_button" onclick="modalDisplayEmpty()">ADD ITEM</button>
+
+  <div class="modal" id="myModalBlank">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <!-- <p>* to edit: change any inputs you wish and click 'edit' button*</p> -->
+      <form id="menu_item2" onsubmit="return false">
+
+        <label for="name">name:</label>
+        <input type="text" name="name" id="name" pattern="[A-Z]+"
+        autocomplete="off"><br><br>
+
+        <label for="description">description:</label>
+        <input type="text" name="description" id="description" pattern="[a-zA-Z0-9]+"
+        autocomplete="off"><br><br>
+
+        <label for="group">group:</label>
+        <input type="text" name="group" id="group" pattern="[A-Z']{5,10}"
+        autocomplete="off"><br><br>
+
+        <label for="calories">calories:</label>
+        <input type="text" name="calories" id="calories" pattern="[0-9]+"
+        autocomplete="off"><br><br>
+
+        <label for="fat">fat:</label>
+        <input type="text" name="fat" id="fat" pattern="[A-Z0-9.]+"
+        autocomplete="off"><br><br>
+
+        <label for="protein">protein:</label>
+        <input type="text" name="protein" id="protein" pattern="[A-Z0-9.]+"
+        autocomplete="off"><br><br>
+
+        <label for="carbs">carbs:</label>
+        <input type="text" name="carbs" id="carbs" pattern="[A-Z0-9.]+"
+        autocomplete="off"><br><br>
+
+        <label for="allergies">allergies:</label>
+        <input type="text" name="allergies" id="allergies" pattern="[A-Z]+"
+        autocomplete="off"><br><br>
+
+        <label for="price">price:</label>
+        <input type="text" name="price" id="price" pattern="[0-9.]+"
+        autocomplete="off"><br><br>
+
+        <label for="url">image url:</label>
+        <input type="text" name="url" id="url" autocomplete="off"><br><br>
+        <br><br>
+
+        <input id="add_button" type="submit" name="add item" onclick="addMenuItem()">
+      </form>
+    </div>
+
+    <script>
+      // $('menu_item2').submit(function (evt) {
+      //   evt.preventDefault(); //prevents the default action
+      //   addMenuItem();
+      // });
+
+      function modalDisplay(item) {
+        // Get the modal
+        var modal = document.getElementById("myModalFilled");
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+        modal.style.display = "block";
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+          modal.style.display = "none";
+        }
+
+        // fill in the form with passed item data
+        var form = document.getElementById('menu_item');
+        form.id.value = item.id;
+        form.name.value = item.name;
+        form.description.value = item.description;
+        form.group.value = item.group;
+        form.calories.value = item.calories;
+        form.fat.value = item.fat;
+        form.protein.value = item.protein;
+        form.carbs.value = item.carbs;
+        form.allergies.value = item.allergies;
+        form.price.value = item.price;
+        form.url.value = item.url;
+
+        // edit the clicked on item with the values in the form
+        var edit = document.getElementById('edit_button');
+        edit.onclick = function() {
+          var itemName = form.name.value;
+          var id = item.id;
+          fetch(`https://swe3444.herokuapp.com/api/item/${id}/`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(
+              {
+                id: item.id,
+                name: document.getElementById('menu_item').name.value,
+                description: document.getElementById('menu_item').description.value,
+                group: document.getElementById('menu_item').group.value,
+                calories: document.getElementById('menu_item').calories.value,
+                fat: document.getElementById('menu_item').fat.value,
+                protein: document.getElementById('menu_item').protein.value,
+                carbs: document.getElementById('menu_item').carbs.value,
+                allergies: document.getElementById('menu_item').allergies.value,
+                price: document.getElementById('menu_item').price.value,
+                url: document.getElementById('menu_item').url.value
+              }
+            )
+          })
+          .then(item => {
+            alert(`${itemName} has been updated`);
+            modal.style.display = "none";
+            location.reload();
+          })
+            // window.location.reload();
+        }
+
+        var del = document.getElementById('delete_button');
+        del.onclick = function() {
+          var itemName = form.name.value;
+          var id = item.id;
+          fetch(`https://swe3444.herokuapp.com/api/item/${id}/`, {
+            method: 'DELETE'
+            // headers: { 'Content-Type': 'application/json' }
+          })
+          .then(item =>{
+            alert(`${itemName} has been removed from the menu`);
+            modal.style.display = "none";
+            location.reload();
+          })
+        }
+      }
+
+      window.modalDisplayEmpty = function() {
+        // Get the modal
+        var modal = document.getElementById("myModalBlank");
+        // Get the <span> element that closes the modal
+        var span2 = document.getElementsByClassName("close")[1];
+        modal.style.display = "block";
+        // When the user clicks on <span> (x), close the modal
+        span2.onclick = function() {
+          modal.style.display = "none";
+        }
+
+        // edit the clicked on item with the values in the form
+        window.addMenuItem = function() {
+          var doc = document.forms[1];
+          console.log('doc', document.forms);
+          console.log('doc.price(number)', typeof Number(doc.price.value));
+          var data3 = {
+            name: doc.name.value,
+            description: doc.description.value,
+            group: doc.group.value,
+            calories: doc.calories.value,
+            fat: doc.fat.value,
+            protein: doc.protein.value,
+            carbs: doc.carbs.value,
+            allergies: doc.allergies.value,
+            price: parseFloat(doc.price.value),
+            url: doc.url.value
+          };
+          console.log('data3', data3);
+          fetch(`https://swe3444.herokuapp.com/api/item/`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(
+              data3
+            )
+          })
+          .then(item => {
+            console.log(item);
+            alert(`${data3.name} has been added`);
+            modal.style.display = "none";
+            location.reload();
+          })
+          .catch(error => {
+            console.error('Error:', error);
+          })
+        }
+      }
+    </script>
+  </div>
+
+</div>
 </body>
+
 
 </html>

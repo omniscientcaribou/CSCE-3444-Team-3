@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <link rel="stylesheet" href="mDiscount.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+<div class="main">
+  <!-- <h1>mOrders</h1> -->
+  <label for="num">Table Number:</label>
+  <input type="number" name="num" id="num" min="1" max="16" pattern=""
+  autocomplete="off"><br><br>
+  <!-- <label for="order">Order Number:</label>
+  <input type="number" name="order" id="order" min="1" pattern="[0-9]+"
+  autocomplete="off" disabled><br><br> -->
+  <select id="choice">
+    <option disabled selected value> -- select an option -- </option>
+    <option>amount</option>
+    <option>coupon</option>
+  </select><br><br>
+  <label for="discount">Discount:</label>
+  <input type="text" name="discount" id="discount"
+  autocomplete="off" disabled><br><br>
+  <button class="enter" onclick="applyDiscount()">ADD DISCOUNT</button>
+  <br><br><br><br>
+
+  <p>* if you are applying an <strong>amount</strong>, enter a negative value</p>
+  <p>* if you are applying a <strong>coupon</strong>, enter the six letter code</p>
+  <p>* coupon code reference:</p>
+  <p class="tab">drink discount: DDDDDD</p>
+  <p class="tab">appetizer discount: AAAAAA</p>
+  <p class="tab">entree discount: EEEEEE</p>
+  <p class="tab">dessert discount: SSSSSS</p>
+  <p class="tab">kids item discount: KKKKKK</p>
+  <p class="tab">*any other code is $1 off</p>
+
+  <script>
+  $('select').change(function(){
+      let i = $('option:selected',this).index();
+      if(i === 1) {
+        // console.log($('option:selected',this).index());
+        document.getElementById('discount').style.pattern = "(-)[0-9.]{1,5}";
+        document.getElementById('discount').disabled = false;
+
+      } else {
+        // console.log($('option:selected',this).index());
+        document.getElementById('discount').style.pattern = "[A-Z]{6}";
+        document.getElementById('discount').disabled = false;
+
+      }
+      // console.log($('option:selected',this).index());
+    });
+
+    let des = document.getElementById('choice').value + " discount";
+    // let tNum = Number(document.getElementById('num').value);
+    // let orderId = 43;
+
+    function assignAmount() {
+      let entry = document.getElementById('discount').value;
+
+      if(document.getElementById('choice').value === 'amount') {
+        return entry;
+      }
+      else {
+        if(entry === 'EEEEEE') {
+          return -11.99;
+        } else if (entry === 'DDDDDD') {
+          return -1.99;
+        } else if (entry === 'AAAAAA') {
+          return -8.99;
+        } else if (entry === 'SSSSSS') {
+          return -6.99;
+        } else if (entry === 'KKKKKK') {
+          return -2.99;
+        } else {
+          return -1;
+        }
+      }
+
+    }
+
+    function applyDiscount() {
+      // let des = document.getElementById('choice').value + " discount";
+      let tNum = Number(document.getElementById('num').value);
+      // let order = document.getElementById('order').value;
+      let amount = assignAmount();
+      let id = 43;
+      console.log(amount);
+      fetch(`https://swe3444.herokuapp.com/api/item/${id}/`, {
+        method: 'PUT',
+        headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+        body: JSON.stringify(
+          {
+            id: id,
+            name: "MANAGER DISCOUNT",
+            description: des,
+            group: "SECRET MENU",
+            calories: "0",
+            fat: "0",
+            protein: "0",
+            carbs: "0",
+            allergies: "0",
+            price: parseFloat(amount),
+            url: "BLANK"
+          }
+        )
+      })
+      .then(response => {
+        return response.json();
+      })
+      .then(data => {
+        fetch(`https://swe3444.herokuapp.com/api/order/`, {
+          method: 'POST',
+          headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+          body: JSON.stringify(
+            {
+              table_number: tNum,
+              state: "DELIVERED"
+            }
+          )
+        })
+        .then(response2 => {
+          return response2.json();
+        })
+        .then(data2 => {
+          console.log(data2);
+          // var DATA = {
+          //   table_number: Number(data2.table_number),
+          //   placed_at: data2.placed_at,
+          //   state: "DELIVERED",
+          //   quantity: 1,
+          //   allergy_flag: false,
+          //   // allergy_comment: "",
+          //   comment: "discount",
+          //   order: Number(data2.id),
+          //   item: 43
+          // };
+          // console.log(DATA.order);
+          fetch(`https://swe3444.herokuapp.com/api/ordercontent/`, {
+            method: 'POST',
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(
+              {
+                table_number: Number(data2.table_number),
+                placed_at: data2.placed_at,
+                state: "DELIVERED",
+                quantity: 1,
+                allergy_flag: false,
+                // allergy_comment: "",
+                comment: "discount",
+                order: Number(data2.id),
+                item: 43
+              })
+            })
+            .then(response3 => { console.log(response3.json());})
+            .catch(error => {console.log(error);})
+          })
+      .then(item => {
+        alert('discount has been applied to table ', tNum);
+        location.reload();
+      })
+    })
+  }
+  </script>
+</div>
+</body>
+
+</html>

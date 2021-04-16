@@ -71,6 +71,8 @@
         }
         else if (data === 'Invalid credentials') {
           alert('Invalid Username and/or Password');
+          document.getElementById("username").value = "";
+          document.getElementById("user-pw").value = "";
         }
         else {
           var json = JSON.parse(data);

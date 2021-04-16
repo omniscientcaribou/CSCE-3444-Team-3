@@ -3,13 +3,93 @@
 <html>
   <head>
     <title>Software Cafe: Manager</title>
-
     <link rel="stylesheet" type="text/css" href="managerUI.css">
-
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.js">
-    </script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.js"></script>
     <script type="text/javascript">
       function go(loc) { document.getElementById('op').src = loc; }
+
+      var filteredData = [];
+      var notificationButton;
+      var notFlag = false;
+
+      window.onload = function () {
+        notificationButton = document.getElementById('notification');
+        notificationButton.style.display = 'none';
+        setInterval(function(){
+          console.log("Ninterval");
+        url = `https://swe3444.herokuapp.com/api/task/`;
+        fetch(url, {
+          method: 'GET',
+          headers: { 'Accept': 'application/json',
+          'Content-Type': 'application/json'
+          }
+        })
+        .then(response => {return response.json(); })
+        .then(data=> {
+            filteredData = data.filter(item => item.call_manager === true);
+            // modalPop(filteredData);
+            if(filteredData.length > 0){notificationButton.style.display = 'block';}
+            if(notFlag){ modalPop(); }
+        })
+      }, 5000);
+      }
+
+      function modalPop() {
+        let div = document.getElementById("taskParent");
+        div.innerText = "";
+        filteredData.forEach((task, i) => {
+            let role = document.createElement("span");
+            let table = document.createElement("span");
+            let bRole = document.createElement("b");
+            bRole.innerText = "Role: ";
+            let bTable = document.createElement("b");
+            bTable.innerText = "Table Number: ";
+
+            role.append(bRole, task.role);
+            table.append(bTable, task.table_number);
+
+            div.appendChild(role);
+            div.appendChild(document.createElement("br"));
+            div.appendChild(table);
+
+            if (i < filteredData.length) {
+                div.appendChild(document.createElement("br"));
+                div.appendChild(document.createElement("br"));
+            }
+          });
+          if(filteredData.length > 0) {
+            modalDisplay();
+          }
+      }
+
+      function modalDisplay() {
+        notFlag = true;
+        // Get the modal
+        var modal = document.getElementById("myModal");
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+        modal.style.display = "block";
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+          notFlag = false;
+          filteredData.forEach(task => {
+            fetch(`https://swe3444.herokuapp.com/api/task/${task.id}/`, {
+              method: 'DELETE'
+            })
+            .then(data => {
+              modal.style.display = "none";
+              notificationButton.style.display = 'none';
+            })
+            .catch(error => {
+              console.log('error: ', error);
+              modal.style.display = "none";
+            })
+          })
+        }
+      }
+
+      // var n = document.getElementById('notification');
+      // n.onclick
     </script>
   </head>
 
@@ -23,9 +103,13 @@
         <h4>Software Cafe</h4>
       </div>
 
+      <div class="notification">
+        <button id="notification" onclick="modalPop()">!</button>
+      </div>
+
       <div class="container">
-        <div class="box"><a href="#" tabindex="1" onclick="go('mOrders.html')">
-          Orders</a></div>
+        <div class="box"><a href="#" tabindex="1" onclick="go('mDiscount.html')">
+          Discount</a></div>
 
         <div class="box"><a href="#" tabindex="2" onclick="go('mMenu.html')">
           Menu</a></div>
@@ -39,8 +123,20 @@
     </header>
 
     <div class="display">
-      <div style="padding-bottom: 40%;"></div>
-      <iframe id="op" src="about:blank" height="100%" width="100%" scrolling="no" allowfullscreen></iframe>
+      <iframe id="op" src="about:blank" scrolling="yes" allowfullscreen></iframe>
+    </div>
+
+    <div class="modal" id="myModal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h3>MANAGER CALLED:</h3>
+        <div id="taskParent">
+          <!-- <span><b>Role: </b></span>
+          <span id="role"></span> <br>
+          <span><b>Table Number: </b></span>
+          <span id="table"></span> -->
+        </div>
+      </div>
     </div>
   </body>
 </html>
