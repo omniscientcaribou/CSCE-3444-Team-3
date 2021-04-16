@@ -18,6 +18,8 @@ Technologies used include:
 | React-Toastify 	| https://fkhadra.github.io/react-toastify/introduction/           	| Toast Notifications      	|
 | timeago-react  	| https://git.hust.cc/timeago-react/                               	| …'long ago' timestamp    	|
 
+---
+
 *** App initially created with create-react-app - https://reactjs.org/docs/create-a-new-react-app.html
 
 ---
