@@ -2,13 +2,10 @@ window.onload = function getTable() {
   const url = "https://swe3444.herokuapp.com/api/mealtimes/";
   fetch(url)
   .then(response => {
-    // console.log(response);
     return response.text();
   })
   .then(data => {
-    // console.log(data);
     var json = JSON.parse(data);
-    // console.log(json[0].start_hour + ":00");
     document.getElementById('time1').selectedIndex = json[0].start_hour - 7;
     document.getElementById('time2').selectedIndex = json[0].end_hour - 7;
     document.getElementById('time3').selectedIndex = json[1].start_hour - 7;
@@ -21,7 +18,6 @@ window.onload = function getTable() {
 }
 
 async function submit() {
-  // console.log(document.getElementById('time6').selectedIndex + 7);
   fetch("https://swe3444.herokuapp.com/api/mealtimes/1/", {
     method: 'PATCH',
     headers: { 'Content-Type': 'application/json' },

@@ -16,7 +16,6 @@
         notificationButton = document.getElementById('notification');
         notificationButton.style.display = 'none';
         setInterval(function(){
-          console.log("Ninterval");
         url = `https://swe3444.herokuapp.com/api/task/`;
         fetch(url, {
           method: 'GET',

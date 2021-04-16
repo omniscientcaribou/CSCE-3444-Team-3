@@ -12,9 +12,6 @@
   <label for="num">Table Number:</label>
   <input type="number" name="num" id="num" min="1" max="16" pattern=""
   autocomplete="off"><br><br>
-  <!-- <label for="order">Order Number:</label>
-  <input type="number" name="order" id="order" min="1" pattern="[0-9]+"
-  autocomplete="off" disabled><br><br> -->
   <select id="choice">
     <option disabled selected value> -- select an option -- </option>
     <option>amount</option>
@@ -40,22 +37,16 @@
   $('select').change(function(){
       let i = $('option:selected',this).index();
       if(i === 1) {
-        // console.log($('option:selected',this).index());
         document.getElementById('discount').style.pattern = "(-)[0-9.]{1,5}";
         document.getElementById('discount').disabled = false;
 
       } else {
-        // console.log($('option:selected',this).index());
         document.getElementById('discount').style.pattern = "[A-Z]{6}";
         document.getElementById('discount').disabled = false;
-
       }
-      // console.log($('option:selected',this).index());
     });
 
     let des = document.getElementById('choice').value + " discount";
-    // let tNum = Number(document.getElementById('num').value);
-    // let orderId = 43;
 
     function assignAmount() {
       let entry = document.getElementById('discount').value;
@@ -87,7 +78,6 @@
       // let order = document.getElementById('order').value;
       let amount = assignAmount();
       let id = 43;
-      console.log(amount);
       fetch(`https://swe3444.herokuapp.com/api/item/${id}/`, {
         method: 'PUT',
         headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
@@ -125,19 +115,6 @@
           return response2.json();
         })
         .then(data2 => {
-          console.log(data2);
-          // var DATA = {
-          //   table_number: Number(data2.table_number),
-          //   placed_at: data2.placed_at,
-          //   state: "DELIVERED",
-          //   quantity: 1,
-          //   allergy_flag: false,
-          //   // allergy_comment: "",
-          //   comment: "discount",
-          //   order: Number(data2.id),
-          //   item: 43
-          // };
-          // console.log(DATA.order);
           fetch(`https://swe3444.herokuapp.com/api/ordercontent/`, {
             method: 'POST',
             headers: {
@@ -157,7 +134,7 @@
                 item: 43
               })
             })
-            .then(response3 => { console.log(response3.json());})
+            .then(response3 => { response3.json(); })
             .catch(error => {console.log(error);})
           })
       .then(item => {

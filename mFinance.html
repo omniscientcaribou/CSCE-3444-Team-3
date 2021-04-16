@@ -4,12 +4,34 @@
 <head>
   <sript src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+  <style>
+  .fin {
+    padding: 0;
+    margin: auto;
+    border: 1px solid black;
+    border-collapse: collapse;
+    width: 80%;
+    text-align: center;
+    color: black;
+  }
+
+  .countTableHead {
+    color: black;
+    background-color: #449398;
+    font-weight: bold;
+    height: 50px;
+  }
+
+  .countTableBodyRow:nth-child(even){ background-color: #A0A0A0; }
+
+  .countTableBodyRow:hover{ background-color: darkorange; }
+
+  .countTable tr td { height: 25px; }
+  </style>
 </head>
 
 <body>
-  <h1>mFinance2</h1>
-  <button id="gross" onclick="sum()">TOTAL GROSS SALES</button><br><br>
-  <div class="menu" style="display: block;">
+  <div class="fin" style="display: block;">
     <table>
       <thead id="countTableHead">
         <tr>
@@ -23,7 +45,9 @@
       <tbody id="countTableBody">
       </tbody>
     </table>
-  </div>
+  </div><br><br><br>
+
+  <button id="gross" onclick="sum()">TOTAL GROSS SALES</button>
 
   <script>
     let total = 0;
@@ -37,12 +61,9 @@
         headers: { 'Content-Type': 'application/json' }
       })
       .then(response => {
-        // console.log(response);
         return response.json();
       })
       .then(data => {
-        console.log(data);
-
         const url2 = "https://swe3444.herokuapp.com/api/item/";
         fetch(url2, {
           method: 'GET',
@@ -52,14 +73,9 @@
           return response2.json();
         })
         .then(data2 => {
-          // console.log('item id: ',data2.id,'item name: ', data2.name, 'item price: ', data2.price);
-          // prices.push(data2.price);
-          // quantities.push(data2.quantity);
-          console.log(data2);
             data.forEach(content => {
                 if (content.state === "PAID") {
                     var menuItem = data2.find(element => element.id === content.item);
-                    // console.log(menuItem);
                     total += Number(menuItem.price) * Number(content.quantity);
                 }
             });
@@ -74,23 +90,13 @@
         if(m.state === 'PAID'){
           return itemList.find(element => element.id === m.item).id;
         }
-        // else {
-        //   return ;
-        // }
       }))].filter(f => f!== undefined);
 
-      // filtered.sort();
-      console.log(filtered);
       filtered.forEach((content) => {
-
-            // var menuItem = itemList.find(element => element.id === content.item);
             let countTableRow = document.createElement('tr');
             let name = document.createElement('td');
-            // name.id = i + ".0";
-            // console.log(itemList.find(element => element.id === content));
             name.innerText = itemList.find(element => element.id === content).name;
             let price = document.createElement('td');
-            // price.id = i + ".1";
             price.innerText = itemList.find(element => element.id === content).price;
             let count = document.createElement('td');
             let filteredContent = contentList.filter(f => {
@@ -99,26 +105,13 @@
               } else {
                 return;
               }}).map(m => m.quantity);
-            // count.innerText = contentList.filter(f => {
-            //   if(f.state === 'PAID' && f.item === content) {
-            //     return f.quantity;
-            //   } else {
-            //     return;
-            //   }
-            console.log(filteredContent);
+
             count.innerText = filteredContent.reduce((a,b) => Number(a) + Number(b));
-            // count.id = i + ".2";
             let total = document.createElement('td');
             total.innerText = Number(price.innerText) * Number(count.innerText);
-            // total.id = i + ".3";
-            // countTableRow.id = i;
-            // Append the current row to countTableBody
             countTableRow.append(name, price, count, total);
             tableBody.append(countTableRow);
-
         });
-
-
     }
 }
 
