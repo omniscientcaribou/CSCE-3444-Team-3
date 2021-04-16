@@ -1,13 +1,14 @@
 url = "https://swe3444.herokuapp.com/api/table/"
 var tableList = new Array();
 
-
+//calls the database to get information on tables
 const apiCall = () => fetch(url).then(res => {
   if (res.ok) {
     return res.json()
   }
   throw new Error(res)
 })
+//builds an array of tables from api call
 async function getData(){
     let results = await apiCall()
     for(property in results) {
@@ -15,11 +16,13 @@ async function getData(){
     }  
 }
 
+//this loop is where all the functions are called
 async function theLoop(){
     await getData();
     changeColor()        
 }
 
+//changes the color of table elements in ui based on their state from the back end
 function changeColor(){
     console.log("change color");
     console.log(tableList);
@@ -44,6 +47,8 @@ function changeColor(){
     }
 }
 
+//this is called onload, this runs our code that pings the database
+//and changes the colors every 20 seconds
 function runCode(){
     setInterval(theLoop, 20000);
 }
