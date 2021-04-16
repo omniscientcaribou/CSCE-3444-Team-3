@@ -17,28 +17,37 @@ Technologies used include:
 | React-Spring   	| https://www.react-spring.io/                                     	| Animation                	|
 | React-Toastify 	| https://fkhadra.github.io/react-toastify/introduction/           	| Toast Notifications      	|
 | timeago-react  	| https://git.hust.cc/timeago-react/                               	| …'long ago' timestamp    	|
-<br />
+<br>
 *** App initially created with create-react-app - https://reactjs.org/docs/create-a-new-react-app.html
 
 Popup modal can be closed by: Clicking the X, clicking anywhere outside of the window, or hitting ESC on your keyboard.
 Cards are built dynamically from a template generator. We use the BootStrap Card structure to contain those cards. The cards are then placed into the SplideJS Carousel to allow for them to be scrolled through. This can be accomplished by clicking a dragging with your mouse, using your keyboard's arrow keys, or clicking the pagination icons below the carousel (little rectangles). 
-<br />
+
+
 Buttons were a combination of a custom component and BootStrap. On our Popup Modal and Card, we use Bootstrap buttons, but the 'Call Waitstaff' and 'Request Manager' buttons use our custom component. I could have easily used BootStrap for all buttons but wanted to attempt doing it custom as well. 
-<br />
+
+
 React Query makes data fetching in the background a breeze. It has a bit of a learning curve, but once figured out it can handle background refreshing of data better than just setting setInterval to a function. If you do not need consistent background refreshing it has a smart way of doing it by default, but in our case, we need to be constantly refreshing as we are not always clicking on components to initiate a refresh using the standard method provided by React Query.
-<br />
+
+
 DayJS makes converting the UTC timestamp a breeze. It is a very small library (2kb) and easy to use.
-<br />
+
+
 React-DOM allows us to create a portal attached to Root which means our Popup Modal can always be displayed on-top of everything. I was using Z-Index within CSS before, but it had some issues once I applied the carousel. This fixed it.
-<br />
+
+
 React Icons is a package that gathers a bunch of icon sets from around the web. I was initially using them exclusively for everything, but later switched to Emoji’s from getemoji.com because they aligned better and were more colorful. The last remaining icon is an 'X' used on the popup modals which is drawn from Font Awesome.
-<br />
+
+
 Timeago-React handles the footer text denoting how long ago an order was placed. Was using a different package earlier in the package but it was buggy, and I switched to this one which has been working nicely.
-<br />
+
+
 React-Toastify handles the toast notifications - this was an easy-to-use package and made notifications a breeze. 
-<br />
+
+
 React Spring handles animating the popup modal, added later in the project. Not sure I like it, the effect is very subtle, but that may just be because I do not know how to use it very well yet.
-<br />
+
+
 SplideJS is the carousel component that the cards are generated into. This use case diverges from the normal use case for a carousel, but it works in the end.
 
 ----
