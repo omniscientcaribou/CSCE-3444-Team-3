@@ -1,11 +1,15 @@
+//holds the menu
 var Menu = new Array();
+//holds an order to be placed
 var Order = new Array();
+//stores table number passed from previous html through local storage
 var table_number = localStorage[1];
 
 function asdf(){
   console.log(table_number);
 }
 
+//sets a tables state to occupied
 function tagTable(){
   url = 'https://swe3444.herokuapp.com/api/get_table/' + table_number;
   fetch(url, { 
@@ -13,6 +17,7 @@ function tagTable(){
   })
 }
 
+//sets a table state to available
 function releaseTable(){
   url = 'https://swe3444.herokuapp.com/api/release_table/' + table_number;
   fetch(url, {
@@ -21,11 +26,13 @@ function releaseTable(){
 
 }
 
+//sets the table number
 function setTable(number){
   localStorage[1] = number;
   window.location.replace("customerui.html");
 }
 
+//gets the menu items from db as a json
 const apiCall = () => fetch('https://swe3444.herokuapp.com/api/item/').then(res => {
   if (res.ok) {
     return res.json()
@@ -34,6 +41,7 @@ const apiCall = () => fetch('https://swe3444.herokuapp.com/api/item/').then(res 
 })
 .catch(console.err)
 
+//uses menu items 
 async function getData(){
     let results = await apiCall()
     for(const property in results) {
@@ -43,6 +51,7 @@ async function getData(){
     tagTable();
 }
 
+//uses data passed to it to dynamically set the value of the card divisions to display in the html
 function setData(itemName, x){
     var item = document.getElementById(itemName);
     item.getElementsByClassName("img")[0].src = Menu[x].url;
@@ -58,6 +67,7 @@ function setData(itemName, x){
     item.style.display = "block";
 }
 
+//looks for items in the menu array in group DRINKS and passes them to setData
 function populateDrinks(){
   var count = 0;
   menuItemarr = document.getElementsByClassName("menuItem");
@@ -72,6 +82,7 @@ function populateDrinks(){
   }
 }
 
+//looks for items in the menu array in group SIDES and passes them to setData
 function populateSides(){
   var count = 0;
   menuItemarr = document.getElementsByClassName("menuItem");
@@ -86,6 +97,7 @@ function populateSides(){
   }
 }
 
+//looks for items in the menu array in group APPETIZERS and passes them to setData
 function populateAppetizers(){
   var count = 0;
   menuItemarr = document.getElementsByClassName("menuItem");
@@ -100,6 +112,7 @@ function populateAppetizers(){
   }
 }
 
+//looks for items in the menu array in group ENTREES and passes them to setData
 function populateEntrees(){
   var count = 0;
   menuItemarr = document.getElementsByClassName("menuItem");
@@ -114,6 +127,7 @@ function populateEntrees(){
   }
 }
 
+//looks for items in the menu array in group DESSERT and passes them to setData
 function populateDeserts(){
   var count = 0;
   menuItemarr = document.getElementsByClassName("menuItem");
@@ -128,6 +142,7 @@ function populateDeserts(){
   }
 }
 
+//looks for items in the menu array in group KID'S MENU and passes them to setData
 function populateKidsMeal(){
   var count = 0;
   menuItemarr = document.getElementsByClassName("menuItem");
@@ -142,6 +157,7 @@ function populateKidsMeal(){
   }
 }
 
+//gets data from the card and adds it to the order
 function addtoOrder(itemName){
   var item = document.getElementById(itemName);
 
@@ -206,9 +222,11 @@ function addtoOrder(itemName){
   Order.push(OrderItem);
 }
 
+//gets the current time
 var now = new Date();
 var isoString = now.toISOString();
 
+//posts that an order is being made to the database and returns the primary key
 function separate_order(pk){
   order_id = pk
   status = "ORDERED"
@@ -254,6 +272,7 @@ function separate_order(pk){
   Order = [];
 }
 
+//sends each item to the database in the order array paired with the primary key
 function sendOrder(){
   // This function posts our original order, and returns a primary key to hand to 
   // items encapsulated by this order.
