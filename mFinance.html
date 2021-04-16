@@ -5,28 +5,33 @@
   <sript src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
   <style>
-  .fin {
-    padding: 0;
-    margin: auto;
-    border: 1px solid black;
-    border-collapse: collapse;
-    width: 80%;
-    text-align: center;
-    color: black;
-  }
+    .fin {
+      padding: 0;
+      margin: auto;
+      border-collapse: collapse;
+      width: 100%;
+      text-align: center;
+      color: black;
+    }
 
-  .countTableHead {
-    color: black;
-    background-color: #449398;
-    font-weight: bold;
-    height: 50px;
-  }
+    #c0 {
+      width: 250px;
+    }
+    #c1 {
+      width: 150px;
+    }
+    #c2 {
+      width: 150px;
+    }
 
-  .countTableBodyRow:nth-child(even){ background-color: #A0A0A0; }
+    .countTableHead {
+      color: black;
+      background-color: #449398;
+      font-weight: bold;
+      height: 50px;
+    }
 
-  .countTableBodyRow:hover{ background-color: darkorange; }
-
-  .countTable tr td { height: 25px; }
+    .countTable tr td { height: 25px; }
   </style>
 </head>
 
@@ -35,10 +40,10 @@
     <table>
       <thead id="countTableHead">
         <tr>
-          <th>Menu Item</th>
-          <th>Price</th>
-          <th>Number Sold</th>
-          <th>Total</th>
+          <th id="c0">Menu Item</th>
+          <th id="c1">Price</th>
+          <th id="c2">Number Sold</th>
+          <th id="c3">Total</th>
         </tr>
       </thead>
 
