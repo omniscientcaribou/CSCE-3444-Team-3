@@ -53,7 +53,7 @@ Customer    = https://customerui3444.herokuapp.com/customerlandingpage
 Kitchen     = https://kitchenui3444.herokuapp.com/
 
 
-Manager     = https://csce3444-manager.herokuapp.com/
+Manager     = https://csce3444-manager.herokuapp.com/managerUI
 
 
 Waitstaff   = https://waitstaffcsce3444.herokuapp.com  
