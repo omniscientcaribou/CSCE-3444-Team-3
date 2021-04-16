@@ -1,4 +1,4 @@
-# CSCE-3444-Team-3
+# CSCE-3444-Team-3 -- Kitchen Staff Interface
 
 This is CSCE 3444 Section 001 Team # 3's repository for our group project (Spring 2021). I was responsible for the Kitchen Staff UI which is held in the react-kitchen-staff folder. The old folder contains what I was working on before I switched to React...It was using straight HTML/CSS/JavaScript.
 
